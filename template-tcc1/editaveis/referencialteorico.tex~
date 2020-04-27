@@ -1,0 +1,55 @@
+\chapter[Referencial Teórico]{Referencial Teórico}
+
+\section{Considerações Iniciais}
+
+Neste capítulo, são apresentadas as bases teóricas para a elaboração do aplicativo com o objetivo de facilitar o entedimento dos termos utilizados. O capítulo está estruturado em seções. Na seção 2.1 será descrito tudo sobre o ciclo menstrual feminino, na seção 2.2 será apresentado os conceitos da produtividade, como medi-la e como melhora-la, na seção 2.3 serão apresentados os possíveis perfis das mulheres com base no ciclo menstrual e na seção 2.4 será abordada o sistema de recomendação.
+
+\section{O Ciclo Mentrual}
+
+O ciclo menstrual é um fenômeno biológico que ocorre em mulheres saudáveis na qual a carecterística nótavel é o fluxo sanguíneo vaginal\cite{guyton2012}. Ele é ciclico e ocorre como resultado direto de variações das concentrações hormonais secretadas pelo eixo hipotálamo-hipófise-gonadal. Estudos sugerem que essas flutuações hormonais, principalmente de estrogênio e progesterôna, que ocorrem no decorrer do ciclo podem influenciar as emoções, comportamento e cognição das mulheres \cite{poroma2014}, afetando diretamente o seu dia-a-dia, como por exemplo, a performance nas tarefas cotidianas ou relacionamentos interpessoais.
+
+O ciclo ideal tem como base 28 dias e o primeiro dia de menstruação é a marca do início do ciclo. O ciclo pode ser dividido em duas fases, a fase folícular e a fase lútea, a menstruação está presente no início da fase folícular e a ovulação está situada entre as duas fases. Mais informações sobre as fases, quanto tempo elas duram, quais hormônios atuam, e a influência deles nas mulheres, serão pontuadas nas subseções seguintes. 
+
+\subsection{Fase Folícular}
+
+A fase folicular é a primeira fase do ciclo menstrual que começa com o inicio da menstruação e termina com a ovulação. Essa é a fase responsável pelo desenvolvimento do folículo que mais tarde se transformará em um óvulo(corpos lutem)  e dará início a ovulação. O folículo se desenvolve em resposta ao aumento do hormônio folícul-estimulante (FSH) e assim que o maior deles é selecionado, o FSH diminui gradativamente e progressivamente a produção de estradiol começa a aumentar. Quando o estradiol chega ao pico, 12 a 24 horas depois o LH surge e de 10 a 12h após do surgemento do LH a ovulação ocorre \cite{fritz2010}. Clinicamente é possível determinar o ciclo ovulatório pelo surgimento do LH e a secreção de progesterona da fase lútea \cite{fritz2010}.
+
+Normalmente, mulheres de 18 a 24 anos com ciclo de 28 dias tem a fase com o comprimento de 14 dias e mulheres de 40 a 44 anos tem de 10 dias \cite{lenton1984a}, o que indica a diminuição progressiva do tamanho da fase folicular com o avanço da idade. Em mulheres jovens a diferença no tamanho do ciclo é normalmente provocada por ciclo mais curtos ou mais longos na fase folicular \cite{lenton1984a}. Ciclos inrregulares também costumam ser pela variação no tamanho da fase folicular, enquanto a fase lútea segue normalmente com tamanho fixo de 14 dias. Então, em um ciclo de 28 dias a fase folicular tem 14 dias e em um ciclo de 30 ele teria 16 dias.
+
+Como através de um aplicativo não é possível medir o aparecimento do LH para determinar o fim da fase folicular e o início da ovulação e a ovulação é estimada através de uma janela, essas fases irão se sobrepor nesse estudo.
+
+
+
+\subsection{Ovulação}
+
+\subsection{Fase Folícular}
+
+\subsection{Método Baseado em Calendário}
+
+Apesar de na literatura sobre fertilidade, o método preferido para capturar a fase do ciclo menstrual ser medidas diárias dos níveis de hormônios combinados ao ultrassom vaginal para acompanhar o desenvolvimento folicular \cite{ecochard2001} ou a combinação de medidas hormonais, temperatura corporal Basal e o método baseado em calendário \cite{becker2005} o aplicativo tem a limitação de não poder realizar medidas hormonais, nem ultrassons e não pode contar sempre com a TCB da sua usuária, portanto o método escolhido para classificar as fases do ciclo foi o método baseado em calendário.
+
+Nesse método, uma contagem através do calendário é usada para determinar a fase do ciclo. O auto-relato do primeiro dia de menstruação é utilizado como ponto inicial do calendário e as fases são determinadas contando-se \lq \lq n\rq \rq  números de dias para frente ou de de trás para frente a partir da data de ínicio privestia para o próximo ciclo \cite{wideman2013}.
+
+O ciclo base utilizado é normalmente o de 28 dias e para representar eventos ovulatórios(próximo a altos níveis de estradiol, antes de um aumento significativo da progesterona) é contado 10 a 14 dias a partir do início do ciclo ou de 12 a 14 dias a partir do dia de previsão para início do próximo ciclo, mas enquanto os eventos ovulatórios ocorrem em média entre esses dias o momento real da ovulação pode variar significativamente a partir desta janela. O méio da fase lútea em que os hormônios ficam estábilizados normalmente é contado de 17 a 21 dias do início do ciclo ou de 7 a 9 dias a partir do final do ciclo \cite{wideman2013}. A \lq\lq Figura \ref{fig02}\rq\rq\ representa um ciclo de 28 dias.
+
+Como normalmente a diferença de tamanho dos ciclos se dá por um aumento no tamanho da fase folícular \cite{lenton1984a}, para ciclos maiores ou menores que 28 dias a ovulação é adiantada ou atrasada pela diferença entre o tamanho do ciclo e o ciclo base de 28 dias. Por exemplo, se for um ciclo de 32 dias, a ovulação provavelmente ocorrerá entre o 14 e 18 dia a partir do ínicio do ciclo.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio=true,scale=0.3]{figuras/calendario.eps}
+	\caption{Calendário do ciclo menstrual e suas fases}
+        \label{fig02}
+\end{figure}
+
+
+\subsection{Disturbios Hormonais}
+
+\section{A Inteligência emocional}
+
+\section{Perfil das mulheres}
+
+\section{Sistema de Recomendação}
+
+\section{Considerações Finais do Capítulo}
+
