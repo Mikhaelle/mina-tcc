@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.4.9)  26 APR 2020 22:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.4.9)  19 MAY 2020 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1227,54 +1227,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 ] [22
 
 ]) (./fixos/indiceAutomatico.tex (./tcc.toc
-[23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[23] [24]) [25] [26
 
- [24])
-[25] [26
+]) (./editaveis/introducao.tex [27
 
-]) (./editaveis/introducao.tex
-Overfull \hbox (6.43233pt too wide) in paragraph at lines 15--16
+]
+Overfull \hbox (6.43233pt too wide) in paragraph at lines 17--18
 \T1/lmr/m/n/12 dá nor-mal-mente por volta do vi-gé-simo pri-meiro dia do ci-clo
  ([][][][][][],
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `dernl2013' on page 28 undefined on input line 21.
 
- [27
 
-]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 62.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 64.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 62.
  [30])
 (./editaveis/referencialteorico.tex [31] [32
 
 ] [33]
 File: figuras/MenstrualCycle2_pt.eps Graphic file (type eps)
 
-<figuras/MenstrualCycle2_pt.eps> [34] [35] [36]
+<figuras/MenstrualCycle2_pt.eps>
+Underfull \vbox (badness 6758) has occurred while \output is active []
+
+ [34]
+[35]
+Overfull \hbox (49.55199pt too wide) in paragraph at lines 51--52
+\T1/lmr/m/n/12 sem-pe-nho em ta-re-fas ver-bais e me-mo-ri-ais foi re-la-tada (
+[][][][][][],
+ []
+
+
+Overfull \hbox (8.95065pt too wide) in paragraph at lines 55--56
+\T1/lmr/m/n/12 toma pré-menstrual. Uma me-nor par-cela atende aos cri-té-rios d
+a ten-são pré-menstrual(TPM)
+ []
+
+[36]
 File: figuras/calendario.eps Graphic file (type eps)
- <figuras/calendario.eps>)
-(./editaveis/consideracoes.tex [37] [38
+ <figuras/calendario.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [39]) (./editaveis/textoepostexto.tex
-[40] [41
+ [37]
+[38]) (./editaveis/consideracoes.tex [39] [40
 
-] [42]) (./editaveis/elementosdotexto.tex
+] [41])
+(./editaveis/textoepostexto.tex [42] [43
 
-LaTeX Warning: Citation `inmetro2003' on page 43 undefined on input line 13.
+] [44])
+(./editaveis/elementosdotexto.tex
+
+LaTeX Warning: Citation `inmetro2003' on page 45 undefined on input line 13.
 
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 29.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
@@ -1282,54 +1298,54 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 29.
- [43
+ [45
 
-] [44]
+] [46]
 File: figuras/fig01.eps Graphic file (type eps)
  <figuras/fig01.eps>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[45] [46]
+[47] [48]
 
-LaTeX Warning: Citation `bordalo1989' on page 47 undefined on input line 194.
-
-
-LaTeX Warning: Citation `coimbra1978' on page 47 undefined on input line 196.
+LaTeX Warning: Citation `bordalo1989' on page 49 undefined on input line 194.
 
 
-LaTeX Warning: Citation `clark1986' on page 47 undefined on input line 196.
+LaTeX Warning: Citation `coimbra1978' on page 49 undefined on input line 196.
 
 
-LaTeX Warning: Citation `sparrow1980' on page 47 undefined on input line 197.
+LaTeX Warning: Citation `clark1986' on page 49 undefined on input line 196.
 
 
-LaTeX Warning: Citation `soviero1997' on page 47 undefined on input line 201.
+LaTeX Warning: Citation `sparrow1980' on page 49 undefined on input line 197.
 
 
-LaTeX Warning: Citation `Sommerville2007' on page 47 undefined on input line 20
+LaTeX Warning: Citation `soviero1997' on page 49 undefined on input line 201.
+
+
+LaTeX Warning: Citation `Sommerville2007' on page 49 undefined on input line 20
 7.
 
-) (./editaveis/elementosdopostexto.tex [47] [48
+) (./editaveis/elementosdopostexto.tex [49] [50
 
-] [49] [50]
+] [51] [52]
 Overfull \hbox (6.28964pt too wide) in paragraph at lines 138--140
 []\T1/lmr/m/n/12 Ainda com res-peito ao pre-en-chi-mento das pá-gi-nas, este de
 ve ser oti-mi-zado, evitando-
  []
 
-[51] [52]
+[53] [54]
 
-LaTeX Warning: Citation `NBR6034:2000' on page 53 undefined on input line 206.
+LaTeX Warning: Citation `NBR6034:2000' on page 55 undefined on input line 206.
 
 
-LaTeX Warning: Citation `arruda2007' on page 53 undefined on input line 209.
+LaTeX Warning: Citation `arruda2007' on page 55 undefined on input line 209.
 
 ) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [53] [54
+ [55] [56
 
 ]
 
@@ -1337,36 +1353,36 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[55]) (./editaveis/apendices.tex [56]
+[57]) (./editaveis/apendices.tex [58]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[57
+[59
 
 
-] [58] [59
+] [60] [61
 
-] [60
+] [62
 
-]) (./editaveis/anexos.tex [61] [62
+]) (./editaveis/anexos.tex [63] [64
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[63
+[65
 
-] [64] [65
+] [66] [67
 
-] [66
+] [68
 
 ])
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[67]
+[69]
 \tf@lof=\write6
 \openout6 = `tcc.lof'.
 
@@ -1385,7 +1401,7 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 46.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 46.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 61889B78A6A2F68A22685D59CF571A1A;2040.
+(rerunfilecheck)             Checksum: 2FBE269E35B01FA1625A51C2930628CE;2903.
 
 
 LaTeX Warning: There were undefined references.
@@ -1396,12 +1412,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
  ) 
 Here is how much of TeX's memory you used:
- 12966 strings out of 492983
- 189358 string characters out of 6134923
- 347655 words of memory out of 5000000
- 16236 multiletter control sequences out of 15000+600000
+ 13048 strings out of 492983
+ 190654 string characters out of 6134923
+ 358692 words of memory out of 5000000
+ 16318 multiletter control sequences out of 15000+600000
  104628 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,13n,51p,1690b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,13n,51p,1684b,643s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (69 pages, 246400 bytes).
+Output written on tcc.dvi (71 pages, 298128 bytes).
