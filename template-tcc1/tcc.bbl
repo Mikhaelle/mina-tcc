@@ -10,6 +10,14 @@
 {ACOG. \emph{American College of Obstetrics and Gynecology: ACOG}.
   Washington,DC: ACOG, 2000.}
 
+\bibitem[Adomavicius e Tuzhilin 2005]{adomavicius2005}
+\abntrefinfo{Adomavicius e Tuzhilin}{ADOMAVICIUS; TUZHILIN}{2005}
+{ADOMAVICIUS, G.; TUZHILIN, A. Toward the next generation of recommender
+  systems: A survey of the state-of-the-art and possible extensions.
+2005.
+Dispon{\'\i}vel em:
+  \url{https://journals-sagepub-com.ez54.periodicos.capes.gov.br/doi/full/10.1177/1941738112469930}.}
+
 \bibitem[Becker et al. 2005]{becker2005}
 \abntrefinfo{Becker et al.}{BECKER et al.}{2005}
 {BECKER, J.~B. et al. Strategies and methods for research on sex differences in
@@ -69,6 +77,14 @@ Dispon{\'\i}vel em:
   indirect indices of ovulation.
 2001.
 Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/11510707}.}
+
+\bibitem[Felfernig e Burke 2008]{felferning2008}
+\abntrefinfo{Felfernig e Burke}{FELFERNIG; BURKE}{2008}
+{FELFERNIG, A.; BURKE, R. Constraint-based recommender systems: Technologies
+  and research issues.
+2008.
+Dispon{\'\i}vel em:
+  \url{https://journals-sagepub-com.ez54.periodicos.capes.gov.br/doi/full/10.1177/1941738112469930}.}
 
 \bibitem[Frank 1931]{frank1931}
 \abntrefinfo{Frank}{FRANK}{1931}
