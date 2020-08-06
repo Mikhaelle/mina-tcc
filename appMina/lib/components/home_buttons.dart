@@ -10,7 +10,7 @@ class HomeButtons extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(50),
+        margin: EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -27,7 +27,7 @@ class HomeButtons extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(50),
+        margin: EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
