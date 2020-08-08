@@ -6,35 +6,37 @@ class HomeButtons extends StatelessWidget {
     return Column(children: <Widget>[
       Container(
         decoration: BoxDecoration(
-          color: Color(0xFFFBE0C8),
+          color: Colors.pink[100],
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.fromLTRB(60, 0, 60, 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             FlatButton(
-              child: Text("Previsão do dia"),
+              child: Text("PREVISÃO DO DIA"),
               onPressed: () {},
-            )
+            ),
+            Icon(Icons.arrow_forward),
           ],
         ),
       ),
       Container(
         decoration: BoxDecoration(
-          color: Color(0xFFFBE0C8),
+          color: Colors.pink[100],
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.fromLTRB(60, 0, 60, 0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             FlatButton(
-              child: Text("Sobre a fase"),
+              child: Text("SOBRE A FASE"),
               onPressed: () {},
-            )
+            ),
+            Icon(Icons.arrow_forward),
           ],
         ),
       )

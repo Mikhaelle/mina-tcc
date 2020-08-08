@@ -1,5 +1,6 @@
 import 'package:appMina/components/home_buttons.dart';
 import 'package:appMina/components/home_graph.dart';
+import 'package:appMina/components/home_menu.dart';
 import 'package:appMina/components/home_phase.dart';
 import 'package:appMina/models/%20phases.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +30,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Mina')),
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Mina', style: TextStyle(color: Colors.grey[900])),
+            ],
+          ),
+          backgroundColor: Colors.blue[100],
+        ),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               HomePhase(_phases),
               HomeGraph(),
               HomeButtons(),
-            ]));
+            ]),
+        bottomNavigationBar: BottomAppBar(child: HomeMenu()));
   }
 }
