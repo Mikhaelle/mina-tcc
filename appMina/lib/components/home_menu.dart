@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 
-class HomeMenu extends StatelessWidget {
+import 'add_cicle.dart';
+
+class HomeMenu extends StatefulWidget {
+  @override
+  _HomeMenuState createState() => _HomeMenuState();
+}
+
+class _HomeMenuState extends State<HomeMenu> {
+  _openAddNewCicle(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return AddCicle();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,9 +30,7 @@ class HomeMenu extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.add_circle),
-                onPressed: () {
-                  print("Home pressed");
-                },
+                onPressed: () => _openAddNewCicle(context),
               ),
               IconButton(
                 icon: Icon(Icons.account_circle),

@@ -6,6 +6,8 @@ import 'package:appMina/models/%20phases.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/core.dart';
 
+import 'models/user.dart';
+
 void main() {
   SyncfusionLicense.registerLicense(
       "NT8mJyc2IWhia31hfWN9Z2doYmF8YGJ8ampqanNiYmlmamlmanMDHmg+Ojg7MjEmNj08EzQ+Mjo/fTA8Pg==");
@@ -15,7 +17,13 @@ void main() {
 class MinaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(
+      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+        accentColor: Colors.blue,
+      ),
+    );
   }
 }
 
@@ -27,6 +35,14 @@ class HomePage extends StatelessWidget {
     Phases(id: 'f4', title: 'Lútea tardia')
   ];
 
+  final _user = User(
+      id: '1',
+      name: 'Teste',
+      email: 'gmail',
+      periodSize: 4,
+      cicleDate: DateTime.now().subtract(Duration(days: 1)),
+      cicleSize: 28);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +53,14 @@ class HomePage extends StatelessWidget {
               Text('Mina', style: TextStyle(color: Colors.grey[900])),
             ],
           ),
-          backgroundColor: Colors.blue[100],
+          backgroundColor: Theme.of(context).primaryColor,
         ),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               HomePhase(_phases),
-              HomeGraph(),
+              HomeGraph(_user),
               HomeButtons(),
             ]),
         bottomNavigationBar: BottomAppBar(child: HomeMenu()));

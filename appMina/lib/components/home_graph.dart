@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+import '../models/user.dart';
 
 class HomeGraph extends StatelessWidget {
+  final User userLogin;
+
+  HomeGraph(this.userLogin);
+
   @override
   Widget build(BuildContext context) {
-    double secondMarkerValue = 1;
+    double _firstMarkerValue =
+        DateTime.now().difference(userLogin.cicleDate).inDays.toDouble();
+    double secondMarkerValue =
+        DateTime.now().difference(userLogin.cicleDate).inDays.toDouble();
+    double minimum = 0;
+    double maximum = userLogin.cicleSize.toDouble();
+    DateTime markday = DateTime.now();
+
+    double _borderWidth = 5;
+    double _markerSize = 30;
+    print(userLogin.cicleDate.day.toDouble());
+    print(userLogin.cicleDate.add(Duration(days: userLogin.cicleSize)));
     return Container(
         child: SfRadialGauge(
       axes: <RadialAxis>[
         RadialAxis(
-            minimum: 1,
-            maximum: 28,
+            minimum: minimum,
+            maximum: maximum,
             interval: 1,
             startAngle: 270,
             endAngle: 260,
@@ -30,11 +46,12 @@ class HomeGraph extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(150)),
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('$secondMarkerValue',
+                          Text('${markday.day}',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold)),
-                          Text('Max',
+                                  fontSize: 24, fontWeight: FontWeight.bold)),
+                          Text('de ${markday.month}',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold))
                         ],
@@ -66,31 +83,39 @@ class HomeGraph extends StatelessWidget {
             ranges: <GaugeRange>[
               GaugeRange(
                   startValue: 0,
-                  endValue: 4,
+                  endValue: userLogin.periodSize != null
+                      ? userLogin.periodSize.toDouble()
+                      : 4,
                   color: Colors.red[100],
                   startWidth: 30,
                   endWidth: 30),
               GaugeRange(
-                  startValue: 4,
-                  endValue: 11,
+                  startValue: userLogin.periodSize != null
+                      ? userLogin.periodSize.toDouble()
+                      : 4,
+                  endValue: maximum - 17,
                   color: Colors.grey[200],
                   startWidth: 30,
                   endWidth: 30),
               GaugeRange(
-                  startValue: 11,
-                  endValue: 17,
+                  startValue: maximum - 17,
+                  endValue: maximum - 11,
                   color: Colors.green[100],
                   startWidth: 30,
                   endWidth: 30),
               GaugeRange(
-                  startValue: 17,
-                  endValue: 24,
+                  startValue: maximum - 11,
+                  endValue: userLogin.pmsSize != null
+                      ? maximum - userLogin.pmsSize
+                      : maximum - 3,
                   color: Colors.grey[200],
                   startWidth: 30,
                   endWidth: 30),
               GaugeRange(
-                  startValue: 24,
-                  endValue: 28,
+                  startValue: userLogin.pmsSize != null
+                      ? maximum - userLogin.pmsSize
+                      : maximum - 3,
+                  endValue: maximum,
                   color: Colors.yellow[100],
                   startWidth: 30,
                   endWidth: 30),
@@ -99,7 +124,3 @@ class HomeGraph extends StatelessWidget {
     ));
   }
 }
-
-double _borderWidth = 5;
-double _firstMarkerValue = 1;
-double _markerSize = 30;
