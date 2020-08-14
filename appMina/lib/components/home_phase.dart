@@ -9,24 +9,20 @@ class HomePhase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue[100],
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(50), bottomRight: Radius.circular(50)),
-      ),
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.fromLTRB(0, 10, 220, 0),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              
-              child: Text(
-                'Fase: ${phases[0].title}',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
-          ]),
+      child: Row(children: <Widget>[
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50),
+                bottomRight: Radius.circular(50)),
+          ),
+          elevation: 5,
+          child: Text(
+            'Fase: ${phases[0].title}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+        ),
+      ]),
     );
   }
 }
