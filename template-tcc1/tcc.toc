@@ -19,12 +19,12 @@
 \contentsline {section}{\numberline {2.1}Considera\IeC {\c c}\IeC {\~o}es Iniciais}{21}{section.2.1}
 \contentsline {section}{\numberline {2.2}O Ciclo Mentrual}{21}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Fase Folicular}{21}{subsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.1.1}Menstrua\IeC {\c c}\IeC {\~a}o}{23}{subsubsection.2.2.1.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}Menstrua\IeC {\c c}\IeC {\~a}o}{22}{subsubsection.2.2.1.1}
 \contentsline {subsection}{\numberline {2.2.2}Ovula\IeC {\c c}\IeC {\~a}o}{23}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Fase L\IeC {\'u}tea}{23}{subsection.2.2.3}
 \contentsline {subsubsection}{\numberline {2.2.3.1}Tens\IeC {\~a}o pr\IeC {\'e} menstrual e o Transtorno Disf\IeC {\'o}rico Pr\IeC {\'e} Menstrual}{24}{subsubsection.2.2.3.1}
 \contentsline {subsection}{\numberline {2.2.4}M\IeC {\'e}todo Baseado em Calend\IeC {\'a}rio}{24}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Outros fatores que influ\IeC {\^e}nciam no ciclo menstrual}{26}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.5}Outros fatores que influ\IeC {\^e}nciam no ciclo menstrual}{25}{subsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.5.1}M\IeC {\'e}todos Contraceptivos}{26}{subsubsection.2.2.5.1}
 \contentsline {subsubsection}{\numberline {2.2.5.2}Disturbios hormonais}{26}{subsubsection.2.2.5.2}
 \contentsline {section}{\numberline {2.3}Sistema de Recomenda\IeC {\c c}\IeC {\~a}o}{26}{section.2.3}
@@ -40,10 +40,12 @@
 \contentsline {section}{\numberline {3.1}Desenvolvimento da Aplica\IeC {\c c}\IeC {\~a}o}{28}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Flutter}{28}{subsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.1.1}Dart}{28}{subsubsection.3.1.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Firebase}{28}{subsubsection.3.1.1.2}
 \contentsline {section}{\numberline {3.2}Engenharia de Software}{28}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Gerenciamento do Projeto}{28}{subsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.1.1}Trello}{28}{subsubsection.3.2.1.1}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Slack}{29}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.2}ZenHub}{29}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}Slack}{29}{subsubsection.3.2.1.3}
 \contentsline {subsection}{\numberline {3.2.2}Gerenciamento de Desenvolvimento}{29}{subsection.3.2.2}
 \contentsline {subsubsection}{\numberline {3.2.2.1}Visual Studio Code}{29}{subsubsection.3.2.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2.2}Linux Mint}{29}{subsubsection.3.2.2.2}

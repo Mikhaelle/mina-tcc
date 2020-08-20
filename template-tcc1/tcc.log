@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  30 JUL 2020 20:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  20 AUG 2020 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,13 +1249,13 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 ]
 File: figuras/MenstrualCycle2_pt.eps Graphic file (type eps)
  <figuras/MenstrualCycle2_pt.eps>
-[22] [23]
+[22]
 Overfull \hbox (49.55199pt too wide) in paragraph at lines 51--52
 \T1/lmr/m/n/12 sem-pe-nho em ta-re-fas ver-bais e me-mo-ri-ais foi re-la-tada (
 [][][][][][],
  []
 
-
+[23]
 Overfull \hbox (8.95065pt too wide) in paragraph at lines 55--56
 \T1/lmr/m/n/12 toma pré-menstrual. Uma me-nor par-cela atende aos cri-té-rios d
 a ten-são pré-menstrual(TPM)
@@ -1380,9 +1380,14 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 46.
  (./tcc.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 46.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
-Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 4F08F04324931CD0030C9D44B2C0C905;3106.
 
+
+Package rerunfilecheck Warning: File `tcc.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `tcc.brf':
+(rerunfilecheck)             Before: 754280429774A5026D7243A7DC94C783;3106
+(rerunfilecheck)             After:  9726BC4665682AF19BFFEEB6081A25FE;3106.
 
 LaTeX Warning: There were undefined references.
 
@@ -1392,12 +1397,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
  ) 
 Here is how much of TeX's memory you used:
- 13066 strings out of 492983
- 191041 string characters out of 6134922
- 360654 words of memory out of 5000000
- 16336 multiletter control sequences out of 15000+600000
+ 13068 strings out of 492983
+ 191053 string characters out of 6134922
+ 360772 words of memory out of 5000000
+ 16338 multiletter control sequences out of 15000+600000
  104628 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,13n,51p,1684b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,51p,1714b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (51 pages, 298624 bytes).
+Output written on tcc.dvi (51 pages, 300140 bytes).
