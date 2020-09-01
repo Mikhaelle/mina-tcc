@@ -13,7 +13,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: bibliografia.bib
-Warning--I didn't find a database entry for "dernl2013"
 Warning--I didn't find a database entry for "inmetro2003"
 Warning--I didn't find a database entry for "bordalo1989"
 Warning--I didn't find a database entry for "coimbra1978"
@@ -32,45 +31,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 28 entries,
+You've used 40 entries,
             6714 wiz_defined-function locations,
-            1330 strings with 14168 characters,
-and the built_in function-call counts, 51236 in all, are:
-= -- 6354
-> -- 950
-< -- 1602
-+ -- 2010
-- -- 286
-* -- 3136
-:= -- 6304
-add.period$ -- 106
-call.type$ -- 28
-change.case$ -- 329
-chr.to.int$ -- 31
-cite$ -- 27
-duplicate$ -- 5645
-empty$ -- 1357
-format.name$ -- 1402
-if$ -- 9626
+            1381 strings with 16219 characters,
+and the built_in function-call counts, 73192 in all, are:
+= -- 9054
+> -- 1360
+< -- 2307
++ -- 2867
+- -- 410
+* -- 4479
+:= -- 8968
+add.period$ -- 154
+call.type$ -- 40
+change.case$ -- 467
+chr.to.int$ -- 43
+cite$ -- 39
+duplicate$ -- 8116
+empty$ -- 1921
+format.name$ -- 1990
+if$ -- 13712
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 477
-newline$ -- 164
-num.names$ -- 135
-pop$ -- 743
+missing$ -- 681
+newline$ -- 236
+num.names$ -- 195
+pop$ -- 1064
 preamble$ -- 1
-purify$ -- 122
+purify$ -- 172
 quote$ -- 0
-skip$ -- 5824
+skip$ -- 8326
 stack$ -- 1
-substring$ -- 2137
-swap$ -- 1840
-text.length$ -- 24
+substring$ -- 3085
+swap$ -- 2641
+text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 188
+while$ -- 272
 width$ -- 0
-write$ -- 387
-(There were 10 warnings)
+write$ -- 555
+(There were 9 warnings)

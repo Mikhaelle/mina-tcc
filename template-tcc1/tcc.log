@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  20 AUG 2020 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  1 SEP 2020 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1228,21 +1228,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
 
 ]
-Overfull \hbox (6.43233pt too wide) in paragraph at lines 17--18
-\T1/lmr/m/n/12 dá nor-mal-mente por volta do vi-gé-simo pri-meiro dia do ci-clo
- ([][][][][][],
+Overfull \hbox (36.4149pt too wide) in paragraph at lines 19--20
+\T1/lmr/m/n/12 cinco ato-res ([][][][][][], [][][][][][][]; [][][][][][],
  []
 
 
-LaTeX Warning: Citation `dernl2013' on page 17 undefined on input line 21.
+Overfull \hbox (39.18178pt too wide) in paragraph at lines 19--20
+\T1/lmr/m/n/12 nas ha-bi-li-da-des quando o es-tra-diol es-tava baixo ([][][][]
+[][],
+ []
+
+
+Overfull \hbox (106.85513pt too wide) in paragraph at lines 21--22
+\T1/lmr/m/n/12 fo-li-cu-lar e no fi-nal da fase lú-tea([][][][][][], [][][][][]
+[][]; [][][][][][],
+ []
+
+
+Overfull \hbox (17.83928pt too wide) in paragraph at lines 25--26
+[]\T1/lmr/m/n/12 Já nos as-pec-tos emo-ci-o-nais e com-por-ta-men-tal, no es-tu
+do de [][][][][][]
+ []
 
 [17] [18]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 62.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 63.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 62.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 63.
  [19])
 (./editaveis/referencialteorico.tex [20] [21
 
@@ -1334,33 +1348,33 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 bibitemlist
 [42
 
-] [43]) (./editaveis/apendices.tex [44]
+] [43]) (./editaveis/apendices.tex [44] [45]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[45
+[46
 
 
-] [46
+] [47
 
-]) (./editaveis/anexos.tex [47
+]) (./editaveis/anexos.tex [48
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[48
+[49
 
 
-] [49
+] [50
 
 ])
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[50
+[51
 
 ]
 \tf@lof=\write6
@@ -1386,8 +1400,8 @@ Package rerunfilecheck Warning: File `tcc.brf' has changed.
 (rerunfilecheck)                Rerun to get bibliographical references right.
 
 Package rerunfilecheck Info: Checksums for `tcc.brf':
-(rerunfilecheck)             Before: 754280429774A5026D7243A7DC94C783;3106
-(rerunfilecheck)             After:  9726BC4665682AF19BFFEEB6081A25FE;3106.
+(rerunfilecheck)             Before: 0577A710246D05187C09270568DB2123;4238
+(rerunfilecheck)             After:  0AAE21A08BE8DBAA504A04D50823F5B0;4238.
 
 LaTeX Warning: There were undefined references.
 
@@ -1397,12 +1411,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
  ) 
 Here is how much of TeX's memory you used:
- 13068 strings out of 492983
- 191053 string characters out of 6134922
- 360772 words of memory out of 5000000
- 16338 multiletter control sequences out of 15000+600000
+ 13181 strings out of 492983
+ 192929 string characters out of 6134922
+ 367778 words of memory out of 5000000
+ 16451 multiletter control sequences out of 15000+600000
  104628 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,12n,51p,1714b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,51p,1684b,650s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (51 pages, 300140 bytes).
+Output written on tcc.dvi (52 pages, 353140 bytes).

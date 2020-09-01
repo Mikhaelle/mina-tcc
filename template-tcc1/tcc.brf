@@ -1,23 +1,33 @@
 \backcite {frank1931}{{16}{1.1}{section.1.1}}
 \backcite {becker2005}{{16}{1.1}{section.1.1}}
-\backcite {poroma2014}{{16}{1.1}{section.1.1}}
-\backcite {poroma2014}{{16}{1.1}{section.1.1}}
 \backcite {lenton1984a}{{16}{1.1}{section.1.1}}
 \backcite {brondin2008}{{16}{1.1}{section.1.1}}
 \backcite {lenton1984a}{{16}{1.1}{section.1.1}}
 \backcite {lenton1984a}{{16}{1.1}{section.1.1}}
-\backcite {fritz2010}{{17}{1.1}{section.1.1}}
-\backcite {fritz2010}{{17}{1.1}{section.1.1}}
-\backcite {nikas2003}{{17}{1.1}{section.1.1}}
-\backcite {bixo1997}{{17}{1.1}{section.1.1}}
+\backcite {fritz2010}{{16}{1.1}{section.1.1}}
+\backcite {nikas2003}{{16}{1.1}{section.1.1}}
+\backcite {bixo1997}{{16}{1.1}{section.1.1}}
 \backcite {gruber2002, brinton2008}{{17}{1.1}{section.1.1}}
 \backcite {gruber2002, brinton2008}{{17}{1.1}{section.1.1}}
 \backcite {poroma2014}{{17}{1.1}{section.1.1}}
-\backcite {dernl2013}{{17}{1.1}{section.1.1}}
+\backcite {poroma2014}{{17}{1.1}{section.1.1}}
+\backcite {hausmann2000, maki2002, courvoisier2013, becker1982, phillips1992}{{17}{1.1}{section.1.1}}
+\backcite {hausmann2000, maki2002, courvoisier2013, becker1982, phillips1992}{{17}{1.1}{section.1.1}}
+\backcite {hausmann2000, maki2002, courvoisier2013, becker1982, phillips1992}{{17}{1.1}{section.1.1}}
+\backcite {hausmann2000, maki2002, courvoisier2013, becker1982, phillips1992}{{17}{1.1}{section.1.1}}
+\backcite {hausmann2000, maki2002, courvoisier2013, becker1982, phillips1992}{{17}{1.1}{section.1.1}}
+\backcite {hampson2014}{{17}{1.1}{section.1.1}}
+\backcite {maki2002}{{17}{1.1}{section.1.1}}
+\backcite {mordecai2008}{{17}{1.1}{section.1.1}}
+\backcite {Rosenberg2002, solis2004}{{17}{1.1}{section.1.1}}
+\backcite {Rosenberg2002, solis2004}{{17}{1.1}{section.1.1}}
 \backcite {gasbarri2008}{{17}{1.1}{section.1.1}}
 \backcite {kirschbaum1999}{{17}{1.1}{section.1.1}}
+\backcite {rosa2016}{{17}{1.1}{section.1.1}}
+\backcite {ACOG2000}{{17}{1.1}{section.1.1}}
 \backcite {salovey1990}{{18}{1.1}{section.1.1}}
 \backcite {lam2002}{{18}{1.1}{section.1.1}}
+\backcite {bobadilla2013}{{18}{1.1}{section.1.1}}
 \backcite {poroma2014}{{19}{1.2}{section.1.2}}
 \backcite {guyton2012}{{21}{2.2}{section.2.2}}
 \backcite {poroma2014}{{21}{2.2}{section.2.2}}
@@ -50,6 +60,12 @@
 \backcite {bobadilla2013}{{26}{2.3}{section.2.3}}
 \backcite {bobadilla2013}{{26}{2.3}{section.2.3}}
 \backcite {bobadilla2013}{{26}{2.3}{section.2.3}}
+\backcite {flutter2017}{{28}{3.1.1}{subsection.3.1.1}}
+\backcite {flutter2017}{{28}{3.1.1}{subsection.3.1.1}}
+\backcite {flutter2017}{{28}{3.1.1.1}{subsubsection.3.1.1.1}}
+\backcite {firebase2011}{{28}{3.1.1.2}{subsubsection.3.1.1.2}}
+\backcite {trello2011}{{29}{3.2.1.1}{subsubsection.3.2.1.1}}
+\backcite {zenhub2020}{{29}{3.2.1.2}{subsubsection.3.2.1.2}}
 \backcite {inmetro2003}{{32}{4.2}{section.4.2}}
 \backcite {bordalo1989}{{36}{4.8}{section.4.8}}
 \backcite {coimbra1978}{{36}{4.8}{section.4.8}}
