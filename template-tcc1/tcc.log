@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  1 SEP 2020 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.7.29)  10 SEP 2020 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,9 +8,8 @@ aticas.tex fixos/indiceAutomatico.tex editaveis/informacoes.tex editaveis/errat
 a.tex editaveis/dedicatoria.tex editaveis/agradecimentos.tex editaveis/epigrafe
 .tex editaveis/resumo.tex editaveis/abstract.tex editaveis/abreviaturas.tex edi
 taveis/simbolos.tex editaveis/introducao.tex editaveis/referencialteorico.tex e
-ditaveis/consideracoes.tex editaveis/textoepostexto.tex editaveis/elementosdote
-xto.tex editaveis/elementosdopostexto.tex editaveis/apendices.tex editaveis/ane
-xos.tex
+ditaveis/metodologia.tex editaveis/proposta.tex editaveis/apendices.tex editave
+is/anexos.tex
 (./tcc.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
@@ -1224,157 +1223,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 ]) (./fixos/indiceAutomatico.tex (./tcc.toc
 [13
 
-] [14]) [15]) (./editaveis/introducao.tex [16
+]) [14]) (./editaveis/introducao.tex [15
 
 
 ]
-Overfull \hbox (36.4149pt too wide) in paragraph at lines 19--20
+Overfull \hbox (36.4149pt too wide) in paragraph at lines 20--21
 \T1/lmr/m/n/12 cinco ato-res ([][][][][][], [][][][][][][]; [][][][][][],
  []
 
 
-Overfull \hbox (39.18178pt too wide) in paragraph at lines 19--20
+Overfull \hbox (39.18178pt too wide) in paragraph at lines 20--21
 \T1/lmr/m/n/12 nas ha-bi-li-da-des quando o es-tra-diol es-tava baixo ([][][][]
 [][],
  []
 
 
-Overfull \hbox (106.85513pt too wide) in paragraph at lines 21--22
+Overfull \hbox (106.85513pt too wide) in paragraph at lines 22--23
 \T1/lmr/m/n/12 fo-li-cu-lar e no fi-nal da fase lú-tea([][][][][][], [][][][][]
 [][]; [][][][][][],
  []
 
 
-Overfull \hbox (17.83928pt too wide) in paragraph at lines 25--26
+Overfull \hbox (17.83928pt too wide) in paragraph at lines 26--27
 []\T1/lmr/m/n/12 Já nos as-pec-tos emo-ci-o-nais e com-por-ta-men-tal, no es-tu
 do de [][][][][][]
  []
 
-[17] [18]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 63.
+[16] [17]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 64.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 63.
- [19])
-(./editaveis/referencialteorico.tex [20] [21
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 64.
+ [18])
+(./editaveis/referencialteorico.tex [19] [20
 
 ]
 File: figuras/MenstrualCycle2_pt.eps Graphic file (type eps)
  <figuras/MenstrualCycle2_pt.eps>
-[22]
+[21]
 Overfull \hbox (49.55199pt too wide) in paragraph at lines 51--52
 \T1/lmr/m/n/12 sem-pe-nho em ta-re-fas ver-bais e me-mo-ri-ais foi re-la-tada (
 [][][][][][],
  []
 
-[23]
+[22]
 Overfull \hbox (8.95065pt too wide) in paragraph at lines 55--56
 \T1/lmr/m/n/12 toma pré-menstrual. Uma me-nor par-cela atende aos cri-té-rios d
 a ten-são pré-menstrual(TPM)
  []
 
-[24]
+[23]
 File: figuras/calendario.eps Graphic file (type eps)
- <figuras/calendario.eps> [25] [26]) (./editaveis/consideracoes.tex
-[27] [28
+ <figuras/calendario.eps> [24] [25]) (./editaveis/suporteTecnologico.tex
+[26] [27
 
-] [29]) (./editaveis/textoepostexto.tex [30] [31
+] [28] [29]) (./editaveis/metodologia.tex [30])
+(./editaveis/proposta.tex [31
 
-])
-(./editaveis/elementosdotexto.tex
-
-LaTeX Warning: Citation `inmetro2003' on page 32 undefined on input line 13.
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 29.
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 29.
- [32
-
-] [33]
-File: figuras/fig01.eps Graphic file (type eps)
- <figuras/fig01.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[34] [35]
-
-LaTeX Warning: Citation `bordalo1989' on page 36 undefined on input line 194.
-
-
-LaTeX Warning: Citation `coimbra1978' on page 36 undefined on input line 196.
-
-
-LaTeX Warning: Citation `clark1986' on page 36 undefined on input line 196.
-
-
-LaTeX Warning: Citation `sparrow1980' on page 36 undefined on input line 197.
-
-
-LaTeX Warning: Citation `soviero1997' on page 36 undefined on input line 201.
-
-
-LaTeX Warning: Citation `Sommerville2007' on page 36 undefined on input line 20
-7.
-
-) (./editaveis/elementosdopostexto.tex [36] [37
-
-] [38]
-Overfull \hbox (6.28964pt too wide) in paragraph at lines 138--140
-[]\T1/lmr/m/n/12 Ainda com res-peito ao pre-en-chi-mento das pá-gi-nas, este de
-ve ser oti-mi-zado, evitando-
- []
-
-[39] [40]
-
-LaTeX Warning: Citation `NBR6034:2000' on page 41 undefined on input line 206.
-
-
-LaTeX Warning: Citation `arruda2007' on page 41 undefined on input line 209.
-
-) (./tcc.bbl (./tcc.brf)
+]) (./tcc.bbl (./tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [41]
+ [32
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[42
+[33
 
-] [43]) (./editaveis/apendices.tex [44] [45]
+] [34] [35]) (./editaveis/apendices.tex [36]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[46
+[37
 
 
-] [47
+] [38
 
-]) (./editaveis/anexos.tex [48
+]) (./editaveis/anexos.tex [39
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[49
+[40
 
 
-] [50
+] [41
 
 ])
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[51
+[42
 
 ]
 \tf@lof=\write6
@@ -1386,37 +1334,34 @@ AED: lastpage setting LastPage
 \tf@toc=\write8
 \openout8 = `tcc.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 46.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 46.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 49.
 \BKM@file=\write9
 \openout9 = `tcc.out.ps'.
 
  (./tcc.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 46.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 49.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 
 
 Package rerunfilecheck Warning: File `tcc.brf' has changed.
 (rerunfilecheck)                Rerun to get bibliographical references right.
 
 Package rerunfilecheck Info: Checksums for `tcc.brf':
-(rerunfilecheck)             Before: 0577A710246D05187C09270568DB2123;4238
-(rerunfilecheck)             After:  0AAE21A08BE8DBAA504A04D50823F5B0;4238.
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Before: DE43681E4FA40291F16CCEBEEF1E1747;4276
+(rerunfilecheck)             After:  912DF1C1EC019BDD53FBA671A5928482;4276.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 46.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 13181 strings out of 492983
- 192929 string characters out of 6134922
- 367778 words of memory out of 5000000
- 16451 multiletter control sequences out of 15000+600000
- 104628 words of font info for 65 fonts, out of 8000000 for 9000
+ 13113 strings out of 492983
+ 191834 string characters out of 6134922
+ 370437 words of memory out of 5000000
+ 16396 multiletter control sequences out of 15000+600000
+ 90893 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,12n,51p,1684b,650s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,51p,1611b,662s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (52 pages, 353140 bytes).
+Output written on tcc.dvi (43 pages, 327392 bytes).

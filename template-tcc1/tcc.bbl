@@ -78,6 +78,12 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/18374402}.}
 2008.
 Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/18155201}.}
 
+\bibitem[Code 2015]{vscode2015}
+\abntrefinfo{Code}{CODE}{2015}
+{CODE, V.~S. Visual studio code.
+2015.
+Dispon{\'\i}vel em: \url{https://code.visualstudio.com/}.}
+
 \bibitem[Courvoisier et al. 2013]{courvoisier2013}
 \abntrefinfo{Courvoisier et al.}{COURVOISIER et al.}{2013}
 {COURVOISIER, D.~S. et al. Sex hormones and mental rotation: an intensive
@@ -109,6 +115,12 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/11510707}.}
 Dispon{\'\i}vel em:
   \url{https://journals-sagepub-com.ez54.periodicos.capes.gov.br/doi/full/10.1177/1941738112469930}.}
 
+\bibitem[Figma 2020]{figma2020}
+\abntrefinfo{Figma}{FIGMA}{2020}
+{FIGMA. Figma.
+2020.
+Dispon{\'\i}vel em: \url{https://www.figma.com/}.}
+
 \bibitem[Frank 1931]{frank1931}
 \abntrefinfo{Frank}{FRANK}{1931}
 {FRANK, R.~T. The hormonal causes of premenstrual tension.
@@ -122,6 +134,18 @@ Dispon{\'\i}vel em:
   the estrogen in young women.
 2008.
 Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/18667277}.}
+
+\bibitem[Git 2020]{git2020}
+\abntrefinfo{Git}{GIT}{2020}
+{GIT. Git.
+2020.
+Dispon{\'\i}vel em: \url{https://git-scm.com/}.}
+
+\bibitem[GitHub 2020]{github2020}
+\abntrefinfo{GitHub}{GITHUB}{2020}
+{GITHUB. Github.
+2020.
+Dispon{\'\i}vel em: \url{https://github.com/}.}
 
 \bibitem[Google 2011]{firebase2011}
 \abntrefinfo{Google}{GOOGLE}{2011}
@@ -179,6 +203,12 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/10204967}.}
 2002.
 Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/11913831}.}
 
+\bibitem[Latex 2020]{latex2020}
+\abntrefinfo{Latex}{LATEX}{2020}
+{LATEX. Latex.
+2020.
+Dispon{\'\i}vel em: \url{https://www.latex-project.org/}.}
+
 \bibitem[Lenton et al. 1984]{lenton1984a}
 \abntrefinfo{Lenton et al.}{LENTON et al.}{1984}
 {LENTON, E.~A. et al. Normal variation in the length of the follicular phase of
@@ -193,6 +223,12 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/6743609}.}
 2002.
 Dispon{\'\i}vel em: \url{Maki, P. M., Rich, J. B., and Rosenbaum, R. S. (2002).
   . Neuropsychologia 40, 518–529. doi: 10.1016/S0028-3932(01)00126-9}.}
+
+\bibitem[Mint 2020]{lm2020}
+\abntrefinfo{Mint}{MINT}{2020}
+{MINT, L. Linux mint.
+2020.
+Dispon{\'\i}vel em: \url{https://linuxmint.com/}.}
 
 \bibitem[Mishell 2005]{mishell2005}
 \abntrefinfo{Mishell}{MISHELL}{2005}
@@ -263,6 +299,12 @@ Dispon{\'\i}vel em:
 Dispon{\'\i}vel em:
   \url{https://journals.sagepub.com/doi/abs/10.2190/DUGG-P24E-52WK-6CDG}.}
 
+\bibitem[Slack 2013]{slack2013}
+\abntrefinfo{Slack}{SLACK}{2013}
+{SLACK. Slack.
+2013.
+Dispon{\'\i}vel em: \url{https://slack.com/intl/pt-br/}.}
+
 \bibitem[Solis-Ortiz, Guevara e Corsi-Cabrera 2004]{solis2004}
 \abntrefinfo{Solis-Ortiz, Guevara e Corsi-Cabrera}{SOLIS-ORTIZ; GUEVARA;
   CORSI-CABRERA}{2004}
@@ -278,6 +320,12 @@ Dispon{\'\i}vel em: \url{Psychoneuroendocrinology 29, 1047–1057.
 {SPEROFF, L.; FRITZ, M.~A. \emph{Clinical Gynecologic Endocrinology and
   Infertility}. 8th. ed. USA: Wolters Kluwer/Lippincott, Williams and Wilkins,
   20010.}
+
+\bibitem[Studio 2020]{android2020}
+\abntrefinfo{Studio}{STUDIO}{2020}
+{STUDIO, A. Android studio.
+2020.
+Dispon{\'\i}vel em: \url{https://developer.android.com/studio}.}
 
 \bibitem[Wideman et al. 2013]{wideman2013}
 \abntrefinfo{Wideman et al.}{WIDEMAN et al.}{2013}

@@ -6,101 +6,87 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{Introdu\IeC {\c c}\IeC {\~a}o}{15}{chapter*.13}
+\contentsline {section}{\numberline {0.1}Contextualiza\IeC {\c c}\IeC {\~a}o}{15}{section.0.1}
+\contentsline {section}{\numberline {0.2}Justificativa}{17}{section.0.2}
+\contentsline {section}{\numberline {0.3}Objetivos}{18}{section.0.3}
+\contentsline {subsection}{\numberline {0.3.1}Objetivos Gerais}{18}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {0.3.2}Objetivos Espec\IeC {\'\i }ficos}{18}{subsection.0.3.2}
+\contentsline {section}{\numberline {0.4}Organiza\IeC {\c c}\IeC {\~a}o dos cap\IeC {\'\i }tulos}{19}{section.0.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{16}{chapter.1}
-\contentsline {section}{\numberline {1.1}Contextualiza\IeC {\c c}\IeC {\~a}o}{16}{section.1.1}
-\contentsline {section}{\numberline {1.2}Justificativa}{18}{section.1.2}
-\contentsline {section}{\numberline {1.3}Objetivos}{19}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Objetivos Gerais}{19}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Objetivos Espec\IeC {\'\i }ficos}{19}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Organiza\IeC {\c c}\IeC {\~a}o dos cap\IeC {\'\i }tulos}{20}{section.1.4}
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Referencial Te\IeC {\'o}rico}}{20}{chapter.1}
+\contentsline {section}{\numberline {1.1}Considera\IeC {\c c}\IeC {\~o}es Iniciais}{20}{section.1.1}
+\contentsline {section}{\numberline {1.2}O Ciclo Mentrual}{20}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Fase Folicular}{20}{subsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.1.1}Menstrua\IeC {\c c}\IeC {\~a}o}{21}{subsubsection.1.2.1.1}
+\contentsline {subsection}{\numberline {1.2.2}Ovula\IeC {\c c}\IeC {\~a}o}{22}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Fase L\IeC {\'u}tea}{22}{subsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.3.1}Tens\IeC {\~a}o pr\IeC {\'e} menstrual e o Transtorno Disf\IeC {\'o}rico Pr\IeC {\'e} Menstrual}{23}{subsubsection.1.2.3.1}
+\contentsline {subsection}{\numberline {1.2.4}M\IeC {\'e}todo Baseado em Calend\IeC {\'a}rio}{23}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Outros fatores que influ\IeC {\^e}nciam no ciclo menstrual}{24}{subsection.1.2.5}
+\contentsline {subsubsection}{\numberline {1.2.5.1}M\IeC {\'e}todos Contraceptivos}{25}{subsubsection.1.2.5.1}
+\contentsline {subsubsection}{\numberline {1.2.5.2}Disturbios hormonais}{25}{subsubsection.1.2.5.2}
+\contentsline {section}{\numberline {1.3}Sistema de Recomenda\IeC {\c c}\IeC {\~a}o}{25}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Fundamentos}{26}{subsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.1.1}Filtragem baseada em conte\IeC {\'u}do}{26}{subsubsection.1.3.1.1}
+\contentsline {subsubsection}{\numberline {1.3.1.2}Filtragem demogr\IeC {\'a}fica}{26}{subsubsection.1.3.1.2}
+\contentsline {subsubsection}{\numberline {1.3.1.3}Filtragem colaborativa}{26}{subsubsection.1.3.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1.4}Filtragem hybrida}{26}{subsubsection.1.3.1.4}
+\contentsline {subsubsection}{\numberline {1.3.1.5}O problema do come\IeC {\c c}o frio}{26}{subsubsection.1.3.1.5}
+\contentsline {section}{\numberline {1.4}Considera\IeC {\c c}\IeC {\~o}es Finais do Cap\IeC {\'\i }tulo}{26}{section.1.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Referencial Te\IeC {\'o}rico}}{21}{chapter.2}
-\contentsline {section}{\numberline {2.1}Considera\IeC {\c c}\IeC {\~o}es Iniciais}{21}{section.2.1}
-\contentsline {section}{\numberline {2.2}O Ciclo Mentrual}{21}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Fase Folicular}{21}{subsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.1.1}Menstrua\IeC {\c c}\IeC {\~a}o}{22}{subsubsection.2.2.1.1}
-\contentsline {subsection}{\numberline {2.2.2}Ovula\IeC {\c c}\IeC {\~a}o}{23}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Fase L\IeC {\'u}tea}{23}{subsection.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.3.1}Tens\IeC {\~a}o pr\IeC {\'e} menstrual e o Transtorno Disf\IeC {\'o}rico Pr\IeC {\'e} Menstrual}{24}{subsubsection.2.2.3.1}
-\contentsline {subsection}{\numberline {2.2.4}M\IeC {\'e}todo Baseado em Calend\IeC {\'a}rio}{24}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Outros fatores que influ\IeC {\^e}nciam no ciclo menstrual}{25}{subsection.2.2.5}
-\contentsline {subsubsection}{\numberline {2.2.5.1}M\IeC {\'e}todos Contraceptivos}{26}{subsubsection.2.2.5.1}
-\contentsline {subsubsection}{\numberline {2.2.5.2}Disturbios hormonais}{26}{subsubsection.2.2.5.2}
-\contentsline {section}{\numberline {2.3}Sistema de Recomenda\IeC {\c c}\IeC {\~a}o}{26}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Fundamentos}{27}{subsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.1.1}Filtragem baseada em conte\IeC {\'u}do}{27}{subsubsection.2.3.1.1}
-\contentsline {subsubsection}{\numberline {2.3.1.2}Filtragem demogr\IeC {\'a}fica}{27}{subsubsection.2.3.1.2}
-\contentsline {subsubsection}{\numberline {2.3.1.3}Filtragem colaborativa}{27}{subsubsection.2.3.1.3}
-\contentsline {subsubsection}{\numberline {2.3.1.4}Filtragem hybrida}{27}{subsubsection.2.3.1.4}
-\contentsline {subsubsection}{\numberline {2.3.1.5}O problema do come\IeC {\c c}o frio}{27}{subsubsection.2.3.1.5}
-\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es Finais do Cap\IeC {\'\i }tulo}{27}{section.2.4}
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Suporte Tecnol\IeC {\'o}gico}}{27}{chapter.2}
+\contentsline {section}{\numberline {2.1}Desenvolvimento da Aplica\IeC {\c c}\IeC {\~a}o}{27}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Flutter}{27}{subsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Dart}{27}{subsubsection.2.1.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1.2}Firebase}{27}{subsubsection.2.1.1.2}
+\contentsline {section}{\numberline {2.2}Engenharia de Software}{28}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Gerenciamento do Projeto}{28}{subsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}Trello}{28}{subsubsection.2.2.1.1}
+\contentsline {subsubsection}{\numberline {2.2.1.2}ZenHub}{28}{subsubsection.2.2.1.2}
+\contentsline {subsubsection}{\numberline {2.2.1.3}Slack}{28}{subsubsection.2.2.1.3}
+\contentsline {subsection}{\numberline {2.2.2}Gerenciamento de Desenvolvimento}{28}{subsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Visual Studio Code}{28}{subsubsection.2.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Android Studio}{29}{subsubsection.2.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.3}Linux Mint}{29}{subsubsection.2.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.2.4}Figma}{29}{subsubsection.2.2.2.4}
+\contentsline {subsection}{\numberline {2.2.3}Gerenciamento de Configura\IeC {\c c}\IeC {\~a}o}{29}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}Git}{29}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}GitHub}{29}{subsubsection.2.2.3.2}
+\contentsline {section}{\numberline {2.3}Escrita e Condu\IeC {\c c}\IeC {\~a}o da Pesquisa}{30}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}LaTex}{30}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Resumo do Cap\IeC {\'\i }tulo}{30}{section.2.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Suporte Tecnol\IeC {\'o}gico}}{28}{chapter.3}
-\contentsline {section}{\numberline {3.1}Desenvolvimento da Aplica\IeC {\c c}\IeC {\~a}o}{28}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Flutter}{28}{subsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.1.1}Dart}{28}{subsubsection.3.1.1.1}
-\contentsline {subsubsection}{\numberline {3.1.1.2}Firebase}{28}{subsubsection.3.1.1.2}
-\contentsline {section}{\numberline {3.2}Engenharia de Software}{29}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Gerenciamento do Projeto}{29}{subsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Trello}{29}{subsubsection.3.2.1.1}
-\contentsline {subsubsection}{\numberline {3.2.1.2}ZenHub}{29}{subsubsection.3.2.1.2}
-\contentsline {subsubsection}{\numberline {3.2.1.3}Slack}{29}{subsubsection.3.2.1.3}
-\contentsline {subsection}{\numberline {3.2.2}Gerenciamento de Desenvolvimento}{29}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}Visual Studio Code}{29}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}Linux Mint}{29}{subsubsection.3.2.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Gerenciamento de Configura\IeC {\c c}\IeC {\~a}o}{30}{subsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Git}{30}{subsubsection.3.2.3.1}
-\contentsline {subsubsection}{\numberline {3.2.3.2}GitHub}{30}{subsubsection.3.2.3.2}
-\contentsline {section}{\numberline {3.3}Escrita e Condu\IeC {\c c}\IeC {\~a}o da Pesquisa}{30}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}LaTex}{30}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Resumo do Cap\IeC {\'\i }tulo}{30}{section.3.4}
-\contentsline {part}{\partnumberline {I}\MakeTextUppercase {Texto e P\IeC {\'o}s Texto}}{31}{part.1}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Metodologia}}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Metodologia}{31}{section.3.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Elementos do Texto}}{32}{chapter.4}
-\contentsline {section}{\numberline {4.1}Metodologia}{32}{section.4.1}
-\contentsline {section}{\numberline {4.2}Corpo do Texto}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}T\IeC {\'\i }tulos de cap\IeC {\'\i }tulos e se\IeC {\c c}\IeC {\~o}es}{32}{section.4.3}
-\contentsline {section}{\numberline {4.4}Notas de rodap\IeC {\'e}}{33}{section.4.4}
-\contentsline {section}{\numberline {4.5}Equa\IeC {\c c}\IeC {\~o}es}{33}{section.4.5}
-\contentsline {section}{\numberline {4.6}Figuras e Gr\IeC {\'a}ficos}{34}{section.4.6}
-\contentsline {section}{\numberline {4.7}Tabela}{35}{section.4.7}
-\contentsline {section}{\numberline {4.8}Cita\IeC {\c c}\IeC {\~a}o de Refer\IeC {\^e}ncias}{36}{section.4.8}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Elementos do P\IeC {\'o}s-Texto}}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Considera\IeC {\c c}\IeC {\~o}es sobre formata\IeC {\c c}\IeC {\~a}o b\IeC {\'a}sica do relat\IeC {\'o}rio}{38}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Tipo de papel, fonte e margens}{38}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Numera\IeC {\c c}\IeC {\~a}o de P\IeC {\'a}ginas}{39}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Espa\IeC {\c c}os e alinhamento}{39}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Quebra de Cap\IeC {\'\i }tulos e Aproveitamento de P\IeC {\'a}ginas}{39}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}C\IeC {\'o}pias}{40}{section.5.2}
-\contentsline {section}{\numberline {5.3}Refer\IeC {\^e}ncias Bibliogr\IeC {\'a}ficas}{40}{section.5.3}
-\contentsline {section}{\numberline {5.4}Anexos}{41}{section.5.4}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Proposta}}{32}{chapter.4}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{42}{section*.16}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{33}{section*.16}
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{46}{section*.17}
+\contentsline {part}{\uppercase {Ap\^endices}}{37}{section*.17}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Primeiro Ap\IeC {\^e}ndice}}{47}{appendix.A}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Primeiro Ap\IeC {\^e}ndice}}{38}{appendix.A}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Segundo Ap\IeC {\^e}ndice}}{48}{appendix.B}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Segundo Ap\IeC {\^e}ndice}}{39}{appendix.B}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANEXO \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{49}{section*.18}
+\contentsline {part}{\uppercase {Anexos}}{40}{section*.18}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Primeiro Anexo}}{50}{appendix.anexochapback.1}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Primeiro Anexo}}{41}{appendix.anexochapback.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Segundo Anexo}}{51}{appendix.anexochapback.2}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Segundo Anexo}}{42}{appendix.anexochapback.2}
