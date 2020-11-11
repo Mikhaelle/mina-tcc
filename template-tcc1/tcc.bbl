@@ -63,6 +63,13 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/9295207}.}
 Dispon{\'\i}vel em:
   \url{https://journals-sagepub-com.ez54.periodicos.capes.gov.br/doi/full/10.1177/1941738112469930}.}
 
+\bibitem[Breese, D e Kadie 2013]{breese2013}
+\abntrefinfo{Breese, D e Kadie}{BREESE; D; KADIE}{2013}
+{BREESE, J.~S.; D, H.; KADIE, C. Empirical analysis of predictive algorithms
+  for collaborative filtering.
+2013.
+Dispon{\'\i}vel em: \url{https://arxiv.org/pdf/1301.7363.pdf}.}
+
 \bibitem[Brinton et al. 2008]{brinton2008}
 \abntrefinfo{Brinton et al.}{BRINTON et al.}{2008}
 {BRINTON, R.~D. et al. Progesterone receptors: form and function in brain.
@@ -77,6 +84,12 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/18374402}.}
   fertilization.
 2008.
 Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/18155201}.}
+
+\bibitem[Burke 2002]{burke2002}
+\abntrefinfo{Burke}{BURKE}{2002}
+{BURKE, R. Hybrid recommender systems: Survey and experiments.
+2002.
+Dispon{\'\i}vel em: \url{https://arxiv.org/pdf/1301.7363.pdf}.}
 
 \bibitem[Code 2015]{vscode2015}
 \abntrefinfo{Code}{CODE}{2015}
@@ -259,6 +272,14 @@ Dispon{\'\i}vel em: \url{https://www.ncbi.nlm.nih.gov/pubmed/14644817}.}
 Dispon{\'\i}vel em:
   \url{https://journals-sagepub-com.ez54.periodicos.capes.gov.br/doi/full/10.1177/1941738112469930}.}
 
+\bibitem[Paulson e Tzanavari 2003]{paulson2003}
+\abntrefinfo{Paulson e Tzanavari}{PAULSON; TZANAVARI}{2003}
+{PAULSON, P.; TZANAVARI, A. Combining collaborative and content-based filtering
+  using conceptual graphs.
+2003.
+Dispon{\'\i}vel em:
+  \url{https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.1917&rep=rep1&type=pdf}.}
+
 \bibitem[Phillips e Sherwin 1992]{phillips1992}
 \abntrefinfo{Phillips e Sherwin}{PHILLIPS; SHERWIN}{1992}
 {PHILLIPS, S.~M.; SHERWIN, B.~B. Variations in memory function and sex steroid
@@ -299,6 +320,14 @@ Dispon{\'\i}vel em:
 Dispon{\'\i}vel em:
   \url{https://journals.sagepub.com/doi/abs/10.2190/DUGG-P24E-52WK-6CDG}.}
 
+\bibitem[Serrano 2006]{mauricio}
+\abntrefinfo{Serrano}{SERRANO}{2006}
+{SERRANO, M. Um sistema de recomendação para mídias baseado em conteúdo
+  nebuloso.
+2006.
+Dispon{\'\i}vel em:
+  \url{https://repositorio.ufscar.br/bitstream/handle/ufscar/334/DissMS.pdf?sequence=1}.}
+
 \bibitem[Slack 2013]{slack2013}
 \abntrefinfo{Slack}{SLACK}{2013}
 {SLACK. Slack.
@@ -314,6 +343,14 @@ Dispon{\'\i}vel em: \url{https://slack.com/intl/pt-br/}.}
 2004.
 Dispon{\'\i}vel em: \url{Psychoneuroendocrinology 29, 1047–1057.
   doi:10.1016/j.psyneuen.2003.10.007}.}
+
+\bibitem[Son e Kim 2017]{son2017}
+\abntrefinfo{Son e Kim}{SON; KIM}{2017}
+{SON, J.; KIM, S.~B. Content-based filtering for recommendation systems using
+  multiattribute networks.
+2017.
+Dispon{\'\i}vel em:
+  \url{https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.1917&rep=rep1&type=pdf}.}
 
 \bibitem[Speroff e Fritz 20010]{fritz2010}
 \abntrefinfo{Speroff e Fritz}{SPEROFF; FRITZ}{20010}
