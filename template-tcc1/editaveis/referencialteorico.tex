@@ -5,7 +5,7 @@
 Neste capítulo, são apresentadas as bases teóricas para a elaboração do 
 aplicativo com o objetivo de facilitar o entedimento dos termos utilizados. 
 O capítulo está estruturado em seções. Na seção 2.2, serão apresentados os 
-conceitos sobre o ciclo menstrual feminino e suas fases e na seção 2.3, serão 
+conceitos sobre o ciclo menstrual feminino e suas fases, e na seção 2.3, serão 
 apresentados os fundamentos sobre o Sistema de Recomendação e alguns algoritmos 
 utilizados nessa área.
 
@@ -22,7 +22,7 @@ diretamente o seu dia-a-dia, como por exemplo, o desempenho nas tarefas
 cotidianas ou relacionamentos interpessoais.
 
 
-O ciclo ideal tem como base 28 dias. Por convenção o primeiro dia de
+O ciclo ideal tem como base 28 dias. Por convenção, o primeiro dia de
 menstruação é a marca do início do ciclo e a marca do final do ciclo
 anterior, caso não tenha ocorrido a gravidez \cite{lenton1984a}. O ciclo
 pode ser dividido em duas fases, a fase folicular e a fase lútea
@@ -42,10 +42,12 @@ baixa, a fase é referida como fase folicular inicial \cite{lenton1984a}.
 
 Essa é a fase responsável pelo desenvolvimento de folículos, dos quais um
 será selecionado e se transformará em um óvulo(corpos lutem), que dará início
-a ovulação. Os folículos se desenvolvem em resposta ao aumento do hormônio
-folículo-estimulante (FSH) (vide Figura \ref{fig01}). Assim que um desses folículos for selecionado, o FSH diminui gradativamente, e progressivamente a produção de
-estrogénios começará a aumentar. Os estrogénios produzidos pelo folículo em
-crescimento são responsáveis também pelo desenvolvimento do endométrio. Essa fase é normalmente referida como fase folicular tardia.
+à ovulação. Os folículos desenvolvem-se em resposta ao aumento do hormônio
+folículo-estimulante (FSH) (vide Figura \ref{fig01}). Assim que um desses 
+folículos for selecionado, o FSH diminui gradativamente, e progressivamente a produção de
+estrogênios começará a aumentar. Os estrogénios produzidos pelo folículo em
+crescimento são responsáveis também pelo desenvolvimento do endométrio. Essa fase é normalmente 
+referida como fase folicular tardia.
 
 
 Normalmente, mulheres de 18 a 24 anos com ciclo de 28 dias tem a fase com
@@ -60,8 +62,8 @@ lútea segue normalmente com tamanho fixo de 14 dias.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.8]{figuras/MenstrualCycle2_pt.eps}
-	\caption{Ciclo Menstrual}
+	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/ciclomenstrual.pdf}
+	\caption{Ciclo Menstrual (Fonte: Elaborado pela Autora, baseado em \cite{draper2018} e \cite{reed2018})}
         \label{fig01}
 \end{figure}
 
@@ -96,7 +98,7 @@ possível liberação do óvulo e maior probabilidade de gravidez.
 A fase também é referida como fase fértil e, neste estudo, é dividida em 
 outra fase por sua importância.
 
-A ovulação acontece pelo equilíbrio entre vários hormonios. 
+A ovulação acontece pelo equilíbrio entre vários hormônios. 
 Clinicamente é possível determinar o ciclo ovulatório pelo surgimento do 
 LH e a secreção de progesterona da fase lútea \cite{fritz2010}. 
 Quando o estradiol chega ao pico, passadas 12 a 14 horas, o LH surge. 
@@ -115,7 +117,7 @@ folicular acabarão se sobrepondo nesse estudo.
 Com o evento da ovulação, o folículo transforma-se em um corpo lúteo, e as 
 células das paredes do folículo começam a produção de progesterona para 
 preparar o endométrio para a chegada do óvulo no caso de concepção. 
-O pico da progesterona se dá normalmente por volta do vigésimo primeiro 
+O pico da progesterona dá-se normalmente por volta do vigésimo primeiro 
 dia do ciclo \cite{nikas2003}. Caso não haja fecundação, a progesterona 
 decai progressivamente e causa novamente a menstruação, continuando assim 
 o ciclo.
@@ -140,7 +142,7 @@ mulheres demonstram uma maior tendência a perceber expressões de medo.
 Também há evidências que o cortisol, hormônio do estresse, parece se elevar 
 na fase lútea\cite{kirschbaum1999}.
 
-\subsubsection{Tensão pré menstrual e o Transtorno Disfórico Pré Menstrual}
+\subsubsection{Tensão Pré Menstrual e o Transtorno Disfórico Pré Menstrual}
 
 Cerca de 90\% das mulheres em idade reprodutiva experienciam algum tipo de 
 sintoma pré-menstrual. Uma menor parcela atende aos critérios da tensão 
@@ -162,7 +164,8 @@ ciclo \cite{ACOG2000}.
 
 Não existe um teste laboratórial específico que pode ser utilizado para 
 diagnóstico da síndrome, mas a organização mundial da saúde utiliza o ICD-9 
-código 635.4 para caracterizar a TPM e o Transtorno Disfórico Pré Menstrual(TDPM). Não existe separação no diagnóstico entre a TPM e a TDPM \cite{biggs2011}.
+código 635.4 para caracterizar a TPM e o Transtorno Disfórico Pré Menstrual(TDPM). 
+Não existe separação no diagnóstico entre a TPM e a TDPM \cite{biggs2011}.
 
 \subsection{Método Baseado em Calendário}
 
@@ -259,7 +262,7 @@ baseados em memória (ex. o KNN, método de agregação, decomposição do valor
 singular, métodos baseados em difusão, entre outros), foram
 desenvolvidos e melhorados nesse contexto. Na primeira fase, com a 
 abordagem híbrida utilizando a filtragem de conteúdo 
-colaborativo-demográfica e colaborativo, ocorreu a melhora na qualidade 
+colaborativo-demográfico e colaborativo, ocorreu a melhora na qualidade 
 das recomendações. Na segunda fase, algorítimos que incluiam informações 
 das redes sociais (ex. algoritmos de
 confiança, abordagens sociais adaptativas, análise de redes sociais, 
@@ -267,7 +270,7 @@ entre outros) foram adaptados e
 desenvolvidos. Atualmente, os algoritmos híbridos incorporam informações 
 de localização em algoritmos de recomendações já existentes \cite{bobadilla2013}. 
 
-Os SRs podem ser, basicamente, classificados em dois grupos: Sistemas de recomendação baseados	
+Os SRs podem ser, basicamente, classificados em dois grupos: sistemas de recomendação baseados	
 em conteúdo e os sistemas de recomendação colaborativos \cite{mauricio}. Os sistemas
 de recomendação baseado em conteúdo fazem recomendações baseadas em itens semelhantes
 a outros itens já escolhidos pelo usuário e por isso possuem a caracteristica de
@@ -288,21 +291,21 @@ na combinação das seguintes considerações:
 
 \begin{itemize}
 
-	\item O tipo de dados disponíveis em seu banco de dados (classificações, informações de registro do usuário, recursos e conteúdo para itens que podem ser
-	classificados e relações sociais entre os usuários ).
+	\item O tipos de dados disponíveis em seu banco de dados (classificações, informações de registro do usuário, recursos e conteúdo para itens que podem ser
+	classificados e relações sociais entre os usuários); 
 
-	\item O algoritmo de filtragem usado (baseado em conteúdo, colaborativa ou híbrida).
+	\item O algoritmo de filtragem usado (baseado em conteúdo, colaborativo ou híbrido);
 
-	\item O modelo escolhido (baseado em memória ou baseado em modelo ).
+	\item O modelo escolhido (baseado em memória ou baseado em modelo);
 	
-	\item As técnicas empregadas ( abordagens probabilísticas, algoritmo de vizinhos mais próximos;
-	algoritmos bioinspirados, como redes neurais e genéticas; modelos difusos e entre outros.)
+	\item As técnicas empregadas (abordagens probabilísticas, algoritmo de vizinhos mais próximos;
+	algoritmos bioinspirados, como redes neurais e genéticas; modelos difusos e entre outros);
 	
-	\item  Nível de dispersão do banco de dados e escalabilidade desejada.
+	\item  Nível de dispersão do banco de dados e escalabilidade desejada;
 
-	\item  Desempenho do sistema (consumo de tempo e memória).
+	\item  Desempenho do sistema (consumo de tempo e memória);
 
-	\item  O objetivo buscado e,
+	\item  O objetivo buscado, e
 
 	\item A qualidade desejada dos resultados (novidade, cobertura e
    precisão).
@@ -313,12 +316,12 @@ Além da classificação pelo tipo de algoritmo de filtragem já citado, os SRs 
 ser classificados pelo modelo escolhido \cite{bobadilla2013}: baseado em memória e baseado em modelo. 
 Os métodos baseados em memória atuam apenas na matriz de avaliações do usuário para certos itens e utilizam de 
 classificações geradas anteriormente para um novo processamento, atualizando sempre os resultados. 
-Os métodos baseados em modelo usa as informações pré-existentes para criar um
-modelo que gera as recomendações. Esse método fica desatualizado com novas informações do usuário.
+Os métodos baseados em modelo usam as informações pré-existentes para criar um
+modelo que gera as recomendações. Esses métodos ficam desatualizado com novas informações do usuário.
 
 A Tabela \ref{tab01} foi adaptada do trabalho de \citeonline{adomavicius2005} e apresenta os algoritmos mais utilizados, 
-divididos entre as abordagens de recomendação baseado em conteúdo, colaborativos e híbridos e nas técnicas 
-de recomendação baseada em heurística e em modelo. 
+divididos entre as abordagens de recomendação baseado em conteúdo, colaborativos e híbridos, e nas técnicas 
+de recomendação baseadas em heurística e em modelo. 
 
 \begin{table}[]
 	\centering
@@ -337,23 +340,23 @@ de recomendação baseada em heurística e em modelo.
 	\end{tabular}
 \end{table}
 
-Além das da abordagem de recomendação baseado em conteúdo e a colaborativa, \citeonline{burke2002} também cita mais três técnicas de recomendação: demográfica, baseada em utilidade e 
-baseado em conhecimento. De acordo com \citeonline{burke2002} os sistemas de recomendação tem: 
+Além das abordagens de recomendação tanto baseadas em conteúdo quanto colaborativas, \citeonline{burke2002} também cita mais três técnicas de recomendação: demográfica, baseada em utilidade e 
+baseada em conhecimento. De acordo com \citeonline{burke2002}, os sistemas de recomendação têm: 
 
 \begin{itemize}
 
 	\item \emph{background data}, as informações que o sistema possui antes da recomendação;
 
 	\item dados de entrada, as informações que o usuário deve comunicar ao
-	sistema para gerar uma recomendação e,
+	sistema para gerar uma recomendação, e
 
-	\item um algoritmo que combina antecedentes e dados de entrada para chegar às suas sugestões
+	\item um algoritmo que combina antecedentes e dados de entrada para chegar às suas sugestões.
 
 \end{itemize}
 
-Na Tabela \ref{tab02}, adaptada do trabalho de \citeonline{burke2002}, os 5 tipos de recomendação tem o sistema de background, entrada e processo brevemente explicados 
-assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendações são feitas, \textbf{U} é o conjunto de usuários cujas preferências são conhecidas, \textbf{u} 
-é o usuário para o qual as recomendações devem ser geradas e \textbf{i} é algum item para o qual gostaríamos de prever sua preferência.
+Na Tabela \ref{tab02}, adaptada do trabalho de \citeonline{burke2002}, os cinco tipos de recomendação tem o sistema de background, entrada e processo brevemente explicados 
+assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendações são feitas; \textbf{U} é o conjunto de usuários cujas preferências são conhecidas; \textbf{u} 
+é o usuário para o qual as recomendações devem ser geradas, e \textbf{i} é algum item para o qual pretende-se prever sua preferência.
 
 \begin{table}[]
 	\centering
@@ -377,7 +380,7 @@ assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendaçõ
 
 
 
-Nas subseções seguintes serão abordadas algumas dos fundamentos mais específicos dos tipos de filtragens utilizadas nos Sistemas de recomendação.
+Nas subseções seguintes, serão abordadas alguns dos fundamentos mais específicos dos tipos de filtragens utilizados nos Sistemas de Recomendação.
 
 
 
@@ -385,14 +388,14 @@ Nas subseções seguintes serão abordadas algumas dos fundamentos mais específ
 \subsubsection{Filtragem Baseada em Conteúdo}
 
 
-Os Sistemas de Recomendação Baseados em conteúdo, fazem recomendações baseadas nas escolhas passadas do usuário \cite{bobadilla2013}. 
+Os Sistemas de Recomendação Baseados em Conteúdo fazem recomendações baseadas nas escolhas passadas do usuário \cite{bobadilla2013}. 
 Eles realizam consultas e armazenam informações sobre os metadados dos itens que o usuário teve interesse ou não e realizam recomendações 
-com base nas informações armazenadas do usuário e de outros itens da base de dado \cite{mauricio}. A partir desta análise, uma semelhança pode ser
+com base nas informações armazenadas do usuário e de outros itens da base de dados \cite{mauricio}. A partir desta análise, uma semelhança pode ser
 estabelecida entre os objetos que um usuário comprou, visitou, ouviu, viu e classificou a outros objetos semelhantes, gerando assim novas recomendações. 
 
 Por exemplo, na recomendação de filmes, o sistema de recomendação baseado em conteúdo 
 tenta entender as semelhanças entre os filmes que o usuário classificou e, então, recomenda filmes 
-que tenham um alto grau de similaridade as preferências do usuário (atores, diretores, gênero, assuntos e entre outros) \cite{adomavicius2005}.
+que tenham um alto grau de similaridade nas preferências do usuário (atores, diretores, gênero, assuntos e entre outros) \cite{adomavicius2005}.
 
 Uma das limitações dessa técnica de filtragem é que itens novos não são explorados, só aqueles que são semelhantes 
 aos itens já no perfil do usuário, isso leva a uma superespecialização. Em alguns casos, isso pode ser tratado com a 
@@ -415,23 +418,23 @@ um problema, pois os usuários tendem a achar essa tarefa tediosa e quanto menos
 será o conjunto de possíveis recomendações, podendo influenciar negativamente o desempenho \cite{paulson2003}. 
 
 Em técnicas de aprendizado de máquina, o processo de \emph{feedback} é necessário para a aprendizagem e calibração 
-do algoritmo e requer constantes atualizações das preferências do usuário, conforme o usuário avalia os itens. Ou seja, 
+do algoritmo e requer constantes atualizações das preferências do usuário, conforme o usuário avalia os itens. Dessa forma, 
 as preferências não permanecem estáticas \cite{paulson2003}. 
 
 
 
 \subsubsection{Filtragem Colaborativa}
 
-Os Sistemas de recomendação de filtragem colaborativa (FC) dispensam o uso de metadados \cite{mauricio}. 
+Os Sistemas de Recomendação de Filtragem Colaborativa (FC) dispensam o uso de metadados \cite{mauricio}. 
 Em geral, apenas mantêm por quais itens um usuário já demonstrou interesse. O sistema constrói perfis de classificação 
 de seus usuários, localiza outros usuários com perfis de classificação 
 semelhantes e retorna itens que os usuários semelhantes classificaram 
 positivamente \cite{son2017}.
 
-Para prever os votos de usuário a partir de um banco de dados de votos do usuário e de uma amostra ou população de outros usuários
-, \citeonline{breese2013} propôs a seguinte média de votos do usuário, demonstrada na  Eq. \ref{eqn02} , em que a base de dados 
+Para prever os votos de usuário a partir de um banco de dados de votos do usuário e de uma amostra ou população de outros usuários, 
+\citeonline{breese2013} propôs a seguinte média de votos do usuário, demonstrada na  Eq. \ref{eqn02}, em que a base de dados 
 consiste em um conjunto de votos $v_{i,j}$, correspondendo ao voto do usuário $i$ no item $j$. Se $I_{i}$ é o
-conjunto de itens nos quais o usuário votou, então pode-se definir o voto médio para o usuário $i$ como :
+conjunto de itens nos quais o usuário votou, então pode-se definir o voto médio para o usuário $i$ como:
 
 \begin{equation}
 	\label{eqn02}
@@ -445,9 +448,9 @@ pontos onde os sistemas colaborativos diferem. Especificar quais usuários devem
 desempenho do sistema em termos de precisão das recomendações \cite{son2017}.
 
 O algoritmo mais utilizado para FC é o \emph{K Nearest Neighbors} (kNN), ou "vizinhos próximos". O kNN executa 
-os três passos seguintes para gerar recomendações: determinar os $k$ vizinhos mais próximos ao usuário, implementar 
+os três passos seguintes para gerar recomendações: (i) determinar os $k$ vizinhos mais próximos ao usuário; (ii) implementar 
 uma abordagem de agregação, com avaliações de itens avaliados pelos vizinhos, mas que não foram avaliados pelo usuário e 
-extrair as previsões da segunda etapa e selecionar as N primeiras recomendações \cite{bobadilla2013}. Correlação de Person, regressão linear, 
+extrair as previsões da segunda etapa, e, por fim, (iii) selecionar as N primeiras recomendações \cite{bobadilla2013}. Correlação de Person, regressão linear, 
 similaridade vetorial, modelos probabilísticos, redes bayesianas e diferenças quadradas médias são outros algoritmos, também utilizados para processar a similaridade entre dois usuários \cite{paulson2003}.
 
 Os algoritmos colaborativos são divididos em algoritmos baseados em memória e algoritmos baseados em 
@@ -456,81 +459,81 @@ previsões. Já o algoritmo baseado em modelo, em contraste, utiliza do banco de
 para estimar ou aprender um modelo, que é então usado para previsões.
 
 Uma das limitações dessa filtragem é que se um usuário que é considerado incomum com base em seus 
-interesses, provavelmente, não será semelhante a nenhum dos outros usuários,
+interesses, provavelmente, não será semelhante a usuário algum,
 o que levará a recomendações ruins. Outra limitação, seria, uma vez que, nenhuma informação sobre o 
-conteúdo dos itens é mantidos, mesmo usuários com interesses semelhantes (mas não 
-idênticos) podem não serem considerados semelhantes \cite{son2017}.
+conteúdo dos itens é mantida, mesmo usuários com interesses semelhantes (mas não 
+idênticos) podem não ser considerados semelhantes \cite{son2017}.
 
-Como nas técnicas baseadas em conteúdo, esses sistemas dependem de seus usuários fornecerem classificações ou feedback. Para solucionar 
-esse problema, geralmente, são usados \emph{feedback} implícito ou métodos para aumentar 
+Como nas técnicas baseadas em conteúdo, esses sistemas dependem de seus usuários fornecerem classificações ou \emph{feedback}. Para solucionar 
+esse problema, geralmente, são usados \emph{feedbacks} implícitos ou métodos para aumentar 
 a densidade do conjunto de dados \cite{paulson2003}.
 
 Quando o número de usuários é pequeno, os SRs colaborativos tendem a não conseguir associar 
-os usuários a um grupo de usuários com interesses semelhantes. Porém quando o 
-número de usuários cresce, os SRs colaborativo geralmente geram recomendações muito mais 
+os usuários a um grupo de usuários com interesses semelhantes. Entretanto, quando o 
+número de usuários cresce, os SRs colaborativos geralmente geram recomendações muito mais 
 precisas \cite{mauricio}. 
 
-A vantagem dessa filtragem sobre as técnicas baseadas em conteúdo, é que a \lq\lq piscina\rq\rq  de itens a serem recomendados 
-não se restringem a itens que o usuário ativo demonstrou interesse \cite{paulson2003}, o que pode levar o usuário a experimentar novos tópicos e itens.
+A vantagem dessa filtragem sobre as técnicas baseadas em conteúdo é que a \lq\lq piscina\rq\rq\  de itens a serem recomendados 
+não se restringe a itens que o usuário ativo demonstrou interesse \cite{paulson2003}, o que pode levar o usuário a experimentar novos tópicos e itens.
 
 
 \subsubsection{Filtragem Híbrida}
 
-Na filtragem híbrida, normalmente é utilizado da combinação da filtragem Colaborativa com a filtragem 
+Na filtragem híbrida, normalmente é utilizado a combinação da filtragem Colaborativa com a filtragem 
 baseada em conteúdo\cite{bobadilla2013}. A combinação de duas ou mais técnicas de recomendação tenta driblar as limitações de cada 
-técnica e permite explorar o que há de melhor nelas e obter um melhor desempenho \cite{burke2002}. 
+técnica e permite explorar o que há de mais positivo nelas e obter um melhor desempenho \cite{burke2002}. 
 
-A filtragem hibrida é normalmente baseada em técnicas bioinspiradas ou modelos probabilísticos como, 
-algoritmos genéticos, genética difusa, redes neurais, redes Bayesianas, clustering e características latentes  \cite{bobadilla2013}.
+A filtragem hibrida é normalmente baseada em técnicas bioinspiradas ou modelos probabilísticos, tais como: 
+algoritmos genéticos, genética difusa, redes neurais, redes bayesianas, \emph{clustering} e características latentes  \cite{bobadilla2013}.
 
-Além dos das duas técnicas já citada, faz necessário discorrer brevemente sobre as outras três técnicas: demográfica, baseada em utilidade e baseada em conhecimento, porque 
+Além das duas técnicas já citada, faz necessário discorrer brevemente sobre outras três técnicas: demográfica, baseada em utilidade e baseada em conhecimento, porque 
 elas também são utilizadas na filtragem híbrida.
 
 \subsubsubsection{Filtragem Demográfica}
 
-O sistema de recomendação demográfico, faz recomendações com base em classes demográficas \cite{burke2002}o
+O sistema de recomendação demográfico faz recomendações com base em classes demográficas \cite{burke2002}, tais 
 como: faixa etária, sexo, nacionalidade, residência atual, estado civil, 
-alfabetização, ocupação e demais características econômicas e entre outros. É comum a utilização de pesquisas para 
+alfabetização, ocupação e demais características econômicas, entre outras. É comum a utilização de pesquisas para 
 coletar os  dados do usuário para fazer uma categorização. O benefício da filtragem demográfica é que
-pode não exigir um histórico de avaliações do usuário, como é necessário no sistema baseado em conteudo e no colaborativo \cite{burke2002}.
+pode não exigir um histórico de avaliações do usuário, como é necessário no sistema baseado em conteúdo e no colaborativo \cite{burke2002}.
 
 \subsubsubsection{Filtragem Baseada em Utilidade}
 
-A Filtragem baseada em utilidade não tenta construir generalização de longo prazo sobre seus usuários, mas sim basear suas recomendações 
+A filtragem baseada em utilidade não tenta construir generalização de longo prazo sobre seus usuários, mas sim basear suas recomendações 
 em avaliação da correspondência entre a necessidade de um usuário e o conjunto de itens.
-Esse sistema de recomendação, faz um cálculo baseado na utilidade do item para o usuário.
-Cada usuário deve ter uma função de utilidade específica e existem várias técnicas para chegar a essa função. Normalmente, é bastante utilizado no comércio eletrônico por sua capacidade de fatorar atributos não relacionados ao produto,como :
+Esse sistema de recomendação faz um cálculo baseado na utilidade do item para o usuário.
+Cada usuário deve ter uma função de utilidade específica e existem várias técnicas para chegar a essa função. Normalmente, essa filtragem é bastante utilizado no comércio eletrônico por sua capacidade de fatorar atributos não relacionados ao produto, tais como :
 confiabilidade do fornecedor e disponibilidade do produto. \cite{burke2002}.
 
 \subsubsubsection{Filtragem Baseada em Conhecimento}
 
 Assim como a recomendação baseada em utilidade, a recomendação baseada em conhecimento tenta sugerir objetos com base em inferências
 sobre as necessidades e preferências do usuário, mas ela se distingue por ter o conhecimento funcional sobre 
-como um determinado item atende a necessidade específica do usuário. Um exemplo seria 
-a Google que usa informações sobre os links entre páginas da web para inferir popularidade e valor oficial \cite{burke2002}.
+como um determinado item atende à necessidade específica do usuário. Um exemplo seria 
+o Google que usa informações sobre os \emph{links} entre páginas da \emph{web} para inferir popularidade e valor oficial \cite{burke2002}.
 
 
-\subsubsection{O Problema Do Começo Frio}
+\subsubsection{O Problema do Começo Frio}
 
-De acordo com \citeonline{bobadilla2013} o problema do começo frio ocorre quando não é possível fazer recomendações 
+De acordo com \citeonline{bobadilla2013}, o problema do começo frio ocorre quando não é possível fazer recomendações 
 confiáveis por falta de avaliações iniciais. Existem três tipos de problemas do começo frio: nova comunidade, novo item e novo usuário. 
 
-O problema da nova comunidade refere se a dificuldade em obter quantidade suficiente de avaliações para fazer as recomendações. É possível 
+O problema da nova comunidade refere-se à dificuldade em obter quantidade suficiente de avaliações para fazer as recomendações. É possível 
 resolver esse problema de duas maneiras: incentivar os usuários a fazer avaliações por diferentes meios; seguir recomendações baseadas em FC 
-quando houver usuários e classificações suficientes\citeonline{bobadilla2013}.
+quando houver usuários e classificações suficientes \cite{bobadilla2013}.
 
 O problema do novo item surge quando um item entra no sistema de recomendação sem avaliações iniciais. 
-Um item sem avaliação não seria recomendado a comunidade e não receberia avaliações, entrando em um ciclo vicioso. Uma forma 
+Um item sem avaliação não seria recomendado à comunidade e não receberia avaliações, entrando em um ciclo vicioso. Uma forma 
 de resolver esse problema é motivar alguns usuários a serem responsáveis a avaliar novos itens do sistema\cite{burke2002}. 
 
-O problema do novo usuário é o mais desafiador de todos, já que novos usuários não tem nenhuma 
-avaliação no sistema de recomendação, eles não podem receber recomendações personalizadas\cite{burke2002}.As abordagens hibridas são normalmente utilizadas para resolver esse problema. 
-A estratégia comum para resolver o problema do novo usuário consiste de recorrer a informações adicionais para o conjunto de classificações\cite{bobadilla2013}.
+O problema do novo usuário é o mais desafiador de todos. Uma vez que novos usuários não tem 
+avaliação alguma no sistema de recomendação, eles não podem receber recomendações personalizadas\cite{burke2002}. As abordagens hibridas são normalmente utilizadas para resolver esse problema. 
+A estratégia comum para resolver o problema do novo usuário consiste em recorrer as informações adicionais para o conjunto de classificações\cite{bobadilla2013}.
 
 \section{Considerações Finais do Capítulo}
 
-Na tabela a seguir adaptada do trabalho de \citeonline{burke2002}, é possível observar o resumo dos pontos positivos e negativos das técnicas utilizadas no sistema de recomendação.
-A Filtragem Híbrida utiliza de duas ou mais dessas técnicas para tentar aproveitar o que há de melhor em cada uma e minimizar os pontos negativos.
+Na tabela \ref{tab03}, a seguir, adaptada do trabalho de \citeonline{burke2002}, é possível observar o resumo dos pontos positivos e negativos das técnicas utilizadas no sistema de recomendação.
+A Filtragem Híbrida utiliza duas ou mais dessas técnicas para tentar aproveitar o que há de melhor em cada uma e minimizar os pontos negativos.
 
 \begin{table}[]
 	\centering

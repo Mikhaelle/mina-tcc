@@ -1,5 +1,6 @@
 \chapter[Suporte Tecnológico]{Suporte Tecnológico}
 
+\section{Considerações Iniciais}
 Neste capítulo, serão aprensentadas brevemente as ferramentas e tecnologias 
 utilizadas no desenvolvimento do aplicativo, no gerenciamento 
 do projeto, no gerenciamento de configuração, no gerenciamento da 
@@ -7,13 +8,13 @@ escrita e na condução da pesquisa.
 
 \section{Desenvolvimento da Aplicação}
 
-Esta seção contemplará as tecnologias que foram utilizadas na construção do 
+Esta seção contemplará as tecnologias que foram e serão ainda utilizadas na construção do 
 código da aplicação.
 
 \subsection{Flutter 1.22.2}
 
-O Flutter é um kit de ferramentas de interface de usuário(UI) 
-grátis e \emph{open-souce} criado pelo Google e lançado em 2017. 
+O Flutter \cite{flutter2017} é um kit de ferramentas de interface de usuário(UI) 
+grátis e \emph{open-souce}, criado pelo Google e lançado em 2017. 
 Ele auxilia na criação de aplicativos nativos para dispositivos 
 \emph{mobile}, \emph{web} e \emph{desktop} a partir de uma 
 única base de código. Isso significa que é possível criar uma 
@@ -32,22 +33,22 @@ aplicação \cite{flutter2017}.
 
 \subsubsection{Dart 2.10.2}
 
-Dart é a linguagem de programação utilizada no flutter, sendo também 
+O Dart \cite{flutter2017} é a linguagem de programação utilizada no Flutter, sendo também 
 criada pelo Google em 2011. É uma linguagem focada para 
-desenvolvimento \emph{front-end} e do tipo orientada a objetos\cite{flutter2017}.
+desenvolvimento \emph{front-end} e do tipo orientada a objetos.
 
 \subsubsection{Firebase}
 
-Firebase é uma plataforma desenvolvida pelo Google para a criação de aplicativos 
+O Firebase \cite{firebase2011} é uma plataforma desenvolvida pelo Google para a criação de aplicativos 
 \emph{web} e móveis. Era originalmente uma empresa independente, fundada em 2011. 
 Em 2014, o Google adquiriu a plataforma e, agora, é sua ferramenta principal 
 para o desenvolvimento de aplicativos. O Firebase contêm funcionalidades como: 
-análises; bancos de dados; mensagens e relatórios de erros, garantindo mais agilidade no desenvolvimento de aplicativos\cite{firebase2011}.
+análises; bancos de dados; mensagens e relatórios de erros, garantindo mais agilidade no desenvolvimento de aplicativos.
 
 \section{Engenharia de Software}
 
 Esta seção apresentará os suportes tecnológicos associados mais especificamente 
-à Engenharia de Software. A mesma foi dividida em três sub seções, sendo elas: 
+à Engenharia de Software. A mesma foi dividida em três subseções, sendo elas: 
 Gerenciamento de Projetos, Gerenciamento de Desenvolvimento e Gerenciamento de 
 Configuração.
 
@@ -58,30 +59,30 @@ do projeto, tanto na escrita quanto no desenvolvimento da aplicação.
 
 \subsubsection{Trello}
 
-O Trello é uma aplicação \emph{web} baseada no sistema Kanbam, que auxilia no 
+O Trello \cite{trello2011} é uma aplicação \emph{web} baseada no sistema Kanbam, que auxilia no 
 gerenciamento de tarefas para times grandes ou pessoas individuais. 
 Originalmente criado pela Fog Creek Software, em 2011, e vendida à Atlassian, em 
-2017 \cite{trello2011}. O Trello foi utilizado para organizar as tarefas 
+2017. O Trello foi utilizado para organizar as tarefas 
 relacionadas à escrita do TCC, e também para manter o registro dos artigos utilizados.
 
 \subsubsection{ZenHub}
 
-O Zenhub é uma ferramenta semelhante ao Trello. É exclusiva para uso junto ao 
-Github, sendo uma poderosa ferramenta focada em: rastreamento; planejamento e 
+O Zenhub \cite{zenhub2020} é uma ferramenta semelhante ao Trello. É exclusiva para uso junto ao 
+Github, sendo uma ferramenta adequada, focada em: rastreamento; planejamento e 
 relatórios das \emph{features} de projetos no GitHub. Ele é baseado nas 
 metodologias ágeis, como Scrum, e é utilizado em projetos ágeis. Com ele, 
 é possível planejar roteiros; usar quadros de tarefas e gerar relatórios 
-automatizados diretamente do repositório do GitHub \cite{zenhub2020}. 
+automatizados diretamente do repositório do GitHub. 
 Nesse projeto, será utilizado para organizar as tarefas relacionadas ao 
 desenvolvimento do aplicativo proposto.
 
 
 \subsubsection{Slack}
 
-O Slack é uma plataforma de comunicação que permite a criação de times e a 
+O Slack \cite{slack2013} é uma plataforma de comunicação que permite a criação de times e a 
 organização de canais de conversas por tópicos, grupos privados ou mensagens 
 diretas. Ele também possui integração com  Google Drive, Trello, Dropbox, Box, 
-Heroku, IBM Bluemix, Crashlytics, GitHub, entre outros \cite{slack2013}. Nesse 
+Heroku, IBM Bluemix, Crashlytics, GitHub, entre outros. Nesse 
 projeto, será utilizado para comunicação entre aluno e orientador.
 
 \subsection{Gerenciamento de Desenvolvimento}
@@ -99,7 +100,7 @@ códigos, com sugestões inteligentes, e uma infinidade de extensões que podem 
 \subsubsection{Android Studio 3.6.3}
 
 O Android Studio \cite{android2020} é o ambiente de desenvolvimento para 
-aplicativos androids oficial da Google. Desenvolvido pelo Google e pela 
+aplicativos androids oficial do Google. Desenvolvido pelo Google e pela 
 JetBrains, o ambiente possui ferramentas como editor de texto, editor de \emph{layout}, 
 analizador apk, rápidos emuladores, \emph{debugger}, entre outras ferramentas 
 que auxiliam no desenolvimento de aplicativos. Apenas o emulador de dispositivo 
@@ -132,7 +133,11 @@ Esta subseção descreve as ferramentas adotadas para o versionamento do código
 O Git \cite{git2020} é uma ferramenta gratuita e de código livre para controle 
 de versão, utilizada para lidar desde pequenos a grandes projetos com rapidez e 
 eficiência. Ele possibilita a criação de diversas branches que se ramificam e 
-podem ser editadas, combinadas e removidas sem sofrer perdas de dados. O controle de versão também possibilita retornar a um momento específico do projeto e observar as mudanças entre as versões. O Git 2.17.1 é utilizado para versionamento de código fonte do aplicativo Mina e para a parte escrita do TCC.
+podem ser editadas, combinadas e removidas sem sofrer perdas de dados. O controle de 
+versão também possibilita retornar a um momento específico do projeto e observar as 
+mudanças entre as versões. O Git 2.17.1 é utilizado para versionamento de código fonte 
+do aplicativo a ser desenvolvido nesse trabalho 
+e para a parte escrita do TCC.
 
 
 \subsubsection{GitHub}
@@ -170,7 +175,7 @@ utilizadas no desenvolvimento do projeto.
 No desenvolvimento do aplicativo, será utilizado o Linux Mint como sistema 
 operacional; o Visual Studio Code como editor de texto, e o Android Studio como 
 o emulador de dispositivos IOS e Android. Na aplicação, será utilizado o Flutter 
-como \emph{framework} para criação de aplicativos nativos; o dart como linguagem 
+como \emph{framework} para criação de aplicativos nativos; o Dart como linguagem 
 de programação do Flutter, e o Firebase como banco de dados e controle de acesso. 
 
 As partes envolvendo o código, documentação e escrita do trabalho serão disponibilizadas 
@@ -178,6 +183,6 @@ no Github que utiliza o Git para controle de versão.
 
 O gerenciamento do projeto do aplicativo será feito através do Zenhub, aplicativo disponível no Github, e o Trello será utilizado para o gerenciamento das tarefas do TCC. 
 
-A escrita do TCC será realizada utilizando o LaTex com base em um template 
+A escrita do TCC será realizada utilizando o LaTex com base em um \emph{template} 
 disponibilizado pela Faculdade do Gama em um repositório do GitHub. 
 
