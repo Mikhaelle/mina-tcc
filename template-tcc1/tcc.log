@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.29)  13 NOV 2020 18:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.29)  17 NOV 2020 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1198,7 +1198,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 ]
 
 pdfTeX warning: pdflatex (file /home/mikha/Documentos/TCC1/template-tcc1/figuras/ciclomenstrual.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figuras/ciclomenstrual.pdf, id=477, 585.18625pt x 575.14874pt>
+<figuras/ciclomenstrual.pdf, id=459, 585.18625pt x 575.14874pt>
 File: figuras/ciclomenstrual.pdf Graphic file (type pdf)
 <use figuras/ciclomenstrual.pdf>
 Package pdftex.def Info: figuras/ciclomenstrual.pdf  used on input line 65.
@@ -1211,7 +1211,7 @@ Overfull \hbox (12.21465pt too wide) in paragraph at lines 147--154
 [24]
 
 pdfTeX warning: pdflatex (file /home/mikha/Documentos/TCC1/template-tcc1/figuras/Group1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figuras/Group1.pdf, id=836, 574.145pt x 486.81879pt>
+<figuras/Group1.pdf, id=817, 574.145pt x 486.81879pt>
 File: figuras/Group1.pdf Graphic file (type pdf)
 <use figuras/Group1.pdf>
 Package pdftex.def Info: figuras/Group1.pdf  used on input line 210.
@@ -1437,33 +1437,77 @@ Overfull \hbox (10.66469pt too wide) in paragraph at lines 542--554
 
 ] [37] [38] [39]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/metodologia.tex [40] [41
 
-] [42] [43] [44]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/proposta.tex [45]) (/home/mikha/Documentos/TCC1/template-tcc1/tcc.bbl (/home/mikha/Documentos/TCC1/template-tcc1/tcc.brf)
+]
+<figuras/fluxodeatividade.pdf, id=1156, 815.4967pt x 694.94629pt>
+File: figuras/fluxodeatividade.pdf Graphic file (type pdf)
+<use figuras/fluxodeatividade.pdf>
+Package pdftex.def Info: figuras/fluxodeatividade.pdf  used on input line 98.
+(pdftex.def)             Requested size: 489.3018pt x 416.971pt.
+
+Overfull \hbox (34.3018pt too wide) in paragraph at lines 98--99
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[42] [43 </home/mikha/Documentos/TCC1/template-tcc1/figuras/fluxodeatividade.pdf>] [44]
+<figuras/kanban.pdf, id=1193, 647.41875pt x 553.31718pt>
+File: figuras/kanban.pdf Graphic file (type pdf)
+<use figuras/kanban.pdf>
+Package pdftex.def Info: figuras/kanban.pdf  used on input line 193.
+(pdftex.def)             Requested size: 388.45424pt x 331.99286pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figuras/scrummet.pdf, id=1197, 1530.00613pt x 370.40381pt>
+File: figuras/scrummet.pdf Graphic file (type pdf)
+<use figuras/scrummet.pdf>
+Package pdftex.def Info: figuras/scrummet.pdf  used on input line 205.
+(pdftex.def)             Requested size: 459.00539pt x 111.122pt.
+
+Overfull \hbox (4.00539pt too wide) in paragraph at lines 205--206
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45] [46 </home/mikha/Documentos/TCC1/template-tcc1/figuras/kanban.pdf> </home/mikha/Documentos/TCC1/template-tcc1/figuras/scrummet.pdf>] [47]
+Overfull \hbox (15.74998pt too wide) in paragraph at lines 266--290
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[48]
+<figuras/resumoAbordagem.pdf, id=1251, 1525.17802pt x 371.57822pt>
+File: figuras/resumoAbordagem.pdf Graphic file (type pdf)
+<use figuras/resumoAbordagem.pdf>
+Package pdftex.def Info: figuras/resumoAbordagem.pdf  used on input line 331.
+(pdftex.def)             Requested size: 457.55695pt x 111.47432pt.
+
+Overfull \hbox (2.55695pt too wide) in paragraph at lines 331--332
+ [][] 
+ []
+
+) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/proposta.tex [49 </home/mikha/Documentos/TCC1/template-tcc1/figuras/resumoAbordagem.pdf>]) (/home/mikha/Documentos/TCC1/template-tcc1/tcc.bbl (/home/mikha/Documentos/TCC1/template-tcc1/tcc.brf)
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [46
+ [50
 
-] [47]
+] [51]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[48
+[52
 
-] [49] [50] [51]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/apendices.tex [52]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\uppercase' on input line 4.
-
-[53
-
-
-] [54
-
-]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/anexos.tex [55
-
-]
+] [53] [54]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/apendices.tex [55]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
@@ -1473,9 +1517,21 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 ] [57
 
+]) (/home/mikha/Documentos/TCC1/template-tcc1/editaveis/anexos.tex [58
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 4.
+
+[59
+
+
+] [60
+
 ]) (/home/mikha/Documentos/TCC1/template-tcc1/tcc.ind) 
 AED: lastpage setting LastPage
-[58
+[61
 
 ]
 \tf@lof=\write6
@@ -1493,7 +1549,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: E7628EB5A259B782212D2582D3B6165C;7399.
+(rerunfilecheck)             Checksum: 9329FFA98426705410461E1FCEA1D3B0;7639.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1501,18 +1557,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 14089 strings out of 492982
- 206844 string characters out of 6134896
- 350872 words of memory out of 5000000
- 17053 multiletter control sequences out of 15000+600000
- 93663 words of font info for 60 fonts, out of 8000000 for 9000
+ 14108 strings out of 492982
+ 207277 string characters out of 6134896
+ 349890 words of memory out of 5000000
+ 17071 multiletter control sequences out of 15000+600000
+ 97934 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,13n,38p,771b,663s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on /home/mikha/Documentos/TCC1/template-tcc1/tcc.pdf (59 pages, 2469250 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on /home/mikha/Documentos/TCC1/template-tcc1/tcc.pdf (62 pages, 2904432 bytes).
 PDF statistics:
- 1879 PDF objects out of 2073 (max. 8388607)
- 1585 compressed objects within 16 object streams
- 248 named destinations out of 1000 (max. 500000)
- 924 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1840 PDF objects out of 2073 (max. 8388607)
+ 1534 compressed objects within 16 object streams
+ 243 named destinations out of 1000 (max. 500000)
+ 824 words of extra memory for PDF output out of 10000 (max. 10000000)
 
