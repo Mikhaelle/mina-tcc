@@ -1,8 +1,11 @@
+import 'dart:async';
+import 'package:appMina/models/auth.dart';
+import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/SingUpScene.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class LoginScene extends StatefulWidget {
   //const LoginScene({ Key? key }) : super(key: key);
@@ -12,80 +15,49 @@ class LoginScene extends StatefulWidget {
 }
 
 class _LoginSceneState extends State<LoginScene> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  TextEditingController _emailControler = TextEditingController();
+  TextEditingController _passwordControler = TextEditingController();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late String _email, _password;
+  void _login(String email, String password, BuildContext context) async {
+    Auth _auth = Provider.of<Auth>(context, listen: false);
 
-  checkAutentication() async {
-    _auth.authStateChanges().listen(
-      (User? user) {
-        if (user != null) {
-          Navigator.pushReplacementNamed(context, "/");
-        }
-      },
-    );
-  }
-
-  Future<UserCredential> googleSignIn() async {
-    GoogleSignIn googleSignIn = GoogleSignIn();
-    GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-    if (googleUser != null) {
-      GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-
-      if (googleAuth.idToken != null && googleAuth.accessToken != null) {
-        final AuthCredential credential = GoogleAuthProvider.credential(
-            accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
-
-        final UserCredential user =
-            await _auth.signInWithCredential(credential);
-
-        await Navigator.pushReplacementNamed(context, "/");
-
-        return user;
-      } else {
-        throw StateError('Missing Google Auth Token');
-      }
-    } else
-      throw StateError('Sign in Aborted');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    this.checkAutentication();
-  }
-
-  Future<void> login() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
       try {
-        await _auth.signInWithEmailAndPassword(
-            email: _email, password: _password);
+        String _returnString = await _auth.login(email, password);
+        if (_returnString == "success") {
+          // checar se ja respondeu questionário, se sim ir pra home
+
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomeScene()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(_returnString),
+            duration: Duration(seconds: 2),
+          ));
+        }
       } on FirebaseAuthException catch (e) {
-        showError(e.code);
+        //showError(e.code);
       }
     }
   }
 
-  showError(String errormessage) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('ERROR'),
-          content: Text(errormessage),
-          actions: <Widget>[
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('ok'))
-          ],
-        );
-      },
-    );
+  void _googleSignIn(BuildContext context) async {
+    Auth _auth = Provider.of<Auth>(context, listen: false);
+
+    try {
+      if (await _auth.googleSignIn(context)) {
+        // checar se ja respondeu questionário, se sim ir pra home
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomeScene()));
+      }
+    } on FirebaseAuthException catch (e) {
+      //showError(e.code);
+    }
   }
 
   navigateToSignUp() async {
@@ -121,6 +93,7 @@ class _LoginSceneState extends State<LoginScene> {
                       Container(
                         padding: EdgeInsets.only(right: 20, left: 20),
                         child: TextFormField(
+                          controller: _emailControler,
                           validator: (input) {
                             if (input!.isEmpty) return 'Entre com o Email';
                           },
@@ -138,13 +111,13 @@ class _LoginSceneState extends State<LoginScene> {
                             labelText: 'Email',
                             prefixIcon: Icon(Icons.email),
                           ),
-                          onSaved: (input) => _email = input!,
                         ),
                       ),
                       SizedBox(height: 20),
                       Container(
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: TextFormField(
+                          controller: _passwordControler,
                           validator: (input) {
                             if (input!.length < 6)
                               return 'Senha minima tem 6 caracteres';
@@ -163,7 +136,6 @@ class _LoginSceneState extends State<LoginScene> {
                               labelText: 'Senha',
                               prefixIcon: Icon(Icons.lock)),
                           obscureText: true,
-                          onSaved: (input) => _password = input!,
                         ),
                       )
                     ],
@@ -189,7 +161,8 @@ class _LoginSceneState extends State<LoginScene> {
               SizedBox(height: 10),
               Container(
                 child: ElevatedButton(
-                  onPressed: () => login(),
+                  onPressed: () => _login(
+                      _emailControler.text, _passwordControler.text, context),
                   child: Text(
                     'Entrar',
                     style: TextStyle(fontSize: 18, color: Colors.white),
@@ -207,7 +180,7 @@ class _LoginSceneState extends State<LoginScene> {
                 Buttons.Google,
                 mini: false,
                 text: "Entrar com conta Google",
-                onPressed: googleSignIn,
+                onPressed: () => _googleSignIn(context),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>466283398282-lbnv0lro8tpsshl78nqo1a1md9btsodd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.466283398282-lbnv0lro8tpsshl78nqo1a1md9btsodd</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>466283398282-73ra0dhdr0tosta4apo6cf0fqh5kfc7k.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBKCxFtSfs-1byVR0FXEZwbzNamBnz0sWM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>466283398282</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.appMina</string>
+	<key>PROJECT_ID</key>
+	<string>minaapp-63781</string>
+	<key>STORAGE_BUCKET</key>
+	<string>minaapp-63781.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:466283398282:ios:7c4fd0a4b97bef7c69d973</string>
+	<key>DATABASE_URL</key>
+	<string>https://minaapp-63781.firebaseio.com</string>
+</dict>
+</plist>

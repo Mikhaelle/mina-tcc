@@ -1,8 +1,11 @@
-import 'package:appMina/scenes/HomeScene.dart';
+import 'package:appMina/models/auth.dart';
+import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/LoginScene.dart';
-import 'package:flutter/material.dart';
-import 'scenes/LoginScene.dart';
+import 'package:appMina/scenes/QuizScene.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'scenes/LoginScene.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,15 +16,19 @@ void main() async {
 class MinaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFFFBE8E8),
-        accentColor: Color(0xFFE0E5F8),
+    return ChangeNotifierProvider(
+      create: (context) => Auth(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: Color(0xFFFBE8E8),
+          accentColor: Color(0xFFE0E5F8),
+        ),
+        home: LoginScene(),
+        routes: <String, WidgetBuilder>{
+          "quiz": (BuildContext context) => QuizScene(),
+          "home": (BuildContext context) => HomeScene(),
+        },
       ),
-      home: HomeScene(),
-      routes: <String, WidgetBuilder>{
-        "login": (BuildContext context) => LoginScene(),
-      },
     );
   }
 }

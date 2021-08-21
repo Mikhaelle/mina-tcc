@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../models/user2.dart';
+import '../../../models/user2.dart';
 
 class HomeGraph extends StatelessWidget {
   final User2 userLogin;

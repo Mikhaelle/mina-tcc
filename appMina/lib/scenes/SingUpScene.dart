@@ -1,5 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:appMina/models/auth.dart';
+import 'package:appMina/scenes/HomeScene.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SingUpScene extends StatefulWidget {
   const SingUpScene({Key? key}) : super(key: key);
@@ -9,56 +11,34 @@ class SingUpScene extends StatefulWidget {
 }
 
 class _SingUpSceneState extends State<SingUpScene> {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  TextEditingController _fullNameControler = TextEditingController();
+  TextEditingController _emailControler = TextEditingController();
+  TextEditingController _passwordControler = TextEditingController();
+  //TextEditingController _confirmPasswordControler = TextEditingController(); Add later
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late String _name, _email, _password;
-
-  checkAuthentication() async {
-    _auth.authStateChanges().listen((user) async {
-      if (user != null) {
-        Navigator.pushReplacementNamed(context, "/");
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    this.checkAuthentication();
-  }
-
-  signUp() async {
+  void _signUp(
+      String email, String password, String name, BuildContext context) async {
+    Auth _auth = Provider.of<Auth>(context, listen: false);
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
       try {
-        UserCredential user = await _auth.createUserWithEmailAndPassword(
-            email: _email, password: _password);
-
-        await _auth.currentUser!.updateDisplayName(_name);
-      } on FirebaseAuthException catch (e) {
-        showError(e.code);
+        String _returnString = await _auth.signUp(email, password, name);
+        if (_returnString == "success") {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomeScene()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(_returnString),
+            duration: Duration(seconds: 2),
+          ));
+        }
+      } catch (e) {
+        print(e);
       }
     }
-  }
-
-  showError(String errormessage) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('ERROR'),
-            content: Text(errormessage),
-            actions: <Widget>[
-              TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'))
-            ],
-          );
-        });
   }
 
   @override
@@ -89,76 +69,83 @@ class _SingUpSceneState extends State<SingUpScene> {
                         Container(
                           padding: EdgeInsets.only(right: 20, left: 20),
                           child: TextFormField(
-                              validator: (input) {
-                                if (input!.isEmpty) return 'Nome';
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                labelText: 'Nome',
-                                prefixIcon: Icon(Icons.person),
+                            controller: _fullNameControler,
+                            validator: (input) {
+                              if (input!.isEmpty) return 'Nome';
+                            },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
                               ),
-                              onSaved: (input) => _name = input!),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
+                              ),
+                              labelText: 'Nome',
+                              prefixIcon: Icon(Icons.person),
+                            ),
+                          ),
                         ),
                         SizedBox(height: 20),
                         Container(
                           padding: EdgeInsets.only(right: 20, left: 20),
                           child: TextFormField(
-                              validator: (input) {
-                                if (input!.isEmpty) return 'Email';
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                labelText: 'Email',
-                                prefixIcon: Icon(Icons.email),
+                            controller: _emailControler,
+                            validator: (input) {
+                              if (input!.isEmpty) return 'Email';
+                            },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
                               ),
-                              onSaved: (input) => _email = input!),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
+                              ),
+                              labelText: 'Email',
+                              prefixIcon: Icon(Icons.email),
+                            ),
+                          ),
                         ),
                         SizedBox(height: 20),
                         Container(
                           padding: EdgeInsets.only(right: 20, left: 20),
                           child: TextFormField(
-                              validator: (input) {
-                                if (input!.length < 6)
-                                  return 'Provide Minimum 6 Character';
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(25.7),
-                                ),
-                                labelText: 'Senha',
-                                prefixIcon: Icon(Icons.lock),
+                            controller: _passwordControler,
+                            validator: (input) {
+                              if (input!.length < 6)
+                                return 'Provide Minimum 6 Character';
+                            },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
                               ),
-                              obscureText: true,
-                              onSaved: (input) => _password = input!),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(25.7),
+                              ),
+                              labelText: 'Senha',
+                              prefixIcon: Icon(Icons.lock),
+                            ),
+                            obscureText: true,
+                          ),
                         ),
                         SizedBox(height: 30),
                         ElevatedButton(
-                          onPressed: () => signUp(),
+                          onPressed: () => _signUp(
+                              _emailControler.text,
+                              _passwordControler.text,
+                              _fullNameControler.text,
+                              context),
                           child: Text(
                             'Criar conta',
                             style: TextStyle(fontSize: 18, color: Colors.white),
