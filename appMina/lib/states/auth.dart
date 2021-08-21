@@ -3,17 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Auth with ChangeNotifier {
-  late String _uid;
-  late String _email;
-  late String _photoUrl;
-  late String _displayName;
+  String? _uid;
+  String? _email;
+  String? _photoUrl;
+  String? _displayName;
 
-  String get getUid => _uid;
-  String get getEmail => _email;
-  String get getPhoto => _photoUrl;
-  String get getDisplayName => _displayName;
+  String? get getUid => _uid;
+  String? get getEmail => _email;
+  String? get getPhoto => _photoUrl;
+  String? get getDisplayName => _displayName;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<String> signOut() async {
+    String retVal = "error";
+    try {
+      await _auth.signOut();
+      final googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
+
+      _uid = null;
+      _email = null;
+      _displayName = null;
+      _photoUrl = null;
+
+      retVal = "success";
+    } catch (e) {
+      print(e);
+    }
+    return retVal;
+  }
 
   Future<String> onStartUp() async {
     String retVal = "error";
@@ -25,6 +44,8 @@ class Auth with ChangeNotifier {
       _uid = _firebaseUser.uid;
       _email = _firebaseUser.email!;
       _displayName = _firebaseUser.displayName!;
+      _photoUrl = _firebaseUser.photoURL!;
+
       retVal = "success";
     } catch (e) {
       print(e);
@@ -41,6 +62,7 @@ class Auth with ChangeNotifier {
       _uid = user.user!.uid;
       _email = user.user!.email!;
       _displayName = user.user!.displayName!;
+      _photoUrl = user.user!.photoURL!;
 
       retVal = "success";
     } on FirebaseAuthException catch (e) {

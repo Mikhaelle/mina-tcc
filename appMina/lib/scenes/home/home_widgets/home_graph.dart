@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../../../models/user2.dart';
+import '../../../models/user.dart';
 
 class HomeGraph extends StatelessWidget {
-  final User2 userLogin;
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+/*class HomeGraph extends StatelessWidget {
+  final User userLogin;
 
   HomeGraph(this.userLogin);
 
@@ -119,4 +126,4 @@ class HomeGraph extends StatelessWidget {
       ],
     ));
   }
-}
+}*/

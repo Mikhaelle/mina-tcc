@@ -22,7 +22,6 @@ class _OurRootState extends State<OurRoot> {
 
     Auth _currentUser = Provider.of<Auth>(context, listen: false);
     String _returnString = await _currentUser.onStartUp();
-    print(_returnString);
     if (_returnString == "success") {
       setState(() {
         _authStatus = AuthStatus.loggedIn;
@@ -39,16 +38,11 @@ class _OurRootState extends State<OurRoot> {
   @override
   Widget build(BuildContext context) {
     Widget retVal = LoginScene();
-    print("aqui");
     switch (_authStatus) {
       case AuthStatus.notLoggedIn:
-        print("aqui2");
-
         retVal = LoginScene();
         break;
       case AuthStatus.loggedIn:
-        print("aqui3");
-
         retVal = HomeScene();
         break;
       default:

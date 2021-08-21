@@ -1,11 +1,12 @@
+import 'package:appMina/scenes/Root.dart';
 import 'package:appMina/scenes/home/home_widgets/home_buttons.dart';
 import 'package:appMina/scenes/home/home_widgets/home_graph.dart';
 import 'package:appMina/scenes/home/home_widgets/home_phase.dart';
 import 'package:appMina/models/%20phases.dart';
-import 'package:appMina/models/user2.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:appMina/models/user.dart';
+import 'package:appMina/states/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class HomeScene extends StatefulWidget {
   const HomeScene({Key? key}) : super(key: key);
@@ -15,43 +16,19 @@ class HomeScene extends StatefulWidget {
 }
 
 class _HomeSceneState extends State<HomeScene> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  late User user;
-  bool isloggedin = false;
-
-  checkAuthentification() async {
-    _auth.authStateChanges().listen((user) {
-      if (user == null) {
-        Navigator.of(context).pushReplacementNamed("login");
+  void _signOut() async {
+    Auth _auth = Provider.of<Auth>(context, listen: false);
+    try {
+      String _returnString = await _auth.signOut();
+      if (_returnString == "success") {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => OurRoot()),
+            (route) => false);
       }
-    });
-  }
-
-  getUser() async {
-    User? firebaseUser = _auth.currentUser;
-    await firebaseUser?.reload();
-    firebaseUser = _auth.currentUser;
-
-    if (!mounted) return;
-    if (firebaseUser != null) {
-      setState(() {
-        this.user = firebaseUser!;
-        this.isloggedin = true;
-      });
+    } catch (e) {
+      print(e);
     }
-  }
-
-  signOut() async {
-    await _auth.signOut();
-    final googleSignIn = GoogleSignIn();
-    await googleSignIn.signOut();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    this.checkAuthentification();
-    this.getUser();
   }
 
   final _phases = [
@@ -61,13 +38,8 @@ class _HomeSceneState extends State<HomeScene> {
     Phases(id: 'f4', title: 'Lútea tardia')
   ];
 
-  final _user = User2(
-      id: '1',
-      name: 'Teste',
-      email: 'gmail',
-      periodSize: 4,
-      cicleDate: DateTime.now().subtract(Duration(days: 1)),
-      cicleSize: 28);
+  final _user =
+      User(uid: '1', name: 'Teste', email: 'gmail', quizAnswered: false);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +53,7 @@ class _HomeSceneState extends State<HomeScene> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.more_vert),
-            onPressed: signOut,
+            onPressed: _signOut,
           )
         ],
         backgroundColor: Theme.of(context).primaryColor,
@@ -91,7 +63,7 @@ class _HomeSceneState extends State<HomeScene> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             HomePhase(_phases),
-            HomeGraph(_user),
+            HomeGraph(),
             HomeButtons(),
           ]),
       floatingActionButton: FloatingActionButton(
