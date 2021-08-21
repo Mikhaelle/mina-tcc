@@ -1,6 +1,6 @@
-import 'package:appMina/components/home_buttons.dart';
-import 'package:appMina/components/home_graph.dart';
-import 'package:appMina/components/home_phase.dart';
+import 'package:appMina/scenes/home/home_widgets/home_buttons.dart';
+import 'package:appMina/scenes/home/home_widgets/home_graph.dart';
+import 'package:appMina/scenes/home/home_widgets/home_phase.dart';
 import 'package:appMina/models/%20phases.dart';
 import 'package:appMina/models/user2.dart';
 import 'package:firebase_auth/firebase_auth.dart';

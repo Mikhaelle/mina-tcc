@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/ phases.dart';
+import '../../../models/ phases.dart';
 
 class HomePhase extends StatelessWidget {
   final List<Phases> phases;

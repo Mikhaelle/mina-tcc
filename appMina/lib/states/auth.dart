@@ -15,6 +15,23 @@ class Auth with ChangeNotifier {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<String> onStartUp() async {
+    String retVal = "error";
+
+    try {
+      User? _firebaseUser = _auth.currentUser!;
+      print(_firebaseUser);
+
+      _uid = _firebaseUser.uid;
+      _email = _firebaseUser.email!;
+      _displayName = _firebaseUser.displayName!;
+      retVal = "success";
+    } catch (e) {
+      print(e);
+    }
+    return retVal;
+  }
+
   Future<String> login(String email, String password) async {
     String retVal = "error";
     try {

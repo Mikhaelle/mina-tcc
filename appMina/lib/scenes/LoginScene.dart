@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:appMina/models/auth.dart';
+import 'package:appMina/states/auth.dart';
 import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/SingUpScene.dart';
 import 'package:firebase_auth/firebase_auth.dart';

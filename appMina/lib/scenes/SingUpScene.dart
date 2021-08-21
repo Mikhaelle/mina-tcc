@@ -1,5 +1,5 @@
-import 'package:appMina/models/auth.dart';
-import 'package:appMina/scenes/HomeScene.dart';
+import 'package:appMina/states/auth.dart';
+import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

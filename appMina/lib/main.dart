@@ -1,4 +1,5 @@
-import 'package:appMina/models/auth.dart';
+import 'package:appMina/scenes/Root.dart';
+import 'package:appMina/states/auth.dart';
 import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/LoginScene.dart';
 import 'package:appMina/scenes/QuizScene.dart';
@@ -23,10 +24,11 @@ class MinaApp extends StatelessWidget {
           primaryColor: Color(0xFFFBE8E8),
           accentColor: Color(0xFFE0E5F8),
         ),
-        home: LoginScene(),
+        home: OurRoot(),
         routes: <String, WidgetBuilder>{
           "quiz": (BuildContext context) => QuizScene(),
           "home": (BuildContext context) => HomeScene(),
+          "login": (BuildContext context) => LoginScene(),
         },
       ),
     );
