@@ -39,7 +39,7 @@ class _HomeSceneState extends State<HomeScene> {
   ];
 
   final _user =
-      User(uid: '1', name: 'Teste', email: 'gmail', quizAnswered: false);
+      OurUser(uid: '1', name: 'Teste', email: 'gmail', quizAnswered: false);
 
   @override
   Widget build(BuildContext context) {

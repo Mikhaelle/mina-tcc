@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:appMina/models/user.dart';
+import 'package:appMina/scenes/QuizScene.dart';
 import 'package:appMina/states/auth.dart';
 import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/SingUpScene.dart';
@@ -29,10 +31,14 @@ class _LoginSceneState extends State<LoginScene> {
       try {
         String _returnString = await _auth.login(email, password);
         if (_returnString == "success") {
-          // checar se ja respondeu questionário, se sim ir pra home
-
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomeScene()));
+          OurUser? _currentUser = _auth.getCurrentUser;
+          if (_currentUser!.quizAnswered == true) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomeScene()));
+          } else {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => QuizScene()));
+          }
         } else {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(_returnString),
@@ -50,10 +56,14 @@ class _LoginSceneState extends State<LoginScene> {
 
     try {
       if (await _auth.googleSignIn(context)) {
-        // checar se ja respondeu questionário, se sim ir pra home
-
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomeScene()));
+        OurUser? _currentUser = _auth.getCurrentUser;
+        if (_currentUser!.quizAnswered == true) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomeScene()));
+        } else {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => QuizScene()));
+        }
       }
     } on FirebaseAuthException catch (e) {
       //showError(e.code);

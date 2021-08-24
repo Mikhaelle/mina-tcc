@@ -1,17 +1,13 @@
+import 'package:appMina/models/user.dart';
+import 'package:appMina/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Auth with ChangeNotifier {
-  String? _uid;
-  String? _email;
-  String? _photoUrl;
-  String? _displayName;
+  late OurUser _currentUser;
 
-  String? get getUid => _uid;
-  String? get getEmail => _email;
-  String? get getPhoto => _photoUrl;
-  String? get getDisplayName => _displayName;
+  OurUser? get getCurrentUser => _currentUser;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -21,11 +17,7 @@ class Auth with ChangeNotifier {
       await _auth.signOut();
       final googleSignIn = GoogleSignIn();
       await googleSignIn.signOut();
-
-      _uid = null;
-      _email = null;
-      _displayName = null;
-      _photoUrl = null;
+      _currentUser = OurUser();
 
       retVal = "success";
     } catch (e) {
@@ -39,13 +31,7 @@ class Auth with ChangeNotifier {
 
     try {
       User? _firebaseUser = _auth.currentUser!;
-      print(_firebaseUser);
-
-      _uid = _firebaseUser.uid;
-      _email = _firebaseUser.email!;
-      _displayName = _firebaseUser.displayName!;
-      _photoUrl = _firebaseUser.photoURL!;
-
+      _currentUser = await OurDatabase().getUserInfo(_firebaseUser.uid);
       retVal = "success";
     } catch (e) {
       print(e);
@@ -59,11 +45,7 @@ class Auth with ChangeNotifier {
       UserCredential user = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
 
-      _uid = user.user!.uid;
-      _email = user.user!.email!;
-      _displayName = user.user!.displayName!;
-      _photoUrl = user.user!.photoURL!;
-
+      _currentUser = await OurDatabase().getUserInfo(user.user!.uid);
       retVal = "success";
     } on FirebaseAuthException catch (e) {
       retVal = e.message!;
@@ -73,12 +55,21 @@ class Auth with ChangeNotifier {
 
   Future<String> signUp(String email, String password, String name) async {
     String retVal = "error";
-
+    OurUser _user = OurUser();
     try {
-      UserCredential user = await _auth.createUserWithEmailAndPassword(
+      UserCredential _userAuth = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      await _auth.currentUser!.updateDisplayName(name);
-      retVal = "success";
+      _user.uid = _userAuth.user!.uid;
+      _user.email = _userAuth.user!.email;
+      _user.name = name;
+      _user.photoUrl = null;
+      _user.quizAnswered = false;
+      _user.groupId = null;
+      String _returnString = await OurDatabase().createUser(_user);
+      if (_returnString == "success") {
+        _currentUser = await OurDatabase().getUserInfo(_userAuth.user!.uid);
+        retVal = "success";
+      }
     } on FirebaseAuthException catch (e) {
       retVal = e.message!;
     }
@@ -87,6 +78,8 @@ class Auth with ChangeNotifier {
 
   Future<bool> googleSignIn(BuildContext context) async {
     GoogleSignIn googleSignIn = GoogleSignIn();
+    OurUser _user = OurUser();
+
     GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     if (googleUser != null) {
       GoogleSignInAuthentication googleAuth = await googleUser.authentication;
@@ -95,12 +88,15 @@ class Auth with ChangeNotifier {
         final AuthCredential credential = GoogleAuthProvider.credential(
             accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-        final UserCredential user =
+        final UserCredential _authResult =
             await _auth.signInWithCredential(credential);
-
-        _uid = user.user!.uid;
-        _email = user.user!.email!;
-        _displayName = user.user!.displayName!;
+        if (_authResult.additionalUserInfo!.isNewUser) {
+          _user.uid = _authResult.user!.uid;
+          _user.email = _authResult.user!.email;
+          _user.name = _authResult.user!.displayName;
+          OurDatabase().createUser(_user);
+        }
+        _currentUser = await OurDatabase().getUserInfo(_authResult.user!.uid);
         return true;
       } else {
         throw StateError('Missing Google Auth Token');

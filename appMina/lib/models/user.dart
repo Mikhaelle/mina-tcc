@@ -1,15 +1,16 @@
-class User {
-  String uid;
-  String name;
-  String email;
-  bool quizAnswered;
+class OurUser {
+  String? uid;
+  String? name;
+  String? email;
+  String? photoUrl;
+  bool? quizAnswered;
   String? groupId;
 
-  User({
-    required this.uid,
-    required this.name,
-    required this.email,
-    required this.quizAnswered,
+  OurUser({
+    this.uid,
+    this.name,
+    this.email,
+    this.quizAnswered,
     this.groupId,
   });
 }
