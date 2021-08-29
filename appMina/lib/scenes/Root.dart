@@ -1,5 +1,5 @@
 import 'package:appMina/scenes/LoginScene.dart';
-import 'package:appMina/scenes/home/HomeScene.dart';
+import 'package:appMina/scenes/quiz/QuizRoot.dart';
 import 'package:appMina/states/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +43,7 @@ class _OurRootState extends State<OurRoot> {
         retVal = LoginScene();
         break;
       case AuthStatus.loggedIn:
-        retVal = HomeScene();
+        retVal = QuizRoot();
         break;
       default:
     }

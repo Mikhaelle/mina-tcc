@@ -14,9 +14,9 @@ class HomeButtons extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            FlatButton(
-              child: Text("PREVISÃO DO DIA"),
+            TextButton(
               onPressed: () {},
+              child: Text("PREVISÃO DO DIA"),
             ),
             Icon(Icons.arrow_forward),
           ],
@@ -32,9 +32,9 @@ class HomeButtons extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            FlatButton(
-              child: Text("SOBRE A FASE"),
+            TextButton(
               onPressed: () {},
+              child: Text("SOBRE A FASE"),
             ),
             Icon(Icons.arrow_forward),
           ],

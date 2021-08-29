@@ -1,5 +1,7 @@
+import 'package:appMina/models/quiz.dart';
 import 'package:appMina/models/user.dart';
-import 'package:appMina/services/database.dart';
+import 'package:appMina/services/quizDatabase.dart';
+import 'package:appMina/services/userDatabase.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -31,7 +33,7 @@ class Auth with ChangeNotifier {
 
     try {
       User? _firebaseUser = _auth.currentUser!;
-      _currentUser = await OurDatabase().getUserInfo(_firebaseUser.uid);
+      _currentUser = await UserDatabase().getUserInfo(_firebaseUser.uid);
       retVal = "success";
     } catch (e) {
       print(e);
@@ -45,7 +47,7 @@ class Auth with ChangeNotifier {
       UserCredential user = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
 
-      _currentUser = await OurDatabase().getUserInfo(user.user!.uid);
+      _currentUser = await UserDatabase().getUserInfo(user.user!.uid);
       retVal = "success";
     } on FirebaseAuthException catch (e) {
       retVal = e.message!;
@@ -56,6 +58,8 @@ class Auth with ChangeNotifier {
   Future<String> signUp(String email, String password, String name) async {
     String retVal = "error";
     OurUser _user = OurUser();
+    Quiz _quiz = Quiz();
+
     try {
       UserCredential _userAuth = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -65,9 +69,14 @@ class Auth with ChangeNotifier {
       _user.photoUrl = null;
       _user.quizAnswered = false;
       _user.groupId = null;
-      String _returnString = await OurDatabase().createUser(_user);
+      String _returnString = await UserDatabase().createUser(_user);
+
+      _quiz.isAnswered = false;
+      _quiz.uid = _userAuth.user!.uid;
+      QuizDatabse().createQuiz(_quiz);
+
       if (_returnString == "success") {
-        _currentUser = await OurDatabase().getUserInfo(_userAuth.user!.uid);
+        _currentUser = await UserDatabase().getUserInfo(_userAuth.user!.uid);
         retVal = "success";
       }
     } on FirebaseAuthException catch (e) {
@@ -79,6 +88,7 @@ class Auth with ChangeNotifier {
   Future<bool> googleSignIn(BuildContext context) async {
     GoogleSignIn googleSignIn = GoogleSignIn();
     OurUser _user = OurUser();
+    Quiz _quiz = Quiz();
 
     GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     if (googleUser != null) {
@@ -94,9 +104,13 @@ class Auth with ChangeNotifier {
           _user.uid = _authResult.user!.uid;
           _user.email = _authResult.user!.email;
           _user.name = _authResult.user!.displayName;
-          OurDatabase().createUser(_user);
+          UserDatabase().createUser(_user);
+
+          _quiz.isAnswered = false;
+          _quiz.uid = _authResult.user!.uid;
+          QuizDatabse().createQuiz(_quiz);
         }
-        _currentUser = await OurDatabase().getUserInfo(_authResult.user!.uid);
+        _currentUser = await UserDatabase().getUserInfo(_authResult.user!.uid);
         return true;
       } else {
         throw StateError('Missing Google Auth Token');

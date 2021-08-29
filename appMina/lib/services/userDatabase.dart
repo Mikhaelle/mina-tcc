@@ -1,7 +1,7 @@
 import 'package:appMina/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class OurDatabase {
+class UserDatabase {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   CollectionReference _users = FirebaseFirestore.instance.collection("users");
 

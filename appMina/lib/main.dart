@@ -2,7 +2,7 @@ import 'package:appMina/scenes/Root.dart';
 import 'package:appMina/states/auth.dart';
 import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/LoginScene.dart';
-import 'package:appMina/scenes/QuizScene.dart';
+import 'package:appMina/scenes/quiz/QuizScene.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

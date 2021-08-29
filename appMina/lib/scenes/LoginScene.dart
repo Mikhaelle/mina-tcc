@@ -1,6 +1,5 @@
-import 'dart:async';
 import 'package:appMina/models/user.dart';
-import 'package:appMina/scenes/QuizScene.dart';
+import 'package:appMina/scenes/quiz/QuizScene.dart';
 import 'package:appMina/states/auth.dart';
 import 'package:appMina/scenes/home/HomeScene.dart';
 import 'package:appMina/scenes/SingUpScene.dart';
