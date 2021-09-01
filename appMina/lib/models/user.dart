@@ -1,20 +1,16 @@
-import 'package:flutter/foundation.dart';
+class OurUser {
+  String? uid;
+  String? name;
+  String? email;
+  String? photoUrl;
+  bool? quizAnswered;
+  String? groupId;
 
-class User {
-  final String id;
-  final String name;
-  final String email;
-  final DateTime cicleDate;
-  final int cicleSize;
-  final int periodSize;
-  final int pmsSize;
-
-  User(
-      {@required this.id,
-      this.name,
-      this.email,
-      this.cicleDate,
-      this.cicleSize,
-      this.periodSize,
-      this.pmsSize});
+  OurUser({
+    this.uid,
+    this.name,
+    this.email,
+    this.quizAnswered,
+    this.groupId,
+  });
 }

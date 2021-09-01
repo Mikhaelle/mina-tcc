@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../models/user.dart';
+import '../../../models/user.dart';
 
 class HomeGraph extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+/*class HomeGraph extends StatelessWidget {
   final User userLogin;
 
   HomeGraph(this.userLogin);
@@ -105,16 +112,12 @@ class HomeGraph extends StatelessWidget {
                   endWidth: 30),
               GaugeRange(
                   startValue: maximum - 11,
-                  endValue: userLogin.pmsSize != null
-                      ? maximum - userLogin.pmsSize
-                      : maximum - 3,
+                  endValue: maximum - 3,
                   color: Colors.grey[200],
                   startWidth: 30,
                   endWidth: 30),
               GaugeRange(
-                  startValue: userLogin.pmsSize != null
-                      ? maximum - userLogin.pmsSize
-                      : maximum - 3,
+                  startValue: maximum - 3,
                   endValue: maximum,
                   color: Colors.yellow[100],
                   startWidth: 30,
@@ -123,4 +126,4 @@ class HomeGraph extends StatelessWidget {
       ],
     ));
   }
-}
+}*/
