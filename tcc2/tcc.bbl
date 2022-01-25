@@ -1,0 +1,68 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Arruda 2007]{arruda2007}
+\abntrefinfo{Arruda}{ARRUDA}{2007}
+{ARRUDA, M. B.~B. Como fazer referências: bibliográficas, eletrônicas e
+  demais formas de documentos.
+2007.
+Dispon{\'\i}vel em: \url{http://bu.ufsc.br/framerefer.html}.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2000]{NBR6034:2000}
+\abntrefinfo{ABNT}{ABNT}{2000}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \emph{{NBR} 14724}:
+  Informa{\c c}\~ao e documenta{\c c}\~ao --- referências.
+Rio de Janeiro, 2000.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2011]{NBR14724:2011}
+\abntrefinfo{ABNT}{ABNT}{2011}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \emph{{NBR} 14724}:
+  Informa{\c c}\~ao e documenta{\c c}\~ao --- trabalhos acad\^emicos ---
+  apresenta{\c c}\~ao.
+Rio de Janeiro, 2011. 15~p.}
+
+\bibitem[Bordalo, Ferziger e Kline 1989]{bordalo1989}
+\abntrefinfo{Bordalo, Ferziger e Kline}{BORDALO; FERZIGER; KLINE}{1989}
+{BORDALO, S.~N.; FERZIGER, J.~H.; KLINE, S.~J. The development of zonal models
+  for turbulence. In:  \emph{Proceedings of the 10th Brazilian Congress of
+  Mechanical Engineering}. [S.l.: s.n.], 1989. v.~1, p. 41--44.}
+
+\bibitem[Clark 1986]{clark1986}
+\abntrefinfo{Clark}{CLARK}{1986}
+{CLARK, J.~A. Private communication.
+University of Michigan, 1986.}
+
+\bibitem[Coimbra 1978]{coimbra1978}
+\abntrefinfo{Coimbra}{COIMBRA}{1978}
+{COIMBRA, A.~L. Lessons of continuum mechanics.
+São Paulo, Brazil, p.~428, 1978.}
+
+\bibitem[INMETRO 2013]{inmetro2003}
+\abntrefinfo{INMETRO}{INMETRO}{2013}
+{INMETRO. \emph{Vocabulário internacional de termos fundamentais e gerais de
+  metrologia}.
+Rio de Janeiro, Brasil, 2013. 75~p.}
+
+\bibitem[Sommerville 2007]{Sommerville2007}
+\abntrefinfo{Sommerville}{SOMMERVILLE}{2007}
+{SOMMERVILLE, I. \emph{Software Engineering}. 9th. ed. USA: Addison-Wesley
+  Publishing Company, 2007.
+ISBN 978-0-321-31379-9, 0-321-31379-8.}
+
+\bibitem[Soviero e Lavagna 1997]{soviero1997}
+\abntrefinfo{Soviero e Lavagna}{SOVIERO; LAVAGNA}{1997}
+{SOVIERO, P. A.~O.; LAVAGNA, L. G.~M. A numerical model for thin airfoils in
+  unsteady motion. In:  \emph{Journal of the Brazilian Societyt Mechanical
+  Sciences}. [S.l.: s.n.], 1997. v.~19, n.~3, p. 332--340.}
+
+\bibitem[Sparrow 1980]{sparrow1980}
+\abntrefinfo{Sparrow}{SPARROW}{1980}
+{SPARROW, E.~M. Forced convection heat transfer in a duct having
+  spanwise-periodic rectangular protuberances. In:  \emph{Numerical Heat
+  Transfer}. [S.l.: s.n.], 1980. v.~3, p. 149--167.}
+
+\end{thebibliography}
