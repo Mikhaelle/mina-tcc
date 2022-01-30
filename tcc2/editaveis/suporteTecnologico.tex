@@ -1,0 +1,213 @@
+\chapter[Suporte Tecnológico]{Suporte Tecnológico}
+\label{ch:suporte}
+
+Neste capítulo, há uma breve descrição de todas as ferramentas que serão 
+utilizadas no desenvolvimento do projeto. 
+
+No desenvolvimento do aplicativo, será utilizado o MacOS como sistema 
+operacional; o IntelliJ IDEA como editor de texto, o Android Studio como 
+o emulador de dispositivos Android e o xCode como emulados de dispositivos IOS. 
+Na aplicação, será utilizado o Flutter 
+como \emph{framework} para criação de aplicativos nativos; o Dart como linguagem 
+de programação do Flutter, e o Firebase como banco de dados e controle de acesso. 
+
+As partes envolvendo o código, documentação e escrita do trabalho serão disponibilizadas 
+no Github que utiliza o Git para controle de versão.
+
+O gerenciamento das tarefas referentes ao desenvolvimento do aplicativo é realizado através do Zenhub, 
+aplicativo disponível no Github, 
+e o Trello tem sido utilizado para o gerenciamento das tarefas do TCC. 
+
+A escrita do TCC tem sido realizada utilizando o LaTex com base em um \emph{template} 
+disponibilizado pela Faculdade do Gama em um repositório do GitHub. 
+
+
+\section{Desenvolvimento da Aplicação}
+
+Esta seção contemplará as tecnologias que foram e serão ainda utilizadas na construção do 
+código da aplicação.
+
+
+
+\begin{table}[]
+	\centering
+	\caption{\emph{Background}, Tecnologias no Desenvolvimento da Aplicação}
+	\label{tab12}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\rowcolor[HTML]{C0C0C0} 
+	\textbf{Técnicas} & \textbf{Background} & \textbf{Entrada}  &  \textbf{Processo}  \\ \hline
+	\textbf{Colaborativa} & \begin{minipage} [t] {0.2\textwidth} \centering Avaliações de \textbf{U} de itens em \textbf{I}  \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} \centering Avaliações de \textbf{u} dos itens em \textbf{I} \end{minipage}  &  \begin{minipage} [t] {0.2\textwidth}  Identifique usuários em \textbf{U} semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}.   \end{minipage}    \\ \hline
+	\rowcolor[HTML]{EFEFEF} 
+	\textbf{Baseada em Conteúdo} & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I}\end{minipage}  & \begin{minipage} [t] {0.2\textwidth} \textbf{u}'s avaliações dos itens em \textbf{I} \end{minipage}  &   \begin{minipage} [t] {0.2\textwidth} Gere um classificador de acordo com \textbf{u}'s comportamento de classificação e use-o em \textbf{i}. \end{minipage} \\ \hline
+	\textbf{Demográfica} & \begin{minipage} [t] {0.2\textwidth} \centering Informações demográficas sobre \textbf{U} e suas classificações de itens em \textbf{I}.    \end{minipage}   & \begin{minipage} [t] {0.2\textwidth} Informações demográficas sobre \textbf{u}. \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} Identifique os usuários que são demograficamente semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}. \end{minipage}   \\ \hline
+	\rowcolor[HTML]{EFEFEF} 
+	\textbf{Baseado em utilidade} & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I} \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} 
+		Uma função de utilidade sobre os itens em \textbf{I} que descreve \textbf{u}'s preferências \end{minipage}   & \begin{minipage} [t] {0.2\textwidth} Aplique a função aos itens e determine a classificação de \textbf{i}.  \end{minipage}  \\ \hline
+	\textbf{Baseado em conhecimento}  & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I}. Conhecimento de como esses itens atendem às necessidades do usuário.  \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} Uma descrição das necessidades ou interesses de \textbf{u}.\end{minipage}  &  \begin{minipage} [t] {0.2\textwidth}  
+		Inferir uma correspondência entre a necessidade de \textbf{i} e \textbf{u}. \end{minipage} \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Flutter 1.22.2}
+
+O Flutter \cite{flutter2017} é um kit de ferramentas de interface de usuário(UI) 
+grátis e \emph{open-souce}, criado pelo Google e lançado em 2017. 
+Ele auxilia na criação de aplicativos nativos para dispositivos 
+\emph{mobile}, \emph{web} e \emph{desktop} a partir de uma 
+única base de código. Isso significa que é possível criar uma 
+aplicação para diferentes sistemas operacionais(IOS e Android) 
+utilizando um único código \cite{flutter2017}.
+
+Ele é composto por um SDK(\emph{Software Development Kit}) e um
+\emph{framework}. O SDK é uma coleção de ferramentas que ajudam
+o desenvolvedor a desenvolver a aplicação e executá-la em
+plataformas específicas. Essas ferramentas incluem bibliotecas,
+documentação, exemplos de códigos, processos, guias,
+compiladores, entre outras coisas. Já o \emph{framework} é
+uma coleção de elementos da UI que são reutilizáveis e podem
+ser personalizados para as necessidades específicas da
+aplicação \cite{flutter2017}.
+
+\subsubsection{Dart 2.10.2}
+
+O Dart \cite{flutter2017} é a linguagem de programação utilizada no Flutter, sendo também 
+criada pelo Google em 2011. É uma linguagem focada para 
+desenvolvimento \emph{front-end} e do tipo orientada a objetos.
+
+\subsubsection{Firebase}
+
+O Firebase \cite{firebase2011} é uma plataforma desenvolvida pelo Google para a criação de aplicativos 
+\emph{web} e móveis. Era originalmente uma empresa independente, fundada em 2011. 
+Em 2014, o Google adquiriu a plataforma e, agora, é sua ferramenta principal 
+para o desenvolvimento de aplicativos. O Firebase contêm funcionalidades como: 
+análises; bancos de dados; mensagens e relatórios de erros, garantindo mais agilidade no desenvolvimento de aplicativos.
+
+\section{Engenharia de Software}
+
+Esta seção apresentará os suportes tecnológicos associados mais especificamente 
+à Engenharia de Software. A mesma foi dividida em três subseções, sendo elas: 
+Gerenciamento de Projetos, Gerenciamento de Desenvolvimento e Gerenciamento de 
+Configuração.
+
+\subsection{Gerenciamento do Projeto}
+
+Esta subseção descreve as metodologias e ferramentas adotadas para o gerenciamento 
+do projeto, tanto na escrita quanto no desenvolvimento da aplicação.
+
+\subsubsection{Trello}
+
+O Trello \cite{trello2011} é uma aplicação \emph{web} baseada no sistema Kanbam, que auxilia no 
+gerenciamento de tarefas para times grandes ou pessoas individuais. 
+Originalmente criado pela Fog Creek Software, em 2011, e vendida à Atlassian, em 
+2017. O Trello foi utilizado para organizar as tarefas 
+relacionadas à escrita do TCC, e também para manter o registro dos artigos utilizados.
+
+\subsubsection{ZenHub}
+
+O Zenhub \cite{zenhub2020} é uma ferramenta semelhante ao Trello. É exclusiva para uso junto ao 
+Github, sendo uma ferramenta adequada, focada em: rastreamento; planejamento e 
+relatórios das \emph{features} de projetos no GitHub. Ele é baseado nas 
+metodologias ágeis, como Scrum, e é utilizado em projetos ágeis. Com ele, 
+é possível planejar roteiros; usar quadros de tarefas e gerar relatórios 
+automatizados diretamente do repositório do GitHub. 
+Nesse projeto, será utilizado para organizar as tarefas relacionadas ao 
+desenvolvimento do aplicativo proposto.
+
+
+\subsubsection{Slack}
+
+O Slack \cite{slack2013} é uma plataforma de comunicação que permite a criação de times e a 
+organização de canais de conversas por tópicos, grupos privados ou mensagens 
+diretas. Ele também possui integração com  Google Drive, Trello, Dropbox, Box, 
+Heroku, IBM Bluemix, Crashlytics, GitHub, entre outros. Nesse 
+projeto, será utilizado para comunicação entre aluno e orientador.
+
+\subsection{Gerenciamento de Desenvolvimento}
+
+Esta subseção descreve as ferramentas adotadas para a construção do código da aplicação.
+
+\subsubsection{Visual Studio Code 1.50.1}
+
+Visual Studio Code é um editor de texto ou código fonte feito pela Microsoft, 
+bastante utilizado no desevolvimento de software \cite{vscode2015}. Tem suporte 
+para várias linguagens, e possui ferramentas importantes que auxiliam no 
+desenvolvimento de software, como por exemplo: \emph{debugger}, auto completar em 
+códigos, com sugestões inteligentes, e uma infinidade de extensões que podem ser instaladas para auxiliar ainda mais no desenvolvimento. Será usado como editor de código fonte principal no trabalho. 
+
+\subsubsection{Android Studio 3.6.3}
+
+O Android Studio \cite{android2020} é o ambiente de desenvolvimento para 
+aplicativos androids oficial do Google. Desenvolvido pelo Google e pela 
+JetBrains, o ambiente possui ferramentas como editor de texto, editor de \emph{layout}, 
+analizador apk, rápidos emuladores, \emph{debugger}, entre outras ferramentas 
+que auxiliam no desenolvimento de aplicativos. Apenas o emulador de dispositivo 
+desse software será utilizado no trabalho por conter tanto dispositivos Android 
+quanto IOS.
+
+\subsubsection{Linux Mint}
+
+O Linux Mint \cite{lm2020} é uma distribuição Linux gratuita e baseada no Ubuntu. O sistema operacional possui aplicações de código aberto ou código livre e é mantido pelo Linux Mint Team e a comunidade. Será usado como principal sistema operacional nesse trabalho.
+
+\subsubsection{Figma}
+
+O Figma \cite{figma2020} é um software para desenvolvimento de protótipos e 
+criação de projetos que não precisa de instalação, uma vez que está disponível 
+em nuvem, através de uma página web. Possui \emph{features} para projetos, prototipação, 
+projetos de sistemas, colaboração e \emph{download}. Os protótipos contam com 
+interações, transições avançadas com animações inteligentes, GIFs animados, 
+entre outros. Tais recursos possibilitam uma experiência muito próxima ao mundo 
+real. Ele permite o compartilhamento rápido do protótipo a outras pessoas e 
+facilita a contribuição. Nesse trabalho, será utilizado como ferramenta para a 
+prototipação do aplicativo proposto. 
+
+\subsection{Gerenciamento de Configuração}
+
+Esta subseção descreve as ferramentas adotadas para o versionamento do código da aplicação e da monografia.
+
+
+\subsubsection{Git 2.17.1}
+
+O Git \cite{git2020} é uma ferramenta gratuita e de código livre para controle 
+de versão, utilizada para lidar desde pequenos a grandes projetos com rapidez e 
+eficiência. Ele possibilita a criação de diversas branches que se ramificam e 
+podem ser editadas, combinadas e removidas sem sofrer perdas de dados. O controle de 
+versão também possibilita retornar a um momento específico do projeto e observar as 
+mudanças entre as versões. O Git 2.17.1 é utilizado para versionamento de código fonte 
+do aplicativo a ser desenvolvido nesse trabalho 
+e para a parte escrita do TCC.
+
+
+\subsubsection{GitHub}
+
+O GitHub \cite{github2020} é uma plataforma \emph{online} de desenvolvimento de 
+software que permite hospedar códigos e utilizar o controle de versão do Git. 
+Possibilita a revisão de códigos, gerenciamento de projetos, integração continua, 
+hospedagem, integrações de ferramentas, gerenciamento de equipe, documentação, 
+hospedagem de código, entre outras funcionalidades. Os repositórios, locais 
+aonde os projetos são guardados, podem ser fechados ou abertos e possibilitam o 
+trabalho em equipe. Será utilizado como plataforma que hospedará o código, 
+documentação e monografia do projeto
+
+\section{Escrita e Condução da Pesquisa}
+
+\subsection{LaTex}
+
+LaTex \cite{latex2020} é um sistema para preparação de documento. Inclui 
+recursos destinados à produção de documentação técnica e científica. O LaTex é 
+utilizado como padão para comunicação e publicação de documentos científicos, estando 
+disponível como software livre. O LaTex possibilita a composição de artigos de 
+periódicos, relatórios técnicos, livros e apresentações de \emph{slides}, faz 
+o controle automático de seções, referências, tabelas, figuras, notas de rodapé, 
+índices, entre outros e possíbilita a tipografia de fórmulas matemáticas 
+complexas. Neste trabalho, é utilizado localmente, junto ao editor de texto 
+padrão do sistema operacional. O \emph{template} utilizado é o disponibilizado pela 
+Faculdade do Gama no repositório do GitHub \footnote{Repositório do Github com o Template: https://github.com/fga-unb/template-latex-tcc}.
+A versão utilizada foi a TeX Live 2017/Debian.
+
+\section{Considerações Finais do Capítulo}
+
+Neste capítulo, foram aprensentadas brevemente as ferramentas e tecnologias 
+utilizadas no desenvolvimento do aplicativo, no gerenciamento 
+do projeto, no gerenciamento de configuração, no gerenciamento da 
+escrita e na condução da pesquisa.
