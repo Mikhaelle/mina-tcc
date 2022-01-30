@@ -1,0 +1,15 @@
+.idea
+.vscode
+tcc.aux
+tcc.blg
+tcc.fdb_latexmk
+tcc.idx
+tcc.ing
+tcc.lof
+tcc.log
+tcc.lot
+tcc.toc
+tcc.bbl
+tcc.brf
+tcc.fls
+tcc.ind
