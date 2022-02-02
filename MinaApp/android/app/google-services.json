@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "40899982825",
+    "project_id": "mina-app-react-native",
+    "storage_bucket": "mina-app-react-native.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40899982825:android:6a234bdce4df7fdc6c0778",
+        "android_client_info": {
+          "package_name": "com.minaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40899982825-dijlecgftbmdcir66660qpt35t366fc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.minaapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "40899982825-namadccgk417bi8vs8uuaqld99i7lsp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRvVWTtZlFTHm6U7piwenRuG2quFLOT2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40899982825-namadccgk417bi8vs8uuaqld99i7lsp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

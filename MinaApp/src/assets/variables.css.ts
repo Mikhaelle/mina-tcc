@@ -1,0 +1,22 @@
+import { Dimensions } from 'react-native';
+
+export const FONT_FAMILY = 'Roboto';
+export const FONT_SIZE_EXTRA_SMALL = '10px';
+export const FONT_SIZE_SMALL = '12px';
+export const FONT_SIZE_MEDIUM = '14px';
+export const FONT_SIZE_CUSTOM_MEDIUM = '16px';
+export const FONT_SIZE_LARGE = '18px';
+export const FONT_SIZE_MEDIUM_LARGE = '22px';
+export const FONT_SIZE_EXTRA_LARGE = '24px';
+export const FONT_SIZE_SUPER_LARGE = '28px';
+export const PRIMARY_COLOR = '#E0E5F8';
+export const SECONDARY_COLOR = '#E0E5F8';
+export const TERTIARY_COLOR = '#6A77ED';
+export const ALERT_CRITICAL_COLOR = '#C21020';
+export const SELECTED_PRIMARY_COLOR = '#216117';
+export const SELECTED_SECONDARY_COLOR = '#CBAD00';
+export const BLACK = '#000000';
+export const WHITE = '#FFFFFF';
+export const GRAY = '#EEEEEE';
+export const SCREEN_WIDTH = Dimensions.get('window').width + 'px';
+export const SCREEN_HEIGHT = Dimensions.get('window').height + 'px';
