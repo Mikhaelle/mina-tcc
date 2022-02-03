@@ -23,7 +23,7 @@ export const FormTextInput = styled.TextInput`
 
 
 export const View = styled.View`
-  background-color: ${theme.SECONDARY_COLOR};
+  background-color: ${theme.WHITE};
   height: 100%;
   align-items: center;
   padding: 25px;
