@@ -10,7 +10,7 @@ import * as theme from './assets/variables.css';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import { NewAccountScene } from './scenes/NewAccountScene/NewAccountScene';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { HomeScene } from './scenes/HomeScene/HomeScene';
+import Tabnavigator from './components/BottomTab';
 
 GoogleSignin.configure({
   webClientId: '40899982825-namadccgk417bi8vs8uuaqld99i7lsp1.apps.googleusercontent.com',
@@ -18,7 +18,6 @@ GoogleSignin.configure({
 
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
-export const HomeComponent = () => <HomeScene />;
 
 
 const App = () => {
@@ -51,15 +50,18 @@ const App = () => {
                             />
                              <Stack.Screen
                                 name="Home"
-                                component={HomeComponent}
+                                component={Tabnavigator}
                                 options={{
                                     headerShown: false,
                                     headerStyle: { backgroundColor: theme.PRIMARY_COLOR },
                                     headerTintColor: theme.WHITE,
                                 }}
                             />
+                            
                         </Stack.Navigator>
                     </AuthProvider>
+                    
+
         </NavigationContainer>
             </SafeAreaProvider>
     );
