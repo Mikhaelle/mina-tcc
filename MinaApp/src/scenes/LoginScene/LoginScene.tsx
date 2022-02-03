@@ -13,6 +13,15 @@ export const LoginScene: React.FC = () => {
     const { user,onGoogleButtonPress, login } = useAuth();
     const navigation = useNavigation();
 
+    const navigateToHome=() =>{
+        try {
+            console.log('oi')
+            navigation.navigate('Tabnavigator')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
   return (
       !user?
       <View>
@@ -38,6 +47,6 @@ export const LoginScene: React.FC = () => {
               <NewAccountButton onPress={() => {
                   navigation.navigate('NewAccount');}}><NewAccountText>Criar conta</NewAccountText></NewAccountButton>
             </ElementView>
-        </View>: <>{navigation.navigate('Home')}</>
+        </View>: <>{navigateToHome()}</>
   );
 };

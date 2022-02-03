@@ -3,7 +3,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {AuthService} from './services/AuthService/authService'
-import { AuthProvider } from './contexts/AuthContext/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext/AuthContext';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScene } from './scenes/LoginScene/LoginScene';
 import * as theme from './assets/variables.css';
@@ -48,8 +48,8 @@ const App = () => {
                                     headerTintColor: theme.WHITE,
                                 }}
                             />
-                             <Stack.Screen
-                                name="Home"
+                            <Stack.Screen
+                                name="Tabnavigator"
                                 component={Tabnavigator}
                                 options={{
                                     headerShown: false,
@@ -57,8 +57,8 @@ const App = () => {
                                     headerTintColor: theme.WHITE,
                                 }}
                             />
-                            
                         </Stack.Navigator>
+        
                     </AuthProvider>
                     
 

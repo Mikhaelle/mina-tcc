@@ -34,7 +34,6 @@ export const HomeScene: React.FC = () => {
   return (
       <View>
         <Calendar
-                  style={{ flex: 3, width: ("100%"), height: ("100%") }}
 
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
         monthFormat={'MMMM yyyy'}
@@ -55,7 +54,7 @@ export const HomeScene: React.FC = () => {
           '2022-02-21': {color: '#98C872'},
           '2022-02-22': {color: '#98C872', endingDay: true}
 
-        }} style={{width:'400px'}}
+        }}
         />
               <LoginButton onPress={() => {logout()}}><LoginText>Sair</LoginText></LoginButton>
         
