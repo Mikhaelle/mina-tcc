@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 
 export const FONT_FAMILY = 'Roboto';
 export const FONT_SIZE_EXTRA_SMALL = '10px';
