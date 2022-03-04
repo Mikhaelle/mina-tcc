@@ -10,7 +10,14 @@ import {LoginScene} from './scenes/LoginScene/LoginScene';
 import * as theme from './assets/variables.css';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
-import {QuizScene} from './scenes/QuizScene/QuizScene';
+import {Quiz1Scene} from './scenes/QuizScene/Quiz1Scene';
+import {Quiz2Scene} from './scenes/QuizScene/Quiz2Scene';
+import {Quiz3Scene} from './scenes/QuizScene/Quiz3Scene';
+import {Quiz4Scene} from './scenes/QuizScene/Quiz4Scene';
+import {Quiz5Scene} from './scenes/QuizScene/Quiz5Scene';
+import {Quiz6Scene} from './scenes/QuizScene/Quiz6Scene';
+import {Quiz7Scene} from './scenes/QuizScene/Quiz7Scene';
+
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Tabnavigator from './components/BottomTab';
@@ -22,7 +29,19 @@ GoogleSignin.configure({
 
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
-export const QuizComponent = () => <QuizScene />;
+export const Quiz1Component = () => <Quiz1Scene />;
+export const Quiz2Component = () => <Quiz2Scene />;
+export const Quiz3Component = () => <Quiz3Scene />;
+export const Quiz4Component = () => <Quiz4Scene />;
+export const Quiz5Component = () => <Quiz5Scene />;
+export const Quiz6Component = () => <Quiz6Scene />;
+export const Quiz7Component = () => <Quiz7Scene />;
+
+
+
+
+
+
 
 const App = () => {
   const auth = AuthService.getInstance();
@@ -37,7 +56,7 @@ const App = () => {
         <QuizStack.Navigator initialRouteName="Quiz1">
           <QuizStack.Screen
             name="Quiz1"
-            component={QuizComponent}
+            component={Quiz1Component}
             options={{
               headerShown: true,
               headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -45,6 +64,66 @@ const App = () => {
               headerLeft: null,
             }}
           />
+            <QuizStack.Screen
+                name="Quiz2"
+                component={Quiz2Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
+            <QuizStack.Screen
+                name="Quiz3"
+                component={Quiz3Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
+            <QuizStack.Screen
+                name="Quiz4"
+                component={Quiz4Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
+            <QuizStack.Screen
+                name="Quiz5"
+                component={Quiz5Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
+            <QuizStack.Screen
+                name="Quiz6"
+                component={Quiz6Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
+            <QuizStack.Screen
+                name="Quiz7"
+                component={Quiz7Component}
+                options={{
+                    headerShown: true,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.BLACK,
+                    headerLeft: null,
+                }}
+            />
         </QuizStack.Navigator>
     );
   };
@@ -74,6 +153,7 @@ const App = () => {
     );
   };
 
+  console.log('oi')
   return (
     <SafeAreaProvider>
       <NavigationContainer>

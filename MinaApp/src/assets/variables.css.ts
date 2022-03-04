@@ -20,3 +20,4 @@ export const WHITE = '#FFFFFF';
 export const GRAY = '#EEEEEE';
 export const SCREEN_WIDTH = Dimensions.get('window').width + 'px';
 export const SCREEN_HEIGHT = Dimensions.get('window').height + 'px';
+export const BORDER_RADIUS = '50px';
