@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 
 export const FONT_FAMILY = 'Roboto';
 export const FONT_SIZE_EXTRA_SMALL = '10px';
@@ -20,3 +20,4 @@ export const WHITE = '#FFFFFF';
 export const GRAY = '#EEEEEE';
 export const SCREEN_WIDTH = Dimensions.get('window').width + 'px';
 export const SCREEN_HEIGHT = Dimensions.get('window').height + 'px';
+export const BORDER_RADIUS = '50px';
