@@ -1,8 +1,22 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
-import {Image, Button} from 'react-native'
-import { useAuth } from '../../contexts/AuthContext/AuthContext';
-import {FormText, View, FormTextInput,GoogleButton,BR, ForgetButton, LoginButton, NewAccountButton,FormView, ElementView,ForgetText, LoginText,NewAccountText} from './HomeScene.css'
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect} from 'react';
+import {Image, Button} from 'react-native';
+import {useAuth} from '../../contexts/AuthContext/AuthContext';
+import {
+  FormText,
+  View,
+  FormTextInput,
+  GoogleButton,
+  BR,
+  ForgetButton,
+  LoginButton,
+  NewAccountButton,
+  FormView,
+  ElementView,
+  ForgetText,
+  LoginText,
+  NewAccountText,
+} from './HomeScene.css';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 
 export const HomeScene: React.FC = () => {
@@ -19,22 +33,42 @@ export const HomeScene: React.FC = () => {
       'Setembro',
       'Outubro',
       'Novembro',
-      'Dezembro'
+      'Dezembro',
     ],
-    monthNamesShort: ['Jan.', 'Fev.', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul.', 'Ago', 'Set.', 'Out.', 'Nov.', 'Dec.'],
-    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+    monthNamesShort: [
+      'Jan.',
+      'Fev.',
+      'Mar',
+      'Abr',
+      'Mai',
+      'Jun',
+      'Jul.',
+      'Ago',
+      'Set.',
+      'Out.',
+      'Nov.',
+      'Dec.',
+    ],
+    dayNames: [
+      'Domingo',
+      'Segunda',
+      'Terça',
+      'Quarta',
+      'Quinta',
+      'Sexta',
+      'Sabado',
+    ],
     dayNamesShort: ['Dom.', 'Seg.', 'Ter.', 'Qua.', 'Qui.', 'Sex.', 'Sab.'],
-    today: "Hoje"
+    today: 'Hoje',
   };
   LocaleConfig.defaultLocale = 'br';
 
-    const { user,onGoogleButtonPress, logout } = useAuth();
-    const navigation = useNavigation();
+  const {user, onGoogleButtonPress, logout} = useAuth();
+  const navigation = useNavigation();
 
   return (
-      <View>
-        <Calendar
-
+    <View>
+      <Calendar
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
         monthFormat={'MMMM yyyy'}
         // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
@@ -52,12 +86,16 @@ export const HomeScene: React.FC = () => {
           '2022-02-19': {color: '#98C872'},
           '2022-02-20': {color: '#98C872'},
           '2022-02-21': {color: '#98C872'},
-          '2022-02-22': {color: '#98C872', endingDay: true}
-
+          '2022-02-22': {color: '#98C872', endingDay: true},
         }}
-        />
-              <LoginButton onPress={() => {logout()}}><LoginText>Sair</LoginText></LoginButton>
-        
-        </View>
+      />
+      <LoginButton
+        onPress={() => {
+          logout();
+        }}
+      >
+        <LoginText>Sair</LoginText>
+      </LoginButton>
+    </View>
   );
 };
