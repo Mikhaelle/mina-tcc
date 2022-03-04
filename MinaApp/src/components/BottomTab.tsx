@@ -6,6 +6,7 @@ import {HomeScene} from '../scenes/HomeScene/HomeScene';
 import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
 import {SymptomScene} from '../scenes/SymptomScene/SymptomScene';
 import {TaskScene} from '../scenes/TaskScene/TaskScene';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {View} from 'react-native';
 import {styles} from './BottomTab.css';
@@ -55,24 +56,6 @@ const Tabnavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeComponent} />
       <Tab.Screen name="Profile" component={ProfileComponent} />
-      <Tab.Screen
-        name="Post"
-        component={PostScreen}
-        options={() => ({
-          tabBarIcon: ({}) => (
-            <View>
-              <LinearGradient
-                style={styles.iconTabRound}
-                start={{x: 0, y: 1}}
-                end={{x: 0, y: 0}}
-                colors={['#EB5757', '#FFD4D5']}
-              >
-                <Icon name="plus" size={26} color="#FFF" />
-              </LinearGradient>
-            </View>
-          ),
-        })}
-      />
       <Tab.Screen name="Task" component={TaskComponent} />
       <Tab.Screen name="Symptoms" component={TaskComponent} />
     </Tab.Navigator>
