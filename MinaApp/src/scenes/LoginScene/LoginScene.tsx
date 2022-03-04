@@ -33,7 +33,6 @@ export const LoginScene: React.FC = () => {
   const [userIsLogIn, setUserIsLogIn] = useState(false);
 
   useEffect(() => {
-    console.log('oi')
     user ? setUserIsLogIn(true) : setUserIsLogIn(false);
   }, []);
 

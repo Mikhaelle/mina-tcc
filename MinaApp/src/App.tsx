@@ -38,11 +38,6 @@ export const Quiz6Component = () => <Quiz6Scene />;
 export const Quiz7Component = () => <Quiz7Scene />;
 
 
-
-
-
-
-
 const App = () => {
   const auth = AuthService.getInstance();
   const quizService = QuizService.getInstance();
@@ -153,7 +148,6 @@ const App = () => {
     );
   };
 
-  console.log('oi')
   return (
     <SafeAreaProvider>
       <NavigationContainer>

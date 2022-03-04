@@ -27,8 +27,41 @@ export const ButtonText = styled.Text`
   justify-content: center;
 `;
 
+
+export const DropdownText = styled.Text`
+  position: absolute;
+    background-color: #fff;
+    top: 50px;
+`;
+
+
+
+
+export const DropdownView = styled.View`
+  position: absolute;
+    background-color: #fff;
+    width: 100%;
+    shadow-color: #000000
+    shadow-radius: 4px;
+    shadow-offset: { height: 4px, width: 0px };
+shadow-opacity: 0.5px;
+`;    
+
+export const ButtonDropdownText = styled.Text`
+ flex: 1;
+    textAlign: center;
+`;
+
+export const DropdownButton = styled.TouchableOpacity`
+  flex-direction: row;
+    align-items: center;
+    background-color: #efefef;
+    height: 50px;
+    width: 50%;
+    padding-horizontal: 10px;
+`;
+
 export const View = styled.View`
-  row:column;
   background-color: ${theme.WHITE};
   height: 100%;
   align-items: center;
