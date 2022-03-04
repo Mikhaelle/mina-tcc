@@ -20,34 +20,49 @@ export class AuthService {
     AuthService.instance = null;
   }
 
-  async createUserWithEmailAndPassword(email: string, password: string) {
+  async createUserWithEmailAndPassword(
+    email: string,
+    password: string,
+    setEmailError: any,
+    setPasswordError: any,
+  ) {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log('User account created & signed in!');
       })
       .catch(error => {
+        console.log('eoq');
         if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
+          setEmailError('Email já em uso!');
         }
-
         if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
+          setEmailError('Email inválido!');
         }
-
+        if(error.code === 'auth/invalid-password'){
+          setPasswordError('Senha inválida! A senha precisa ter 6 dígitos.');
+        }
         console.error(error);
       });
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string, setEmailError:any, setPasswordError:any) {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
         console.log(user);
         return user;
       })
-      .catch(error => {
-        console.log(error);
+      .catch(error => { 
+        if (error.code === 'auth/invalid-email') {
+          setEmailError('Email inválido!');
+        }
+        if (error.code === 'auth/user-not-found') {
+          setEmailError('Usuário não encontrado!');
+        }
+        if (error.code === 'auth/wrong-password') {
+          setPasswordError('Usuário ou senha não coincidem!');
+        }
       });
   }
 

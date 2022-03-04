@@ -13,10 +13,14 @@ import {useNavigation} from '@react-navigation/native';
 interface IAuthContext {
   accessToken: string;
   user: FirebaseAuthTypes.UserCredential | null;
+  emailError: string;
+  passwordError: string;
   login(email: string, password: string): Promise<void>;
   createAccount(email: string, password: string): Promise<void>;
   onGoogleButtonPress(): Promise<void>;
   logout(): Promise<void>;
+  setEmailError: React.Dispatch<React.SetStateAction<string>>;
+  setPasswordError: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const AuthContext: Context<IAuthContext> = createContext(undefined as any);
@@ -28,6 +32,9 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
   const [user, setUser] = useState<any>();
   const [accessToken, setAccessToken] = useState<string>('');
   const [initializing, setInitializing] = useState(true);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const navigation = useNavigation();
 
   // Handle user state changes
@@ -44,31 +51,43 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
   const authService = AuthService.getInstance();
 
   const login = async (email: string, password: string) => {
-    try {
-      await authService.login(email, password);
-    } catch (e: any) {
-      console.log(e);
+    if (!email) {
+      setEmailError('Email não pode ser nulo');
+      return;
     }
+    if (!password) {
+      setPasswordError('Senha não pode ser vazia');
+      return;
+    }
+    await authService.login(email, password, setEmailError, setPasswordError);
   };
 
   const onGoogleButtonPress = async () => {
     try {
       await authService.onGoogleButtonPress();
-    } catch (e: any) {
-      console.log(e);
-    }
+    } catch (e: any) {}
   };
+  
   const logout = async () => {
     authService.logout();
     navigation.navigate('Login');
   };
 
   const createAccount = async (email: string, password: string) => {
-    try {
-      await authService.createUserWithEmailAndPassword(email, password);
-    } catch (e: any) {
-      console.log(e);
+    if (!email) {
+      setEmailError('Email não pode ser nulo');
+      return;
     }
+    if (!password) {
+      setPasswordError('Senha não pode ser vazia');
+      return;
+    }
+    await authService.createUserWithEmailAndPassword(
+      email,
+      password,
+      setEmailError,
+      setPasswordError,
+    );
   };
 
   return (
@@ -76,10 +95,14 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
       value={{
         accessToken,
         user,
+        emailError,
+        passwordError,
         login,
         createAccount,
         onGoogleButtonPress,
         logout,
+        setEmailError,
+        setPasswordError,
       }}
       {...props}
     >

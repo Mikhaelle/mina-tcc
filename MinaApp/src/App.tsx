@@ -18,7 +18,6 @@ import {Quiz5Scene} from './scenes/QuizScene/Quiz5Scene';
 import {Quiz6Scene} from './scenes/QuizScene/Quiz6Scene';
 import {Quiz7Scene} from './scenes/QuizScene/Quiz7Scene';
 
-
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Tabnavigator from './components/BottomTab';
 
@@ -37,7 +36,6 @@ export const Quiz5Component = () => <Quiz5Scene />;
 export const Quiz6Component = () => <Quiz6Scene />;
 export const Quiz7Component = () => <Quiz7Scene />;
 
-
 const App = () => {
   const auth = AuthService.getInstance();
   const quizService = QuizService.getInstance();
@@ -48,78 +46,78 @@ const App = () => {
 
   const QuizNavigator = () => {
     return (
-        <QuizStack.Navigator initialRouteName="Quiz1">
-          <QuizStack.Screen
-            name="Quiz1"
-            component={Quiz1Component}
-            options={{
-              headerShown: true,
-              headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-              headerTintColor: theme.BLACK,
-              headerLeft: null,
-            }}
-          />
-            <QuizStack.Screen
-                name="Quiz2"
-                component={Quiz2Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-            <QuizStack.Screen
-                name="Quiz3"
-                component={Quiz3Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-            <QuizStack.Screen
-                name="Quiz4"
-                component={Quiz4Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-            <QuizStack.Screen
-                name="Quiz5"
-                component={Quiz5Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-            <QuizStack.Screen
-                name="Quiz6"
-                component={Quiz6Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-            <QuizStack.Screen
-                name="Quiz7"
-                component={Quiz7Component}
-                options={{
-                    headerShown: true,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.BLACK,
-                    headerLeft: null,
-                }}
-            />
-        </QuizStack.Navigator>
+      <QuizStack.Navigator initialRouteName="Quiz1">
+        <QuizStack.Screen
+          name="Quiz1"
+          component={Quiz1Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz2"
+          component={Quiz2Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz3"
+          component={Quiz3Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz4"
+          component={Quiz4Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz5"
+          component={Quiz5Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz6"
+          component={Quiz6Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+        <QuizStack.Screen
+          name="Quiz7"
+          component={Quiz7Component}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: null,
+          }}
+        />
+      </QuizStack.Navigator>
     );
   };
 

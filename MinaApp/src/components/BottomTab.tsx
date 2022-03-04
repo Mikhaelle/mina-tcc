@@ -6,7 +6,7 @@ import {HomeScene} from '../scenes/HomeScene/HomeScene';
 import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
 import {SymptomScene} from '../scenes/SymptomScene/SymptomScene';
 import {TaskScene} from '../scenes/TaskScene/TaskScene';
-import AntDesign from "react-native-vector-icons/AntDesign"
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {View} from 'react-native';
 import {styles} from './BottomTab.css';
