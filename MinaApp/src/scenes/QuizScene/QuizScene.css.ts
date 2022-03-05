@@ -57,6 +57,21 @@ export const DropdownButton = styled.TouchableOpacity`
   padding-horizontal: 10px;
 `;
 
+export const RoundButtonContainer = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const RoundButton = styled.TouchableOpacity`
+  background-color: ${theme.TERTIARY_COLOR};
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  width: 55px;
+  border-radius: 100px;
+`;
+
 export const View = styled.View`
   background-color: ${theme.WHITE};
   height: 100%;

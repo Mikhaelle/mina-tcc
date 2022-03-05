@@ -4,9 +4,7 @@ import logoImage from '../../assets/icons/logo/logo.png';
 import {useAuth} from '../../contexts/AuthContext/AuthContext';
 import {
   FormText,
-  View,
   FormTextInput,
-  BR,
   LoginButton,
   FormView,
   ElementView,
@@ -19,8 +17,6 @@ import { useQuiz } from '../../contexts/QuizContext/QuizContext';
 export const NewAccountScene: React.FC = () => {
   const [userEmail, setUserEmail] = React.useState('');
   const [userPassword, setPassword] = React.useState('');
-  const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [checkEqualPassword, setCheckEqualPassword] = React.useState(true);
   const {
     user,
     createAccount,
@@ -32,14 +28,14 @@ export const NewAccountScene: React.FC = () => {
   const {userAnsweredQuiz} = useQuiz();
   const navigation = useNavigation();
 
-  useEffect(() => {
+  useEffect (() => {
     console.log('user: ' + user);
     if (user) {
       userAnsweredQuiz
         ? navigation.navigate('Tabnavigator')
         : navigation.navigate('Quiz');
     }
-  }, []);
+  },[user])
 
   return (
     <ElementView>

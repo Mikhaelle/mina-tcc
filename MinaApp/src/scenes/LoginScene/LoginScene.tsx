@@ -38,14 +38,15 @@ export const LoginScene: React.FC = () => {
   const {userAnsweredQuiz} = useQuiz();
   const navigation = useNavigation();
 
-  const navigateTo= () => {
+
+   useEffect (() => {
     console.log('user: ' + user);
     if (user) {
       userAnsweredQuiz
         ? navigation.navigate('Tabnavigator')
         : navigation.navigate('Quiz');
     }
-  }
+  },[user])
 
   return (
     <ElementView>
@@ -84,7 +85,6 @@ export const LoginScene: React.FC = () => {
         <LoginButton
           onPress={() => {
             login(userEmail, userPassword);
-            navigateTo()
           }}
         >
           <LoginText>Entrar</LoginText>

@@ -7,8 +7,11 @@ import {
   ForgetButton,
   Button,
   ButtonText,
+  RoundButtonContainer,
+  RoundButton,
 } from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export const Quiz5Scene: React.FC = () => {
   const navigation = useNavigation();
@@ -17,9 +20,15 @@ export const Quiz5Scene: React.FC = () => {
     <>
       <View>
         <FormText>Você possui sintomas de tensão pré menstrual(TPM) ?</FormText>
-        <Button onPress={() => navigation.navigate('Quiz6')}>
-          <ButtonText>Continuar</ButtonText>
-        </Button>
+        <RoundButtonContainer>
+            <RoundButton style={{backgroundColor:'red'}} onPress={() => navigation.navigate('Quiz6')}>
+            <Icon name={'close'} size={24} color={'white'}/>
+            </RoundButton>
+            <RoundButton style={{backgroundColor:'green'}} onPress={() => navigation.navigate('Quiz6')}>
+            <Icon name={'check'} size={24} color={'white'}/>
+            </RoundButton>
+          </RoundButtonContainer>
+        
         <Image
           source={quizImage}
           style={{alignSelf: 'flex-end', position: 'absolute', bottom: 0}}
