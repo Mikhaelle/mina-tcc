@@ -6,12 +6,9 @@ import {HomeScene} from '../scenes/HomeScene/HomeScene';
 import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
 import {SymptomScene} from '../scenes/SymptomScene/SymptomScene';
 import {TaskScene} from '../scenes/TaskScene/TaskScene';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {View} from 'react-native';
-import {styles} from './BottomTab.css';
-import PostScreen from './NewCicle';
-import LinearGradient from 'react-native-linear-gradient';
+import {ThemeConsumer} from 'styled-components/native';
+import * as theme from '../assets/variables.css';
 
 export const ProfileComponent = () => <ProfileScene />;
 export const TaskComponent = () => <TaskScene />;
@@ -54,10 +51,49 @@ const Tabnavigator = () => {
         showLabel: false,
       }}
     >
-      <Tab.Screen name="Home" component={HomeComponent} />
-      <Tab.Screen name="Profile" component={ProfileComponent} />
-      <Tab.Screen name="Task" component={TaskComponent} />
-      <Tab.Screen name="Symptoms" component={TaskComponent} />
+      <Tab.Screen
+        name="Home"
+        component={HomeComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Mina',
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          title: 'Perfil',
+        }}
+      />
+      <Tab.Screen
+        name="Task"
+        component={TaskComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Tarefas',
+        }}
+      />
+      <Tab.Screen
+        name="Symptoms"
+        component={TaskComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Sintomas',
+        }}
+      />
     </Tab.Navigator>
   );
 };

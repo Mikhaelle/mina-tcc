@@ -67,7 +67,7 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
       await authService.onGoogleButtonPress();
     } catch (e: any) {}
   };
-  
+
   const logout = async () => {
     authService.logout();
     navigation.navigate('Login');

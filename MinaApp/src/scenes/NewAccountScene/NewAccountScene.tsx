@@ -4,9 +4,7 @@ import logoImage from '../../assets/icons/logo/logo.png';
 import {useAuth} from '../../contexts/AuthContext/AuthContext';
 import {
   FormText,
-  View,
   FormTextInput,
-  BR,
   LoginButton,
   FormView,
   ElementView,
@@ -14,13 +12,11 @@ import {
 } from './NewAccountScene.css';
 import {useNavigation} from '@react-navigation/native';
 import {ErrorText, ImgView} from '../LoginScene/LoginScene.css';
-import { useQuiz } from '../../contexts/QuizContext/QuizContext';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const NewAccountScene: React.FC = () => {
   const [userEmail, setUserEmail] = React.useState('');
   const [userPassword, setPassword] = React.useState('');
-  const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [checkEqualPassword, setCheckEqualPassword] = React.useState(true);
   const {
     user,
     createAccount,
@@ -39,7 +35,7 @@ export const NewAccountScene: React.FC = () => {
         ? navigation.navigate('Tabnavigator')
         : navigation.navigate('Quiz');
     }
-  }, []);
+  }, [user]);
 
   return (
     <ElementView>

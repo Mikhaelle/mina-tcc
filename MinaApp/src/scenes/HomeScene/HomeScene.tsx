@@ -1,23 +1,17 @@
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Image, Button} from 'react-native';
 import {useAuth} from '../../contexts/AuthContext/AuthContext';
 import {
-  FormText,
+  Button,
+  ButtonText,
+  RoundButton,
+  RowContainer,
+  TitleText,
   View,
-  FormTextInput,
-  GoogleButton,
-  BR,
-  ForgetButton,
-  LoginButton,
-  NewAccountButton,
-  FormView,
-  ElementView,
-  ForgetText,
-  LoginText,
-  NewAccountText,
 } from './HomeScene.css';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {BackHandler} from 'react-native';
 
 export const HomeScene: React.FC = () => {
   LocaleConfig.locales['br'] = {
@@ -63,8 +57,18 @@ export const HomeScene: React.FC = () => {
   };
   LocaleConfig.defaultLocale = 'br';
 
-  const {user, onGoogleButtonPress, logout} = useAuth();
   const navigation = useNavigation();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
 
   return (
     <View>
@@ -89,13 +93,23 @@ export const HomeScene: React.FC = () => {
           '2022-02-22': {color: '#98C872', endingDay: true},
         }}
       />
-      <LoginButton
-        onPress={() => {
-          logout();
-        }}
-      >
-        <LoginText>Sair</LoginText>
-      </LoginButton>
+      <RowContainer>
+        <TitleText>Fase: Folicular inicial</TitleText>
+        <RoundButton
+          style={{backgroundColor: '#F37676'}}
+          onPress={() => navigation.navigate('Quiz6')}
+        >
+          <Icon name={'plus'} size={24} color={'white'} />
+        </RoundButton>
+      </RowContainer>
+      <Button onPress={() => navigation.navigate('Task')}>
+        <ButtonText>PREVISÃO DE HOJE</ButtonText>
+        <Icon name={'right'} />
+      </Button>
+      <Button onPress={() => navigation.navigate('About')}>
+        <ButtonText>SOBRE A FASE</ButtonText>
+        <Icon name={'right'} />
+      </Button>
     </View>
   );
 };
