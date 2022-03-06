@@ -46,16 +46,54 @@ const Tabnavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: () => screenOptions(route),
-        tabBarStyle: {backgroundColor: theme.PRIMARY_COLOR},
       })}
       tabBarOptions={{
         showLabel: false,
       }}
     >
-      <Tab.Screen name="Home" component={HomeComponent} />
-      <Tab.Screen name="Profile" component={ProfileComponent} />
-      <Tab.Screen name="Task" component={TaskComponent} />
-      <Tab.Screen name="Symptoms" component={TaskComponent} />
+      <Tab.Screen
+        name="Home"
+        component={HomeComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Mina',
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          title: 'Perfil',
+        }}
+      />
+      <Tab.Screen
+        name="Task"
+        component={TaskComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Tarefas',
+        }}
+      />
+      <Tab.Screen
+        name="Symptoms"
+        component={TaskComponent}
+        options={{
+          headerShown: true,
+          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+          headerTintColor: theme.BLACK,
+          headerLeft: () => null,
+          title: 'Sintomas',
+        }}
+      />
     </Tab.Navigator>
   );
 };

@@ -94,7 +94,10 @@ export const LoginScene: React.FC = () => {
             onGoogleButtonPress();
           }}
         >
-          <Image source={googleLogo} style={{width:30, height:30, alignSelf:'center'}}/>
+          <Image
+            source={googleLogo}
+            style={{width: 30, height: 30, alignSelf: 'center'}}
+          />
           <NewAccountText>Entrar com o Google</NewAccountText>
         </GoogleButton>
 

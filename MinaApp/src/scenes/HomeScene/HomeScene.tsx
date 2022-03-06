@@ -11,7 +11,7 @@ import {
 } from './HomeScene.css';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { BackHandler } from 'react-native';
+import {BackHandler} from 'react-native';
 
 export const HomeScene: React.FC = () => {
   LocaleConfig.locales['br'] = {
@@ -69,18 +69,9 @@ export const HomeScene: React.FC = () => {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
-  
+
   return (
     <View>
-      <RowContainer>
-        <TitleText>Fase: Folicular inicial</TitleText>
-        <RoundButton
-          style={{backgroundColor: '#F37676'}}
-          onPress={() => navigation.navigate('Quiz6')}
-        >
-          <Icon name={'plus'} size={24} color={'white'} />
-        </RoundButton>
-      </RowContainer>
       <Calendar
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
         monthFormat={'MMMM yyyy'}
@@ -102,7 +93,15 @@ export const HomeScene: React.FC = () => {
           '2022-02-22': {color: '#98C872', endingDay: true},
         }}
       />
-
+      <RowContainer>
+        <TitleText>Fase: Folicular inicial</TitleText>
+        <RoundButton
+          style={{backgroundColor: '#F37676'}}
+          onPress={() => navigation.navigate('Quiz6')}
+        >
+          <Icon name={'plus'} size={24} color={'white'} />
+        </RoundButton>
+      </RowContainer>
       <Button onPress={() => navigation.navigate('Task')}>
         <ButtonText>PREVISÃO DE HOJE</ButtonText>
         <Icon name={'right'} />
