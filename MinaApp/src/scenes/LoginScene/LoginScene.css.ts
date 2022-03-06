@@ -80,7 +80,7 @@ export const GoogleButton = styled.TouchableOpacity`
 export const ElementView = styled.View`
   justify-content: space-between;
   flex-direction: column;
-  background-color: ${theme.SECONDARY_COLOR};
+  background-color: ${theme.PRIMARY_COLOR};
   height: 100%;
   font-family: ${theme.FONT_FAMILY};
   width: 100%;

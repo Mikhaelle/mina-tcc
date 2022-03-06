@@ -1,89 +1,54 @@
 import styled from 'styled-components/native';
 import * as theme from '../../assets/variables.css';
 
-export const FormText = styled.Text`
+export const TitleText = styled.Text`
   color: ${theme.BLACK};
   font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
   line-height: 16px;
+  align-self: center;
 `;
 
-export const ForgetText = styled.Text`
+export const ButtonText = styled.Text`
+  flex: 1;
   color: ${theme.BLACK};
   font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
   line-height: 16px;
-  align-self: flex-end;
+  align-self: center;
+  letter-spacing: 0.02;
 `;
 
-export const FormTextInput = styled.TextInput`
-  height: 40px;
-  background: ${theme.WHITE};
-  border-radius: 8px;
+export const Button = styled.TouchableOpacity`
+  width: 80%;
+  background-color: ${theme.SECONDARY_COLOR};
+  margin-top: 10px;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  border-radius: ${theme.BORDER_RADIUS};
+  flex-direction: row;
+  padding: 15px;
+  padding-right: 40px;
+  padding-left: 40px;
+`;
+
+export const RoundButton = styled.TouchableOpacity`
+  background-color: ${theme.TERTIARY_COLOR};
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 100px;
 `;
 
 export const View = styled.View`
-  background-color: ${theme.SECONDARY_COLOR};
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: ${theme.WHITE};
   height: 100%;
-  align-items: center;
   padding: 25px;
-  padding-top: 80px;
-  padding-bottom: 80px;
   font-family: ${theme.FONT_FAMILY};
 `;
-
-export const ForgetButton = styled.TouchableOpacity`
-  width: 100%;
-  justify-content: flex-end;
-`;
-
-export const LoginText = styled.Text`
-  color: ${theme.WHITE};
-  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
-  line-height: 16px;
-  align-self: center;
-`;
-
-export const LoginButton = styled.TouchableOpacity`
-  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
-  border-radius: 100px;
-  background-color: ${theme.TERTIARY_COLOR};
-  justify-content: center;
-  height: 45px;
-  width: 80%;
-  align-self: center;
-`;
-
-export const NewAccountText = styled.Text`
-  color: ${theme.TERTIARY_COLOR};
-  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
-  line-height: 16px;
-  align-self: center;
-`;
-
-export const NewAccountButton = styled.TouchableOpacity`
-  width: 100%;
-  justify-content: flex-end;
-`;
-
-export const GoogleButton = styled.TouchableOpacity`
-  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
-  border-radius: 100px;
-  background-color: ${theme.WHITE};
-  height: 45px;
-  width: 80%;
+export const RowContainer = styled.View`
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-`;
-
-export const ElementView = styled.View`
   justify-content: space-between;
-  flex-grow: 1;
-  width: 100%;
-`;
-
-export const FormView = styled.View``;
-
-export const BR = styled.View`
-  height: 10px;
 `;

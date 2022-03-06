@@ -39,21 +39,26 @@ export class AuthService {
         if (error.code === 'auth/invalid-email') {
           setEmailError('Email inválido!');
         }
-        if(error.code === 'auth/invalid-password'){
+        if (error.code === 'auth/invalid-password') {
           setPasswordError('Senha inválida! A senha precisa ter 6 dígitos.');
         }
         console.error(error);
       });
   }
 
-  async login(email: string, password: string, setEmailError:any, setPasswordError:any) {
+  async login(
+    email: string,
+    password: string,
+    setEmailError: any,
+    setPasswordError: any,
+  ) {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
         console.log(user);
         return user;
       })
-      .catch(error => { 
+      .catch(error => {
         if (error.code === 'auth/invalid-email') {
           setEmailError('Email inválido!');
         }

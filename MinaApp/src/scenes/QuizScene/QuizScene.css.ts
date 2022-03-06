@@ -80,6 +80,4 @@ export const View = styled.View`
   padding-top: 80px;
   padding-bottom: 80px;
   font-family: ${theme.FONT_FAMILY};
-  border-color: red;
-  border-width: 1px;
 `;

@@ -7,6 +7,8 @@ import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
 import {SymptomScene} from '../scenes/SymptomScene/SymptomScene';
 import {TaskScene} from '../scenes/TaskScene/TaskScene';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {ThemeConsumer} from 'styled-components/native';
+import * as theme from '../assets/variables.css';
 
 export const ProfileComponent = () => <ProfileScene />;
 export const TaskComponent = () => <TaskScene />;
@@ -44,6 +46,7 @@ const Tabnavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: () => screenOptions(route),
+        tabBarStyle: {backgroundColor: theme.PRIMARY_COLOR},
       })}
       tabBarOptions={{
         showLabel: false,
