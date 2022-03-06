@@ -38,14 +38,14 @@ export const LoginScene: React.FC = () => {
   const {userAnsweredQuiz} = useQuiz();
   const navigation = useNavigation();
 
-  const navigateTo= () => {
+  useEffect(() => {
     console.log('user: ' + user);
     if (user) {
       userAnsweredQuiz
         ? navigation.navigate('Tabnavigator')
         : navigation.navigate('Quiz');
     }
-  }
+  }, [user]);
 
   return (
     <ElementView>
@@ -84,7 +84,6 @@ export const LoginScene: React.FC = () => {
         <LoginButton
           onPress={() => {
             login(userEmail, userPassword);
-            navigateTo()
           }}
         >
           <LoginText>Entrar</LoginText>
@@ -95,7 +94,10 @@ export const LoginScene: React.FC = () => {
             onGoogleButtonPress();
           }}
         >
-          <Image source={googleLogo} />
+          <Image
+            source={googleLogo}
+            style={{width: 30, height: 30, alignSelf: 'center'}}
+          />
           <NewAccountText>Entrar com o Google</NewAccountText>
         </GoogleButton>
 

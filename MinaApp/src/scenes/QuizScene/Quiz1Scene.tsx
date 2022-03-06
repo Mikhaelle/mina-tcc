@@ -1,6 +1,10 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Image} from 'react-native';
+import {
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {BackHandler, Image} from 'react-native';
 import {FormText, View, Button, ButtonText} from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
 import DatePicker from 'react-native-date-picker';
@@ -8,6 +12,18 @@ import DatePicker from 'react-native-date-picker';
 export const Quiz1Scene: React.FC = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
+  const route = useRoute();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
 
   return (
     <View>

@@ -1,6 +1,10 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import {BackHandler, StatusBar} from 'react-native';
+import {
+  NavigationContainer,
+  useFocusEffect,
+  useRoute,
+} from '@react-navigation/native';
 import {AuthService} from './services/AuthService/authService';
 import {QuizService} from './services/QuizService/quizService';
 import {AuthProvider, useAuth} from './contexts/AuthContext/AuthContext';
@@ -20,6 +24,7 @@ import {Quiz7Scene} from './scenes/QuizScene/Quiz7Scene';
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Tabnavigator from './components/BottomTab';
+import {AboutScene} from './scenes/AboutScene/AboutScene';
 
 GoogleSignin.configure({
   webClientId:
@@ -28,6 +33,7 @@ GoogleSignin.configure({
 
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
+export const AboutComponent = () => <AboutScene />;
 export const Quiz1Component = () => <Quiz1Scene />;
 export const Quiz2Component = () => <Quiz2Scene />;
 export const Quiz3Component = () => <Quiz3Scene />;
@@ -54,7 +60,9 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            headerLeft: () => null,
+            gestureEnabled: false,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -64,7 +72,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -74,7 +82,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -84,7 +92,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -94,7 +102,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -104,7 +112,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
         <QuizStack.Screen
@@ -114,7 +122,7 @@ const App = () => {
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
-            headerLeft: null,
+            title: 'Configurações iniciais',
           }}
         />
       </QuizStack.Navigator>
@@ -174,6 +182,15 @@ const App = () => {
               <Stack.Screen
                 name="Tabnavigator"
                 component={Tabnavigator}
+                options={{
+                  headerShown: false,
+                  headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                  headerTintColor: theme.WHITE,
+                }}
+              />
+              <Stack.Screen
+                name="About"
+                component={AboutComponent}
                 options={{
                   headerShown: false,
                   headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
