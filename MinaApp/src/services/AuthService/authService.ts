@@ -32,7 +32,6 @@ export class AuthService {
         console.log('User account created & signed in!');
       })
       .catch(error => {
-        console.log('eoq');
         if (error.code === 'auth/email-already-in-use') {
           setEmailError('Email já em uso!');
         }

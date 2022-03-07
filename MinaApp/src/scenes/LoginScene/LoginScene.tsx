@@ -39,7 +39,6 @@ export const LoginScene: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log('user: ' + user);
     if (user) {
       answeredQuiz
         ? navigation.navigate('Tabnavigator')
