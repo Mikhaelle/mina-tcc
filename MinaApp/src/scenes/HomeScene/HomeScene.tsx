@@ -12,6 +12,8 @@ import {
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {BackHandler} from 'react-native';
+import {usePeriod} from '../../contexts/PeriodContext/PeriodContext';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const HomeScene: React.FC = () => {
   LocaleConfig.locales['br'] = {
@@ -59,6 +61,9 @@ export const HomeScene: React.FC = () => {
 
   const navigation = useNavigation();
 
+  const {lastPeriod, periods} = usePeriod();
+  const {periodDuration} = useQuiz();
+
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -70,6 +75,53 @@ export const HomeScene: React.FC = () => {
     }, []),
   );
 
+  var calendarDays = {};
+  const daysToMark = () => {
+    for (var i = 0; i < periodDuration; i++) {
+      var date = new Date();
+      date.setDate(lastPeriod.getDate() + i);
+
+      const datePeriodString =
+        date.getFullYear().toString() +
+        '-' +
+        ('0' + (date.getMonth() + 1).toString()).slice(-2) +
+        '-' +
+        ('0' + date.getDate().toString()).slice(-2);
+      if (i === 0) {
+        calendarDays[datePeriodString] = {startingDay: true, color: '#F87D6D'};
+      } else if (i === periodDuration - 1) {
+        calendarDays[datePeriodString] = {endingDay: true, color: '#F87D6D'};
+      } else {
+        calendarDays[datePeriodString] = {color: '#F87D6D'};
+      }
+    }
+    console.log(calendarDays);
+    return calendarDays;
+  };
+
+  const nextDaysToMark = () => {
+    for (var i = 0; i < periodDuration; i++) {
+      var date = new Date();
+      date.setDate(lastPeriod.getDate() + i);
+
+      const datePeriodString =
+        date.getFullYear().toString() +
+        '-' +
+        ('0' + (date.getMonth() + 1).toString()).slice(-2) +
+        '-' +
+        ('0' + date.getDate().toString()).slice(-2);
+      if (i === 0) {
+        calendarDays[datePeriodString] = {startingDay: true, color: '#F87D6D'};
+      } else if (i === periodDuration - 1) {
+        calendarDays[datePeriodString] = {endingDay: true, color: '#F87D6D'};
+      } else {
+        calendarDays[datePeriodString] = {color: '#F87D6D'};
+      }
+    }
+    console.log(calendarDays);
+    return calendarDays;
+  };
+
   return (
     <View>
       <Calendar
@@ -78,20 +130,7 @@ export const HomeScene: React.FC = () => {
         // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
         firstDay={7}
         markingType={'period'}
-        markedDates={{
-          '2022-02-02': {startingDay: true, color: '#F87D6D'},
-          '2022-02-03': {color: '#F87D6D'},
-          '2022-02-04': {color: '#F87D6D'},
-          '2022-02-05': {endingDay: true, color: '#F87D6D'},
-          '2022-02-15': {startingDay: true, color: '#98C872'},
-          '2022-02-16': {color: '#98C872'},
-          '2022-02-17': {color: '#98C872'},
-          '2022-02-18': {color: '#98C872'},
-          '2022-02-19': {color: '#98C872'},
-          '2022-02-20': {color: '#98C872'},
-          '2022-02-21': {color: '#98C872'},
-          '2022-02-22': {color: '#98C872', endingDay: true},
-        }}
+        markedDates={daysToMark()}
       />
       <RowContainer>
         <TitleText>Fase: Folicular inicial</TitleText>
