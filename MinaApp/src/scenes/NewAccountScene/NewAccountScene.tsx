@@ -25,13 +25,13 @@ export const NewAccountScene: React.FC = () => {
     passwordError,
     setPasswordError,
   } = useAuth();
-  const {userAnsweredQuiz} = useQuiz();
+  const {answeredQuiz} = useQuiz();
   const navigation = useNavigation();
 
   useEffect(() => {
     console.log('user: ' + user);
     if (user) {
-      userAnsweredQuiz
+      answeredQuiz
         ? navigation.navigate('Tabnavigator')
         : navigation.navigate('Quiz');
     }
