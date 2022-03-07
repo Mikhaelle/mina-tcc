@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import ModalDropdown from 'react-native-modal-dropdown';
 import {Image, StyleSheet} from 'react-native';
 import quizImage from '../../assets/images/quiz.png';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const Quiz2Scene: React.FC = () => {
   const dropdownOptions = [
@@ -30,8 +31,9 @@ export const Quiz2Scene: React.FC = () => {
     '12 dias',
   ];
 
-  const [selected, setSelected] = useState(dropdownOptions[4]);
+  const [selected, setSelected] = useState(5);
   const navigation = useNavigation();
+  const {setPeriodDuration} = useQuiz();
 
   const icon = () => {
     return <Icon name={'down'} />;
@@ -41,14 +43,17 @@ export const Quiz2Scene: React.FC = () => {
     <View>
       <FormText>Quanto tempo dura normalmente sua menstruação ?</FormText>
       <ModalDropdown
-        onSelect={(idx: any, value: any) => setSelected(value)}
+        onSelect={(idx: any, value: any) => setSelected(idx + 1)}
         options={dropdownOptions}
-        defaultValue={dropdownOptions[4]}
         style={styles.dropdown_2}
         textStyle={styles.dropdown_2_text}
         renderRightComponent={icon}
       />
-      <Button onPress={() => navigation.navigate('Quiz3')}>
+      <Button
+        onPress={() => {
+          setPeriodDuration(selected), navigation.navigate('Quiz3');
+        }}
+      >
         <ButtonText>Continuar</ButtonText>
       </Button>
       <Image

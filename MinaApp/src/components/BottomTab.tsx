@@ -9,6 +9,8 @@ import {TaskScene} from '../scenes/TaskScene/TaskScene';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {ThemeConsumer} from 'styled-components/native';
 import * as theme from '../assets/variables.css';
+import {PeriodService} from '../services/PeriodService/periodService';
+import {PeriodProvider} from '../contexts/PeriodContext/PeriodContext';
 
 export const ProfileComponent = () => <ProfileScene />;
 export const TaskComponent = () => <TaskScene />;
@@ -17,6 +19,7 @@ export const AboutComponent = () => <AboutScene />;
 export const HomeComponent = () => <HomeScene />;
 
 const Tab = createBottomTabNavigator();
+const periodService = PeriodService.getInstance();
 
 const screenOptions = (route: RouteProp<ParamListBase, string>) => {
   let iconName;
@@ -43,58 +46,60 @@ const screenOptions = (route: RouteProp<ParamListBase, string>) => {
 
 const Tabnavigator = () => {
   return (
-    <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: () => screenOptions(route),
-      })}
-      tabBarOptions={{
-        showLabel: false,
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={HomeComponent}
-        options={{
-          headerShown: true,
-          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-          headerTintColor: theme.BLACK,
-          headerLeft: () => null,
-          title: 'Mina',
+    <PeriodProvider periodService={periodService}>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarIcon: () => screenOptions(route),
+        })}
+        tabBarOptions={{
+          showLabel: false,
         }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileComponent}
-        options={{
-          headerShown: true,
-          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-          headerTintColor: theme.BLACK,
-          title: 'Perfil',
-        }}
-      />
-      <Tab.Screen
-        name="Task"
-        component={TaskComponent}
-        options={{
-          headerShown: true,
-          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-          headerTintColor: theme.BLACK,
-          headerLeft: () => null,
-          title: 'Tarefas',
-        }}
-      />
-      <Tab.Screen
-        name="Symptoms"
-        component={TaskComponent}
-        options={{
-          headerShown: true,
-          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-          headerTintColor: theme.BLACK,
-          headerLeft: () => null,
-          title: 'Sintomas',
-        }}
-      />
-    </Tab.Navigator>
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: () => null,
+            title: 'Mina',
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            title: 'Perfil',
+          }}
+        />
+        <Tab.Screen
+          name="Task"
+          component={TaskComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: () => null,
+            title: 'Tarefas',
+          }}
+        />
+        <Tab.Screen
+          name="Symptoms"
+          component={TaskComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            headerLeft: () => null,
+            title: 'Sintomas',
+          }}
+        />
+      </Tab.Navigator>
+    </PeriodProvider>
   );
 };
 

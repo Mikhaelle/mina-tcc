@@ -9,9 +9,11 @@ import {
 } from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const Quiz5Scene: React.FC = () => {
   const navigation = useNavigation();
+  const {setTpmSymptoms} = useQuiz();
 
   return (
     <>
@@ -20,13 +22,17 @@ export const Quiz5Scene: React.FC = () => {
         <RoundButtonContainer>
           <RoundButton
             style={{backgroundColor: 'red'}}
-            onPress={() => navigation.navigate('Quiz6')}
+            onPress={() => {
+              setTpmSymptoms(false), navigation.navigate('Quiz6');
+            }}
           >
             <Icon name={'close'} size={24} color={'white'} />
           </RoundButton>
           <RoundButton
             style={{backgroundColor: 'green'}}
-            onPress={() => navigation.navigate('Quiz6')}
+            onPress={() => {
+              setTpmSymptoms(true), navigation.navigate('Quiz6');
+            }}
           >
             <Icon name={'check'} size={24} color={'white'} />
           </RoundButton>
