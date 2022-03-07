@@ -24,4 +24,47 @@ export class QuizService {
   async getUserAnswers() {
     const userAnswers = await firestore().collection('Answer').doc('').get();
   }
+
+  async getUserQuizInfos(userId: string) {
+    const userQuiz = await firestore()
+      .collection('Quiz')
+      .where('userId', '==', userId)
+      .get();
+    return userQuiz.docs[0].data();
+  }
+
+  async setUserQuizInfo(
+    uid: any,
+    answeredQuiz: boolean,
+    lastPeriodDate: any,
+    periodDuration: number,
+    regularCicle: boolean,
+    contraceptiveMethods: boolean,
+    tpmSymptoms: boolean,
+    humorChange: boolean,
+    behaviorChange: boolean,
+  ) {
+    const date = new Date(lastPeriodDate.date);
+    firestore()
+      .collection('Quiz')
+      .add({
+        userId: uid,
+        isAnswered: answeredQuiz,
+        lastPeriod: date,
+        periodDuration: periodDuration,
+        regularCicle: regularCicle,
+        contraceptiveMethods: contraceptiveMethods,
+        tpmSymptoms: tpmSymptoms,
+        humorChange: humorChange,
+        behaviorChange: behaviorChange,
+      })
+      .then(() => {
+        firestore()
+          .collection('Period')
+          .add({
+            userId: uid,
+            periods: [date],
+          });
+      });
+  }
 }

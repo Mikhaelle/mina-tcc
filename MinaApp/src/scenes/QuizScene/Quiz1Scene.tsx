@@ -8,11 +8,13 @@ import {BackHandler, Image} from 'react-native';
 import {FormText, View, Button, ButtonText} from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
 import DatePicker from 'react-native-date-picker';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const Quiz1Scene: React.FC = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const route = useRoute();
+  const {setLastPeriod} = useQuiz();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -34,7 +36,11 @@ export const Quiz1Scene: React.FC = () => {
         date={date}
         onDateChange={setDate}
       />
-      <Button onPress={() => navigation.navigate('Quiz2')}>
+      <Button
+        onPress={() => {
+          setLastPeriod({date}), navigation.navigate('Quiz2');
+        }}
+      >
         <ButtonText>Continuar</ButtonText>
       </Button>
       <Image

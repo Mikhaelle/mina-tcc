@@ -14,7 +14,6 @@ export const ButtonText = styled.Text`
   font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
   line-height: 16px;
   align-self: center;
-  letter-spacing: 0.02;
 `;
 
 export const Button = styled.TouchableOpacity`
