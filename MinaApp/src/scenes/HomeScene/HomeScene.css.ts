@@ -16,6 +16,13 @@ export const ButtonText = styled.Text`
   align-self: center;
 `;
 
+export const AlertText = styled.Text`
+  color: ${theme.BLACK};
+  font-size: ${theme.FONT_SIZE_MEDIUM};
+  line-height: 16px;
+  align-self: center;
+`;
+
 export const Button = styled.TouchableOpacity`
   width: 80%;
   background-color: ${theme.SECONDARY_COLOR};
