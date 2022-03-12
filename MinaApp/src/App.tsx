@@ -14,13 +14,14 @@ import {LoginScene} from './scenes/LoginScene/LoginScene';
 import * as theme from './assets/variables.css';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
-import {Quiz1Scene} from './scenes/QuizScene/Quiz1Scene';
-import {Quiz2Scene} from './scenes/QuizScene/Quiz2Scene';
-import {Quiz3Scene} from './scenes/QuizScene/Quiz3Scene';
-import {Quiz4Scene} from './scenes/QuizScene/Quiz4Scene';
-import {Quiz5Scene} from './scenes/QuizScene/Quiz5Scene';
-import {Quiz6Scene} from './scenes/QuizScene/Quiz6Scene';
-import {Quiz7Scene} from './scenes/QuizScene/Quiz7Scene';
+import {QuizLastPeriodScene} from './scenes/QuizScene/QuizLastPeriodScene';
+import {QuizCicleDurationScene} from './scenes/QuizScene/QuizCicleDurationScene';
+import {QuizPeriodDurationScene} from './scenes/QuizScene/QuizPeriodDurationScene';
+import {QuizRegularCicleScene} from './scenes/QuizScene/QuizRegularCicleScene';
+import {QuizHormonalContraceptivesScene} from './scenes/QuizScene/QuizHormonalContraceptivesScene';
+import {QuizTpmSymptomsScene} from './scenes/QuizScene/QuizTpmSymptomsScene';
+import {QuizHumorChangeScene} from './scenes/QuizScene/QuizHumorChangeScene';
+import {QuizBehaviorChangeScene} from './scenes/QuizScene/QuizBehaviorChangeScene';
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Tabnavigator from './components/BottomTab';
@@ -34,13 +35,16 @@ GoogleSignin.configure({
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
 export const AboutComponent = () => <AboutScene />;
-export const Quiz1Component = () => <Quiz1Scene />;
-export const Quiz2Component = () => <Quiz2Scene />;
-export const Quiz3Component = () => <Quiz3Scene />;
-export const Quiz4Component = () => <Quiz4Scene />;
-export const Quiz5Component = () => <Quiz5Scene />;
-export const Quiz6Component = () => <Quiz6Scene />;
-export const Quiz7Component = () => <Quiz7Scene />;
+export const QuizLastPeriodComponent = () => <QuizLastPeriodScene />;
+export const QuizCicleDurationComponent = () => <QuizCicleDurationScene />;
+export const QuizPeriodDurationComponent = () => <QuizPeriodDurationScene />;
+export const QuizRegularCicleComponent = () => <QuizRegularCicleScene />;
+export const QuizHormonalContraceptivesComponent = () => (
+  <QuizHormonalContraceptivesScene />
+);
+export const QuizTpmSymptomsComponent = () => <QuizTpmSymptomsScene />;
+export const QuizHumorChange = () => <QuizHumorChangeScene />;
+export const QuizBehaviorChangeComponent = () => <QuizBehaviorChangeScene />;
 
 const App = () => {
   const auth = AuthService.getInstance();
@@ -52,10 +56,10 @@ const App = () => {
 
   const QuizNavigator = () => {
     return (
-      <QuizStack.Navigator initialRouteName="Quiz1">
+      <QuizStack.Navigator initialRouteName="QuizLastPeriod">
         <QuizStack.Screen
-          name="Quiz1"
-          component={Quiz1Component}
+          name="QuizLastPeriod"
+          component={QuizLastPeriodComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -66,8 +70,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz2"
-          component={Quiz2Component}
+          name="QuizPeriodDuration"
+          component={QuizPeriodDurationComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -76,8 +80,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz3"
-          component={Quiz3Component}
+          name="QuizCicleDuration"
+          component={QuizCicleDurationComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -86,8 +90,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz4"
-          component={Quiz4Component}
+          name="QuizRegularCicle"
+          component={QuizRegularCicleComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -96,8 +100,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz5"
-          component={Quiz5Component}
+          name="QuizHormonalContraceptives"
+          component={QuizHormonalContraceptivesComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -106,8 +110,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz6"
-          component={Quiz6Component}
+          name="QuizTpmSymptoms"
+          component={QuizTpmSymptomsComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -116,8 +120,18 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="Quiz7"
-          component={Quiz7Component}
+          name="QuizHumorChange"
+          component={QuizHumorChange}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            title: 'Configurações iniciais',
+          }}
+        />
+        <QuizStack.Screen
+          name="QuizBehaviorChange"
+          component={QuizBehaviorChangeComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -131,7 +145,7 @@ const App = () => {
 
   const CrudNavigator = () => {
     return (
-      <CrudStack.Navigator initialRouteName="Quiz1">
+      <CrudStack.Navigator initialRouteName="QuizLastPeriod">
         <CrudStack.Screen
           name="Login"
           component={LoginComponent}

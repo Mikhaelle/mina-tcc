@@ -15,7 +15,7 @@ import {Image, StyleSheet} from 'react-native';
 import quizImage from '../../assets/images/quiz.png';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const Quiz2Scene: React.FC = () => {
+export const QuizPeriodDurationScene: React.FC = () => {
   const dropdownOptions = [
     '1 dia',
     '2 dias',
@@ -46,12 +46,13 @@ export const Quiz2Scene: React.FC = () => {
         onSelect={(idx: any, value: any) => setSelected(idx + 1)}
         options={dropdownOptions}
         style={styles.dropdown_2}
+        defaultValue={dropdownOptions[4]}
         textStyle={styles.dropdown_2_text}
         renderRightComponent={icon}
       />
       <Button
         onPress={() => {
-          setPeriodDuration(selected), navigation.navigate('Quiz3');
+          setPeriodDuration(selected), navigation.navigate('QuizCicleDuration');
         }}
       >
         <ButtonText>Continuar</ButtonText>

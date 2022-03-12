@@ -1,31 +1,30 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Image} from 'react-native';
 import {
   FormText,
   View,
-  RoundButtonContainer,
   RoundButton,
+  RoundButtonContainer,
 } from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
+import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const Quiz6Scene: React.FC = () => {
+export const QuizRegularCicleScene: React.FC = () => {
   const navigation = useNavigation();
-  const {setHumorChange} = useQuiz();
+  const {setRegularCicle} = useQuiz();
 
   return (
     <>
       <View>
-        <FormText>
-          Você costuma apresentar mudança de humor no seu ciclo ?
-        </FormText>
+        <FormText>Você considera o seu ciclo regular ?</FormText>
         <RoundButtonContainer>
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setHumorChange(false), navigation.navigate('Quiz7');
+              setRegularCicle(false),
+                navigation.navigate('QuizHormonalContraceptives');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -33,13 +32,13 @@ export const Quiz6Scene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setHumorChange(true), navigation.navigate('Quiz7');
+              setRegularCicle(true),
+                navigation.navigate('QuizHormonalContraceptives');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />
           </RoundButton>
         </RoundButtonContainer>
-
         <Image
           source={quizImage}
           style={{alignSelf: 'flex-end', position: 'absolute', bottom: 0}}

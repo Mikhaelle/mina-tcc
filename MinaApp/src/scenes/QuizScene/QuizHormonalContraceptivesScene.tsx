@@ -11,7 +11,7 @@ import quizImage from '../../assets/images/quiz.png';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const Quiz4Scene: React.FC = () => {
+export const QuizHormonalContraceptivesScene: React.FC = () => {
   const navigation = useNavigation();
   const {setContraceptiveMethods} = useQuiz();
 
@@ -23,7 +23,8 @@ export const Quiz4Scene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setContraceptiveMethods(false), navigation.navigate('Quiz5');
+              setContraceptiveMethods(false),
+                navigation.navigate('QuizTpmSymptoms');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -31,7 +32,8 @@ export const Quiz4Scene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setContraceptiveMethods(true), navigation.navigate('Quiz5');
+              setContraceptiveMethods(true),
+                navigation.navigate('QuizTpmSymptoms');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />
