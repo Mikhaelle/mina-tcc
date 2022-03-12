@@ -10,7 +10,7 @@ import quizImage from '../../assets/images/quiz.png';
 import DatePicker from 'react-native-date-picker';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const Quiz1Scene: React.FC = () => {
+export const QuizLastPeriodScene: React.FC = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const route = useRoute();
@@ -38,7 +38,7 @@ export const Quiz1Scene: React.FC = () => {
       />
       <Button
         onPress={() => {
-          setLastPeriod({date}), navigation.navigate('Quiz2');
+          setLastPeriod({date}), navigation.navigate('QuizPeriodDuration');
         }}
       >
         <ButtonText>Continuar</ButtonText>

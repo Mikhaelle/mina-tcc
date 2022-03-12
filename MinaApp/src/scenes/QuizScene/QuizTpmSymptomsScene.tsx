@@ -1,40 +1,29 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image} from 'react-native';
 import {
   FormText,
   View,
-  RoundButton,
   RoundButtonContainer,
+  RoundButton,
 } from './QuizScene.css';
 import quizImage from '../../assets/images/quiz.png';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const Quiz7Scene: React.FC = () => {
+export const QuizTpmSymptomsScene: React.FC = () => {
   const navigation = useNavigation();
-  const {setAnsweredQuiz, answeredQuiz, setBehaviorChange, setUserQuizInfos} =
-    useQuiz();
-
-  useEffect(() => {
-    if (answeredQuiz) {
-      setUserQuizInfos();
-    }
-  }, [answeredQuiz]);
+  const {setTpmSymptoms} = useQuiz();
 
   return (
     <>
       <View>
-        <FormText>
-          Você costuma apresentar alteração comportamental durante seu ciclo ?
-        </FormText>
+        <FormText>Você possui sintomas de tensão pré menstrual(TPM) ?</FormText>
         <RoundButtonContainer>
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setBehaviorChange(false),
-                setAnsweredQuiz(true),
-                navigation.navigate('Tabnavigator');
+              setTpmSymptoms(false), navigation.navigate('QuizHumorChange');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -42,9 +31,7 @@ export const Quiz7Scene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setBehaviorChange(true),
-                setAnsweredQuiz(true),
-                navigation.navigate('Tabnavigator');
+              setTpmSymptoms(true), navigation.navigate('QuizHumorChange');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />

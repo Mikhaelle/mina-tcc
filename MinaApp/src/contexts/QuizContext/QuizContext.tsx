@@ -18,6 +18,8 @@ interface IQuizContext {
   setLastPeriod: React.Dispatch<React.SetStateAction<any>>;
   periodDuration: number;
   setPeriodDuration: React.Dispatch<React.SetStateAction<number>>;
+  cicleDuration: number;
+  setCicleDuration: React.Dispatch<React.SetStateAction<number>>;
   regularCicle: boolean;
   setRegularCicle: React.Dispatch<React.SetStateAction<boolean>>;
   contraceptiveMethods: boolean;
@@ -29,6 +31,7 @@ interface IQuizContext {
   behaviorChange: boolean;
   setBehaviorChange: React.Dispatch<React.SetStateAction<boolean>>;
   setUserQuizInfos(): Promise<void>;
+  quizLoading: boolean;
 }
 
 const QuizContext: Context<IQuizContext> = createContext(undefined as any);
@@ -43,19 +46,23 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   const [answeredQuiz, setAnsweredQuiz] = useState(false);
   const [lastPeriod, setLastPeriod] = useState(new Date());
   const [periodDuration, setPeriodDuration] = useState(5);
+  const [cicleDuration, setCicleDuration] = useState(28);
   const [regularCicle, setRegularCicle] = useState(false);
   const [contraceptiveMethods, setContraceptiveMethods] = useState(false);
   const [tpmSymptoms, setTpmSymptoms] = useState(false);
   const [humorChange, setHumorChange] = useState(false);
   const [behaviorChange, setBehaviorChange] = useState(false);
+  const [quizLoading, setQuizLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
+      setQuizLoading(true);
       quizService.quiz.getUserQuizInfos(user.uid).then(userQuiz => {
         if (userQuiz.isAnswered) {
           var date = new Date(userQuiz.lastPeriod);
           setLastPeriod(date);
           setAnsweredQuiz(userQuiz.isAnswered);
+          setCicleDuration(userQuiz.cicleDuration);
           setRegularCicle(userQuiz.regularCicle);
           setContraceptiveMethods(userQuiz.contraceptiveMethods);
           setTpmSymptoms(userQuiz.tpmSymptoms);
@@ -63,21 +70,25 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
           setBehaviorChange(userQuiz.behaviorChange);
         }
       });
+      setQuizLoading(false);
     }
   }, [user]);
 
   const setUserQuizInfos = async () => {
+    setQuizLoading(true);
     quizService.quiz.setUserQuizInfo(
       user.uid,
       answeredQuiz,
       lastPeriod,
       periodDuration,
+      cicleDuration,
       regularCicle,
       contraceptiveMethods,
       tpmSymptoms,
       humorChange,
       behaviorChange,
     );
+    setQuizLoading(false);
   };
 
   return (
@@ -89,6 +100,8 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
         setLastPeriod,
         periodDuration,
         setPeriodDuration,
+        cicleDuration,
+        setCicleDuration,
         regularCicle,
         setRegularCicle,
         contraceptiveMethods,
@@ -100,6 +113,7 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
         behaviorChange,
         setBehaviorChange,
         setUserQuizInfos,
+        quizLoading,
       }}
       {...props}
     >
