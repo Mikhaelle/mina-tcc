@@ -23,11 +23,23 @@ export class PeriodService {
   }
 
   async getUserPeriods(userId: string) {
-    const userPeriods = await firestore()
+    return firestore()
       .collection('Period')
       .where('userId', '==', userId)
-      .get();
-    const userPeriodsByDate = userPeriods.docs[0].data().periods.sort();
-    return userPeriodsByDate;
+      .get()
+      .then(userPeriods => {
+        return userPeriods.docs[0];
+      })
+      .catch(error => console.log(error));
+  }
+
+  async setUserPeriods(docUid: string, newPeriodDate: any) {
+    const date = firestore.Timestamp.fromDate(newPeriodDate);
+    return firestore()
+      .collection('Period')
+      .doc(docUid)
+      .update({
+        periods: firestore.FieldValue.arrayUnion(date),
+      });
   }
 }
