@@ -18,9 +18,11 @@ export const ButtonText = styled.Text`
 
 export const AlertText = styled.Text`
   color: ${theme.BLACK};
-  font-size: ${theme.FONT_SIZE_MEDIUM};
+  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
   line-height: 16px;
   align-self: center;
+  text-align: center;
+  margin-bottom: 10px;
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -35,6 +37,42 @@ export const Button = styled.TouchableOpacity`
   padding: 15px;
   padding-right: 40px;
   padding-left: 40px;
+  shadow-color: #000;
+  shadow-offset: {
+    width: 0,
+    height: 2
+  };
+  shadow-opacity: 0.25;
+  shadow-radius: 4px;
+  elevation: 5;
+`;
+
+export const ModalButtonText = styled.Text`
+  color: ${theme.BLACK};
+  font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
+  line-height: 16px;
+  align-self: center;
+`;
+
+export const ModalButton = styled.TouchableOpacity`
+  background-color: ${theme.PRIMARY_COLOR};
+  margin-top: 10px;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  border-radius: 10px;
+  flex-direction: row;
+  padding: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  shadow-color: #000;
+shadow-offset: {
+  width: 0,
+  height: 2
+};
+shadow-opacity: 0.25;
+shadow-radius: 4px;
+elevation: 5;
 `;
 
 export const RoundButton = styled.TouchableOpacity`
@@ -44,6 +82,14 @@ export const RoundButton = styled.TouchableOpacity`
   height: 45px;
   width: 45px;
   border-radius: 100px;
+  shadow-color: #000;
+  shadow-offset: {
+    width: 0,
+    height: 2
+  };
+  shadow-opacity: 0.25;
+  shadow-radius: 4px;
+  elevation: 5;
 `;
 
 export const View = styled.View`
@@ -57,4 +103,25 @@ export const View = styled.View`
 export const RowContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const CenteredModalView = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ModalView = styled.View`
+background-color: white;
+border-radius: 10px;
+padding: 35px;
+align-items: center;
+shadow-color: #000;
+shadow-offset: {
+  width: 0,
+  height: 2
+};
+shadow-opacity: 0.25;
+shadow-radius: 4px;
+elevation: 5;
 `;

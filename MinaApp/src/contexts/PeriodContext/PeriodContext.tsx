@@ -16,8 +16,10 @@ interface IPeriodContext {
   daysOfPeriods: {};
   phase: string;
   isLoading: boolean;
+  docUid: string;
   daysToMark(): Promise<void>;
   phaseToSet(): Promise<void>;
+  setUserPeriods(newPeriodDate: any): Promise<void>;
 }
 
 const PeriodContext: Context<IPeriodContext> = createContext(undefined as any);
@@ -27,11 +29,11 @@ const usePeriod = () => useContext(PeriodContext);
 const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
   const period = props;
   const {user} = useAuth();
-  const navigation = useNavigation();
 
   const [lastPeriod, setLastPeriod] = useState(new Date());
   const [periods, setPeriods] = useState([new Date()]);
   const [daysOfPeriods, setDaysOfPeriods] = useState({});
+  const [docUid, setDocUid] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [phase, setPhase] = useState('');
 
@@ -40,13 +42,17 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
   useEffect(() => {
     if (user) {
       period.periodService.getUserPeriods(user.uid).then(userPeriods => {
-        userPeriods.forEach((period: any) => {
-          let newPeriod = period.toDate();
-          setPeriods(periods => [...periods, newPeriod]);
-        });
-        let date = userPeriods.sort().reverse();
+        userPeriods
+          .data()
+          .periods.sort()
+          .forEach((period: any) => {
+            let newPeriod = period.toDate();
+            setPeriods(periods => [...periods, newPeriod]);
+          });
+        let date = userPeriods.data().periods.sort().reverse();
         date = date[0].toDate();
         setLastPeriod(date);
+        setDocUid(userPeriods.id);
       });
     }
   }, [user]);
@@ -83,7 +89,6 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
 
   const daysToMark = async () => {
     var daysFolTotal = cicleDuration - 14;
-    var daysLutTotal = 14;
 
     var daysFolPart = Math.round((cicleDuration - 14) / 2);
     var daysLutPart = 7;
@@ -91,16 +96,21 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
     var calendarDays = {};
 
     setIsLoading(true);
-    for (var i = 0; i < cicleDuration; i++) {
-      var date = new Date();
-      date.setDate(lastPeriod.getDate() + i);
 
+    var date = new Date();
+    date.setDate(lastPeriod.getDate())
+    date.setMonth(lastPeriod.getMonth())
+    date.setFullYear(lastPeriod.getFullYear());
+    date.setDate(date.getDate() -1);
+    for (var i = 0; i < cicleDuration; i++) {
+      date.setDate(date.getDate() + 1);
       const datePeriodString =
         date.getFullYear().toString() +
         '-' +
         ('0' + (date.getMonth() + 1).toString()).slice(-2) +
         '-' +
         ('0' + date.getDate().toString()).slice(-2);
+
       if (i === 0) {
         calendarDays[datePeriodString] = {
           startingDay: true,
@@ -132,22 +142,14 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
       }
     }
     for (var i = 0; i < periodDuration; i++) {
-      var newxtDate = new Date();
-      console.log(lastPeriod.getDate() + cicleDuration + i - 1);
-      newxtDate.setDate(lastPeriod.getDate() + cicleDuration + i - 1);
-      console.log(
-        newxtDate.getFullYear().toString() +
-          '-' +
-          ('0' + (newxtDate.getMonth() + 1).toString()).slice(-2) +
-          '-' +
-          ('0' + newxtDate.getDate().toString()).slice(-2),
-      );
+      date.setDate(date.getDate() + 1);
+
       const datePeriodString =
-        newxtDate.getFullYear().toString() +
+      date.getFullYear().toString() +
         '-' +
-        ('0' + (newxtDate.getMonth() + 1).toString()).slice(-2) +
+        ('0' + (date.getMonth() + 1).toString()).slice(-2) +
         '-' +
-        ('0' + newxtDate.getDate().toString()).slice(-2);
+        ('0' + date.getDate().toString()).slice(-2);
       if (i === 0) {
         calendarDays[datePeriodString] = {startingDay: true, color: '#F87D6D'};
       } else if (i === periodDuration - 1) {
@@ -156,10 +158,19 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
         calendarDays[datePeriodString] = {color: '#F87D6D'};
       }
     }
-    for (var i = 0; i < cicleDuration; i++) {}
-
     setIsLoading(false);
     setDaysOfPeriods(calendarDays);
+  };
+
+  const setUserPeriods = (newPeriodDate: any) => {
+    period.periodService.setUserPeriods(docUid, newPeriodDate).then(() => {
+      console.log(newPeriodDate)
+      console.log(lastPeriod)
+      if (newPeriodDate > lastPeriod) {
+        console.log('aqui')
+        setLastPeriod(newPeriodDate);
+      }
+    });
   };
 
   return (
@@ -172,6 +183,8 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
         daysToMark,
         phase,
         phaseToSet,
+        docUid,
+        setUserPeriods,
       }}
       {...props}
     >
