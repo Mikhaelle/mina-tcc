@@ -9,13 +9,18 @@ import {
   TitleText,
   View,
   AlertText,
+  CenteredModalView,
+  ModalView,
+  ModalButton,
+  ModalButtonText,
 } from './HomeScene.css';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Alert, BackHandler, Modal} from 'react-native';
+import {Alert, BackHandler} from 'react-native';
 import {usePeriod} from '../../contexts/PeriodContext/PeriodContext';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 import DatePicker from 'react-native-date-picker';
+import Modal from 'react-native-modal';
 
 export const HomeScene: React.FC = () => {
   LocaleConfig.locales['br'] = {
@@ -62,25 +67,32 @@ export const HomeScene: React.FC = () => {
   LocaleConfig.defaultLocale = 'br';
 
   const navigation = useNavigation();
-  const {isLoading, daysOfPeriods, daysToMark, phase, phaseToSet} = usePeriod();
+  const {isLoading, lastPeriod, daysOfPeriods, daysToMark, phase, phaseToSet} =
+    usePeriod();
   const {quizLoading} = useQuiz();
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const {setUserPeriods} = usePeriod();
 
   useFocusEffect(
     React.useCallback(() => {
-      if (!quizLoading) {
-        daysToMark();
-        phaseToSet();
-      }
       const onBackPress = () => {
         return true;
       };
       BackHandler.addEventListener('hardwareBackPress', onBackPress);
       return () =>
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-    }, [quizLoading]),
+    }, []),
   );
+
+  useEffect(() => {
+    if (!quizLoading) {
+      daysToMark();
+      phaseToSet();
+    }
+  }, [quizLoading, lastPeriod]);
 
   return (
     <View>
@@ -113,16 +125,27 @@ export const HomeScene: React.FC = () => {
             <ButtonText>SOBRE A FASE</ButtonText>
             <Icon name={'right'} />
           </Button>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-              setModalVisible(!modalVisible);
-            }}
-          >
-            <AlertText>Opa</AlertText>
+          <Modal isVisible={modalVisible}>
+            <CenteredModalView>
+              <ModalView>
+                <AlertText>
+                  Adicione uma nova data para iniciar um novo ciclo.
+                </AlertText>
+                <DatePicker
+                  mode={'date'}
+                  locale={'pt-BR'}
+                  date={date}
+                  onDateChange={setDate}
+                />
+                <ModalButton
+                  onPress={() => {
+                    setModalVisible(false), setUserPeriods(date);
+                  }}
+                >
+                  <ModalButtonText>Adicionar</ModalButtonText>
+                </ModalButton>
+              </ModalView>
+            </CenteredModalView>
           </Modal>
         </>
       ) : null}
