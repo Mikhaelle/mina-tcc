@@ -26,6 +26,8 @@ import {QuizBehaviorChangeScene} from './scenes/QuizScene/QuizBehaviorChangeScen
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Tabnavigator from './components/BottomTab';
 import {AboutScene} from './scenes/AboutScene/AboutScene';
+import {TaskProvider} from './contexts/TaskContext/TaskContext';
+import {TaskService} from './services/TaskService/TaskService';
 
 GoogleSignin.configure({
   webClientId:
@@ -49,6 +51,7 @@ export const QuizBehaviorChangeComponent = () => <QuizBehaviorChangeScene />;
 const App = () => {
   const auth = AuthService.getInstance();
   const quizService = QuizService.getInstance();
+  const taskService = TaskService.getInstance();
 
   const QuizStack = createStackNavigator();
   const CrudStack = createStackNavigator();
@@ -174,44 +177,46 @@ const App = () => {
         <StatusBar barStyle="light-content" />
         <AuthProvider oauth={auth}>
           <QuizProvider quiz={quizService}>
-            <Stack.Navigator initialRouteName="Crud">
-              <Stack.Screen
-                name="Crud"
-                component={CrudNavigator}
-                options={{
-                  headerShown: false,
-                  headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                  headerTintColor: theme.WHITE,
-                }}
-              />
-              <Stack.Screen
-                name="Quiz"
-                component={QuizNavigator}
-                options={{
-                  headerShown: false,
-                  headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                  headerTintColor: theme.WHITE,
-                }}
-              />
-              <Stack.Screen
-                name="Tabnavigator"
-                component={Tabnavigator}
-                options={{
-                  headerShown: false,
-                  headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                  headerTintColor: theme.WHITE,
-                }}
-              />
-              <Stack.Screen
-                name="About"
-                component={AboutComponent}
-                options={{
-                  headerShown: false,
-                  headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                  headerTintColor: theme.WHITE,
-                }}
-              />
-            </Stack.Navigator>
+            <TaskProvider taskService={taskService}>
+              <Stack.Navigator initialRouteName="Crud">
+                <Stack.Screen
+                  name="Crud"
+                  component={CrudNavigator}
+                  options={{
+                    headerShown: false,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.WHITE,
+                  }}
+                />
+                <Stack.Screen
+                  name="Quiz"
+                  component={QuizNavigator}
+                  options={{
+                    headerShown: false,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.WHITE,
+                  }}
+                />
+                <Stack.Screen
+                  name="Tabnavigator"
+                  component={Tabnavigator}
+                  options={{
+                    headerShown: false,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.WHITE,
+                  }}
+                />
+                <Stack.Screen
+                  name="About"
+                  component={AboutComponent}
+                  options={{
+                    headerShown: false,
+                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                    headerTintColor: theme.WHITE,
+                  }}
+                />
+              </Stack.Navigator>
+            </TaskProvider>
           </QuizProvider>
         </AuthProvider>
       </NavigationContainer>

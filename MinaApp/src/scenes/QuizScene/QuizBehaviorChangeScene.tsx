@@ -10,15 +10,19 @@ import {
 import quizImage from '../../assets/images/quiz.png';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
+import {useTask} from '../../contexts/TaskContext/TaskContext';
 
 export const QuizBehaviorChangeScene: React.FC = () => {
   const navigation = useNavigation();
   const {setAnsweredQuiz, answeredQuiz, setBehaviorChange, setUserQuizInfos} =
     useQuiz();
 
+  const {createUserTasks} = useTask();
+
   useEffect(() => {
     if (answeredQuiz) {
       setUserQuizInfos();
+      createUserTasks();
     }
   }, [answeredQuiz]);
 

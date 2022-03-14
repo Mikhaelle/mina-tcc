@@ -6,9 +6,6 @@ import React, {
   useEffect,
 } from 'react';
 import {QuizService} from '../../services/QuizService/quizService';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import auth from '@react-native-firebase/auth';
-import {useNavigation} from '@react-navigation/native';
 import {useAuth} from '../AuthContext/AuthContext';
 
 interface IQuizContext {

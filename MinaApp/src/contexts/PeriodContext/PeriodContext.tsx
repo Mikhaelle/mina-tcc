@@ -98,10 +98,10 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
     setIsLoading(true);
 
     var date = new Date();
-    date.setDate(lastPeriod.getDate())
-    date.setMonth(lastPeriod.getMonth())
+    date.setDate(lastPeriod.getDate());
+    date.setMonth(lastPeriod.getMonth());
     date.setFullYear(lastPeriod.getFullYear());
-    date.setDate(date.getDate() -1);
+    date.setDate(date.getDate() - 1);
     for (var i = 0; i < cicleDuration; i++) {
       date.setDate(date.getDate() + 1);
       const datePeriodString =
@@ -145,7 +145,7 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
       date.setDate(date.getDate() + 1);
 
       const datePeriodString =
-      date.getFullYear().toString() +
+        date.getFullYear().toString() +
         '-' +
         ('0' + (date.getMonth() + 1).toString()).slice(-2) +
         '-' +
@@ -164,10 +164,7 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
 
   const setUserPeriods = (newPeriodDate: any) => {
     period.periodService.setUserPeriods(docUid, newPeriodDate).then(() => {
-      console.log(newPeriodDate)
-      console.log(lastPeriod)
       if (newPeriodDate > lastPeriod) {
-        console.log('aqui')
         setLastPeriod(newPeriodDate);
       }
     });

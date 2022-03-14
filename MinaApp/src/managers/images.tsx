@@ -1,0 +1,17 @@
+export default {
+  study: require('../assets/icons/logo/study.png'),
+  work: require('../assets/icons/logo/work.png'),
+  exercise: require('../assets/icons/logo/exercise.png'),
+  cleaning: require('../assets/icons/logo/clean.png'),
+  read: require('../assets/icons/logo/read.png'),
+  meetings: require('../assets/icons/logo/meeting.png'),
+  socialize: require('../assets/icons/logo/socialize.png'),
+  write: require('../assets/icons/logo/write.png'),
+  listen: require('../assets/icons/logo/listen.png'),
+  whatch: require('../assets/icons/logo/watch.png'),
+  draw: require('../assets/icons/logo/draw.png'),
+  create: require('../assets/icons/logo/create.png'),
+  downArrow: require('../assets/icons/logo/down-arrow.png'),
+  upArrow: require('../assets/icons/logo/up-arrow.png'),
+  horizontalLine: require('../assets/icons/logo/horizontal-line.png'),
+};
