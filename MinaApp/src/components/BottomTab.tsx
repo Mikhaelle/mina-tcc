@@ -84,18 +84,18 @@ const Tabnavigator = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             headerLeft: () => null,
-            title: 'Tarefas',
+            title: 'Previsão de hoje - tarefas',
           }}
         />
         <Tab.Screen
           name="Symptoms"
-          component={TaskComponent}
+          component={SymptomsComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             headerLeft: () => null,
-            title: 'Sintomas',
+            title: 'Previsão de hoje - sintomas',
           }}
         />
       </Tab.Navigator>
