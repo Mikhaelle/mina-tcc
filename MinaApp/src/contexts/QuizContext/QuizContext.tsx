@@ -1,12 +1,8 @@
 import React, {
-  createContext,
-  useState,
-  useContext,
-  Context,
-  useEffect,
+  Context, createContext, useContext, useEffect, useState
 } from 'react';
-import {QuizService} from '../../services/QuizService/quizService';
-import {useAuth} from '../AuthContext/AuthContext';
+import { QuizService } from '../../services/QuizService/quizService';
+import { useAuth } from '../AuthContext/AuthContext';
 
 interface IQuizContext {
   answeredQuiz: boolean;
@@ -52,19 +48,20 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   const [quizLoading, setQuizLoading] = useState(true);
 
   useEffect(() => {
-    if (user) {
+    if (user != null) {      
       setQuizLoading(true);
-      quizService.quiz.getUserQuizInfos(user.uid).then(userQuiz => {
-        if (userQuiz.isAnswered) {
-          var date = new Date(userQuiz.lastPeriod);
+      quizService.quiz.getUserQuizInfos().then(userQuiz => {
+        console.log(userQuiz.data)
+        if (userQuiz.data.isAnswered) {
+          var date = new Date(userQuiz.data.lastPeriod);
           setLastPeriod(date);
-          setAnsweredQuiz(userQuiz.isAnswered);
-          setCicleDuration(userQuiz.cicleDuration);
-          setRegularCicle(userQuiz.regularCicle);
-          setContraceptiveMethods(userQuiz.contraceptiveMethods);
-          setTpmSymptoms(userQuiz.tpmSymptoms);
-          setHumorChange(userQuiz.humorChange);
-          setBehaviorChange(userQuiz.behaviorChange);
+          setAnsweredQuiz(userQuiz.data.isAnswered);
+          setCicleDuration(userQuiz.data.cicleDuration);
+          setRegularCicle(userQuiz.data.regularCicle);
+          setContraceptiveMethods(userQuiz.data.contraceptiveMethods);
+          setTpmSymptoms(userQuiz.data.tpmSymptoms);
+          setHumorChange(userQuiz.data.humorChange);
+          setBehaviorChange(userQuiz.data.behaviorChange);
         }
       });
       setQuizLoading(false);
@@ -119,4 +116,5 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   );
 };
 
-export {QuizProvider, QuizConsumer, useQuiz, QuizContext};
+export { QuizProvider, QuizConsumer, useQuiz, QuizContext };
+
