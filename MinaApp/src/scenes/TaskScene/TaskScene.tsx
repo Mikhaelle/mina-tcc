@@ -12,7 +12,7 @@ import {
   TitleText,
   View,
 } from './TaskScene.css';
-import images from '../../managers/images'
+import images from '../../managers/images';
 
 export const TaskScene: React.FC = () => {
   const navigation = useNavigation();
@@ -35,12 +35,13 @@ export const TaskScene: React.FC = () => {
       const userTaskObj = userTasks[userTask];
       const newTaskComponent = (
         <>
-        <TaskView>
-          <TaskButton>
-            <Image source={images[userTask]} />
-          </TaskButton>
-          <TitleText>{userTaskObj['taskName']}</TitleText>
-          <Image source={images[userTaskObj['taskPrediction']]} /></TaskView>
+          <TaskView>
+            <TaskButton>
+              <Image source={images[userTask]} />
+            </TaskButton>
+            <TitleText>{userTaskObj['taskName']}</TitleText>
+            <Image source={images[userTaskObj['taskPrediction']]} />
+          </TaskView>
         </>
       );
 
@@ -57,17 +58,17 @@ export const TaskScene: React.FC = () => {
       <View>
         <BoxView>
           <BoxText>
-            Ajude-nos a te dar uma previsão melhor. Selecione o icone das previsões de
-            tarefas corrretas
+            Ajude-nos a te dar uma previsão melhor. Selecione o icone das
+            previsões de tarefas corrretas
           </BoxText>
         </BoxView>
         <ScrollView showsVerticalScrollIndicator={false}>
           <TitleText>Tarefas</TitleText>
           <LineBoxView />
-          
-            {userTasksComponents.map(
-              (userTasksComponent: any) => userTasksComponent,
-            )}
+
+          {userTasksComponents.map(
+            (userTasksComponent: any) => userTasksComponent,
+          )}
         </ScrollView>
       </View>
     </>
