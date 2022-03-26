@@ -1,6 +1,5 @@
-import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import firestore from '@react-native-firebase/firestore';
+import functions from '@react-native-firebase/functions';
 
 export class QuizService {
   private static instance: QuizService | null;
@@ -21,16 +20,17 @@ export class QuizService {
     QuizService.instance = null;
   }
 
-  async getUserAnswers() {
-    const userAnswers = await firestore().collection('Answer').doc('').get();
+  async getBankBillsAmountDays() {
+    return;
   }
 
-  async getUserQuizInfos(userId: string) {
-    const userQuiz = await firestore()
-      .collection('Quiz')
-      .where('userId', '==', userId)
-      .get();
-    return userQuiz.docs[0].data();
+  async getUserQuizInfos() {
+    return functions()
+      .httpsCallable('getUserQuizInfos')()
+      .then(response => {
+        return response;
+      })
+      .catch(e => console.log(e));
   }
 
   async setUserQuizInfo(
