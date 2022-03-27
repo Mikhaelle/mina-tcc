@@ -1,17 +1,15 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {ParamListBase, RouteProp} from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ParamListBase, RouteProp } from '@react-navigation/native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import * as theme from '../assets/variables.css';
-import {AboutScene} from '../scenes/AboutScene/AboutScene';
-import {HomeScene} from '../scenes/HomeScene/HomeScene';
-import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
-import {SymptomScene} from '../scenes/SymptomScene/SymptomScene';
-import {TaskScene} from '../scenes/TaskScene/TaskScene';
+import { AboutScene } from '../scenes/AboutScene/AboutScene';
+import { HomeScene } from '../scenes/HomeScene/HomeScene';
+import { ProfileScene } from '../scenes/ProfileScene/ProfileScene';
+import { TaskScene } from '../scenes/TaskScene/TaskScene';
 
 export const ProfileComponent = () => <ProfileScene />;
 export const TaskComponent = () => <TaskScene />;
-export const SymptomsComponent = () => <SymptomScene />;
 export const AboutComponent = () => <AboutScene />;
 export const HomeComponent = () => <HomeScene />;
 
@@ -29,9 +27,6 @@ const screenOptions = (route: RouteProp<ParamListBase, string>) => {
       break;
     case 'Task':
       iconName = 'form';
-      break;
-    case 'Symptoms':
-      iconName = 'hearto';
       break;
     default:
       break;
@@ -84,17 +79,6 @@ const Tabnavigator = () => {
           headerTintColor: theme.BLACK,
           headerLeft: () => null,
           title: 'Previsão de hoje - tarefas',
-        }}
-      />
-      <Tab.Screen
-        name="Symptoms"
-        component={SymptomsComponent}
-        options={{
-          headerShown: true,
-          headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-          headerTintColor: theme.BLACK,
-          headerLeft: () => null,
-          title: 'Previsão de hoje - sintomas',
         }}
       />
     </Tab.Navigator>
