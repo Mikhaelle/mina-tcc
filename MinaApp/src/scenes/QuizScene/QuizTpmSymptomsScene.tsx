@@ -1,19 +1,29 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import quizImage from '../../assets/images/quiz.png';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
+import {useTask} from '../../contexts/TaskContext/TaskContext';
 import {
   FormText,
-  View,
-  RoundButtonContainer,
   RoundButton,
+  RoundButtonContainer,
+  View,
 } from './QuizScene.css';
-import quizImage from '../../assets/images/quiz.png';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const QuizTpmSymptomsScene: React.FC = () => {
   const navigation = useNavigation();
-  const {setTpmSymptoms} = useQuiz();
+  const {setTpmSymptoms, setUserQuizInfos, answeredQuiz, setAnsweredQuiz} =
+    useQuiz();
+  const {createUserTasks} = useTask();
+
+  useEffect(() => {
+    if (answeredQuiz) {
+      setUserQuizInfos();
+      createUserTasks();
+    }
+  }, [answeredQuiz]);
 
   return (
     <>
@@ -23,7 +33,9 @@ export const QuizTpmSymptomsScene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setTpmSymptoms(false), navigation.navigate('QuizHumorChange');
+              setAnsweredQuiz(true),
+                setTpmSymptoms(false),
+                navigation.navigate('Tabnavigator');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -31,7 +43,9 @@ export const QuizTpmSymptomsScene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setTpmSymptoms(true), navigation.navigate('QuizHumorChange');
+              setAnsweredQuiz(true),
+                setTpmSymptoms(true),
+                navigation.navigate('Tabnavigator');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />

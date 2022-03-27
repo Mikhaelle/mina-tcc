@@ -1,15 +1,15 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import quizImage from '../../assets/images/quiz.png';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 import {
   FormText,
-  View,
-  RoundButtonContainer,
   RoundButton,
+  RoundButtonContainer,
+  View,
 } from './QuizScene.css';
-import quizImage from '../../assets/images/quiz.png';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const QuizHormonalContraceptivesScene: React.FC = () => {
   const navigation = useNavigation();
@@ -24,7 +24,7 @@ export const QuizHormonalContraceptivesScene: React.FC = () => {
             style={{backgroundColor: 'red'}}
             onPress={() => {
               setContraceptiveMethods(false),
-                navigation.navigate('QuizTpmSymptoms');
+                navigation.navigate('QuizHormonalDisorder');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -33,7 +33,7 @@ export const QuizHormonalContraceptivesScene: React.FC = () => {
             style={{backgroundColor: 'green'}}
             onPress={() => {
               setContraceptiveMethods(true),
-                navigation.navigate('QuizTpmSymptoms');
+                navigation.navigate('QuizHormonalDisorder');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />

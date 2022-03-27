@@ -28,7 +28,9 @@ export class QuizService {
     return functions()
       .httpsCallable('getUserQuizInfos')()
       .then(response => {
-        return response;
+        if (response.data) {
+          return response.data;
+        }
       })
       .catch(e => console.log(e));
   }
@@ -42,8 +44,7 @@ export class QuizService {
     regularCicle: boolean,
     contraceptiveMethods: boolean,
     tpmSymptoms: boolean,
-    humorChange: boolean,
-    behaviorChange: boolean,
+    hormonalDisorder: boolean,
   ) {
     const date = new Date(lastPeriodDate.date);
     firestore()
@@ -57,8 +58,7 @@ export class QuizService {
         regularCicle: regularCicle,
         contraceptiveMethods: contraceptiveMethods,
         tpmSymptoms: tpmSymptoms,
-        humorChange: humorChange,
-        behaviorChange: behaviorChange,
+        hormonalDisorder: hormonalDisorder,
       })
       .then(() => {
         firestore()

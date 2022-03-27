@@ -3,18 +3,18 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {BackHandler, Image} from 'react-native';
-import {FormText, View, Button, ButtonText} from './QuizScene.css';
-import quizImage from '../../assets/images/quiz.png';
 import DatePicker from 'react-native-date-picker';
+import quizImage from '../../assets/images/quiz.png';
 import {useQuiz} from '../../contexts/QuizContext/QuizContext';
+import {Button, ButtonText, FormText, View} from './QuizScene.css';
 
 export const QuizLastPeriodScene: React.FC = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const route = useRoute();
-  const {setLastPeriod} = useQuiz();
+  const {setLastPeriod, quizLoading} = useQuiz();
 
   useFocusEffect(
     React.useCallback(() => {

@@ -1,12 +1,11 @@
 import React, {
-  createContext,
-  useState,
-  useContext,
   Context,
+  createContext,
+  useContext,
   useEffect,
+  useState,
 } from 'react';
 import {PeriodService} from '../../services/PeriodService/periodService';
-import {useNavigation} from '@react-navigation/native';
 import {useAuth} from '../AuthContext/AuthContext';
 import {useQuiz} from '../QuizContext/QuizContext';
 
@@ -20,6 +19,13 @@ interface IPeriodContext {
   daysToMark(): Promise<void>;
   phaseToSet(): Promise<void>;
   setUserPeriods(newPeriodDate: any): Promise<void>;
+}
+
+export enum PeriodPhases {
+  folicularInicial = 'Folicular Inicial',
+  folicularFinal = 'Folicular Final',
+  luteaInicial = 'Lútea Inicial',
+  luteaFinal = 'Lútea Final',
 }
 
 const PeriodContext: Context<IPeriodContext> = createContext(undefined as any);
@@ -76,13 +82,13 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
     maxLutFinalDate.setDate(lastPeriod.getDate() + daysFolTotal + daysLutTotal);
 
     if (nowDate < maxFolIntDate) {
-      setPhase('Folicular Inicial');
+      setPhase(PeriodPhases.folicularInicial);
     } else if (nowDate >= maxFolIntDate && nowDate < maxFolFinalDate) {
-      setPhase('Folicular Final');
+      setPhase(PeriodPhases.folicularInicial);
     } else if (nowDate >= maxFolFinalDate && nowDate < maxLutIntDate) {
-      setPhase('Lútea Inicial');
+      setPhase(PeriodPhases.luteaInicial);
     } else {
-      setPhase('Lútea Final');
+      setPhase(PeriodPhases.luteaFinal);
     }
     setIsLoading(false);
   };
