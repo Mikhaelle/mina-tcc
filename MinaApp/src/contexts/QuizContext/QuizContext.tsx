@@ -1,8 +1,12 @@
 import React, {
-  Context, createContext, useContext, useEffect, useState
+  Context,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
 } from 'react';
-import { QuizService } from '../../services/QuizService/quizService';
-import { useAuth } from '../AuthContext/AuthContext';
+import {QuizService} from '../../services/QuizService/quizService';
+import {useAuth} from '../AuthContext/AuthContext';
 
 interface IQuizContext {
   answeredQuiz: boolean;
@@ -19,10 +23,8 @@ interface IQuizContext {
   setContraceptiveMethods: React.Dispatch<React.SetStateAction<boolean>>;
   tpmSymptoms: boolean;
   setTpmSymptoms: React.Dispatch<React.SetStateAction<boolean>>;
-  humorChange: boolean;
-  setHumorChange: React.Dispatch<React.SetStateAction<boolean>>;
-  behaviorChange: boolean;
-  setBehaviorChange: React.Dispatch<React.SetStateAction<boolean>>;
+  hormonalDisorder: boolean;
+  setHormonalDisorder: React.Dispatch<React.SetStateAction<boolean>>;
   setUserQuizInfos(): Promise<void>;
   quizLoading: boolean;
 }
@@ -43,28 +45,26 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   const [regularCicle, setRegularCicle] = useState(false);
   const [contraceptiveMethods, setContraceptiveMethods] = useState(false);
   const [tpmSymptoms, setTpmSymptoms] = useState(false);
-  const [humorChange, setHumorChange] = useState(false);
-  const [behaviorChange, setBehaviorChange] = useState(false);
+  const [hormonalDisorder, setHormonalDisorder] = useState(false);
   const [quizLoading, setQuizLoading] = useState(true);
 
   useEffect(() => {
-    if (user != null) {      
-      setQuizLoading(true);
+    if (user != null) {
       quizService.quiz.getUserQuizInfos().then(userQuiz => {
-        console.log(userQuiz.data)
-        if (userQuiz.data.isAnswered) {
-          var date = new Date(userQuiz.data.lastPeriod);
-          setLastPeriod(date);
-          setAnsweredQuiz(userQuiz.data.isAnswered);
-          setCicleDuration(userQuiz.data.cicleDuration);
-          setRegularCicle(userQuiz.data.regularCicle);
-          setContraceptiveMethods(userQuiz.data.contraceptiveMethods);
-          setTpmSymptoms(userQuiz.data.tpmSymptoms);
-          setHumorChange(userQuiz.data.humorChange);
-          setBehaviorChange(userQuiz.data.behaviorChange);
+        if (userQuiz) {
+          if (userQuiz.isAnswered) {
+            var date = new Date(userQuiz.lastPeriod);
+            setLastPeriod(date);
+            setAnsweredQuiz(userQuiz.isAnswered);
+            setCicleDuration(userQuiz.cicleDuration);
+            setRegularCicle(userQuiz.regularCicle);
+            setContraceptiveMethods(userQuiz.hormonalContraceptiveMethod);
+            setHormonalDisorder(userQuiz.hormonalDisorder);
+            setTpmSymptoms(userQuiz.tpmSymptoms);
+          }
         }
+        setQuizLoading(false);
       });
-      setQuizLoading(false);
     }
   }, [user]);
 
@@ -79,8 +79,7 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
       regularCicle,
       contraceptiveMethods,
       tpmSymptoms,
-      humorChange,
-      behaviorChange,
+      hormonalDisorder,
     );
     setQuizLoading(false);
   };
@@ -102,10 +101,8 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
         setContraceptiveMethods,
         tpmSymptoms,
         setTpmSymptoms,
-        humorChange,
-        setHumorChange,
-        behaviorChange,
-        setBehaviorChange,
+        hormonalDisorder,
+        setHormonalDisorder,
         setUserQuizInfos,
         quizLoading,
       }}
@@ -116,5 +113,4 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   );
 };
 
-export { QuizProvider, QuizConsumer, useQuiz, QuizContext };
-
+export {QuizProvider, QuizConsumer, useQuiz, QuizContext};

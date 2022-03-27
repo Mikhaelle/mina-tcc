@@ -1,31 +1,33 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import quizImage from '../../assets/images/quiz.png';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 import {
   FormText,
-  View,
-  RoundButtonContainer,
   RoundButton,
+  RoundButtonContainer,
+  View,
 } from './QuizScene.css';
-import quizImage from '../../assets/images/quiz.png';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
-export const QuizHumorChangeScene: React.FC = () => {
+export const QuizHormonalDisorderScene: React.FC = () => {
   const navigation = useNavigation();
-  const {setHumorChange} = useQuiz();
+  const {setAnsweredQuiz, setHormonalDisorder} = useQuiz();
 
   return (
     <>
       <View>
         <FormText>
-          Você costuma apresentar mudança de humor no seu ciclo ?
+          Você tem algum distúrbio endócrino como ovários policísticos? ou
+          outros ?
         </FormText>
         <RoundButtonContainer>
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setHumorChange(false), navigation.navigate('QuizBehaviorChange');
+              setHormonalDisorder(false),
+                navigation.navigate('QuizTpmSymptoms');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -33,7 +35,7 @@ export const QuizHumorChangeScene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setHumorChange(true), navigation.navigate('QuizBehaviorChange');
+              setHormonalDisorder(true), navigation.navigate('QuizTpmSymptoms');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />

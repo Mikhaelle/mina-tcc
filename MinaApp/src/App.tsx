@@ -1,33 +1,33 @@
-import React from 'react';
-import {BackHandler, StatusBar} from 'react-native';
-import {
-  NavigationContainer,
-  useFocusEffect,
-  useRoute,
-} from '@react-navigation/native';
-import {AuthService} from './services/AuthService/authService';
-import {QuizService} from './services/QuizService/quizService';
-import {AuthProvider, useAuth} from './contexts/AuthContext/AuthContext';
-import {QuizProvider} from './contexts/QuizContext/QuizContext';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {LoginScene} from './scenes/LoginScene/LoginScene';
-import * as theme from './assets/variables.css';
+import React from 'react';
+import {LogBox, StatusBar} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import * as theme from './assets/variables.css';
+import Tabnavigator from './components/BottomTab';
+import {AuthProvider} from './contexts/AuthContext/AuthContext';
+import {PeriodProvider} from './contexts/PeriodContext/PeriodContext';
+import {QuizProvider} from './contexts/QuizContext/QuizContext';
+import {TaskProvider} from './contexts/TaskContext/TaskContext';
+import {AboutScene} from './scenes/AboutScene/AboutScene';
+import {LoginScene} from './scenes/LoginScene/LoginScene';
 import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
-import {QuizLastPeriodScene} from './scenes/QuizScene/QuizLastPeriodScene';
 import {QuizCicleDurationScene} from './scenes/QuizScene/QuizCicleDurationScene';
+import {QuizHormonalContraceptivesScene} from './scenes/QuizScene/QuizHormonalContraceptivesScene';
+import {QuizHormonalDisorderScene} from './scenes/QuizScene/QuizHormonalDisorderScene';
+import {QuizLastPeriodScene} from './scenes/QuizScene/QuizLastPeriodScene';
 import {QuizPeriodDurationScene} from './scenes/QuizScene/QuizPeriodDurationScene';
 import {QuizRegularCicleScene} from './scenes/QuizScene/QuizRegularCicleScene';
-import {QuizHormonalContraceptivesScene} from './scenes/QuizScene/QuizHormonalContraceptivesScene';
 import {QuizTpmSymptomsScene} from './scenes/QuizScene/QuizTpmSymptomsScene';
-import {QuizHumorChangeScene} from './scenes/QuizScene/QuizHumorChangeScene';
-import {QuizBehaviorChangeScene} from './scenes/QuizScene/QuizBehaviorChangeScene';
-
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import Tabnavigator from './components/BottomTab';
-import {AboutScene} from './scenes/AboutScene/AboutScene';
-import {TaskProvider} from './contexts/TaskContext/TaskContext';
+import {AuthService} from './services/AuthService/authService';
+import {PeriodService} from './services/PeriodService/periodService';
+import {QuizService} from './services/QuizService/quizService';
 import {TaskService} from './services/TaskService/TaskService';
+
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+]);
 
 GoogleSignin.configure({
   webClientId:
@@ -45,13 +45,15 @@ export const QuizHormonalContraceptivesComponent = () => (
   <QuizHormonalContraceptivesScene />
 );
 export const QuizTpmSymptomsComponent = () => <QuizTpmSymptomsScene />;
-export const QuizHumorChange = () => <QuizHumorChangeScene />;
-export const QuizBehaviorChangeComponent = () => <QuizBehaviorChangeScene />;
+export const QuizHormonalDisorderComponent = () => (
+  <QuizHormonalDisorderScene />
+);
 
 const App = () => {
   const auth = AuthService.getInstance();
   const quizService = QuizService.getInstance();
   const taskService = TaskService.getInstance();
+  const periodService = PeriodService.getInstance();
 
   const QuizStack = createStackNavigator();
   const CrudStack = createStackNavigator();
@@ -123,18 +125,8 @@ const App = () => {
           }}
         />
         <QuizStack.Screen
-          name="QuizHumorChange"
-          component={QuizHumorChange}
-          options={{
-            headerShown: true,
-            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-            headerTintColor: theme.BLACK,
-            title: 'Configurações iniciais',
-          }}
-        />
-        <QuizStack.Screen
-          name="QuizBehaviorChange"
-          component={QuizBehaviorChangeComponent}
+          name="QuizHormonalDisorder"
+          component={QuizHormonalDisorderComponent}
           options={{
             headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
@@ -177,46 +169,48 @@ const App = () => {
         <StatusBar barStyle="light-content" />
         <AuthProvider oauth={auth}>
           <QuizProvider quiz={quizService}>
-            <TaskProvider taskService={taskService}>
-              <Stack.Navigator initialRouteName="Crud">
-                <Stack.Screen
-                  name="Crud"
-                  component={CrudNavigator}
-                  options={{
-                    headerShown: false,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.WHITE,
-                  }}
-                />
-                <Stack.Screen
-                  name="Quiz"
-                  component={QuizNavigator}
-                  options={{
-                    headerShown: false,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.WHITE,
-                  }}
-                />
-                <Stack.Screen
-                  name="Tabnavigator"
-                  component={Tabnavigator}
-                  options={{
-                    headerShown: false,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.WHITE,
-                  }}
-                />
-                <Stack.Screen
-                  name="About"
-                  component={AboutComponent}
-                  options={{
-                    headerShown: false,
-                    headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                    headerTintColor: theme.WHITE,
-                  }}
-                />
-              </Stack.Navigator>
-            </TaskProvider>
+            <PeriodProvider periodService={periodService}>
+              <TaskProvider taskService={taskService}>
+                <Stack.Navigator initialRouteName="Crud">
+                  <Stack.Screen
+                    name="Crud"
+                    component={CrudNavigator}
+                    options={{
+                      headerShown: false,
+                      headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                      headerTintColor: theme.WHITE,
+                    }}
+                  />
+                  <Stack.Screen
+                    name="Quiz"
+                    component={QuizNavigator}
+                    options={{
+                      headerShown: false,
+                      headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                      headerTintColor: theme.WHITE,
+                    }}
+                  />
+                  <Stack.Screen
+                    name="Tabnavigator"
+                    component={Tabnavigator}
+                    options={{
+                      headerShown: false,
+                      headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                      headerTintColor: theme.WHITE,
+                    }}
+                  />
+                  <Stack.Screen
+                    name="About"
+                    component={AboutComponent}
+                    options={{
+                      headerShown: false,
+                      headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                      headerTintColor: theme.WHITE,
+                    }}
+                  />
+                </Stack.Navigator>
+              </TaskProvider>
+            </PeriodProvider>
           </QuizProvider>
         </AuthProvider>
       </NavigationContainer>
