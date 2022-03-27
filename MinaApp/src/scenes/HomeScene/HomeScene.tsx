@@ -1,26 +1,26 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {useAuth} from '../../contexts/AuthContext/AuthContext';
+import {BackHandler} from 'react-native';
+import {Calendar, LocaleConfig} from 'react-native-calendars';
+import DatePicker from 'react-native-date-picker';
+import Modal from 'react-native-modal';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {Loader} from '../../components/Loader/Loader';
+import {usePeriod} from '../../contexts/PeriodContext/PeriodContext';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 import {
+  AlertText,
   Button,
   ButtonText,
+  CenteredModalView,
+  ModalButton,
+  ModalButtonText,
+  ModalView,
   RoundButton,
   RowContainer,
   TitleText,
   View,
-  AlertText,
-  CenteredModalView,
-  ModalView,
-  ModalButton,
-  ModalButtonText,
 } from './HomeScene.css';
-import {Calendar, LocaleConfig} from 'react-native-calendars';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {Alert, BackHandler} from 'react-native';
-import {usePeriod} from '../../contexts/PeriodContext/PeriodContext';
-import {useQuiz} from '../../contexts/QuizContext/QuizContext';
-import DatePicker from 'react-native-date-picker';
-import Modal from 'react-native-modal';
 
 export const HomeScene: React.FC = () => {
   LocaleConfig.locales['br'] = {
@@ -69,10 +69,10 @@ export const HomeScene: React.FC = () => {
   const navigation = useNavigation();
   const {isLoading, lastPeriod, daysOfPeriods, daysToMark, phase, phaseToSet} =
     usePeriod();
-  const {quizLoading} = useQuiz();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
+  const {answeredQuiz, quizLoading} = useQuiz();
 
   const {setUserPeriods} = usePeriod();
 
@@ -88,11 +88,27 @@ export const HomeScene: React.FC = () => {
   );
 
   useEffect(() => {
+    console.log(answeredQuiz);
+    console.log(!answeredQuiz && !quizLoading);
+    if (!answeredQuiz && !quizLoading) {
+      navigation.navigate('Quiz');
+    }
+  }, [answeredQuiz, quizLoading]);
+
+  useEffect(() => {
     if (!quizLoading) {
       daysToMark();
       phaseToSet();
     }
   }, [quizLoading, lastPeriod]);
+
+  if (quizLoading) {
+    return (
+      <View>
+        <Loader />
+      </View>
+    );
+  }
 
   return (
     <View>
