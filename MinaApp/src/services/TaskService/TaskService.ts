@@ -1,4 +1,3 @@
-import firestore from '@react-native-firebase/firestore';
 import functions from '@react-native-firebase/functions';
 
 export class TaskService {
@@ -20,22 +19,17 @@ export class TaskService {
     TaskService.instance = null;
   }
 
-  async getUserAnswers() {
-    const userAnswers = await firestore().collection('Answer').doc('').get();
-  }
-
-  async getUserTask(userId: string) {
-    return firestore()
-      .collection('RecomendTasks')
-      .where('userId', '==', userId)
-      .get()
-      .then(tasks => {
-        console.log(tasks.docs[0].data().groupTaskData.folicularInicial);
-        return tasks.docs[0].data().groupTaskData.folicularInicial;
+  async getUserTask(phase: string) {
+    return functions()
+      .httpsCallable('getRecomendedUserTasks')({
+        phase: phase,
       })
-      .catch(e => {
-        console.log(e);
-      });
+      .then(response => {
+        if (response.data) {
+          return response.data;
+        }
+      })
+      .catch(e => console.log(e));
   }
 
   async createUserTasks() {
@@ -43,10 +37,6 @@ export class TaskService {
       .httpsCallable('setUserTask')({
         hormonalContraceptivesComponent: false,
         hormonalDisorder: false,
-      })
-      .then(response => {
-        console.log(response);
-        return response.data;
       })
       .catch(e => console.log(e));
   }

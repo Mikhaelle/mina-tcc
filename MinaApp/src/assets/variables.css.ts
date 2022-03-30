@@ -18,6 +18,7 @@ export const SELECTED_SECONDARY_COLOR = '#CBAD00';
 export const BLACK = '#000000';
 export const WHITE = '#FFFFFF';
 export const GRAY = '#EEEEEE';
+export const GRAY_COLOR_800 = '#666666';
 export const SCREEN_WIDTH = Dimensions.get('window').width + 'px';
 export const SCREEN_HEIGHT = Dimensions.get('window').height + 'px';
 export const BORDER_RADIUS = '50px';
