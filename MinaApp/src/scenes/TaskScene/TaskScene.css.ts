@@ -66,7 +66,7 @@ export const Button = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-  color: ${theme.BLACK};
+  color: ${theme.WHITE};
   font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
   line-height: 24px;
   align-self: center;

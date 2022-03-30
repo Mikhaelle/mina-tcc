@@ -26,54 +26,65 @@ exports.setUserTask = functions.https.onCall(async (data, context) => {
   const hormonalDisorder = data.hormonalContraceptiveMethod
 
   let userGroup = ''
-  if (hormonalContraceptiveMethod && hormonalDisorder){
+  if (hormonalContraceptiveMethod){
     userGroup = 'group1'
-  }else if(hormonalContraceptiveMethod && !hormonalDisorder){
+  }else if(!hormonalContraceptiveMethod && !hormonalDisorder){
     userGroup = 'group2'
   }else if(!hormonalContraceptiveMethod && hormonalDisorder){
     userGroup = 'group3'
   }else{
     userGroup = 'group4'
   }
-  const groupTasks = await admin.firestore().collection("GroupTasks").doc(userGroup.toString()).get()
-  const groupTasksData = groupTasks.data()
-  await admin.firestore().collection('UserTasks')
-  .add({groupTasksData, group:userGroup, userId:context.auth.uid})
-  console.log('aqui')
-
-  admin.firestore().collection('RecomendTasks').add({groupTasksData, group:userGroup, userId:context.auth.uid})
+  admin.firestore().collection("InitialUserTasks").doc("InitialTasks")
+  .get().then (groupTasks =>{
+    console.log('aqui')
+    const groupTasksData = groupTasks.data()
+    admin.firestore().collection('UserTasks')
+    .add({groupTasksData, group:userGroup, userId:context.auth.uid, hasFeedback:false})
+  })
 });
+
+exports.postUserFeedback = functions.https.onCall(async (data, context) => {
+  
+
+})
+
 
 exports.getRecomendedUserTasks = functions.https.onCall(async (data, context) => {
   const phase = data.phase
   console.log(phase)
-  return admin.firestore().collection('RecomendTasks').where("userId", "==", context.auth.uid)
-  .get().then((userRecomendedTask)=>{
-    if (userRecomendedTask.docs.length !== 0) {
-      if(phase === 'Folicular Inicial'){
-        console.log('Folicular Inicial')
-        return userRecomendedTask.docs[0].data().groupTasksData.folicularInicial;
-      }else if (phase === 'Folicular Final'){
-        console.log('Folicular Final')
-        return userRecomendedTask.docs[0].data().groupTasksData.folicularFinal;
-      }else if (phase === 'Lútea Inicial'){
-        console.log('Lútea Inicial')
-        return userRecomendedTask.docs[0].data().groupTasksData.luteaInicial;
-      }else{
-        console.log('Lútea Final')
-        return userRecomendedTask.docs[0].data().groupTasksData.luteaFinal;
-      }
+  const userTask = await admin.firestore().collection('UserTasks').where("userId", "==", context.auth.uid)
+  .get()
+  console.log(userTask)
+    
+  const userRecomendedTask = await admin.firestore().collection('GroupTasks').doc(userTask.docs[0].data().group)
+    .get()
+    let result= {}
+    if(phase === 'Folicular Inicial'){
+      console.log('Folicular Inicial')
+      result= userRecomendedTask.data().folicularInicial;
+    }else if (phase === 'Folicular Final'){
+      console.log('Folicular Final')
+      result= userRecomendedTask.data().folicularFinal;
+    }else if (phase === 'Lútea Inicial'){
+      console.log('Lútea Inicial')
+      result= userRecomendedTask.data().luteaInicial;
+    }else{
+      console.log('Lútea Final')
+      result= userRecomendedTask.data().luteaFinal;
     }
-})
-});
+    
 
+  return result
+
+});
 
 
 // Take the text parameter passed to this HTTP endpoint and insert it into
 // Firestore under the path /messages/:documentId/original
 /*exports.setInitialGroupTasks = functions.https.onRequest(async (req, res) => {
   // Push the new message into Firestore using the Firebase Admin SDK.
-  await admin.firestore().collection('GroupTasks').doc('group1')
+  await admin.firestore().collection('InitialUserTasks').doc('InitialTasks')
   .set({
       folicularInicial:{
         study: {

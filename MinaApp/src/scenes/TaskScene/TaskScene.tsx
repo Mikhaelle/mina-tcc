@@ -46,6 +46,7 @@ export const TaskScene: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    console.log(userTasks)
     if (userTasks.length !== 0 && !taskUp) {
       taskList();
     }
