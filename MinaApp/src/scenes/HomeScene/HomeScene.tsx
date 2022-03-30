@@ -67,14 +67,14 @@ export const HomeScene: React.FC = () => {
   LocaleConfig.defaultLocale = 'br';
 
   const navigation = useNavigation();
-  const {isLoading, lastPeriod, daysOfPeriods, daysToMark, phase, phaseToSet} =
-    usePeriod();
+  const {isLoading, lastPeriod, daysOfPeriods, daysToMark, phase} = usePeriod();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
   const {answeredQuiz, quizLoading} = useQuiz();
 
   const {setUserPeriods} = usePeriod();
+  var today = new Date();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -88,7 +88,6 @@ export const HomeScene: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log(answeredQuiz);
     console.log(!answeredQuiz && !quizLoading);
     if (!answeredQuiz && !quizLoading) {
       navigation.navigate('Quiz');
@@ -98,11 +97,10 @@ export const HomeScene: React.FC = () => {
   useEffect(() => {
     if (!quizLoading) {
       daysToMark();
-      phaseToSet();
     }
   }, [quizLoading, lastPeriod]);
 
-  if (quizLoading) {
+  if (quizLoading || isLoading) {
     return (
       <View>
         <Loader />
@@ -112,59 +110,56 @@ export const HomeScene: React.FC = () => {
 
   return (
     <View>
-      {!isLoading ? (
-        <>
-          <Calendar
-            // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-            monthFormat={'MMMM yyyy'}
-            // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
-            firstDay={7}
-            markingType={'period'}
-            markedDates={daysOfPeriods}
-          />
-          <RowContainer>
-            <TitleText>Fase: {phase}</TitleText>
-            <RoundButton
-              style={{backgroundColor: '#F37676'}}
+      <Calendar
+        // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
+        monthFormat={'MMMM yyyy'}
+        // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday
+        firstDay={7}
+        markingType={'period'}
+        markedDates={daysOfPeriods}
+      />
+      <RowContainer>
+        <TitleText>Fase: {phase}</TitleText>
+        <RoundButton
+          style={{backgroundColor: '#F37676'}}
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        >
+          <Icon name={'plus'} size={24} color={'white'} />
+        </RoundButton>
+      </RowContainer>
+      <Button onPress={() => navigation.navigate('Task')}>
+        <ButtonText>PREVISÃO DE HOJE</ButtonText>
+        <Icon name={'right'} />
+      </Button>
+      <Button onPress={() => navigation.navigate('About')}>
+        <ButtonText>SOBRE A FASE</ButtonText>
+        <Icon name={'right'} />
+      </Button>
+      <Modal isVisible={modalVisible}>
+        <CenteredModalView>
+          <ModalView>
+            <AlertText>
+              Adicione uma nova data para iniciar um novo ciclo.
+            </AlertText>
+            <DatePicker
+              mode={'date'}
+              locale={'pt-BR'}
+              date={date}
+              onDateChange={setDate}
+              maximumDate={new Date()}
+            />
+            <ModalButton
               onPress={() => {
-                setModalVisible(true);
+                setModalVisible(false), setUserPeriods(date);
               }}
             >
-              <Icon name={'plus'} size={24} color={'white'} />
-            </RoundButton>
-          </RowContainer>
-          <Button onPress={() => navigation.navigate('Task')}>
-            <ButtonText>PREVISÃO DE HOJE</ButtonText>
-            <Icon name={'right'} />
-          </Button>
-          <Button onPress={() => navigation.navigate('About')}>
-            <ButtonText>SOBRE A FASE</ButtonText>
-            <Icon name={'right'} />
-          </Button>
-          <Modal isVisible={modalVisible}>
-            <CenteredModalView>
-              <ModalView>
-                <AlertText>
-                  Adicione uma nova data para iniciar um novo ciclo.
-                </AlertText>
-                <DatePicker
-                  mode={'date'}
-                  locale={'pt-BR'}
-                  date={date}
-                  onDateChange={setDate}
-                />
-                <ModalButton
-                  onPress={() => {
-                    setModalVisible(false), setUserPeriods(date);
-                  }}
-                >
-                  <ModalButtonText>Adicionar</ModalButtonText>
-                </ModalButton>
-              </ModalView>
-            </CenteredModalView>
-          </Modal>
-        </>
-      ) : null}
+              <ModalButtonText>Adicionar</ModalButtonText>
+            </ModalButton>
+          </ModalView>
+        </CenteredModalView>
+      </Modal>
     </View>
   );
 };

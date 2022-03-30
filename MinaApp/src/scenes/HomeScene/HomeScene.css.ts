@@ -4,8 +4,9 @@ import * as theme from '../../assets/variables.css';
 export const TitleText = styled.Text`
   color: ${theme.BLACK};
   font-size: ${theme.FONT_SIZE_CUSTOM_MEDIUM};
-  line-height: 16px;
+  line-height: 24px;
   align-self: center;
+  font-weight: 500;
 `;
 
 export const ButtonText = styled.Text`

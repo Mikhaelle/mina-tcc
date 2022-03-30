@@ -1,7 +1,7 @@
 import React, {Context, createContext, useContext, useState} from 'react';
 import {TaskService} from '../../services/TaskService/TaskService';
 import {useAuth} from '../AuthContext/AuthContext';
-import {PeriodPhases, usePeriod} from '../PeriodContext/PeriodContext';
+import {usePeriod} from '../PeriodContext/PeriodContext';
 
 interface ITaskContext {
   isLoadingTasks: boolean;
@@ -22,30 +22,13 @@ const TaskProvider: React.FC<{taskService: TaskService}> = props => {
   const {phase} = usePeriod();
 
   const createUserTasks = async () => {
-    task.taskService.createUserTasks().then(initialTasks => {
-      console.log(initialTasks);
-      console.log('phase' + phase);
-      if (phase === PeriodPhases.folicularInicial) {
-        const tasks = initialTasks.groupTasksData.folicularInicial;
-        setUserTasks(tasks);
-      } else if (phase === PeriodPhases.folicularFinal) {
-        const tasks = initialTasks.groupTasksData.folicularFinal;
-        setUserTasks(tasks);
-      } else if (phase == PeriodPhases.luteaInicial) {
-        const tasks = initialTasks.groupTasksData.luteaInicial;
-        setUserTasks(tasks);
-      } else {
-        const tasks = initialTasks.groupTasksData.luteaFinal;
-        setUserTasks(tasks);
-      }
-    });
+    task.taskService.createUserTasks();
   };
 
   const getUserTasks = async () => {
     setIsLoadingTasks(true);
-    task.taskService.getUserTask(user.uid).then(tasks => {
-      setUserTasks(tasks.tasks);
-      setIsLoadingTasks(false);
+    task.taskService.getUserTask(phase).then(tasks => {
+      setUserTasks(tasks);
     });
   };
 
