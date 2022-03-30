@@ -40,7 +40,7 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
   const [periods, setPeriods] = useState([new Date()]);
   const [daysOfPeriods, setDaysOfPeriods] = useState({});
   const [docUid, setDocUid] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [phase, setPhase] = useState('');
 
   const {periodDuration, cicleDuration} = useQuiz();
@@ -63,8 +63,13 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
     }
   }, [user]);
 
+  useEffect(() => {
+    if (Object.keys(daysOfPeriods).length !== 0) {
+      setIsLoading(false);
+    }
+  }, [daysOfPeriods]);
+
   const phaseToSet = async () => {
-    setIsLoading(true);
     var daysFolTotal = cicleDuration - 14;
     var daysLutTotal = 14;
     var daysFolPart = Math.round((cicleDuration - 14) / 2);
@@ -84,24 +89,22 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
     if (nowDate < maxFolIntDate) {
       setPhase(PeriodPhases.folicularInicial);
     } else if (nowDate >= maxFolIntDate && nowDate < maxFolFinalDate) {
-      setPhase(PeriodPhases.folicularInicial);
+      setPhase(PeriodPhases.folicularFinal);
     } else if (nowDate >= maxFolFinalDate && nowDate < maxLutIntDate) {
       setPhase(PeriodPhases.luteaInicial);
     } else {
       setPhase(PeriodPhases.luteaFinal);
     }
-    setIsLoading(false);
   };
 
   const daysToMark = async () => {
+    phaseToSet();
     var daysFolTotal = cicleDuration - 14;
 
     var daysFolPart = Math.round((cicleDuration - 14) / 2);
     var daysLutPart = 7;
 
     var calendarDays = {};
-
-    setIsLoading(true);
 
     var date = new Date();
     date.setDate(lastPeriod.getDate());
@@ -122,29 +125,29 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
           startingDay: true,
           color: '#F87D6D',
           marked: true,
-          dotColor: 'black',
+          dotColor: '#86F786',
         };
       } else if (i === periodDuration - 1) {
         calendarDays[datePeriodString] = {
           endingDay: true,
           color: '#F87D6D',
           marked: true,
-          dotColor: 'black',
+          dotColor: '#86F786',
         };
       } else if (i < periodDuration) {
         calendarDays[datePeriodString] = {
           color: '#F87D6D',
           marked: true,
-          dotColor: 'black',
+          dotColor: '#86F786',
         };
       } else if (i >= periodDuration && i < daysFolPart) {
-        calendarDays[datePeriodString] = {marked: true, dotColor: 'black'};
+        calendarDays[datePeriodString] = {marked: true, dotColor: '#86F786'};
       } else if (i >= daysFolPart && i < daysFolTotal) {
-        calendarDays[datePeriodString] = {marked: true, dotColor: 'red'};
+        calendarDays[datePeriodString] = {marked: true, dotColor: '#F760AC'};
       } else if (i >= daysFolTotal && i < daysFolTotal + daysLutPart) {
-        calendarDays[datePeriodString] = {marked: true, dotColor: 'blue'};
+        calendarDays[datePeriodString] = {marked: true, dotColor: '#F7B079'};
       } else {
-        calendarDays[datePeriodString] = {marked: true, dotColor: 'yellow'};
+        calendarDays[datePeriodString] = {marked: true, dotColor: '#54E3F7'};
       }
     }
     for (var i = 0; i < periodDuration; i++) {
@@ -164,7 +167,6 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
         calendarDays[datePeriodString] = {color: '#F87D6D'};
       }
     }
-    setIsLoading(false);
     setDaysOfPeriods(calendarDays);
   };
 

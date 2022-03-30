@@ -1,31 +1,52 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
-import {Image} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useTask} from '../../contexts/TaskContext/TaskContext';
+import React, { useEffect, useState } from 'react';
+import { Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import RadioForm from 'react-native-simple-radio-button';
+import * as theme from '../../assets/variables.css';
+import { useTask } from '../../contexts/TaskContext/TaskContext';
+import images from '../../managers/images';
 import {
   BoxText,
   BoxView,
+  Button,
+  ButtonText,
+  ContainerTask,
   LineBoxView,
-  TaskButton,
   TaskView,
   TitleText,
-  View,
+  View
 } from './TaskScene.css';
-import images from '../../managers/images';
 
 export const TaskScene: React.FC = () => {
-  const navigation = useNavigation();
+  var radio_props = [
+    {label: 'mais difícil', value: 0},
+    {label: 'neutro', value: 1},
+    {label: 'mais fácil', value: 2},
+  ];
 
   const {getUserTasks, userTasks} = useTask();
   const [userTasksComponents, setUserTasksComponents] = useState([] as any);
+
+  const [taskUp, setTaskUp] = useState(false);
+  const [cleaningFeedback, setCleaningFeedback] = useState('0');
+  const [createFeedback, setCreateFeedback] = useState('0');
+  const [drawFeedback, setDrawFeedback] = useState('0');
+  const [exerciseFeedback, setExerciseFeedback] = useState('0');
+  const [listenFeedback, setListenFeedback] = useState('0');
+  const [meetingsFeedback, setMeetingsFeedback] = useState('0');
+  const [readFeedback, setReadFeedback] = useState('0');
+  const [socializeFeedback, setSocializeFeedback] = useState('0');
+  const [studyFeedback, setStudyFeedback] = useState('0');
+  const [watchFeedback, setWatchFeedback] = useState('0');
+  const [workFeedback, setWorkFeedback] = useState('0');
+  const [writeFeedback, setWriteFeedback] = useState('0');
 
   useEffect(() => {
     getUserTasks();
   }, []);
 
   useEffect(() => {
-    if (userTasks.length !== 0) {
+    if (userTasks.length !== 0 && !taskUp) {
       taskList();
     }
   }, [userTasks]);
@@ -34,41 +55,92 @@ export const TaskScene: React.FC = () => {
     Object.keys(userTasks).forEach(userTask => {
       const userTaskObj = userTasks[userTask];
       const newTaskComponent = (
-        <>
+        <ContainerTask key={userTaskObj['taskName']}>
           <TaskView>
-            <TaskButton>
-              <Image source={images[userTask]} />
-            </TaskButton>
+            <Image source={images[userTask]} />
             <TitleText>{userTaskObj['taskName']}</TitleText>
             <Image source={images[userTaskObj['taskPrediction']]} />
           </TaskView>
-        </>
+          <RadioForm
+            formHorizontal={true}
+            radio_props={radio_props}
+            initial={1}
+            selectedButtonColor={theme.TERTIARY_COLOR}
+            buttonColor={theme.GRAY_COLOR_800}
+            onPress={value => {
+              switch (userTaskObj['taskName']) {
+                case 'Faxinar':
+                  setCleaningFeedback(value);
+                  break;
+                case 'Criar':
+                  setCreateFeedback(value);
+                  break;
+                case 'Desenhar':
+                  setDrawFeedback(value);
+                  break;
+                case 'Exercitar':
+                  setExerciseFeedback(value);
+                  break;
+                case 'Ouvir música':
+                  setListenFeedback(value);
+                  break;
+                case 'Fazer reuniões':
+                  setMeetingsFeedback(value);
+                  break;
+                case 'Ler':
+                  setReadFeedback(value);
+                  break;
+                case 'Socializar':
+                  setSocializeFeedback(value);
+                  break;
+                case 'Estudar':
+                  setStudyFeedback(value);
+                  break;
+                case 'Assisti séries/tv':
+                  setWatchFeedback(value);
+                  break;
+                case 'Trabalhar':
+                  setWorkFeedback(value);
+                  break;
+                case 'Escrever':
+                  setWriteFeedback(value);
+                  break;
+                default:
+              }
+            }}
+            radioStyle={{paddingBottom: 25, paddingRight: 10}}
+          />
+          <LineBoxView />
+        </ContainerTask>
       );
 
       setUserTasksComponents((userTasksComponent: any) => [
         ...userTasksComponent,
         newTaskComponent,
       ]);
-      userTasksComponents.push();
+      setTaskUp(true);
     });
   };
 
   return (
     <>
       <View>
-        <BoxView>
-          <BoxText>
-            Ajude-nos a te dar uma previsão melhor. Selecione o icone das
-            previsões de tarefas corrretas
-          </BoxText>
-        </BoxView>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <TitleText>Tarefas</TitleText>
+          <BoxView>
+            <BoxText>
+              Ajude-nos a te dar uma previsão melhor. Para cada tarefa selecione
+              a opção que melhor se encaixa em como foi a execução da tarefa no
+              seu dia e nos envie um feedback.
+            </BoxText>
+          </BoxView>
           <LineBoxView />
 
           {userTasksComponents.map(
             (userTasksComponent: any) => userTasksComponent,
           )}
+          <Button onPress={() => {}}>
+            <ButtonText>Enviar</ButtonText>
+          </Button>
         </ScrollView>
       </View>
     </>
