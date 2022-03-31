@@ -25,7 +25,7 @@ export class TaskService {
         phase: phase,
       })
       .then(response => {
-        console.log(response)
+        console.log(response);
         if (response.data) {
           return response.data;
         }

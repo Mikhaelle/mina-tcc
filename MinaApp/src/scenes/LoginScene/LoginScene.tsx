@@ -1,14 +1,16 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {Image, ScrollView} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { Image, ScrollView } from 'react-native';
 import logoImage from '../../assets/icons/logo/logo.png';
 import googleLogo from '../../assets/images/google-logo.png';
-import {useAuth} from '../../contexts/AuthContext/AuthContext';
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import {
+  ButtonContaienr,
   ElementView,
   ErrorText,
   ForgetButton,
   ForgetText,
+  FormContainer,
   FormText,
   FormTextInput,
   FormView,
@@ -18,6 +20,7 @@ import {
   LoginText,
   NewAccountButton,
   NewAccountText,
+  NewView
 } from './LoginScene.css';
 
 export const LoginScene: React.FC = () => {
@@ -44,64 +47,77 @@ export const LoginScene: React.FC = () => {
   return (
     <ElementView>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ImgView>
-          <Image source={logoImage} style={{alignSelf: 'center'}} />
-        </ImgView>
+        <NewView>
+          <ImgView>
+            <Image source={logoImage} style={{alignSelf: 'center'}} />
+          </ImgView>
+          <FormContainer>
+            <FormView>
+              <FormText>Email</FormText>
+              <FormTextInput
+                onChangeText={value => {
+                  setUserEmail(value), setEmailError('');
+                }}
+                value={userEmail}
+              />
+              {emailError ? <ErrorText>{emailError}</ErrorText> : null}
+            </FormView>
+          </FormContainer>
 
-        <FormView>
-          <FormText>Email</FormText>
-          <FormTextInput
-            onChangeText={value => {
-              setUserEmail(value), setEmailError('');
-            }}
-            value={userEmail}
-          />
-          {emailError ? <ErrorText>{emailError}</ErrorText> : null}
-        </FormView>
+          <FormContainer>
+            <FormView>
+              <FormText>Senha</FormText>
+              <FormTextInput
+                onChangeText={value => {
+                  setPassword(value), setPasswordError('');
+                }}
+                value={userPassword}
+                secureTextEntry={true}
+              />
+              {passwordError ? <ErrorText>{passwordError}</ErrorText> : null}
+            </FormView>
+          </FormContainer>
 
-        <FormView>
-          <FormText>Senha</FormText>
-          <FormTextInput
-            onChangeText={value => {
-              setPassword(value), setPasswordError('');
-            }}
-            value={userPassword}
-            secureTextEntry={true}
-          />
-          {passwordError ? <ErrorText>{passwordError}</ErrorText> : null}
-        </FormView>
+          <ButtonContaienr>
+            <ForgetButton onPress={() => {}}>
+              <ForgetText>Esqueceu a senha?</ForgetText>
+            </ForgetButton>
+          </ButtonContaienr>
 
-        <ForgetButton onPress={() => {}}>
-          <ForgetText>Esqueceu a senha?</ForgetText>
-        </ForgetButton>
+          <ButtonContaienr>
+            <LoginButton
+              onPress={() => {
+                login(userEmail, userPassword);
+              }}
+            >
+              <LoginText>Entrar</LoginText>
+            </LoginButton>
+          </ButtonContaienr>
 
-        <LoginButton
-          onPress={() => {
-            login(userEmail, userPassword);
-          }}
-        >
-          <LoginText>Entrar</LoginText>
-        </LoginButton>
+          <ButtonContaienr>
+            <GoogleButton
+              onPress={() => {
+                onGoogleButtonPress();
+              }}
+            >
+              <Image
+                source={googleLogo}
+                style={{width: 30, height: 30, alignSelf: 'center'}}
+              />
+              <NewAccountText>Entrar com o Google</NewAccountText>
+            </GoogleButton>
+          </ButtonContaienr>
 
-        <GoogleButton
-          onPress={() => {
-            onGoogleButtonPress();
-          }}
-        >
-          <Image
-            source={googleLogo}
-            style={{width: 30, height: 30, alignSelf: 'center'}}
-          />
-          <NewAccountText>Entrar com o Google</NewAccountText>
-        </GoogleButton>
-
-        <NewAccountButton
-          onPress={() => {
-            navigation.navigate('NewAccount');
-          }}
-        >
-          <NewAccountText>Criar conta</NewAccountText>
-        </NewAccountButton>
+          <ButtonContaienr>
+            <NewAccountButton
+              onPress={() => {
+                navigation.navigate('NewAccount');
+              }}
+            >
+              <NewAccountText>Criar conta</NewAccountText>
+            </NewAccountButton>
+          </ButtonContaienr>
+        </NewView>
       </ScrollView>
     </ElementView>
   );

@@ -1,3 +1,4 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import * as theme from '../../assets/variables.css';
 
@@ -26,6 +27,10 @@ export const ForgetButton = styled.TouchableOpacity`
   width: 100%;
   justify-content: flex-end;
   margin-bottom: 20px;
+`;
+
+export const ButtonContaienr = styled.TouchableOpacity`
+  flex-grow: 1px;
 `;
 
 export const LoginText = styled.Text`
@@ -78,10 +83,8 @@ export const GoogleButton = styled.TouchableOpacity`
 `;
 
 export const ElementView = styled.View`
-  justify-content: space-between;
   flex-direction: column;
   background-color: ${theme.PRIMARY_COLOR};
-  height: 100%;
   font-family: ${theme.FONT_FAMILY};
   width: 100%;
   height: 100%;
@@ -92,9 +95,20 @@ export const FormView = styled.View`
   margin-bottom: 20px;
 `;
 
+export const FormContainer = styled.View`
+  flex-grow: 1;
+`;
+
 export const ImgView = styled.View`
+  flex-grow: 1;
   margin-top: 50px;
   margin-bottom: 20px;
+`;
+
+export const NewView = styled.View`
+  flex-direction: column;
+  width: ${Dimensions.get('window').width - 50 + 'px'};
+  height: ${Dimensions.get('window').height - 50 + 'px'};
 `;
 
 export const BR = styled.View`

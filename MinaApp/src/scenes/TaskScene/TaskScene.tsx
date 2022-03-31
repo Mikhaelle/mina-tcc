@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import React, {useEffect, useState} from 'react';
+import {Image} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import RadioForm from 'react-native-simple-radio-button';
 import * as theme from '../../assets/variables.css';
-import { useTask } from '../../contexts/TaskContext/TaskContext';
+import {useTask} from '../../contexts/TaskContext/TaskContext';
 import images from '../../managers/images';
 import {
   BoxText,
@@ -14,7 +14,7 @@ import {
   LineBoxView,
   TaskView,
   TitleText,
-  View
+  View,
 } from './TaskScene.css';
 
 export const TaskScene: React.FC = () => {
@@ -46,7 +46,7 @@ export const TaskScene: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(userTasks)
+    console.log(userTasks);
     if (userTasks.length !== 0 && !taskUp) {
       taskList();
     }
