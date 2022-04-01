@@ -1,29 +1,29 @@
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import {LogBox, StatusBar} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { LogBox, StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as theme from './assets/variables.css';
 import Tabnavigator from './components/BottomTab';
-import {AuthProvider} from './contexts/AuthContext/AuthContext';
-import {PeriodProvider} from './contexts/PeriodContext/PeriodContext';
-import {QuizProvider} from './contexts/QuizContext/QuizContext';
-import {TaskProvider} from './contexts/TaskContext/TaskContext';
-import {AboutScene} from './scenes/AboutScene/AboutScene';
-import {LoginScene} from './scenes/LoginScene/LoginScene';
-import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
-import {QuizCicleDurationScene} from './scenes/QuizScene/QuizCicleDurationScene';
-import {QuizHormonalContraceptivesScene} from './scenes/QuizScene/QuizHormonalContraceptivesScene';
-import {QuizHormonalDisorderScene} from './scenes/QuizScene/QuizHormonalDisorderScene';
-import {QuizLastPeriodScene} from './scenes/QuizScene/QuizLastPeriodScene';
-import {QuizPeriodDurationScene} from './scenes/QuizScene/QuizPeriodDurationScene';
-import {QuizRegularCicleScene} from './scenes/QuizScene/QuizRegularCicleScene';
-import {QuizTpmSymptomsScene} from './scenes/QuizScene/QuizTpmSymptomsScene';
-import {AuthService} from './services/AuthService/authService';
-import {PeriodService} from './services/PeriodService/periodService';
-import {QuizService} from './services/QuizService/quizService';
-import {TaskService} from './services/TaskService/TaskService';
+import { AuthProvider } from './contexts/AuthContext/AuthContext';
+import { PeriodProvider } from './contexts/PeriodContext/PeriodContext';
+import { QuizProvider } from './contexts/QuizContext/QuizContext';
+import { TaskProvider } from './contexts/TaskContext/TaskContext';
+import { AboutScene } from './scenes/AboutScene/AboutScene';
+import { LoginScene } from './scenes/LoginScene/LoginScene';
+import { NewAccountScene } from './scenes/NewAccountScene/NewAccountScene';
+import { QuizCicleDurationScene } from './scenes/QuizScene/QuizCicleDurationScene';
+import { QuizHormonalContraceptivesScene } from './scenes/QuizScene/QuizHormonalContraceptivesScene';
+import { QuizHormonalDisorderScene } from './scenes/QuizScene/QuizHormonalDisorderScene';
+import { QuizLastPeriodScene } from './scenes/QuizScene/QuizLastPeriodScene';
+import { QuizPeriodDurationScene } from './scenes/QuizScene/QuizPeriodDurationScene';
+import { QuizRegularCicleScene } from './scenes/QuizScene/QuizRegularCicleScene';
+import { QuizTpmSymptomsScene } from './scenes/QuizScene/QuizTpmSymptomsScene';
+import { AuthService } from './services/AuthService/authService';
+import { PeriodService } from './services/PeriodService/periodService';
+import { QuizService } from './services/QuizService/quizService';
+import { TaskService } from './services/TaskService/TaskService';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -82,6 +82,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -92,6 +93,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -102,6 +104,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -112,6 +115,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -122,6 +126,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -132,6 +137,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
       </QuizStack.Navigator>
@@ -203,9 +209,11 @@ const App = () => {
                     name="About"
                     component={AboutComponent}
                     options={{
-                      headerShown: false,
+                      headerShown: true,
                       headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                      headerTintColor: theme.WHITE,
+                      headerTintColor: theme.BLACK,
+                      headerBackTitleVisible: false,
+                      title: 'Sobre a Fase',
                     }}
                   />
                 </Stack.Navigator>
