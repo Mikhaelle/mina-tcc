@@ -21,7 +21,6 @@ export const QuizTpmSymptomsScene: React.FC = () => {
   useEffect(() => {
     if (answeredQuiz) {
       setUserQuizInfos();
-      createUserTasks();
     }
   }, [answeredQuiz]);
 
@@ -33,9 +32,8 @@ export const QuizTpmSymptomsScene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'red'}}
             onPress={() => {
-              setAnsweredQuiz(true),
-                setTpmSymptoms(false),
-                navigation.navigate('Tabnavigator');
+              setTpmSymptoms(false), setAnsweredQuiz(true), createUserTasks();
+              navigation.navigate('Tabnavigator');
             }}
           >
             <Icon name={'close'} size={24} color={'white'} />
@@ -43,9 +41,9 @@ export const QuizTpmSymptomsScene: React.FC = () => {
           <RoundButton
             style={{backgroundColor: 'green'}}
             onPress={() => {
-              setAnsweredQuiz(true),
-                setTpmSymptoms(true),
-                navigation.navigate('Tabnavigator');
+              setTpmSymptoms(false), setAnsweredQuiz(true), createUserTasks();
+
+              navigation.navigate('Tabnavigator');
             }}
           >
             <Icon name={'check'} size={24} color={'white'} />

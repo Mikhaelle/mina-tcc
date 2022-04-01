@@ -1,9 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
-import { Image, ScrollView } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect} from 'react';
+import {Image, ScrollView} from 'react-native';
 import logoImage from '../../assets/icons/logo/logo.png';
 import googleLogo from '../../assets/images/google-logo.png';
-import { useAuth } from '../../contexts/AuthContext/AuthContext';
+import {useAuth} from '../../contexts/AuthContext/AuthContext';
 import {
   ButtonContaienr,
   ElementView,
@@ -20,7 +20,7 @@ import {
   LoginText,
   NewAccountButton,
   NewAccountText,
-  NewView
+  NewView,
 } from './LoginScene.css';
 
 export const LoginScene: React.FC = () => {

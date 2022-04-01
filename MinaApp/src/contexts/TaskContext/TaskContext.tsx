@@ -2,6 +2,7 @@ import React, { Context, createContext, useContext, useState } from 'react';
 import { TaskService } from '../../services/TaskService/TaskService';
 import { useAuth } from '../AuthContext/AuthContext';
 import { usePeriod } from '../PeriodContext/PeriodContext';
+import { useQuiz } from '../QuizContext/QuizContext';
 
 interface ITaskContext {
   isLoadingTasks: boolean;
@@ -20,9 +21,10 @@ const TaskProvider: React.FC<{taskService: TaskService}> = props => {
   const task = props;
   const {user} = useAuth();
   const {phase} = usePeriod();
+  const {contraceptiveMethods, hormonalDisorder} = useQuiz();
 
   const createUserTasks = async () => {
-    task.taskService.createUserTasks();
+    task.taskService.createUserTasks(contraceptiveMethods, hormonalDisorder);
   };
 
   const getUserTasks = async () => {

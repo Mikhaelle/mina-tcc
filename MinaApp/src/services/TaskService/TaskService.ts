@@ -33,11 +33,14 @@ export class TaskService {
       .catch(e => console.log(e));
   }
 
-  async createUserTasks() {
+  async createUserTasks(
+    contraceptiveMethods: boolean,
+    hormonalDisorder: boolean,
+  ) {
     return functions()
       .httpsCallable('setUserTask')({
-        hormonalContraceptivesComponent: false,
-        hormonalDisorder: false,
+        hormonalContraceptiveMethod: contraceptiveMethods,
+        hormonalDisorder: hormonalDisorder,
       })
       .catch(e => console.log(e));
   }

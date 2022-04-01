@@ -3,10 +3,10 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useState,
+  useState
 } from 'react';
-import {QuizService} from '../../services/QuizService/quizService';
-import {useAuth} from '../AuthContext/AuthContext';
+import { QuizService } from '../../services/QuizService/quizService';
+import { useAuth } from '../AuthContext/AuthContext';
 
 interface IQuizContext {
   answeredQuiz: boolean;
@@ -58,7 +58,7 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
             setAnsweredQuiz(userQuiz.isAnswered);
             setCicleDuration(userQuiz.cicleDuration);
             setRegularCicle(userQuiz.regularCicle);
-            setContraceptiveMethods(userQuiz.hormonalContraceptiveMethod);
+            setContraceptiveMethods(userQuiz.contraceptiveMethods);
             setHormonalDisorder(userQuiz.hormonalDisorder);
             setTpmSymptoms(userQuiz.tpmSymptoms);
           }
@@ -113,4 +113,5 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   );
 };
 
-export {QuizProvider, QuizConsumer, useQuiz, QuizContext};
+export { QuizProvider, QuizConsumer, useQuiz, QuizContext };
+
