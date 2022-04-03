@@ -6,10 +6,10 @@ import * as theme from '../assets/variables.css';
 import {AboutScene} from '../scenes/AboutScene/AboutScene';
 import {HomeScene} from '../scenes/HomeScene/HomeScene';
 import {ProfileScene} from '../scenes/ProfileScene/ProfileScene';
-import {TaskScene} from '../scenes/TaskScene/TaskScene';
+import {TaskFeedbackScene} from '../scenes/TaskFeedbackScene/TaskFeedbackScene';
 
 export const ProfileComponent = () => <ProfileScene />;
-export const TaskComponent = () => <TaskScene />;
+export const TaskFeedbackComponent = () => <TaskFeedbackScene />;
 export const AboutComponent = () => <AboutScene />;
 export const HomeComponent = () => <HomeScene />;
 
@@ -25,7 +25,7 @@ const screenOptions = (route: RouteProp<ParamListBase, string>) => {
     case 'Profile':
       iconName = 'user';
       break;
-    case 'Task':
+    case 'TaskFeedback':
       iconName = 'form';
       break;
     default:
@@ -71,14 +71,14 @@ const Tabnavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Task"
-        component={TaskComponent}
+        name="TaskFeedback"
+        component={TaskFeedbackComponent}
         options={{
           headerShown: true,
           headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
           headerTintColor: theme.BLACK,
           headerLeft: () => null,
-          title: 'Tarefas',
+          title: 'Avaliação',
         }}
       />
     </Tab.Navigator>

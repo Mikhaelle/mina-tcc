@@ -40,9 +40,8 @@ export const View = styled.View`
 
 export const TaskView = styled.View`
   width: ${Dimensions.get('window').width - 20 + 'px'};
-  margin:10px;
-flex-direction:row
-justify-content:space-between;
+  margin: 10px;
+  flex-direction: row;
 `;
 
 export const ContainerTask = styled.View`

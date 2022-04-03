@@ -18,6 +18,7 @@ import {
   LoginText,
   NewAccountButton,
   NewAccountText,
+  NewView,
 } from './LoginScene.css';
 
 export const LoginScene: React.FC = () => {
@@ -44,64 +45,69 @@ export const LoginScene: React.FC = () => {
   return (
     <ElementView>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ImgView>
-          <Image source={logoImage} style={{alignSelf: 'center'}} />
-        </ImgView>
+        <NewView>
+          <ImgView>
+            <Image source={logoImage} style={{alignSelf: 'center'}} />
+          </ImgView>
+          <FormView>
+            <FormText>Email</FormText>
+            <FormTextInput
+              onChangeText={value => {
+                setUserEmail(value), setEmailError('');
+              }}
+              value={userEmail}
+            />
+            {emailError ? <ErrorText>{emailError}</ErrorText> : null}
+          </FormView>
 
-        <FormView>
-          <FormText>Email</FormText>
-          <FormTextInput
-            onChangeText={value => {
-              setUserEmail(value), setEmailError('');
+          <FormView>
+            <FormText>Senha</FormText>
+            <FormTextInput
+              onChangeText={value => {
+                setPassword(value), setPasswordError('');
+              }}
+              value={userPassword}
+              secureTextEntry={true}
+            />
+            {passwordError ? <ErrorText>{passwordError}</ErrorText> : null}
+          </FormView>
+
+          <ForgetButton
+            onPress={() => {
+              navigation.navigate('ForgotPassword');
             }}
-            value={userEmail}
-          />
-          {emailError ? <ErrorText>{emailError}</ErrorText> : null}
-        </FormView>
+          >
+            <ForgetText>Esqueceu a senha?</ForgetText>
+          </ForgetButton>
 
-        <FormView>
-          <FormText>Senha</FormText>
-          <FormTextInput
-            onChangeText={value => {
-              setPassword(value), setPasswordError('');
+          <LoginButton
+            onPress={() => {
+              login(userEmail, userPassword);
             }}
-            value={userPassword}
-            secureTextEntry={true}
-          />
-          {passwordError ? <ErrorText>{passwordError}</ErrorText> : null}
-        </FormView>
+          >
+            <LoginText>Entrar</LoginText>
+          </LoginButton>
 
-        <ForgetButton onPress={() => {}}>
-          <ForgetText>Esqueceu a senha?</ForgetText>
-        </ForgetButton>
+          <GoogleButton
+            onPress={() => {
+              onGoogleButtonPress();
+            }}
+          >
+            <Image
+              source={googleLogo}
+              style={{width: 30, height: 30, alignSelf: 'center'}}
+            />
+            <NewAccountText>Entrar com o Google</NewAccountText>
+          </GoogleButton>
 
-        <LoginButton
-          onPress={() => {
-            login(userEmail, userPassword);
-          }}
-        >
-          <LoginText>Entrar</LoginText>
-        </LoginButton>
-
-        <GoogleButton
-          onPress={() => {
-            onGoogleButtonPress();
-          }}
-        >
-          <Image
-            source={googleLogo}
-            style={{width: 30, height: 30, alignSelf: 'center'}}
-          />
-          <NewAccountText>Entrar com o Google</NewAccountText>
-        </GoogleButton>
-
-        <NewAccountButton
-          onPress={() => {
-            navigation.navigate('NewAccount');
-          }}
-        >
-          <NewAccountText>Criar conta</NewAccountText>
-        </NewAccountButton>
+          <NewAccountButton
+            onPress={() => {
+              navigation.navigate('NewAccount');
+            }}
+          >
+            <NewAccountText>Criar conta</NewAccountText>
+          </NewAccountButton>
+        </NewView>
       </ScrollView>
     </ElementView>
   );

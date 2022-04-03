@@ -88,7 +88,8 @@ export const HomeScene: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log(!answeredQuiz && !quizLoading);
+    console.log(answeredQuiz);
+    console.log(quizLoading);
     if (!answeredQuiz && !quizLoading) {
       navigation.navigate('Quiz');
     }

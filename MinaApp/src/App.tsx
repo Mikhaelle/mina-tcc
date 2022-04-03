@@ -11,6 +11,7 @@ import {PeriodProvider} from './contexts/PeriodContext/PeriodContext';
 import {QuizProvider} from './contexts/QuizContext/QuizContext';
 import {TaskProvider} from './contexts/TaskContext/TaskContext';
 import {AboutScene} from './scenes/AboutScene/AboutScene';
+import {ForgotPasswordScene} from './scenes/ForgotPasswordScene/ForgotPasswordScene';
 import {LoginScene} from './scenes/LoginScene/LoginScene';
 import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
 import {QuizCicleDurationScene} from './scenes/QuizScene/QuizCicleDurationScene';
@@ -20,6 +21,7 @@ import {QuizLastPeriodScene} from './scenes/QuizScene/QuizLastPeriodScene';
 import {QuizPeriodDurationScene} from './scenes/QuizScene/QuizPeriodDurationScene';
 import {QuizRegularCicleScene} from './scenes/QuizScene/QuizRegularCicleScene';
 import {QuizTpmSymptomsScene} from './scenes/QuizScene/QuizTpmSymptomsScene';
+import {TaskScene} from './scenes/TaskScene/TaskScene';
 import {AuthService} from './services/AuthService/authService';
 import {PeriodService} from './services/PeriodService/periodService';
 import {QuizService} from './services/QuizService/quizService';
@@ -36,7 +38,9 @@ GoogleSignin.configure({
 
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
+export const ForgotPasswordComponent = () => <ForgotPasswordScene />;
 export const AboutComponent = () => <AboutScene />;
+export const TaskComponent = () => <TaskScene />;
 export const QuizLastPeriodComponent = () => <QuizLastPeriodScene />;
 export const QuizCicleDurationComponent = () => <QuizCicleDurationScene />;
 export const QuizPeriodDurationComponent = () => <QuizPeriodDurationScene />;
@@ -82,6 +86,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -92,6 +97,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -102,6 +108,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -112,6 +119,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -122,6 +130,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
         <QuizStack.Screen
@@ -132,6 +141,7 @@ const App = () => {
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
             headerTintColor: theme.BLACK,
             title: 'Configurações iniciais',
+            headerBackTitleVisible: false,
           }}
         />
       </QuizStack.Navigator>
@@ -154,9 +164,22 @@ const App = () => {
           name="NewAccount"
           component={NewAccountComponent}
           options={{
-            headerShown: false,
+            headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-            headerTintColor: theme.WHITE,
+            headerTintColor: theme.BLACK,
+            title: null,
+            headerBackTitleVisible: false,
+          }}
+        />
+        <CrudStack.Screen
+          name="ForgotPassword"
+          component={ForgotPasswordComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            title: null,
+            headerBackTitleVisible: false,
           }}
         />
       </CrudStack.Navigator>
@@ -203,9 +226,22 @@ const App = () => {
                     name="About"
                     component={AboutComponent}
                     options={{
-                      headerShown: false,
+                      headerShown: true,
                       headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-                      headerTintColor: theme.WHITE,
+                      headerTintColor: theme.BLACK,
+                      headerBackTitleVisible: false,
+                      title: 'Sobre a Fase',
+                    }}
+                  />
+                  <Stack.Screen
+                    name="Task"
+                    component={TaskComponent}
+                    options={{
+                      headerShown: true,
+                      headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+                      headerTintColor: theme.BLACK,
+                      headerBackTitleVisible: false,
+                      title: 'Previsão de Hoje',
                     }}
                   />
                 </Stack.Navigator>

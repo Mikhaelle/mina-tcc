@@ -50,18 +50,23 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
 
   useEffect(() => {
     if (user != null) {
+      console.log('oxe');
       quizService.quiz.getUserQuizInfos().then(userQuiz => {
+        console.log(userQuiz);
         if (userQuiz) {
           if (userQuiz.isAnswered) {
+            console.log('aqui');
             var date = new Date(userQuiz.lastPeriod);
             setLastPeriod(date);
             setAnsweredQuiz(userQuiz.isAnswered);
             setCicleDuration(userQuiz.cicleDuration);
             setRegularCicle(userQuiz.regularCicle);
-            setContraceptiveMethods(userQuiz.hormonalContraceptiveMethod);
+            setContraceptiveMethods(userQuiz.contraceptiveMethods);
             setHormonalDisorder(userQuiz.hormonalDisorder);
             setTpmSymptoms(userQuiz.tpmSymptoms);
           }
+        } else {
+          setAnsweredQuiz(false);
         }
         setQuizLoading(false);
       });
@@ -69,7 +74,6 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   }, [user]);
 
   const setUserQuizInfos = async () => {
-    setQuizLoading(true);
     quizService.quiz.setUserQuizInfo(
       user.uid,
       answeredQuiz,

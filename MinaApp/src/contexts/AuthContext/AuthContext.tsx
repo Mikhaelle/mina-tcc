@@ -1,14 +1,14 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  Context,
-  useEffect,
-} from 'react';
-import {AuthService} from '../../services/AuthService/authService';
-import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import auth from '@react-native-firebase/auth';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import React, {
+  Context,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import {Alert} from 'react-native';
+import {AuthService} from '../../services/AuthService/authService';
 
 interface IAuthContext {
   accessToken: string;
@@ -16,11 +16,18 @@ interface IAuthContext {
   emailError: string;
   passwordError: string;
   login(email: string, password: string): Promise<void>;
-  createAccount(email: string, password: string): Promise<void>;
+  createAccount(
+    email: string,
+    password: string,
+    displayName: string,
+  ): Promise<void>;
   onGoogleButtonPress(): Promise<void>;
   logout(): Promise<void>;
   setEmailError: React.Dispatch<React.SetStateAction<string>>;
   setPasswordError: React.Dispatch<React.SetStateAction<string>>;
+  displayName: string;
+  setDisplayName: React.Dispatch<React.SetStateAction<string>>;
+  resetPassword(email: string): Promise<void>;
 }
 
 const AuthContext: Context<IAuthContext> = createContext(undefined as any);
@@ -34,6 +41,7 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
   const [initializing, setInitializing] = useState(true);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [displayName, setDisplayName] = useState('');
 
   const navigation = useNavigation();
 
@@ -73,7 +81,29 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
     navigation.navigate('Login');
   };
 
-  const createAccount = async (email: string, password: string) => {
+  const resetPassword = async (email: string) => {
+    authService.resetPassword(email).then(() => {
+      Alert.alert(
+        'Email enviado',
+        'Se a conta nesse email existir um email será enviado. Verifique a sua caixa de email e siga as instruções para recuperar sua senha.',
+        [
+          {
+            text: 'Entendi',
+            onPress: () => {
+              navigation.navigate('Login');
+            },
+          },
+        ],
+        {cancelable: false},
+      );
+    });
+  };
+
+  const createAccount = async (
+    email: string,
+    password: string,
+    displayName: string,
+  ) => {
     if (!email) {
       setEmailError('Email não pode ser nulo');
       return;
@@ -85,6 +115,7 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
     await authService.createUserWithEmailAndPassword(
       email,
       password,
+      displayName,
       setEmailError,
       setPasswordError,
     );
@@ -103,6 +134,9 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
         logout,
         setEmailError,
         setPasswordError,
+        setDisplayName,
+        resetPassword,
+        displayName,
       }}
       {...props}
     >
