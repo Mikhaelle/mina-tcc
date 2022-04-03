@@ -11,6 +11,7 @@ import {PeriodProvider} from './contexts/PeriodContext/PeriodContext';
 import {QuizProvider} from './contexts/QuizContext/QuizContext';
 import {TaskProvider} from './contexts/TaskContext/TaskContext';
 import {AboutScene} from './scenes/AboutScene/AboutScene';
+import {ForgotPasswordScene} from './scenes/ForgotPasswordScene/ForgotPasswordScene';
 import {LoginScene} from './scenes/LoginScene/LoginScene';
 import {NewAccountScene} from './scenes/NewAccountScene/NewAccountScene';
 import {QuizCicleDurationScene} from './scenes/QuizScene/QuizCicleDurationScene';
@@ -37,6 +38,7 @@ GoogleSignin.configure({
 
 export const LoginComponent = () => <LoginScene />;
 export const NewAccountComponent = () => <NewAccountScene />;
+export const ForgotPasswordComponent = () => <ForgotPasswordScene />;
 export const AboutComponent = () => <AboutScene />;
 export const TaskComponent = () => <TaskScene />;
 export const QuizLastPeriodComponent = () => <QuizLastPeriodScene />;
@@ -162,9 +164,22 @@ const App = () => {
           name="NewAccount"
           component={NewAccountComponent}
           options={{
-            headerShown: false,
+            headerShown: true,
             headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
-            headerTintColor: theme.WHITE,
+            headerTintColor: theme.BLACK,
+            title: null,
+            headerBackTitleVisible: false,
+          }}
+        />
+        <CrudStack.Screen
+          name="ForgotPassword"
+          component={ForgotPasswordComponent}
+          options={{
+            headerShown: true,
+            headerStyle: {backgroundColor: theme.PRIMARY_COLOR},
+            headerTintColor: theme.BLACK,
+            title: null,
+            headerBackTitleVisible: false,
           }}
         />
       </CrudStack.Navigator>

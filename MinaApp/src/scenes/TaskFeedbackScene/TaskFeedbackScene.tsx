@@ -20,9 +20,9 @@ import {
 
 export const TaskFeedbackScene: React.FC = () => {
   var radio_props = [
-    {label: 'mais difícil', value: 0},
-    {label: 'neutro', value: 1},
-    {label: 'mais fácil', value: 2},
+    {label: 'mais difícil', value: 'difficult'},
+    {label: 'neutro', value: 'neutral'},
+    {label: 'mais fácil', value: 'easy'},
   ];
 
   const {getUserTasks, userTasks, isLoadingTasks} = useTask();

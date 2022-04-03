@@ -23,6 +23,7 @@ export class AuthService {
   async createUserWithEmailAndPassword(
     email: string,
     password: string,
+    displayName: string,
     setEmailError: any,
     setPasswordError: any,
   ) {
@@ -30,6 +31,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log('User account created & signed in!');
+        auth().currentUser?.updateProfile({displayName: displayName});
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
@@ -74,6 +76,17 @@ export class AuthService {
     auth()
       .signOut()
       .then(() => console.log('User signed out!'));
+  }
+
+  async resetPassword(email: string) {
+    return auth()
+      .sendPasswordResetEmail(email)
+      .then(function (user) {
+        return;
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
   }
 
   async onGoogleButtonPress() {

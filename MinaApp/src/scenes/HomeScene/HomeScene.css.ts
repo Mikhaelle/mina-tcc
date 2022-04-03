@@ -95,7 +95,7 @@ export const RoundButton = styled.TouchableOpacity`
 
 export const View = styled.View`
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: ${theme.WHITE};
   height: 100%;
   padding: 25px;

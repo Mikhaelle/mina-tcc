@@ -3,10 +3,10 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useState
+  useState,
 } from 'react';
-import { QuizService } from '../../services/QuizService/quizService';
-import { useAuth } from '../AuthContext/AuthContext';
+import {QuizService} from '../../services/QuizService/quizService';
+import {useAuth} from '../AuthContext/AuthContext';
 
 interface IQuizContext {
   answeredQuiz: boolean;
@@ -50,9 +50,12 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
 
   useEffect(() => {
     if (user != null) {
+      console.log('oxe');
       quizService.quiz.getUserQuizInfos().then(userQuiz => {
+        console.log(userQuiz);
         if (userQuiz) {
           if (userQuiz.isAnswered) {
+            console.log('aqui');
             var date = new Date(userQuiz.lastPeriod);
             setLastPeriod(date);
             setAnsweredQuiz(userQuiz.isAnswered);
@@ -62,6 +65,8 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
             setHormonalDisorder(userQuiz.hormonalDisorder);
             setTpmSymptoms(userQuiz.tpmSymptoms);
           }
+        } else {
+          setAnsweredQuiz(false);
         }
         setQuizLoading(false);
       });
@@ -69,7 +74,6 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   }, [user]);
 
   const setUserQuizInfos = async () => {
-    setQuizLoading(true);
     quizService.quiz.setUserQuizInfo(
       user.uid,
       answeredQuiz,
@@ -113,5 +117,4 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
   );
 };
 
-export { QuizProvider, QuizConsumer, useQuiz, QuizContext };
-
+export {QuizProvider, QuizConsumer, useQuiz, QuizContext};

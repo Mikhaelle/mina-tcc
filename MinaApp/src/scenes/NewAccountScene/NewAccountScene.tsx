@@ -1,22 +1,24 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Image, Button, ScrollView} from 'react-native';
+import {Image, ScrollView} from 'react-native';
 import logoImage from '../../assets/icons/logo/logo.png';
 import {useAuth} from '../../contexts/AuthContext/AuthContext';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
+import {ErrorText, ImgView} from '../LoginScene/LoginScene.css';
 import {
+  ElementView,
   FormText,
   FormTextInput,
-  LoginButton,
   FormView,
-  ElementView,
+  LoginButton,
   LoginText,
 } from './NewAccountScene.css';
-import {useNavigation} from '@react-navigation/native';
-import {ErrorText, ImgView} from '../LoginScene/LoginScene.css';
-import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 
 export const NewAccountScene: React.FC = () => {
   const [userEmail, setUserEmail] = React.useState('');
   const [userPassword, setPassword] = React.useState('');
+  const [displayName, setDisplayName] = React.useState('');
+
   const {
     user,
     createAccount,
@@ -53,7 +55,15 @@ export const NewAccountScene: React.FC = () => {
           />
           {emailError ? <ErrorText>{emailError}</ErrorText> : null}
         </FormView>
-
+        <FormView>
+          <FormText>Nome de usuário</FormText>
+          <FormTextInput
+            onChangeText={value => {
+              setDisplayName(value);
+            }}
+            value={displayName}
+          />
+        </FormView>
         <FormView>
           <FormText>Senha</FormText>
           <FormTextInput
@@ -68,7 +78,7 @@ export const NewAccountScene: React.FC = () => {
 
         <LoginButton
           onPress={() => {
-            createAccount(userEmail, userPassword);
+            createAccount(userEmail, userPassword, displayName);
           }}
         >
           <LoginText>Criar conta</LoginText>
