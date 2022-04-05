@@ -12,6 +12,7 @@ import {
   AlertText,
   Button,
   ButtonText,
+  CancelModalButton,
   CenteredModalView,
   ModalButton,
   ModalButtonText,
@@ -67,7 +68,7 @@ export const HomeScene: React.FC = () => {
   LocaleConfig.defaultLocale = 'br';
 
   const navigation = useNavigation();
-  const {isLoading, lastPeriod, daysOfPeriods, daysToMark, phase} = usePeriod();
+  const {isLoading, daysOfPeriods, getUserPeriods, phase} = usePeriod();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -88,18 +89,17 @@ export const HomeScene: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log(answeredQuiz);
-    console.log(quizLoading);
     if (!answeredQuiz && !quizLoading) {
       navigation.navigate('Quiz');
     }
   }, [answeredQuiz, quizLoading]);
 
   useEffect(() => {
+    console.log(quizLoading);
     if (!quizLoading) {
-      daysToMark();
+      getUserPeriods();
     }
-  }, [quizLoading, lastPeriod]);
+  }, [quizLoading]);
 
   if (quizLoading || isLoading) {
     return (
@@ -151,13 +151,22 @@ export const HomeScene: React.FC = () => {
               onDateChange={setDate}
               maximumDate={new Date()}
             />
-            <ModalButton
-              onPress={() => {
-                setModalVisible(false), setUserPeriods(date);
-              }}
-            >
-              <ModalButtonText>Adicionar</ModalButtonText>
-            </ModalButton>
+            <RowContainer>
+              <CancelModalButton
+                onPress={() => {
+                  setModalVisible(false);
+                }}
+              >
+                <ModalButtonText>Cancelar</ModalButtonText>
+              </CancelModalButton>
+              <ModalButton
+                onPress={() => {
+                  setModalVisible(false), setUserPeriods(date);
+                }}
+              >
+                <ModalButtonText>Adicionar</ModalButtonText>
+              </ModalButton>
+            </RowContainer>
           </ModalView>
         </CenteredModalView>
       </Modal>

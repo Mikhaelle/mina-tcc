@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import {Alert} from 'react-native';
+import RNRestart from 'react-native-restart';
 import {AuthService} from '../../services/AuthService/authService';
 
 interface IAuthContext {
@@ -78,7 +79,12 @@ const AuthProvider: React.FC<{oauth: AuthService}> = props => {
 
   const logout = async () => {
     authService.logout();
+    clearAppMemory();
     navigation.navigate('Login');
+  };
+
+  const clearAppMemory = () => {
+    RNRestart.Restart();
   };
 
   const resetPassword = async (email: string) => {

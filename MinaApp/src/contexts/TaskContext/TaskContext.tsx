@@ -1,8 +1,8 @@
-import React, {Context, createContext, useContext, useState} from 'react';
-import {TaskService} from '../../services/TaskService/TaskService';
-import {useAuth} from '../AuthContext/AuthContext';
-import {usePeriod} from '../PeriodContext/PeriodContext';
-import {useQuiz} from '../QuizContext/QuizContext';
+import React, { Context, createContext, useContext, useState } from 'react';
+import { TaskService } from '../../services/TaskService/TaskService';
+import { useAuth } from '../AuthContext/AuthContext';
+import { usePeriod } from '../PeriodContext/PeriodContext';
+import { useQuiz } from '../QuizContext/QuizContext';
 
 interface ITaskContext {
   isLoadingTasks: boolean;
@@ -71,6 +71,13 @@ const TaskProvider: React.FC<{taskService: TaskService}> = props => {
     });
   };
 
+  const sendFeedback = async () => {
+    task.taskService.getUserTask().then(tasks => {
+      setUserTasks(tasks);
+      setIsLoadingTasks(false);
+    });
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -110,4 +117,5 @@ const TaskProvider: React.FC<{taskService: TaskService}> = props => {
   );
 };
 
-export {TaskProvider, TaskConsumer, useTask, TaskContext};
+export { TaskProvider, TaskConsumer, useTask, TaskContext };
+

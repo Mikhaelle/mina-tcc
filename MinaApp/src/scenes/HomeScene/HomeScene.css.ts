@@ -57,23 +57,26 @@ export const ModalButtonText = styled.Text`
 
 export const ModalButton = styled.TouchableOpacity`
   background-color: ${theme.PRIMARY_COLOR};
-  margin-top: 10px;
+  margin: 10px;
   justify-content: center;
   text-align: center;
   align-self: center;
   border-radius: 10px;
   flex-direction: row;
   padding: 15px;
-  padding-right: 20px;
-  padding-left: 20px;
-  shadow-color: #000;
-shadow-offset: {
-  width: 0,
-  height: 2
-};
-shadow-opacity: 0.25;
-shadow-radius: 4px;
-elevation: 5;
+`;
+
+export const CancelModalButton = styled.TouchableOpacity`
+  background-color: ${theme.WHITE};
+  border-width: 1px;
+  border-color: ${theme.PRIMARY_COLOR};
+  margin: 10px;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  border-radius: 10px;
+  flex-direction: row;
+  padding: 15px;
 `;
 
 export const RoundButton = styled.TouchableOpacity`
@@ -101,6 +104,7 @@ export const View = styled.View`
   padding: 25px;
   font-family: ${theme.FONT_FAMILY};
 `;
+
 export const RowContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;

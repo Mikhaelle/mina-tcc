@@ -14,7 +14,7 @@ export const QuizLastPeriodScene: React.FC = () => {
   const navigation = useNavigation();
   const [date, setDate] = useState(new Date());
   const route = useRoute();
-  const {setLastPeriod, quizLoading} = useQuiz();
+  const {setLastPeriod} = useQuiz();
 
   useFocusEffect(
     React.useCallback(() => {

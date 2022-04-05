@@ -56,7 +56,6 @@ export class AuthService {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.log(user);
         return user;
       })
       .catch(error => {
@@ -111,7 +110,6 @@ export class AuthService {
     auth()
       .signInWithCredential(googleCredential)
       .then(user => {
-        console.log(user);
         return user.user;
       });
   }

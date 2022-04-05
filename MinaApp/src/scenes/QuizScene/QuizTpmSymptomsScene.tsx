@@ -42,7 +42,6 @@ export const QuizTpmSymptomsScene: React.FC = () => {
             style={{backgroundColor: 'green'}}
             onPress={() => {
               setTpmSymptoms(false), setAnsweredQuiz(true), createUserTasks();
-
               navigation.navigate('Tabnavigator');
             }}
           >

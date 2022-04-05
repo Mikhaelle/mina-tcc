@@ -47,9 +47,10 @@ export class QuizService {
     hormonalDisorder: boolean,
   ) {
     const date = new Date(lastPeriodDate.date);
-    firestore()
+    return firestore()
       .collection('Quiz')
-      .add({
+      .doc(uid)
+      .set({
         userId: uid,
         isAnswered: answeredQuiz,
         lastPeriod: date,
@@ -61,12 +62,21 @@ export class QuizService {
         hormonalDisorder: hormonalDisorder,
       })
       .then(() => {
-        firestore()
-          .collection('Period')
-          .add({
-            userId: uid,
-            periods: [date],
-          });
-      });
+        this.setPeriod(uid, lastPeriodDate);
+        return;
+      })
+      .catch(error => console.log(error));
+  }
+
+  async setPeriod(uid: any, lastPeriodDate: any) {
+    const date = new Date(lastPeriodDate.date);
+    firestore()
+      .collection('Period')
+      .doc(uid)
+      .set({
+        userId: uid,
+        periods: [date],
+      })
+      .catch(error => console.log(error));
   }
 }

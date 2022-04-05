@@ -50,42 +50,49 @@ const QuizProvider: React.FC<{quiz: QuizService}> = props => {
 
   useEffect(() => {
     if (user != null) {
-      console.log('oxe');
-      quizService.quiz.getUserQuizInfos().then(userQuiz => {
-        console.log(userQuiz);
-        if (userQuiz) {
-          if (userQuiz.isAnswered) {
-            console.log('aqui');
-            var date = new Date(userQuiz.lastPeriod);
-            setLastPeriod(date);
-            setAnsweredQuiz(userQuiz.isAnswered);
-            setCicleDuration(userQuiz.cicleDuration);
-            setRegularCicle(userQuiz.regularCicle);
-            setContraceptiveMethods(userQuiz.contraceptiveMethods);
-            setHormonalDisorder(userQuiz.hormonalDisorder);
-            setTpmSymptoms(userQuiz.tpmSymptoms);
-          }
-        } else {
-          setAnsweredQuiz(false);
-        }
-        setQuizLoading(false);
-      });
+      getUserQuizInfos();
     }
   }, [user]);
 
+  const getUserQuizInfos = async () => {
+    setQuizLoading(true);
+    quizService.quiz.getUserQuizInfos().then(userQuiz => {
+      if (userQuiz) {
+        if (userQuiz.isAnswered) {
+          var date = new Date(userQuiz.lastPeriod);
+          setLastPeriod(date);
+          setAnsweredQuiz(userQuiz.isAnswered);
+          setCicleDuration(userQuiz.cicleDuration);
+          setRegularCicle(userQuiz.regularCicle);
+          setContraceptiveMethods(userQuiz.contraceptiveMethods);
+          setHormonalDisorder(userQuiz.hormonalDisorder);
+          setTpmSymptoms(userQuiz.tpmSymptoms);
+          setQuizLoading(false);
+        }
+      } else {
+        setAnsweredQuiz(false);
+        setQuizLoading(false);
+      }
+    });
+  };
+
   const setUserQuizInfos = async () => {
-    quizService.quiz.setUserQuizInfo(
-      user.uid,
-      answeredQuiz,
-      lastPeriod,
-      periodDuration,
-      cicleDuration,
-      regularCicle,
-      contraceptiveMethods,
-      tpmSymptoms,
-      hormonalDisorder,
-    );
-    setQuizLoading(false);
+    setQuizLoading(true);
+    quizService.quiz
+      .setUserQuizInfo(
+        user.uid,
+        answeredQuiz,
+        lastPeriod,
+        periodDuration,
+        cicleDuration,
+        regularCicle,
+        contraceptiveMethods,
+        tpmSymptoms,
+        hormonalDisorder,
+      )
+      .then(res => {
+        getUserQuizInfos();
+      });
   };
 
   return (
