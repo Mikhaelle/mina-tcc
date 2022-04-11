@@ -10,7 +10,6 @@ admin.initializeApp();
 // Take the text parameter passed to this HTTP endpoint and insert it into
 // Firestore under the path /messages/:documentId/original
 exports.getUserQuizInfos = functions.https.onCall((snap, context) => {
-  console.log("auth :" + context.auth.uid);
   return admin.firestore().collection("Quiz").doc(context.auth.uid)
       .get().then((userQuiz)=>{
           return userQuiz.data();
@@ -35,7 +34,6 @@ exports.setUserTask = functions.https.onCall(async (data, context) => {
   console.log('group: ' + userGroup)
   admin.firestore().collection("InitialUserTasks").doc("InitialTasks")
   .get().then(groupTasks =>{
-    console.log('aqui')
     const groupTasksData = groupTasks.data()
     admin.firestore().collection('UserTasks').doc(context.auth.uid)
     .set({groupTasksData, group:userGroup, userId:context.auth.uid, hasFeedback:false})
@@ -68,25 +66,14 @@ exports.getRecomendedUserTasks = functions.https.onCall(async (data, context) =>
   return result
 
 });
+
 // 0 mais dificil, 1 neutro, 2 mais facil
-//exports.postUserFeedback = functions.https.onCall(async (data, context) => {
-exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
-  const phase = 'Folicular Inicial'
+exports.postUserFeedback = functions.https.onCall(async (data, context) => {
+//exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
+  const phase = data.phase
 
-  const userFeedback = [
-    {"taskName": "cleaning", "taskVote": "neutral"},
-    {"taskName": "create", "taskVote": "difficult"},
-    {"taskName": "draw", "taskVote": "difficult"}, 
-    {"taskName": "exercise", "taskVote": "difficult"}, 
-    {"taskName": "listen", "taskVote": "difficult"}, 
-    {"taskName": "meetings", "taskVote": "difficult"}, 
-    {"taskName": "read", "taskVote": "difficult"}, 
-    {"taskName": "socialize", "taskVote": "difficult"}, 
-    {"taskName": "study", "taskVote": "difficult"}, 
-    {"taskName": "watch", "taskVote": "easy"}, 
-    {"taskName": "work", "taskVote": "difficult"}, 
-    {"taskName": "write", "taskVote": "difficult"}]
-
+  const userFeedback = data.payload
+  
   let numberOfInversionGroup1 = [];
   let numberOfInversionGroup2 = [];
   let numberOfInversionGroup3 = [];
@@ -101,7 +88,7 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
   let group4 = await admin.firestore().collection("GroupTasks").doc("group4").get();
   group4 = group4.data()
 
-  const userTasksRef = await admin.firestore().collection('UserTasks').doc('S8lxeXkvr2cEZYkFDZ6XsGhdISw2').get()
+  const userTasksRef = await admin.firestore().collection('UserTasks').doc(context.auth.uid).get()
 
   const docUi = userTasksRef.id
 
@@ -253,15 +240,10 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
       return userActualGroup
     }
   }
-  const removeTaskPoints = (taskVote,userTasks, group) =>{
-    console.log('userTasks: '+ userTasks + ' group: '+ group)
-    if(taskVote === 'difficult'){
-      group.difficultPoints = group.difficultPoints - userTasks.difficultPoints;
-    }else if(taskVote === 'neutral'){
-      group.neutralPoints = group.neutralPoints - userTasks.difficultPoints;
-    }else if (taskVote == 'easy'){
-      group.easyPoints =  group.easyPoints - userTasks.easyPoints
-    }
+  const removeTaskPoints = (userTasks, group) =>{
+    group.difficultPoints = group.difficultPoints - userTasks.difficultPoints;
+    group.neutralPoints = group.neutralPoints - userTasks.difficultPoints;
+    group.easyPoints =  group.easyPoints - userTasks.easyPoints
 
     if(group.difficultPoints > group.easyPoints && group.difficultPoints > group.neutralPoints){
       group.taskPrediction = 'downArrow'
@@ -276,39 +258,39 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
     userFeedback.forEach(feedback => {
       switch (feedback.taskName) {
         case 'cleaning':
-          removeTaskPoints(feedback.taskVote, userTasks, group.cleaning)
+          removeTaskPoints( userTasks.cleaning, group.cleaning)
         case 'create':
-          removeTaskPoints(feedback.taskVote,userTasks,  group.create)
+          removeTaskPoints( userTasks.create,  group.create)
           break;
         case 'draw':
-          removeTaskPoints(feedback.taskVote,userTasks, group.draw)
+          removeTaskPoints( userTasks.draw, group.draw)
         break;
         case 'exercise':
-          removeTaskPoints(feedback.taskVote, userTasks, group.exercise)
+          removeTaskPoints(userTasks.exercise, group.exercise)
           break;
         case 'listen':
-          removeTaskPoints(feedback.taskVote, userTasks, group.listen)
+          removeTaskPoints(userTasks.listen, group.listen)
         break;
         case 'meetings':
-          removeTaskPoints(feedback.taskVote, userTasks, group.meetings)
+          removeTaskPoints(userTasks.meetings, group.meetings)
         break;
         case 'read':
-          removeTaskPoints(feedback.taskVote, userTasks, group.read)
+          removeTaskPoints(userTasks.read, group.read)
         break;
         case 'socialize':
-          removeTaskPoints(feedback.taskVote,userTasks, group.socialize)
+          removeTaskPoints(userTasks.socialize, group.socialize)
           break;
         case 'study':
-          removeTaskPoints(feedback.taskVote, userTasks,group.study)
+          removeTaskPoints(userTasks.study,group.study)
         break;
         case 'watch':
-          removeTaskPoints(feedback.taskVote,userTasks, group.whatch)
+          removeTaskPoints(userTasks.whatch, group.whatch)
         break;
         case 'work':
-          removeTaskPoints(feedback.taskVote,userTasks, group.work)
+          removeTaskPoints(userTasks.work, group.work)
         break;
         case 'write':
-          removeTaskPoints(feedback.taskVote,userTasks, group.write)
+          removeTaskPoints(userTasks.write, group.write)
         break;
         default:
           break;
@@ -437,8 +419,8 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
           break;
           
       }
-      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasks}, hasFeedback:true})
-      res.json({result: `Message with ID: ${updateUser} added.`});
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasks, folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
 
     }else{
       switch (newUserGroup) {
@@ -446,9 +428,7 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
           addUserPointsInNewGroup(userFeedback, group1Tasks)
           updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularInicial:group1Tasks});
         case 'group2':
-          console.log(group2Tasks.create)
           addUserPointsInNewGroup(userFeedback, group2Tasks)
-          console.log(group2Tasks.create)
           updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularInicial:group2Tasks});
         break;
         case 'group3':
@@ -462,77 +442,276 @@ exports.postUserFeedback = functions.https.onRequest(async (req, res) => {
         default:
           break;
       }
-      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasks}, hasFeedback:true})
-      res.json({result: `Message with ID: ${updateUser} added.`});
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasks, folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
+    }
+  }else if(phase === 'Folicular Final'){
+    const beginUserTasks = userTasksRef.data().groupTasksData.folicularFinal
+    const userTasks = userTasksRef.data().groupTasksData.folicularFinal
+    const group1Tasks = group1.folicularFinal
+    const group2Tasks = group2.folicularFinal
+    const group3Tasks = group3.folicularFinal
+    const group4Tasks = group4.folicularFinal
+
+    calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
+
+    const beginUserGroup = userTasksRef.data().group
+    console.log('beginUserGroup:'+ beginUserGroup)
+    const newUserGroup = bestGroup(beginUserGroup);
+    console.log('newUserGroup:'+ newUserGroup)
+    const userHasFeedback =  userTasksRef.data().hasFeedback
+    console.log('userHasFeedback:'+userHasFeedback)
+
+    let updateUserGroup;
+    if (beginUserGroup !== newUserGroup && userHasFeedback){
+      switch (beginUserGroup) {
+        case 'group1':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group1Tasks)
+           updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({folicularFinal:group1Tasks});
+        case 'group2':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({folicularFinal:group2Tasks});
+        break;
+        case 'group3':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({folicularFinal:group3Tasks});
+        break;
+        case 'group4':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({folicularFinal:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group4Tasks});
+        break;
+        default:
+          break;
+          
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, folicularFinal:userTasks, luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
+    }else{
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({folicularFinal:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, folicularFinal:userTasks, luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
+    }
+  }else if(phase === 'Lútea Inicial'){
+    const beginUserTasks = userTasksRef.data().groupTasksData.luteaInicial
+    const userTasks = userTasksRef.data().groupTasksData.luteaInicial
+    const group1Tasks = group1.luteaInicial
+    const group2Tasks = group2.luteaInicial
+    const group3Tasks = group3.luteaInicial
+    const group4Tasks = group4.luteaInicial
+
+    calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
+
+    const beginUserGroup = userTasksRef.data().group
+    console.log('beginUserGroup:'+ beginUserGroup)
+    const newUserGroup = bestGroup(beginUserGroup);
+    console.log('newUserGroup:'+ newUserGroup)
+    const userHasFeedback =  userTasksRef.data().hasFeedback
+    console.log('userHasFeedback:'+userHasFeedback)
+
+    let updateUserGroup;
+    if (beginUserGroup !== newUserGroup && userHasFeedback){
+      switch (beginUserGroup) {
+        case 'group1':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group1Tasks)
+           updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaInicial:group1Tasks});
+        case 'group2':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaInicial:group2Tasks});
+        break;
+        case 'group3':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaInicial:group3Tasks});
+        break;
+        case 'group4':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaInicial:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group4Tasks});
+        break;
+        default:
+          break;
+          
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup,groupTasksData:{ folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasks}, hasFeedback:true})
+      return {status:"200"}
+
+    }else{
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaInicial:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, 
+        groupTasksData:{ folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, 
+          folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, 
+          luteaFinal:userTasksRef.data().groupTasksData.luteaFinal, luteaInicial:userTasks}, hasFeedback:true})
+      return {status:"200"}
+    }
+  }else if(phase === 'Lútea Final'){
+    const beginUserTasks = userTasksRef.data().groupTasksData.luteaFinal
+    const userTasks = userTasksRef.data().groupTasksData.luteaFinal
+    const group1Tasks = group1.luteaFinal
+    const group2Tasks = group2.luteaFinal
+    const group3Tasks = group3.luteaFinal
+    const group4Tasks = group4.luteaFinal
+
+    calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
+
+    const beginUserGroup = userTasksRef.data().group
+    console.log('beginUserGroup:'+ beginUserGroup)
+    const newUserGroup = bestGroup(beginUserGroup);
+    console.log('newUserGroup:'+ newUserGroup)
+    const userHasFeedback =  userTasksRef.data().hasFeedback
+    console.log('userHasFeedback:'+userHasFeedback)
+
+    let updateUserGroup;
+    if (beginUserGroup !== newUserGroup && userHasFeedback){
+      switch (beginUserGroup) {
+        case 'group1':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group1Tasks)
+           updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaFinal:group1Tasks});
+        case 'group2':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaFinal:group2Tasks});
+        break;
+        case 'group3':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaFinal:group3Tasks});
+        break;
+        case 'group4':
+          removeGroupPointsInLastGroup(userFeedback, beginUserTasks, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(beginUserGroup).update({luteaFinal:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group4Tasks});
+        break;
+        default:
+          break;
+          
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, 
+        groupTasksData:{ folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, 
+          folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, 
+          luteaFinal:userTasks, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
+
+    }else{
+      switch (newUserGroup) {
+        case 'group1':
+          addUserPointsInNewGroup(userFeedback, group1Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group1Tasks});
+        case 'group2':
+          addUserPointsInNewGroup(userFeedback, group2Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group2Tasks});
+        break;
+        case 'group3':
+          addUserPointsInNewGroup(userFeedback, group3Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group3Tasks});
+        break;
+        case 'group4':
+          addUserPointsInNewGroup(userFeedback, group4Tasks)
+          updateUserGroup = await admin.firestore().collection("GroupTasks").doc(newUserGroup).update({luteaFinal:group4Tasks});
+        break;
+        default:
+          break;
+      }
+      const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, 
+        groupTasksData:{ folicularInicial:userTasksRef.data().groupTasksData.folicularInicial, 
+          folicularFinal:userTasksRef.data().groupTasksData.folicularFinal, 
+          luteaFinal:userTasks, luteaInicial:userTasksRef.data().groupTasksData.luteaInicial}, hasFeedback:true})
+      return {status:"200"}
     }
   }
 })
 
-/*else if (phase === 'Folicular Final'){
-  const userTasks = userTasksRef.data().groupTasksData.folicularFinal
-  const group1Tasks = group1.folicularFinal
-  const group2Tasks = group2.folicularFinal
-  const group3Tasks = group3.folicularFinal
-  const group4Tasks = group4.folicularFinal
-
-  calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
-
-  const userActualGroup = userTasksRef.data().group
-  const newUserGroup = bestGroup(userActualGroup);
-  const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{folicularFinal:userTasks}})
-}else if (phase === 'Lútea Inicial'){
-  const userTasks = userTasksRef.data().groupTasksData.luteaInicial
-  const group1Tasks = group1.luteaInicial
-  const group2Tasks = group2.luteaInicial
-  const group3Tasks = group3.luteaInicial
-  const group4Tasks = group4.luteaInicial
-
-  calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
-
-  const userActualGroup = userTasksRef.data().group
-  const newUserGroup = bestGroup(userActualGroup);
-  const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{luteaInicial:userTasks}})
-}else if (phase === 'Lútea Final'){
-  const userTasks = userTasksRef.data().groupTasksData.luteaFinal
-  const group1Tasks = group1.luteaFinal
-  const group2Tasks = group2.luteaFinal
-  const group3Tasks = group3.luteaFinal
-  const group4Tasks = group4.luteaFinal
-
-  calcForPhase(userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks)
-
-  const userActualGroup = userTasksRef.data().group
-  const newUserGroup = bestGroup(userActualGroup);
-  const updateUser = await admin.firestore().collection('UserTasks').doc(docUi).update({group:newUserGroup, groupTasksData:{luteaFinal:userTasks}})
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Take the text parameter passed to this HTTP endpoint and insert it into
 // Firestore under the path /messages/:documentId/original
-exports.setInitialGroup2Tasks = functions.https.onRequest(async (req, res) => {
+/*exports.setInitialGroup2Tasks = functions.https.onRequest(async (req, res) => {
   // Push the new message into Firestore using the Firebase Admin SDK.
   await admin.firestore().collection('GroupTasks').doc('group2')
   .set({
@@ -1597,3 +1776,358 @@ exports.setInitialGroup1Tasks = functions.https.onRequest(async (req, res) => {
   // Send back a message that we've successfully written the message
   res.json({result: `Recomendacao grupo 1 atualizada.`});
 });
+
+
+exports.setInitialUsersTasks = functions.https.onRequest(async (req, res) => {
+  // Push the new message into Firestore using the Firebase Admin SDK.
+  await admin.firestore().collection('InitialUserTasks').doc('InitialTasks')
+  .set({
+      folicularInicial:{
+        study: {
+          taskName: 'Estudar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        work: {
+          taskName: 'Trabalhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        exercise: {
+          taskName: 'Exercitar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        cleaning: {
+          taskName: 'Faxinar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        read: {
+          taskName: 'Ler',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        meetings: {
+          taskName: 'Fazer reuniões',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        socialize: {
+          taskName: 'Socializar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        write: {
+          taskName: 'Escrever',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        listen: {
+          taskName: 'Ouvir música',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        whatch: {
+          taskName: 'Assisti séries/tv',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        draw: {
+          taskName: 'Desenhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        create: {
+          taskName: 'Criar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+      },
+      folicularFinal:{
+        study: {
+          taskName: 'Estudar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        work: {
+          taskName: 'Trabalhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        exercise: {
+          taskName: 'Exercitar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        cleaning: {
+          taskName: 'Faxinar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        read: {
+          taskName: 'Ler',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        meetings: {
+          taskName: 'Fazer reuniões',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        socialize: {
+          taskName: 'Socializar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        write: {
+          taskName: 'Escrever',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        listen: {
+          taskName: 'Ouvir música',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        whatch: {
+          taskName: 'Assisti séries/tv',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        draw: {
+          taskName: 'Desenhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        create: {
+          taskName: 'Criar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+      },
+      luteaInicial:{
+        study: {
+          taskName: 'Estudar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        work: {
+          taskName: 'Trabalhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        exercise: {
+          taskName: 'Exercitar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        cleaning: {
+          taskName: 'Faxinar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        read: {
+          taskName: 'Ler',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        meetings: {
+          taskName: 'Fazer reuniões',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        socialize: {
+          taskName: 'Socializar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        write: {
+          taskName: 'Escrever',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        listen: {
+          taskName: 'Ouvir música',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        whatch: {
+          taskName: 'Assisti séries/tv',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        draw: {
+          taskName: 'Desenhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        create: {
+          taskName: 'Criar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+      },
+      luteaFinal:{
+        study: {
+          taskName: 'Estudar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        work: {
+          taskName: 'Trabalhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        exercise: {
+          taskName: 'Exercitar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        cleaning: {
+          taskName: 'Faxinar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        read: {
+          taskName: 'Ler',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        meetings: {
+          taskName: 'Fazer reuniões',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        socialize: {
+          taskName: 'Socializar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        write: {
+          taskName: 'Escrever',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        listen: {
+          taskName: 'Ouvir música',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        whatch: {
+          taskName: 'Assisti séries/tv',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        draw: {
+          taskName: 'Desenhar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+        create: {
+          taskName: 'Criar',
+          taskPrediction: 'horizontalLine',
+          easyPoints:0,
+          neutralPoints:0,
+          difficultPoints:0,
+        },
+      },
+  })
+
+  // Send back a message that we've successfully written the message
+  res.json({result: `Recomendacao grupo 2 atualizada.`});
+});*/
