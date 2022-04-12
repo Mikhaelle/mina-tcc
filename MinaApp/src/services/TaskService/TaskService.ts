@@ -25,10 +25,21 @@ export class TaskService {
         phase: phase,
       })
       .then(response => {
-        console.log(response);
         if (response.data) {
           return response.data;
         }
+      })
+      .catch(e => console.log(e));
+  }
+
+  async sendUserFeedback(phase: string, feedbacks: any) {
+    return functions()
+      .httpsCallable('postUserFeedback')({
+        phase: phase,
+        payload: feedbacks,
+      })
+      .then(response => {
+        console.log(response);
       })
       .catch(e => console.log(e));
   }

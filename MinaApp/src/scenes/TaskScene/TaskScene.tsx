@@ -1,3 +1,4 @@
+import {useFocusEffect} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -15,35 +16,18 @@ import {
 } from './TaskScene.css';
 
 export const TaskScene: React.FC = () => {
-  var radio_props = [
-    {label: 'mais difícil', value: 0},
-    {label: 'neutro', value: 1},
-    {label: 'mais fácil', value: 2},
-  ];
-
   const {getUserTasks, userTasks, isLoadingTasks} = useTask();
   const [userTasksComponents, setUserTasksComponents] = useState([] as any);
 
   const [taskUp, setTaskUp] = useState(false);
-  const [cleaningFeedback, setCleaningFeedback] = useState('0');
-  const [createFeedback, setCreateFeedback] = useState('0');
-  const [drawFeedback, setDrawFeedback] = useState('0');
-  const [exerciseFeedback, setExerciseFeedback] = useState('0');
-  const [listenFeedback, setListenFeedback] = useState('0');
-  const [meetingsFeedback, setMeetingsFeedback] = useState('0');
-  const [readFeedback, setReadFeedback] = useState('0');
-  const [socializeFeedback, setSocializeFeedback] = useState('0');
-  const [studyFeedback, setStudyFeedback] = useState('0');
-  const [watchFeedback, setWatchFeedback] = useState('0');
-  const [workFeedback, setWorkFeedback] = useState('0');
-  const [writeFeedback, setWriteFeedback] = useState('0');
+
+  useFocusEffect(
+    React.useCallback(() => {
+      getUserTasks();
+    }, []),
+  );
 
   useEffect(() => {
-    getUserTasks();
-  }, []);
-
-  useEffect(() => {
-    console.log(userTasks);
     if (userTasks) {
       if (userTasks.length !== 0 && !taskUp) {
         taskList();

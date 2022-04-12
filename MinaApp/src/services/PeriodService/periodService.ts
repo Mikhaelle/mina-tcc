@@ -1,7 +1,4 @@
-import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import firestore from '@react-native-firebase/firestore';
-import {LoginText} from '../../scenes/ProfileScene/ProfileScene.css';
 
 export class PeriodService {
   private static instance: PeriodService | null;
@@ -25,10 +22,10 @@ export class PeriodService {
   async getUserPeriods(userId: string) {
     return firestore()
       .collection('Period')
-      .where('userId', '==', userId)
+      .doc(userId)
       .get()
       .then(userPeriods => {
-        return userPeriods.docs[0];
+        return userPeriods;
       })
       .catch(error => console.log(error));
   }
@@ -40,6 +37,7 @@ export class PeriodService {
       .doc(docUid)
       .update({
         periods: firestore.FieldValue.arrayUnion(date),
-      });
+      })
+      .catch(error => console.log(error));
   }
 }

@@ -742,6 +742,8 @@ PODS:
     - glog
   - react-native-date-picker (4.2.0):
     - React-Core
+  - react-native-restart (0.0.24):
+    - React-Core
   - react-native-safe-area-context (3.4.1):
     - React-Core
   - React-perflogger (0.67.1)
@@ -888,6 +890,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
+  - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -990,6 +993,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
+  react-native-restart:
+    :path: "../node_modules/react-native-restart"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -1093,6 +1098,7 @@ SPEC CHECKSUMS:
   React-jsinspector: ab80bcdb02f28cdfc0dbbaea6db1241565d59002
   React-logger: b08f354e4c928ff794ca477347fea0922aaf11c3
   react-native-date-picker: d83ab9cccbc497642a93fdca783ae76ecd6b17b6
+  react-native-restart: 45c8dca02491980f2958595333cbccd6877cb57e
   react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   React-perflogger: 9a6172711d9c4c8c7ac0a426717317c3c6ecf85c
   React-RCTActionSheet: ed408b54b08278e6af8a75e08679675041da61ae

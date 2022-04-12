@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Image} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import React, { useEffect, useState } from 'react';
+import { Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import RadioForm from 'react-native-simple-radio-button';
 import * as theme from '../../assets/variables.css';
-import {Loader} from '../../components/Loader/Loader';
-import {useTask} from '../../contexts/TaskContext/TaskContext';
+import { Loader } from '../../components/Loader/Loader';
+import { useTask } from '../../contexts/TaskContext/TaskContext';
 import images from '../../managers/images';
 import {
   BoxText,
@@ -15,7 +15,7 @@ import {
   LineBoxView,
   TaskView,
   TitleText,
-  View,
+  View
 } from './TaskFeedbackScene.css';
 
 export const TaskFeedbackScene: React.FC = () => {
@@ -25,35 +25,135 @@ export const TaskFeedbackScene: React.FC = () => {
     {label: 'mais fácil', value: 'easy'},
   ];
 
-  const {getUserTasks, userTasks, isLoadingTasks} = useTask();
+  const {
+    getUserTasks,
+    userTasks,
+    isLoadingTasks,
+    sendFeedback,
+    isSendingFeedback,
+  } = useTask();
   const [userTasksComponents, setUserTasksComponents] = useState([] as any);
 
   const [taskUp, setTaskUp] = useState(false);
-  const [cleaningFeedback, setCleaningFeedback] = useState('0');
-  const [createFeedback, setCreateFeedback] = useState('0');
-  const [drawFeedback, setDrawFeedback] = useState('0');
-  const [exerciseFeedback, setExerciseFeedback] = useState('0');
-  const [listenFeedback, setListenFeedback] = useState('0');
-  const [meetingsFeedback, setMeetingsFeedback] = useState('0');
-  const [readFeedback, setReadFeedback] = useState('0');
-  const [socializeFeedback, setSocializeFeedback] = useState('0');
-  const [studyFeedback, setStudyFeedback] = useState('0');
-  const [watchFeedback, setWatchFeedback] = useState('0');
-  const [workFeedback, setWorkFeedback] = useState('0');
-  const [writeFeedback, setWriteFeedback] = useState('0');
+  const [userFeebacks, setUserFeebacks] = useState([] as any);
+
+  const [cleaningFeedback, setCleaningFeedback] = useState({
+    taskName: 'cleaning',
+    taskVote: 'neutral',
+  });
+  const [createFeedback, setCreateFeedback] = useState({
+    taskName: 'create',
+    taskVote: 'neutral',
+  });
+  const [drawFeedback, setDrawFeedback] = useState({
+    taskName: 'draw',
+    taskVote: 'neutral',
+  });
+  const [exerciseFeedback, setExerciseFeedback] = useState({
+    taskName: 'exercise',
+    taskVote: 'neutral',
+  });
+  const [listenFeedback, setListenFeedback] = useState({
+    taskName: 'listen',
+    taskVote: 'neutral',
+  });
+  const [meetingsFeedback, setMeetingsFeedback] = useState({
+    taskName: 'meetings',
+    taskVote: 'neutral',
+  });
+  const [readFeedback, setReadFeedback] = useState({
+    taskName: 'read',
+    taskVote: 'neutral',
+  });
+  const [socializeFeedback, setSocializeFeedback] = useState({
+    taskName: 'socialize',
+    taskVote: 'neutral',
+  });
+  const [studyFeedback, setStudyFeedback] = useState({
+    taskName: 'study',
+    taskVote: 'neutral',
+  });
+  const [watchFeedback, setWatchFeedback] = useState({
+    taskName: 'watch',
+    taskVote: 'neutral',
+  });
+  const [workFeedback, setWorkFeedback] = useState({
+    taskName: 'work',
+    taskVote: 'neutral',
+  });
+  const [writeFeedback, setWriteFeedback] = useState({
+    taskName: 'write',
+    taskVote: 'neutral',
+  });
 
   useEffect(() => {
     getUserTasks();
   }, []);
 
   useEffect(() => {
-    console.log(userTasks);
     if (userTasks) {
       if (userTasks.length !== 0 && !taskUp) {
         taskList();
       }
     }
   }, [userTasks]);
+
+  useEffect(() => {
+    if (userFeebacks.length == 12) {
+      sendFeedback(userFeebacks);
+    }
+  }, [userFeebacks]);
+
+  const createFeedbackArray = () => {
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      cleaningFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      createFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      drawFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      exerciseFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      listenFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      meetingsFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      readFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      socializeFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      studyFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      watchFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      workFeedback,
+    ]);
+    setUserFeebacks((oldUserFeedbacks: any) => [
+      ...oldUserFeedbacks,
+      writeFeedback,
+    ]);
+  };
 
   const taskList = () => {
     Object.keys(userTasks).forEach(userTask => {
@@ -72,40 +172,40 @@ export const TaskFeedbackScene: React.FC = () => {
               onPress={value => {
                 switch (userTaskObj['taskName']) {
                   case 'Faxinar':
-                    setCleaningFeedback(value);
+                    setCleaningFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Criar':
-                    setCreateFeedback(value);
+                    setCreateFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Desenhar':
-                    setDrawFeedback(value);
+                    setDrawFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Exercitar':
-                    setExerciseFeedback(value);
+                    setExerciseFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Ouvir música':
-                    setListenFeedback(value);
+                    setListenFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Fazer reuniões':
-                    setMeetingsFeedback(value);
+                    setMeetingsFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Ler':
-                    setReadFeedback(value);
+                    setReadFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Socializar':
-                    setSocializeFeedback(value);
+                    setSocializeFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Estudar':
-                    setStudyFeedback(value);
+                    setStudyFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Assisti séries/tv':
-                    setWatchFeedback(value);
+                    setWatchFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Trabalhar':
-                    setWorkFeedback(value);
+                    setWorkFeedback({taskName: userTask, taskVote: value});
                     break;
                   case 'Escrever':
-                    setWriteFeedback(value);
+                    setWriteFeedback({taskName: userTask, taskVote: value});
                     break;
                   default:
                 }
@@ -145,13 +245,26 @@ export const TaskFeedbackScene: React.FC = () => {
             </BoxText>
           </BoxView>
           <LineBoxView />
-
-          {userTasksComponents.map(
-            (userTasksComponent: any) => userTasksComponent,
+          {userTasksComponents.length === 0 ? (
+            <TitleText>
+              As recomendações ainda estão sendo geradas, tente novamente daqui
+              a pouco.
+            </TitleText>
+          ) : (
+            <>
+              {userTasksComponents.map(
+                (userTasksComponent: any) => userTasksComponent,
+              )}
+              <Button
+                onPress={() => {
+                  createFeedbackArray();
+                }}
+                disabled={isSendingFeedback}
+              >
+                <ButtonText>Enviar</ButtonText>
+              </Button>
+            </>
           )}
-          <Button onPress={() => {}}>
-            <ButtonText>Enviar</ButtonText>
-          </Button>
         </ScrollView>
       </View>
     </>

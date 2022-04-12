@@ -1,9 +1,9 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import profileImage from '../../assets/images/profile.png';
 import {useAuth} from '../../contexts/AuthContext/AuthContext';
+import {useQuiz} from '../../contexts/QuizContext/QuizContext';
 import {
   LineBoxView,
   LoginButton,
@@ -16,9 +16,10 @@ import {
 } from './ProfileScene.css';
 
 export const ProfileScene: React.FC = () => {
-  const navigation = useNavigation();
   const {logout} = useAuth();
   const {user} = useAuth();
+  const {setAnsweredQuiz} = useQuiz();
+
   return (
     <View>
       <ProfileView>
@@ -33,7 +34,11 @@ export const ProfileScene: React.FC = () => {
         <NameText>{user?.displayName}</NameText>
       </ProfileView>
       <LineBoxView style={{marginTop: 20}} />
-      <QuizButton>
+      <QuizButton
+        onPress={() => {
+          setAnsweredQuiz(false);
+        }}
+      >
         <Icon name={'solution1'} size={24} style={{alignSelf: 'center'}} />
         <QuizButtonText>Refazer Questionário</QuizButtonText>
       </QuizButton>

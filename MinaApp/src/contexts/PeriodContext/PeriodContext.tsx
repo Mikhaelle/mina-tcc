@@ -18,6 +18,7 @@ interface IPeriodContext {
   docUid: string;
   daysToMark(): Promise<void>;
   phaseToSet(): Promise<void>;
+  getUserPeriods(): Promise<void>;
   setUserPeriods(newPeriodDate: any): Promise<void>;
 }
 
@@ -36,8 +37,8 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
   const period = props;
   const {user} = useAuth();
 
-  const [lastPeriod, setLastPeriod] = useState(new Date());
-  const [periods, setPeriods] = useState([new Date()]);
+  const [lastPeriod, setLastPeriod] = useState();
+  const [periods, setPeriods] = useState([]);
   const [daysOfPeriods, setDaysOfPeriods] = useState({});
   const [docUid, setDocUid] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -45,9 +46,10 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
 
   const {periodDuration, cicleDuration} = useQuiz();
 
-  useEffect(() => {
-    if (user) {
-      period.periodService.getUserPeriods(user.uid).then(userPeriods => {
+  const getUserPeriods = async () => {
+    period.periodService
+      .getUserPeriods(user.uid)
+      .then(userPeriods => {
         userPeriods
           .data()
           .periods.sort()
@@ -59,9 +61,15 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
         date = date[0].toDate();
         setLastPeriod(date);
         setDocUid(userPeriods.id);
-      });
+      })
+      .catch(e => console.log(e));
+  };
+
+  useEffect(() => {
+    if (lastPeriod) {
+      daysToMark();
     }
-  }, [user]);
+  }, [lastPeriod]);
 
   useEffect(() => {
     if (Object.keys(daysOfPeriods).length !== 0) {
@@ -77,14 +85,19 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
 
     var nowDate = new Date();
 
-    var maxFolIntDate = new Date();
-    maxFolIntDate.setDate(lastPeriod.getDate() + daysFolPart);
-    var maxFolFinalDate = new Date();
-    maxFolFinalDate.setDate(lastPeriod.getDate() + daysFolTotal);
-    var maxLutIntDate = new Date();
-    maxLutIntDate.setDate(lastPeriod.getDate() + daysFolTotal + daysLutPart);
-    var maxLutFinalDate = new Date();
-    maxLutFinalDate.setDate(lastPeriod.getDate() + daysFolTotal + daysLutTotal);
+    var maxFolIntDate = new Date(lastPeriod);
+    maxFolIntDate.setDate(maxFolIntDate.getDate() + daysFolPart);
+
+    var maxFolFinalDate = new Date(lastPeriod);
+    maxFolFinalDate.setDate(maxFolFinalDate.getDate() + daysFolTotal);
+
+    var maxLutIntDate = new Date(lastPeriod);
+    maxLutIntDate.setDate(maxLutIntDate.getDate() + daysFolTotal + daysLutPart);
+
+    var maxLutFinalDate = new Date(lastPeriod);
+    maxLutFinalDate.setDate(
+      maxLutFinalDate.getDate() + daysFolTotal + daysLutTotal,
+    );
 
     if (nowDate < maxFolIntDate) {
       setPhase(PeriodPhases.folicularInicial);
@@ -92,7 +105,7 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
       setPhase(PeriodPhases.folicularFinal);
     } else if (nowDate >= maxFolFinalDate && nowDate < maxLutIntDate) {
       setPhase(PeriodPhases.luteaInicial);
-    } else {
+    } else if (nowDate >= maxFolFinalDate && nowDate >= maxLutIntDate) {
       setPhase(PeriodPhases.luteaFinal);
     }
   };
@@ -190,6 +203,7 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
         phaseToSet,
         docUid,
         setUserPeriods,
+        getUserPeriods,
       }}
       {...props}
     >
