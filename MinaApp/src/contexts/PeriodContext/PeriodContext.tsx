@@ -3,11 +3,11 @@ import React, {
   createContext,
   useContext,
   useEffect,
-  useState
+  useState,
 } from 'react';
-import { PeriodService } from '../../services/PeriodService/periodService';
-import { useAuth } from '../AuthContext/AuthContext';
-import { useQuiz } from '../QuizContext/QuizContext';
+import {PeriodService} from '../../services/PeriodService/periodService';
+import {useAuth} from '../AuthContext/AuthContext';
+import {useQuiz} from '../QuizContext/QuizContext';
 
 interface IPeriodContext {
   lastPeriod: Date;
@@ -107,8 +107,6 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
       setPhase(PeriodPhases.luteaInicial);
     } else if (nowDate >= maxFolFinalDate && nowDate >= maxLutIntDate) {
       setPhase(PeriodPhases.luteaFinal);
-    } else {
-      console.log('OPA');
     }
   };
 
@@ -214,5 +212,4 @@ const PeriodProvider: React.FC<{periodService: PeriodService}> = props => {
   );
 };
 
-export { PeriodProvider, PeriodConsumer, usePeriod, PeriodContext };
-
+export {PeriodProvider, PeriodConsumer, usePeriod, PeriodContext};

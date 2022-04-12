@@ -95,7 +95,6 @@ export const HomeScene: React.FC = () => {
   }, [answeredQuiz, quizLoading]);
 
   useEffect(() => {
-    console.log(quizLoading);
     if (!quizLoading) {
       getUserPeriods();
     }
