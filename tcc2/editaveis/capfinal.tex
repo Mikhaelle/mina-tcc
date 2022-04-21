@@ -1,5 +1,12 @@
-\chapter[Resultados Obtidos]{Resultados Obtidos}
+\chapter[Análise dos Resultados Obtidos]{Análise dos Resultados Obtidos}
+\label{ch:capfinal}
 
+Neste capítulo, será apresentada a análise de resultados, relativos ao teste de usabilidade, orientando-se pela metodologia 
+descrita na seção \ref{vsf}. Portanto, constam seções dedicadas: a formulação do problema; definição da unidade 
+caso; determinação do número de casos; elaboração do protocolo; coleta de dados e avaliação e análise de dados.
+Por fim, têm-se as considerações finais do capítulo
+
+\section{Formulação do Problema}
 O ciclo menstrual tem duas fases principais: a fase folicular e a fase lútea. Dessas, a fase folicular 
 pode 
 ser dividida em fase folicular inicial, na qual ocorre a menstruação, e a fase folicular final, na qual 
@@ -16,8 +23,7 @@ mudança de humor e comportamento, também são relatadas. Na menstruação, é 
 atividades físicas com menos esforço e prejudiquem a concentração. 
 
 Tendo o conhecimento dessas influências, é proposto, então, um sistema de sugestão, utilizando os algoritmos de sistema de recomendação, 
-que indicaria tarefas que seriam mais facilmente ou dificilmente realizadas dependendo do perfil e da fase do ciclo menstrual da pessoa. A fase 
-do ciclo será determinada utilizando o método do calendário. 
+que indicaria tarefas que seriam mais facilmente ou dificilmente realizadas dependendo do perfil e da fase do ciclo menstrual da pessoa.
 
 Esse sistema poderá ajudar no autoconhecimento de quem o utiliza, melhorando a inteligência emocional e fazendo com que 
 as mulheres possam utilizar dos benefícios e lidar com os malefícios de cada fase de forma saudável e consciente.
@@ -25,7 +31,8 @@ as mulheres possam utilizar dos benefícios e lidar com os malefícios de cada f
 No escopo deste trabalho, foi possível montar um processo de contagem de ciclo para determinar em que fase a pessoa se encontra, utilizando o 
 método do calendário.
 
-Foi utilizado o estudo de caso para realizar a coleta de dados a análise de resultados, sobre o perfil das mulheres e para determinar quais tarefas iriam demandar 
+Foi utilizado o estudo de caso para realizar a coleta de dados a análise de resultados, anteriormente descritos nas seções \ref{vsf1} e \ref{vsf2}, 
+sobre o perfil das mulheres e para determinar quais tarefas iriam demandar 
 menos ou mais energia para serem executadas, além disso, também foi possível estabelecer quatro grupos de recomendação iniciais, sendo que o 
 primeiro é para mulheres que utilizam método contraceptivos hormonais, o segundo para mulheres que não utilizam métodos contraceptivos hormonais e 
 não possuem distúrbios endócrinos, e o terceiro é para mulheres que não utilizam métodos contraceptivos hormonais e possuem distúrbios endócrinos. 
@@ -37,13 +44,46 @@ O quarto grupo foi inicialmente carregado com informações inferidas pelo refer
 Quando a usuária envia uma avaliação das tarefas, são realizados alguns cálculos através do método de contagem de inversões para determinar 
 a qual grupo a usuária está realmente mais próxima, esses grupos são retro alimentados com as pontuações dadas pelas usuárias pertencentes a eles.
 
-\section{Teste de Usabilidade}
+\section{Definição da Unidade Caso e Determinação do Número de Casos}
 
-Ao final do desenvolvimento da aplicação, foi realizado um teste de usabilidade através de um questionário, ao grupo do estudo de caso. O aplicativo 
-foi disponibilizado para Android através da ferramenta TestFlight do Firebase. As mulheres interessadas receberam um convite, baixaram a aplicação e 6 
+A unidade caso é do tipo estudo de caso coletivo. Esse tipo de estudo tem o propósito de estudar características
+de uma população, no caso deste trabalho, mulheres, jovens, entre 20 e 35 anos, em idade fértil, cursando ou 
+formadas em um curso de graduação. 
+
+Essas mulheres, então, possuem alto grau de instrução e acesso a informação. Elas possuem um bom nível de conhecimento sobre o 
+funcionamento do próprio corpo e tem acesso a diversos tipos de métodos contraceptivos. Algumas optaram por não utilizar 
+métodos contraceptivos hormonais. 
+
+Ao longo do estudo as mulheres foram instruídas para ficarem atentas as mudanças do próprio corpo, fazendo anotações pessoais 
+da forma que acharem mais confortável.
+
+Após o primeiro ciclo realizado na primeira parte desse trabalho, foi possível dar andamento no desenvolvimento da aplicação, 
+que resultou no aplicativo Mina, disponibilizado apenas para aplicativos Android. Caracterizando o grupo do teste de usabilidade como 
+usuárias Android.
+
+O grupo, formado pela Autora, contava, inicialmente, com 23 mulheres, mais que o dobro do número considerado ideal 
+para um estudo de caso (quatro a 10 pessoas). 
+O primeiro ciclo contou com a participação de todas, mas por causa do tempo de realização entre a primeira e segunda parte desse trabalho, 
+algumas mulheres acabaram saindo do grupo ou simplesmeste perdendo o interesse. Outra barreira foi o lançamento apenas para plataforma Android. 
+Ao final, houve a participação efetiva de 7 mulheres que compunham desde o início esse grupo.
+
+
+\section{Elaboração do Protocolo e Coleta de Dados}
+
+
+O protocolo elaborado envolve: visão global do projeto, procedimentos de campo, determinação das questões e guia para a elaboração do relatório.
+A visão global do projeto descreve o propósito e o cenário em que foi desenvolvido o estudo. Nesse caso, o propósito é o teste do aplicativo Mina, que contém 
+um sistema de recomendação de tarefas baseadas 
+em perfil e fase do ciclo menstrual das mulheres. O cenário em que foi desenvolvido o estudo foi descrito na seção anterior.
+
+O procedimento de campo envolveu a seleção das usuárias desse grupo que utilizassem Android e ainda tivessem interesse em contrubuir, participando 
+do teste de usabilidade do aplicativo.
+
+O aplicativo foi disponibilizado para Android através da ferramenta TestFlight do Firebase. As mulheres interessadas receberam um convite, 
+baixaram a aplicação e 7 
 delas responderam o questionário. 
 
-As perguntas do questionário levaram em consideração o product backlog, utilizado como uma 
+A determinação das questões levaram em consideração o product backlog, utilizado como uma 
 forma de modelagem de acordo com a metodologia Scrum, 
 um \emph{product backlog} foi construído utilizando um total de 
 sete temas: conta, questionário, sobre a fase, previsão, perfil, 
@@ -64,7 +104,8 @@ encontradas no repositório do github\footnote{repositório github: https://gith
 O questionário\footnote{terceiro questionário : https://forms.gle/j7eCWStZPbT4Ppy59} foi feito utilizando a plataforma Google Forms e foi respondido de forma anônima, para que as
 participantes se sentissem mais confortáveis respondendo-o. Ao todo, o questionário contou com 22 perguntas, sendo 18 fechadas 
 (Tabela \ref{tab15} e \ref{tab17}) e 
-quatro abertas (Tabela \ref{tab16}). Foram recebidas 7 respostas até a data 14/03/2022. 
+quatro abertas (Tabela \ref{tab16}). Foram recebidas 7 respostas até a data 13/04/2022. Todas as respostas estão 
+detalhadas no relatório no Apêndice \ref{usertest} .
 
 \begin{table}[ht]
     \centering
@@ -147,6 +188,11 @@ quatro abertas (Tabela \ref{tab16}). Foram recebidas 7 respostas até a data 14/
     \end{tabular}
 \end{table}
 
+
+\section{Avaliação e Análise dos Dados}
+
+
+
 Um problema que surgiu na aplicação do teste foi a utilização do \emph{dark mode} no celulares de algumas usuárias. O \emph{dark mode} 
 modifica as cores do aplicativo e como esse tipo não estava rastreado para ser utilizado no aplicativo, acabou gerando alguns \emph{bugs} 
 como ícones desaparecendo. Assim que detectado o problema, foi proposto às usuárias que desabilitassem o \emph{dark mode} antes de realizar o teste.
@@ -182,7 +228,7 @@ essa opção. As avaliações foram enviadas corretamente.
 
 \textbf{Resultados das perguntas correspondentes ao \emph{product backlog} P05 - Perfil:} As usuárias conseguiram acessar o perfil 
 e visualizar seus nomes, o botão de refazer o questionário e o de sair. Essa feature não foi totalmente implementada, pois faltou a 
-parte de resete de senha elicitado nos requisitos.
+parte de redefinição de senha elicitado nos requisitos.
 
 \textbf{Resultados das perguntas correspondentes ao \emph{product backlog} P06 - Calendário:} As usuárias não tiveram problemas 
 para identificar qual fase do ciclo elas estavam e o calendário estava coerente com os dados setados no questionário inicial.
@@ -203,27 +249,34 @@ mudaram de grupo e que as pontuações para as tarefas das usuárias e dos grupo
 a função de \emph{feedback} teve o comportamento esperado. 
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[keepaspectratio=true,scale=0.18]{figuras/db1.jpeg}
-    \caption{\emph{Rich Picture}}
-        \label{fig23}
+	\caption{Grupo e Tarefas da Usuária Antes da Avaliação}
+	\begin{center}
+	\includegraphics[keepaspectratio=true,scale=0.18]{figuras/db1.jpeg}
+	\end{center}
+	\legend{Fonte: Autora}
+    \label{fig23}
 \end{figure}
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[keepaspectratio=true,scale=0.37]{figuras/db4.jpeg}
-    \caption{\emph{Rich Picture}}
-        \label{fig24}
+	\caption{Grupo e Tarefas da Usuária Depois da Avaliação}
+	\begin{center}
+	\includegraphics[keepaspectratio=true,scale=0.37]{figuras/db4.jpeg}
+	\end{center}
+	\legend{Fonte: Autora}
+    \label{fig24}
 \end{figure}
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[keepaspectratio=true,scale=0.37]{figuras/db3.png}
-    \caption{\emph{Rich Picture}}
-        \label{fig25}
+	\caption{Grupo com Pontuações da Usuária Adicionados}
+	\begin{center}
+	\includegraphics[keepaspectratio=true,scale=0.37]{figuras/db3.png}
+	\end{center}
+	\legend{Fonte: Autora}
+    \label{fig25}
 \end{figure}
 
 
+\section{Considerações Finais do Capítulo}
 
 Ao longo do TCC1, foi possível vivenciar algumas atividades relevantes, tais como:
 
@@ -240,14 +293,13 @@ Ao longo do TCC2, foi possível vivenciar algumas atividades relevantes, tais co
 
 \begin{itemize}
     \item realizar correções da banca;
-    \item aplicar metodologia estabelecida;
     \item desenvolvimento do aplicativo;
+    \item aplicar metodologia estabelecida;
     \item realização do teste de usabilidade;
     \item documentação de melhorias e
     \item acompanhamento contínuo das realizações, com reuniões periódicas entre orientado e orientador.
 \end{itemize}
 
-\section{Considerações Finais do Capítulo}
 Neste capítulo, foram apresentados os resultados obtidos com o estudo de casos aplicado a um grupo formado pela autora que conta com 
 mulheres em idade fértil. Os resultados encontrados
 estão vinculados aos objetivos gerais e específicos estabelecidos para esse trabalho. No próximo capítulo,

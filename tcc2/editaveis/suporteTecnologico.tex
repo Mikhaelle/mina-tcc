@@ -1,9 +1,168 @@
 \chapter[Suporte Tecnológico]{Suporte Tecnológico}
 \label{ch:suporte}
 
-Neste capítulo, há uma breve descrição de todas as ferramentas que foram 
-utilizadas no desenvolvimento do projeto. Mais detalhes como, o que são as tecnologias, para que são usadas e 
-as versões utilizadas na aplicação são descritos na tabela \ref{tab06}.
+Neste capítulo, serão aprensentadas brevemente as ferramentas e tecnologias 
+utilizadas no desenvolvimento do aplicativo, no gerenciamento 
+do projeto, no gerenciamento de configuração, no gerenciamento da 
+escrita e na condução da pesquisa.
+
+
+\section{Desenvolvimento da Aplicação}
+
+Esta seção contemplará as tecnologias que foram e serão ainda utilizadas na construção do 
+código da aplicação.
+
+\subsection{React Native 0.68}
+
+O React Native \cite{reactNative}, criado pelo Facebook, combina as melhores partes do 
+desenvolvimenta nativo com 
+o \emph{framework} React, uma bibliotéca JavaScript para construir interface de usuário(UI). 
+É usada para desenvolver aplicativos para iOS e Android de forma nativa, ou seja, utilizando 
+componentes próprios da plataforma iOS ou Android para construir a aplicação. O React Native 
+possibilita que uma única base de código possa ser utilizada para construir aplicações 
+multi-plataforma.
+
+Ele é composto por um SDK(\emph{Software Development Kit}) e um
+\emph{framework}. O SDK é uma coleção de ferramentas que ajudam
+o desenvolvedor a desenvolver a aplicação e executá-la em
+plataformas específicas. Essas ferramentas incluem bibliotecas,
+documentação, exemplos de códigos, processos, guias,
+compiladores, entre outras coisas. Já o \emph{framework} é
+uma coleção de elementos da UI que são reutilizáveis e podem
+ser personalizados para as necessidades específicas da
+aplicação \cite{reactNative}.
+
+\subsection{TypeScript 4.4.4}
+
+O TypeScript \cite{typescript} é uma linguagem de programação de códio aberto 
+desenvolvido pela Microsoft. É uma linguagem de programação construida em cima do JavaScript e 
+fortemente tipada. Uma tipagem estátia pode ser usada para descrever a forma de um objeto, isso possibilita 
+uma melhor documentação do código e permite que o TypeScript faça validações para garantir que o código 
+está funcionando de forma adequada.
+
+\subsection{Firebase}
+
+O Firebase \cite{firebase2011} é uma plataforma desenvolvida pelo Google para a criação de aplicativos 
+\emph{web} e móveis. Era originalmente uma empresa independente, fundada em 2011. 
+Em 2014, o Google adquiriu a plataforma e, agora, é sua ferramenta principal 
+para o desenvolvimento de aplicativos. O Firebase contêm funcionalidades como: 
+análises; bancos de dados; mensagens e relatórios de erros, garantindo mais agilidade no desenvolvimento de aplicativos.
+
+\section{Engenharia de Software}
+
+Esta seção apresentará os suportes tecnológicos associados mais especificamente 
+à Engenharia de Software. A mesma foi dividida em três subseções, sendo elas: 
+Gerenciamento de Projetos, Gerenciamento de Desenvolvimento e Gerenciamento de 
+Configuração.
+
+\subsection{Gerenciamento do Projeto}
+
+Esta subseção descreve as metodologias e ferramentas adotadas para o gerenciamento 
+do projeto, tanto na escrita quanto no desenvolvimento da aplicação.
+
+\begin{itemize}
+
+    \item \textbf{Trello: }uma aplicação \emph{web} baseada no sistema Kanbam, que auxilia no 
+	gerenciamento de tarefas para times grandes ou pessoas individuais. 
+	Originalmente criado pela Fog Creek Software, em 2011, e vendida à Atlassian, em 
+	2017 \cite{trello2011}. O Trello foi utilizado para organizar as tarefas 
+	relacionadas à escrita do TCC, e também para manter o registro dos artigos utilizados;
+    \item \textbf{ZenHub: }é uma ferramenta semelhante ao Trello. É exclusiva para uso junto ao 
+	Github, sendo uma ferramenta adequada, focada em: rastreamento; planejamento e 
+	relatórios das \emph{features} de projetos no GitHub. Ele é baseado nas 
+	metodologias ágeis, como Scrum, e é utilizado em projetos ágeis. Com ele, 
+	é possível planejar roteiros; usar quadros de tarefas e gerar relatórios 
+	automatizados diretamente do repositório do GitHub \cite{zenhub2020}. 
+	Nesse projeto, será utilizado para organizar as tarefas relacionadas ao 
+	desenvolvimento do aplicativo proposto, e
+    \item \textbf{Slack: }uma plataforma de comunicação que permite a criação de times e a 
+	organização de canais de conversas por tópicos, grupos privados ou mensagens 
+	diretas. Ele também possui integração com  Google Drive, Trello, Dropbox, Box, 
+	Heroku, IBM Bluemix, Crashlytics, GitHub, entre outros \cite{slack2013}. Nesse 
+	projeto, será utilizado para comunicação entre aluno e orientador.
+
+\end{itemize}
+
+
+\subsection{Gerenciamento de Desenvolvimento}
+
+Esta subseção descreve as ferramentas adotadas para a construção do código da aplicação.
+
+\begin{itemize}
+
+    \item \textbf{Visual Studio Code 1.63.2: }um editor de texto ou código fonte feito pela Microsoft, 
+	bastante utilizado no desevolvimento de software \cite{vscode2015}. Tem suporte 
+	para várias linguagens, e possui ferramentas importantes que auxiliam no 
+	desenvolvimento de software, como por exemplo: \emph{debugger}, auto completar em 
+	códigos, com sugestões inteligentes, e uma infinidade de extensões que podem ser instaladas para auxiliar ainda mais no desenvolvimento. Será usado como editor de código fonte principal no trabalho;
+    \item \textbf{Android Studio 2021.1.1: }ambiente de desenvolvimento para 
+	aplicativos androids oficial do Google. Desenvolvido pelo Google e pela 
+	JetBrains, o ambiente possui ferramentas como editor de texto, editor de \emph{layout}, 
+	analizador apk, rápidos emuladores, \emph{debugger}, entre outras ferramentas 
+	que auxiliam no desenolvimento de aplicativos \cite{android2020}. Utilizado no 
+	trabalho como emudalor de dispositivos Android;
+    \item \textbf{MacOS: }sistema operacional desenvolvido e distribuido pela empresa Apple
+	destinado exclusivamente para computadores Mac \cite{apple}. 
+	Será usado como principal sistema operacional nesse trabalho, e
+	\item \textbf{Figma: }software para desenvolvimento de protótipos e 
+	criação de projetos que não precisa de instalação, uma vez que está disponível 
+	em nuvem, através de uma página web \cite{figma2020}. Possui \emph{features} para projetos, prototipação, 
+	projetos de sistemas, colaboração e \emph{download}. Os protótipos contam com 
+	interações, transições avançadas com animações inteligentes, GIFs animados, 
+	entre outros. Tais recursos possibilitam uma experiência muito próxima ao mundo 
+	real. Ele permite o compartilhamento rápido do protótipo a outras pessoas e 
+	facilita a contribuição. Nesse trabalho, será utilizado como ferramenta para a 
+	prototipação do aplicativo proposto. 
+
+\end{itemize}
+
+\subsection{Gerenciamento de Configuração}
+
+Esta subseção descreve as ferramentas adotadas para o versionamento do código da aplicação e da monografia.
+
+\begin{itemize}
+
+    \item \textbf{Git 2.30.1: }ferramenta gratuita e de código livre para controle 
+	de versão, utilizada para lidar desde pequenos a grandes projetos com rapidez e 
+	eficiência. Ele possibilita a criação de diversas branches que se ramificam e 
+	podem ser editadas, combinadas e removidas sem sofrer perdas de dados. O controle de 
+	versão também possibilita retornar a um momento específico do projeto e observar as 
+	mudanças entre as versões \cite{git2020}. O Git 2.30.1 é utilizado para versionamento de código fonte 
+	do aplicativo a ser desenvolvido nesse trabalho 
+	e para a parte escrita do TCC, e
+	\item \textbf{GitHub: }plataforma \emph{online} de desenvolvimento de 
+	software que permite hospedar códigos e utilizar o controle de versão do Git. 
+	Possibilita a revisão de códigos, gerenciamento de projetos, integração continua, 
+	hospedagem, integrações de ferramentas, gerenciamento de equipe, documentação, 
+	hospedagem de código, entre outras funcionalidades. Os repositórios, locais 
+	aonde os projetos são guardados, podem ser fechados ou abertos e possibilitam o 
+	trabalho em equipe \cite{github2020}. Será utilizado como plataforma que hospedará o código, 
+	documentação e monografia do projeto.
+    
+\end{itemize}
+
+\section{Escrita e Condução da Pesquisa}
+
+\subsection{LaTex}
+
+LaTex \cite{latex2020} é um sistema para preparação de documento. Inclui 
+recursos destinados à produção de documentação técnica e científica. O LaTex é 
+utilizado como padão para comunicação e publicação de documentos científicos, estando 
+disponível como software livre. O LaTex possibilita a composição de artigos de 
+periódicos, relatórios técnicos, livros e apresentações de \emph{slides}, faz 
+o controle automático de seções, referências, tabelas, figuras, notas de rodapé, 
+índices, entre outros e possíbilita a tipografia de fórmulas matemáticas 
+complexas. Neste trabalho, é utilizado localmente, junto ao editor de texto 
+padrão do sistema operacional. O \emph{template} utilizado é o disponibilizado pela 
+Faculdade do Gama no repositório do GitHub \footnote{Repositório do Github com o Template: https://github.com/fga-unb/template-latex-tcc}.
+A versão utilizada foi a TeX Live 2017/Debian.
+
+
+\section{Considerações Finais do Capítulo}
+
+
+Neste capítulo, há uma breve descrição de todas as ferramentas que serão 
+utilizadas no desenvolvimento do projeto. Um resumo é apresentado na Tabela \ref{tab06}.
 
 No desenvolvimento do aplicativo, foi utilizado o MacOS como sistema 
 operacional; o IntelliJ IDEA como editor de texto; o Android Studio como 
@@ -27,45 +186,27 @@ rastreamento dos artigos.
 A escrita do TCC foi realizada utilizando o LaTex com base em um \emph{template} 
 disponibilizado pela Faculdade do Gama em um repositório do GitHub. 
 
+
 \begin{table}[]
 	\centering
     \caption{Suporte Tecnológico}
 \label{tab06}
-\begin{tabular}{|c|c|c|c|c}
-\cline{1-4}
-\cellcolor[HTML]{C0C0C0}Tecnologia                                                                  & \cellcolor[HTML]{C0C0C0}O que é                                                                                                   & \cellcolor[HTML]{C0C0C0}Utilização                                    & \cellcolor[HTML]{C0C0C0}Versão &  \\ \cline{1-4}
-\begin{minipage} [t] {0.3\textwidth} \centering  React Native \cite{reactNative} \end{minipage}                     & \begin{minipage} [t] {0.3\textwidth} \centering  Bibliotéca Javascript criada pelo Facebook.  \end{minipage} 	& \begin{minipage} [t] {0.2\textwidth} \centering \emph{Framework} para criação de aplicativos nativos \end{minipage}	 & \begin{minipage} [t] {0.1\textwidth} \centering  0.68 \end{minipage}  &  \\ \cline{1-4}
-\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  TypeScript \cite{typescript}\end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Linguagem de programação de código aberto desenvolvida pela Microsoft.   \end{minipage}                                              & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  Linguagem de programação     \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.1\textwidth} \centering  4.4.4 \end{minipage} &  \\ \cline{1-4}
+\begin{tabular}{|c|c|c|c}
+\cline{1-3}
+\cellcolor[HTML]{C0C0C0}Tecnologia                                                                                                                                                                   & \cellcolor[HTML]{C0C0C0}Utilização                                    & \cellcolor[HTML]{C0C0C0}Versão &  \\  \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering  React Native \end{minipage}                     	& \begin{minipage} [t] {0.4\textwidth} \centering \emph{Framework} para criação de aplicativos nativos. \end{minipage}	 & \begin{minipage} [t] {0.2\textwidth} \centering  0.68 \end{minipage}  &  \\  \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  TypeScript \end{minipage}  & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.4\textwidth} \centering  Linguagem de programação.     \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.2\textwidth} \centering  4.4.4 \end{minipage} &  \\  \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering  Firebase  \end{minipage}                        & \begin{minipage} [t] {0.4\textwidth} \centering  Banco de dados, autenticação e funções.  \end{minipage}                   & \begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\  \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Zenhub  \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.4\textwidth} \centering  Gerenciamento de tarefas relacionadas ao desenvolvimento da aplicação.  \end{minipage}  & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\  \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering Trello  \end{minipage}  	& \begin{minipage} [t] {0.4\textwidth} \centering Gerenciamento de tarefas relativas ao desenvolvimento dos TCCs e registro de artigos. \end{minipage}	 & \begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\  \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Slack \end{minipage}    &\cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.4\textwidth} \centering  Comunicação com os orientadores. \end{minipage}        & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\  \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering  Visual Studio Code \end{minipage}  	& \begin{minipage} [t] {0.4\textwidth} \centering Ambiente de desenvolvimento. \end{minipage}	 & \begin{minipage} [t] {0.2\textwidth} \centering  1.63.2 \end{minipage}  &  \\ \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Android Studio  \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.4\textwidth} \centering  Geração de dispositivos virtuais android. \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.2\textwidth} \centering  2021.1.1 \end{minipage} &  \\ \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering  MacOS \end{minipage}                & \begin{minipage} [t] {0.4\textwidth} \centering  Sistema operacional.      \end{minipage}                   & \begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage}                              &  \\ \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Figma  \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.4\textwidth} \centering  Prototipação. \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\ \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering Git \end{minipage} 	& \begin{minipage} [t] {0.4\textwidth} \centering Controle de versão de código e escrita dos TCCs. \end{minipage}	 & \begin{minipage} [t] {0.2\textwidth} \centering  2.30.1 \end{minipage}  &  \\ \cline{1-3}
+\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.4\textwidth} \centering  Repositório da aplicação e TCCs.   \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.2\textwidth} \centering - \end{minipage} &  \\ \cline{1-3}
+\begin{minipage} [t] {0.3\textwidth} \centering  LaTex \end{minipage}   & \begin{minipage} [t] {0.4\textwidth} \centering  Edição de texto.  \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} \centering  - \end{minipage} &  \\ \cline{1-3}
+
 \end{tabular}
 \end{table}
-
-
-\begin{table}[]
-	\begin{tabular}{|c|c|c|c|c}
-	\cline{1-4}
-	\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Zenhub \cite{zenhub2020} \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering   Ferramenta adequada, focada em: rastreamento; planejamento e relatórios das \emph{features} de projetos no GitHub.   \end{minipage}             & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  Gerenciamento de tarefas relacionadas ao desenvolvimento da aplicação.  \end{minipage}  & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage} &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering  Firebase \cite{firebase2011} \end{minipage}                   & \begin{minipage} [t] {0.3\textwidth} \centering  Plataforma desenvolvida pelo Google para a criação de aplicativos \emph{web} e móveis\end{minipage}                & \begin{minipage} [t] {0.2\textwidth} \centering  Banco de dados, autenticação e funções  \end{minipage}                   & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage} &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering Trello \cite{trello2011} \end{minipage}                     & \begin{minipage} [t] {0.3\textwidth} \centering  Aplicação \emph{web} baseada no sistema Kanbam, que auxilia no gerenciamento de tarefas para times grandes ou pessoas individuais.   \end{minipage} 	& \begin{minipage} [t] {0.2\textwidth} \centering Gerenciamento de tarefas relativas ao desenvolvimento dos TCCs e registro de artigos. \end{minipage}	 & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage} &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering  Slack \cite{slack2013} \end{minipage}                   & \begin{minipage} [t] {0.3\textwidth} \centering Plataforma de comunicação que permite a criação de times e a organização de canais de conversas por tópicos, grupos privados ou mensagens diretas.  \end{minipage}                & \begin{minipage} [t] {0.2\textwidth} \centering  Comunicação com os orientadores \end{minipage}        & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage} &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering  IntelliJ IDEA \cite{intelij} \end{minipage}                     & \begin{minipage} [t] {0.3\textwidth} \centering  Ambiente de desenvolvimento integrado desenvolvido pela JetBrains \end{minipage} 	& \begin{minipage} [t] {0.2\textwidth} \centering Ambiente de desenvolvimento \end{minipage}	 & \begin{minipage} [t] {0.1\textwidth} \centering  2021.3.1 \end{minipage}  &  \\ \cline{1-4}
-	\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  Android Studio \cite{android2020} \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering Ambiente de desenvolvimento para aplicativos androids oficial do Google. \end{minipage}                                              & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  Geração de dispositivos virtuais android \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.1\textwidth} \centering  2021.1.1 \end{minipage} &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering  MacOS \end{minipage}                   & \begin{minipage} [t] {0.3\textwidth} \centering  Plataforma desenvolvida pelo Google para a criação de aplicativos \emph{web} e móveis.\end{minipage}                & \begin{minipage} [t] {0.2\textwidth} \centering  Banco de dados e autenticação .      \end{minipage}                   & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage}                              &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering  Xcode \end{minipage}                   & \begin{minipage} [t] {0.3\textwidth} \centering  Plataforma desenvolvida pelo Google para a criação de aplicativos \emph{web} e móveis.\end{minipage}                & \begin{minipage} [t] {0.2\textwidth} \centering  Banco de dados e autenticação .      \end{minipage}                   & \begin{minipage} [t] {0.1\textwidth} \centering  - \end{minipage}                              &  \\ \cline{1-4}
-	\begin{minipage} [t] {0.3\textwidth} \centering Git \cite{git2020} \end{minipage}                     & \begin{minipage} [t] {0.3\textwidth} \centering  Ferramenta gratuita e de código livre para controle de versão.  \end{minipage} 	& \begin{minipage} [t] {0.2\textwidth} \centering Controle de versão de código e escrita dos TCCs. \end{minipage}	 & \begin{minipage} [t] {0.1\textwidth} \centering  2.30.1 \end{minipage}  &  \\ \cline{1-4}
-	\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  GitHub \cite{github2020} \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering Plataforma \emph{online} de desenvolvimento de software que permite hospedar códigos e utilizar o controle de versão do Git. \end{minipage}                                              & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  Repositório da aplicação e TCCs.   \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.1\textwidth} \centering  2020.3.1 \end{minipage} &  \\ \cline{1-4}
-\end{tabular}
-\end{table}
-
-\begin{table}[]
-	\begin{tabular}{|c|c|c|c|c}
-	\cline{1-4}
-	\cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering  LaTex \cite{latex2020} \end{minipage} & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.3\textwidth} \centering O LaTex é utilizado como padão para comunicação e publicação de documentos científicos, estando disponível como software livre. \end{minipage}    & \cellcolor[HTML]{EFEFEF}\begin{minipage} [t] {0.2\textwidth} \centering  Utilizado localmente para edição de texto utilizando o template padrão disponibilizado pela Faculdade do Gama.  \end{minipage}  & \cellcolor[HTML]{EFEFEF} \begin{minipage} [t] {0.1\textwidth} \centering  TeX Live 2017/Debian \end{minipage} &  \\ \cline{1-4}
-\end{tabular}
-\end{table}
-
-\section{Considerações Finais do Capítulo}
-
-Neste capítulo, foram aprensentadas brevemente as ferramentas e tecnologias 
-utilizadas no desenvolvimento do aplicativo, no gerenciamento 
-do projeto, no gerenciamento de configuração, no gerenciamento da 
-escrita e na condução da pesquisa.

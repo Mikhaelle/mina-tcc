@@ -1,18 +1,18 @@
 \chapter[Referencial Teórico]{Referencial Teórico}
 \label{ch:referencial}
 
-Neste capítulo são apresentadas as bases teóricas para a elaboração do 
-aplicativo com o objetivo de facilitar o entedimento dos termos utilizados. 
+Neste capítulo, são apresentadas as bases teóricas para a elaboração do 
+aplicativo, com o objetivo de facilitar o entedimento dos termos utilizados. 
 O capítulo está estruturado em seções. Na seção 2.2, serão apresentados os 
 conceitos sobre o ciclo menstrual feminino e suas fases, e na seção 2.3, serão 
 apresentados os fundamentos sobre o Sistema de Recomendação e alguns algoritmos 
-utilizados nessa área.
+utilizados nessa área. Por fim, têm-se as considerações finais do capítulo.
 
 \section{O Ciclo Menstrual}
 
-O ciclo menstrual é um fenômeno biológico 
+O ciclo menstrual é um fenômeno biológico, 
 na qual a característica notável é o fluxo sanguíneo vaginal \cite{guyton2012}.
-Ele é cíclico e ocorre como resultado direto de variações das concentrações
+Ele é cíclico, e ocorre como resultado direto de variações das concentrações
 hormonais secretadas pelo eixo hipotálamo-hipófise-gonadal. Estudos sugerem
 que essas flutuações hormonais, principalmente de estrogênio e progesterona,
 que ocorrem no decorrer do ciclo, podem influenciar as emoções,
@@ -49,7 +49,7 @@ crescimento são responsáveis também pelo desenvolvimento do endométrio. Essa
 referida como fase folicular final.
 
 
-Normalmente, mulheres de 18 a 24 anos com ciclo de 28 dias tem a fase com
+Normalmente, mulheres de 18 a 24 anos, com ciclo de 28 dias, tem a fase com
 o comprimento de 14 dias, e mulheres de 40 a 44 anos tem de 10 dias
 \cite{lenton1984a}, o que indica a diminuição progressiva do tamanho da
 fase folicular com o avanço da idade. Em mulheres jovens, a diferença no
@@ -60,11 +60,15 @@ lútea segue normalmente com tamanho fixo de 14 dias.
 
 
 \begin{figure}[h]
-	\centering
+	\caption{Ciclo Menstrual}
+	\begin{center}
 	\includegraphics[keepaspectratio=true,scale=0.6]{figuras/ciclomenstrual.pdf}
-	\caption{Ciclo Menstrual (Fonte: Elaborado pela Autora, baseado em \cite{draper2018} e \cite{reed2018})}
-        \label{fig01}
+	\end{center}
+	\legend{Fonte: Elaborado pela Autora, baseado em \cite{draper2018} e \cite{reed2018}}
+    \label{fig01}
 \end{figure}
+
+
 
 Os estudos a seguir demonstraram que no domínio cognitivo 
 as funções verbais, espaciais e de memória variam ao longo do ciclo 
@@ -81,9 +85,9 @@ ao final das fases folicular e lútea \cite{Rosenberg2002, solis2004}.
 
 \subsubsection{Menstruação}
 
-A menstruação marca o início do ciclo menstrual e o fim do ciclo anterior 
-e é caracterizada pelo fluxo sanguíneo vaginal. Ocorre quando não há 
-fecundação no ciclo anterior e é composta por sangue e tecido uterino 
+A menstruação marca o início do ciclo menstrual e o fim do ciclo anterior, sendo 
+caracterizada pelo fluxo sanguíneo vaginal. Ocorre quando não há 
+fecundação no ciclo anterior, e é composta por sangue e tecido uterino 
 derivado da descamação das paredes internas do útero(endométrio). 
 Normalmente, dura cerca de 5 dias, mas pode variar \cite{guyton2012}.
 
@@ -96,7 +100,7 @@ A fase também é referida como fase fértil e, neste estudo, é dividida em
 outra fase por sua importância.
 
 A ovulação acontece pelo equilíbrio entre vários hormônios. 
-Clinicamente é possível determinar o ciclo ovulatório pelo surgimento do 
+Clinicamente, é possível determinar o ciclo ovulatório pelo surgimento do 
 LH e a secreção de progesterona da fase lútea \cite{fritz2010}. 
 Quando o estradiol chega ao pico, passadas 12 a 14 horas, o LH surge. 
 Na sequência, de 10 a 12 horas depois, faz com que o ovócito complete a 
@@ -109,19 +113,19 @@ A subida do LH é o que determina o início da fase lútea.
 Com o evento da ovulação, o folículo transforma-se em um corpo lúteo, e as 
 células das paredes do folículo começam a produção de progesterona para 
 preparar o endométrio para a chegada do óvulo no caso de concepção. 
-O pico da progesterona dá-se normalmente por volta do vigésimo primeiro 
+O pico da progesterona dá-se, normalmente, por volta do vigésimo primeiro 
 dia do ciclo \cite{nikas2003}. Caso não haja fecundação, a progesterona 
-decai progressivamente e causa novamente a menstruação, continuando assim 
+decai progressivamente, e causa novamente a menstruação, continuando assim 
 o ciclo.
 
-A fase lútea tem duração de 14 dias e costuma ser constante nas mulheres, 
-sem grande variação, mesmo que o tamanho do ciclo varie. É comum no final 
-da fase lútea o aparecimeno do transtorno disfórico pré-menstrual(TDPM), 
-que também ifluência significativamente os aspectos emocionais e 
+A fase lútea tem duração de 14 dias, e costuma ser constante nas mulheres, 
+sem grande variação, mesmo que o tamanho do ciclo varie. É comum, no final 
+da fase lútea, o aparecimeno do transtorno disfórico pré-menstrual(TDPM), 
+que também ifluência, significativamente, os aspectos emocionais e 
 comportamentais durante as fases do ciclo menstrual. Esse transtorno 
 será mais detalhado na seção 2.2.3.1.
 
-Alguns estudos demonstraram que no domínio cognitivo, as funções verbais, 
+Alguns estudos demonstraram que, no domínio cognitivo, as funções verbais, 
 espaciais e de memória variam ao longo do ciclo menstrual. Na fase lútea, 
 uma melhora no desempenho em tarefas verbais e memoriais foi relatada 
 \cite{hausmann2000}. No aspecto emocional, existe uma piora na precisão 
@@ -129,7 +133,7 @@ do reconhecimento de emoções faciais, principalmente para emoções negativas,
 e existe um aumento na memória emocional, principalmente a recordação de 
 itens negativos ou detalhes periféricos. As mulheres tendem a responder 
 mais rapidamente a situações tristes e estressantes ou expressões faciais 
-tristes. Relatou-se que quando os níveis de progesterona estão altos, as 
+tristes. Relatou-se que, quando os níveis de progesterona estão altos, as 
 mulheres demonstram uma maior tendência a perceber expressões de medo. 
 Também há evidências que o cortisol, hormônio do estresse, parece se elevar 
 na fase lútea\cite{kirschbaum1999}.
@@ -179,28 +183,28 @@ ou de 7 a 9 dias a partir do final do ciclo \cite{wideman2013}.
 A Figura \ref{fig02} representa um ciclo de 28 dias.
 
 Para ciclos maiores ou 
-menores que 28 dias a ovulação é adiantada ou atrasada pela diferença 
+menores que 28 dias, a ovulação é adiantada ou atrasada pela diferença 
 entre o tamanho do ciclo e o ciclo base de 28 dias. Por exemplo, se for 
-um ciclo de 32 dias, a ovulação provavelmente ocorrerá entre o 10º e 18º dia 
+um ciclo de 32 dias, a ovulação, provavelmente, ocorrerá entre o 10º e 18º dia 
 a partir do início do ciclo.
 
-
-\begin{figure}[h]
-	\centering
+\begin{figure}[ht]
+	\caption{Calendário do Ciclo Menstrual e suas Fases}
+	\begin{center}
 	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/Group1.pdf}
-	\caption{Calendário do Ciclo Menstrual e suas Fases (Fonte: Elaborado pela Autora.)}
-        \label{fig02}
+	\end{center}
+	\legend{Fonte: Autora}
+    \label{fig02}
 \end{figure}
-
 
 \section{Sistema de Recomendação}
  
-Os sistemas de recomendação (SR) tiveram início em meados dos anos 90 
+Os sistemas de recomendação (SR) tiveram início em meados dos anos 90, 
 quando os primeiros trabalhos sobre filtragem colaborativa (FC) 
-apareceram \cite{felferning2008} evoluídos pelas academias, 
+apareceram \cite{felferning2008}, evoluídos pelas academias, 
 que continuaram desenvolvendo novas abordagens. 
 Ainda é uma área de grande interesse devido à grande quantidade de 
-problemas que a envolve e por sua praticidade em lidar com o grande 
+problemas que a envolve, e por sua praticidade em lidar com o grande 
 número de informações disponível na internet \cite{adomavicius2005}. 
 O sistema de recomendação tem como proposta ajudar os usuários a lidarem com esse 
 excesso, fornecendo recomendações personalizadas baseadas nas informações 
@@ -211,24 +215,24 @@ estabilidade\cite{bobadilla2013}.
 Os SRs são implementados e possuem literatura 
 para áreas de diferentes temas, como música, televisão, livros, 
 documentos, \emph{e-learning}, \emph{e-comerce}, aplicações em mercados, 
-pesquisa na web e filmes. A maioria dos estudos estão focados 
+pesquisa na web e filmes. A maioria dos estudos está facada 
 para recomendação de filmes \cite{bobadilla2013}.
  
 Eles coletam informações sobre as preferências 
 de seus usuários para um conjunto de itens (livros, filmes, músicas, 
-memes, aplicativos, entre outros), e usam de recursos demográficos dos 
+memes, aplicativos, entre outros), e usam recursos demográficos dos 
 usuários (idade, nacionalidade e sexo), informações sociais 
 (seguidores, postagens, seguidos), ou informações coletadas através da 
 internet das coisas (localização, gps, rfid, sinais de saúde em tempo 
-real e outras coisa). Essas informações podem ser adquiridas de maneira 
+real, e outros dados). Essas informações podem ser adquiridas de maneira 
 explícita, por meio de classificações dos usuários, ou implicitamente 
 \cite{bobadilla2013}.
 
 De acordo com \citeonline{bobadilla2013}, os sistemas de recomendação 
 acompanham a evolução da web. A evolução da web é constituída de três 
-fases, a web tradicional, a web social e a internet das coisas. 
-Na primeira fase, a geração de sistemas de recomendação usava de 
-sites tradicionais para coletar informações de três fonte: dados 
+fases, a web tradicional, a web social, e a internet das coisas. 
+Na primeira fase, a geração de sistemas de recomendação usava 
+sites tradicionais para coletar informações de três fontes: dados 
 baseados em conteúdo de produtos comprados ou usados; dados 
 demográficos coletados nos registros dos usuários, e dados baseados em 
 memória, sendo coletados das preferências de itens dos usuários. A segunda 
@@ -253,12 +257,12 @@ de localização em algoritmos de recomendações já existentes \cite{bobadilla
 Os SRs podem ser, basicamente, classificados em dois grupos: sistemas de recomendação baseados	
 em conteúdo e os sistemas de recomendação colaborativos \cite{mauricio}. Os sistemas
 de recomendação baseado em conteúdo fazem recomendações baseadas em itens semelhantes
-a outros itens já escolhidos pelo usuário e por isso possuem a caracteristica de
+a outros itens já escolhidos pelo usuário. Dessa forma, possuem a caracteristica de
 diferenciar os interesses do usuário e fazer recomendações mais individualizadas. Já os 
-sistemas de recomendação colaborativos fazem recomendações de itens baseado nos interesses 
-de outros usuários com perfil semelhante ao do usuário, esses sistemas costumam homogeneizar
+sistemas de recomendação colaborativos fazem recomendações de itens baseados nos interesses 
+de outros usuários com perfil semelhante ao do usuário. Esses sistemas costumam homogeneizar
 os interesses dos usuários, criando grupos com interesses semelhantes. Os algoritmos híbridos 
-utilizam das duas abordagens para fazer recomendações.
+utilizam-se das duas abordagens para fazer recomendações.
 
 
 \subsection{Fundamentos}
@@ -277,11 +281,11 @@ na combinação das seguintes considerações:
 	\item O modelo escolhido (baseado em memória ou baseado em modelo);
 	
 	\item As técnicas empregadas (abordagens probabilísticas, algoritmo de vizinhos mais próximos;
-	algoritmos bioinspirados, como redes neurais e genéticas; modelos difusos e entre outros);
+	algoritmos bioinspirados, como redes neurais e genéticas; modelos difusos, e entre outros);
 	
-	\item  Nível de dispersão do banco de dados e escalabilidade desejada;
+	\item  O nível de dispersão do banco de dados e a escalabilidade desejada;
 
-	\item  Desempenho do sistema (consumo de tempo e memória);
+	\item  O desempenho do sistema (consumo de tempo e memória);
 
 	\item  O objetivo buscado, e
 
@@ -290,20 +294,20 @@ na combinação das seguintes considerações:
 
 \end{itemize}
 
-Além da classificação pelo tipo de algoritmo de filtragem já citado, os SRs também podem 
+Além da classificação pelo tipo de algoritmo de filtragem já citada, os SRs também podem 
 ser classificados pelo modelo escolhido \cite{bobadilla2013}: baseado em memória e baseado em modelo. 
-Os métodos baseados em memória atuam apenas na matriz de avaliações do usuário para certos itens e utilizam de 
+Os métodos baseados em memória atuam apenas na matriz de avaliações do usuário para certos itens, e utilizam de 
 classificações geradas anteriormente para um novo processamento, atualizando sempre os resultados. 
 Os métodos baseados em modelo usam as informações pré-existentes para criar um
-modelo que gera as recomendações. Esses métodos ficam desatualizado com novas informações do usuário.
+modelo que gera as recomendações. Esses métodos ficam desatualizados com novas informações do usuário.
 
-A Tabela \ref{tab01} foi adaptada do trabalho de \citeonline{adomavicius2005} e apresenta os algoritmos mais utilizados, 
-divididos entre as abordagens de recomendação baseado em conteúdo, colaborativos e híbridos, e nas técnicas 
-de recomendação baseadas em heurística e em modelo. 
+A Tabela \ref{tab01} foi adaptada do trabalho de \citeonline{adomavicius2005}, e apresenta os algoritmos mais utilizados, 
+divididos entre as abordagens de recomendação baseadas em conteúdos, abordagens colaborativas e 
+abordagens híbridas, e nas técnicas de recomendação baseadas em heurística e em modelo. 
 
 \begin{table}[]
 	\centering
-	\caption{Algoritimos Utilizados nas Abordagens de Recomendações}
+	\caption{Algoritmos Utilizados nas Abordagens de Recomendações}
 	\label{tab01}
 	\begin{tabular}{|c|c|c|}
 	\hline
@@ -318,7 +322,7 @@ de recomendação baseadas em heurística e em modelo.
 	\end{tabular}
 \end{table}
 
-Além das abordagens de recomendação tanto baseadas em conteúdo quanto colaborativas, \citeonline{burke2002} também cita mais três técnicas de recomendação: demográfica, baseada em utilidade e 
+Além das abordagens de recomendação, tanto baseadas em conteúdo, quanto colaborativas, \citeonline{burke2002} também cita mais três técnicas de recomendação: demográfica, baseada em utilidade, e 
 baseada em conhecimento. De acordo com \citeonline{burke2002}, os sistemas de recomendação têm: 
 
 \begin{itemize}
@@ -332,9 +336,10 @@ baseada em conhecimento. De acordo com \citeonline{burke2002}, os sistemas de re
 
 \end{itemize}
 
-Na Tabela \ref{tab02}, adaptada do trabalho de \citeonline{burke2002}, os cinco tipos de recomendação tem o sistema de background, entrada e processo brevemente explicados 
-assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendações são feitas; \textbf{U} é o conjunto de usuários cujas preferências são conhecidas; \textbf{u} 
-é o usuário para o qual as recomendações devem ser geradas, e \textbf{i} é algum item para o qual pretende-se prever sua preferência.
+Na Tabela \ref{tab02}, adaptada do trabalho de \citeonline{burke2002}, os cinco tipos de 
+recomendação tem o sistema de \emph{background}, entrada e processo brevemente explicados, 
+assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendações são feitas; \textbf{U} é o conjunto de usuários, cujas preferências são conhecidas; \textbf{u} 
+é o usuário para o qual as recomendações devem ser geradas, e \textbf{i} é algum item para o qual se pretende prever sua preferência.
 
 \begin{table}[]
 	\centering
@@ -358,14 +363,14 @@ assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendaçõ
 
 
 
-Nas subseções seguintes, serão abordadas alguns dos fundamentos mais específicos dos tipos de filtragens utilizados nos Sistemas de Recomendação.
+Nas subseções seguintes, serão abordados alguns dos fundamentos mais específicos dos tipos de filtragens utilizados nos Sistemas de Recomendação.
 
 
 \subsubsection{Filtragem Baseada em Conteúdo}
 
 
-Os Sistemas de Recomendação Baseados em Conteúdo fazem recomendações baseadas nas escolhas passadas do usuário \cite{bobadilla2013}. 
-Eles realizam consultas e armazenam informações sobre os metadados dos itens que o usuário teve interesse ou não e realizam recomendações 
+Os Sistemas de Recomendação Baseados em Conteúdo fazem recomendações centradas nas escolhas passadas do usuário \cite{bobadilla2013}. 
+Eles realizam consultas e armazenam informações sobre os metadados dos itens que o usuário teve interesse ou não, e realizam recomendações 
 com base nas informações armazenadas do usuário e de outros itens da base de dados \cite{mauricio}. A partir desta análise, uma semelhança pode ser
 estabelecida entre os objetos que um usuário comprou, visitou, ouviu, viu e classificou a outros objetos semelhantes, gerando assim novas recomendações. 
 
@@ -374,27 +379,27 @@ tenta entender as semelhanças entre os filmes que o usuário classificou e, ent
 que tenham um alto grau de similaridade nas preferências do usuário (atores, diretores, gênero, assuntos e entre outros) \cite{adomavicius2005}.
 
 Uma das limitações dessa técnica de filtragem é que itens novos não são explorados, só aqueles que são semelhantes 
-aos itens já no perfil do usuário, isso leva a uma superespecialização. Em alguns casos, isso pode ser tratado com a 
-injeção de aleatóriedade\cite{paulson2003}.
+aos itens já no perfil do usuário. Isso leva à superespecialização. Em alguns casos, isso pode ser tratado com a 
+injeção de aleatoriedade\cite{paulson2003}.
 
 
 Algumas das técnicas de aprendizado de máquina mais utilizadas incluem: árvore de decisão, \emph{K-means}, redes neurais e classificadores 
-bayesiano \cite{son2017}. Por exemplo, o conceito básico do classificador bayesiano visa determinar se um item é preferível examinando informações de 
+bayesiano \cite{son2017}. Por exemplo, o conceito básico do classificador bayesiano visa determinar se um item é preferível, examinando informações de 
 atributos. Essa técnica é usada para estimar a probabilidade de um item 
 pertencer a uma classe $Ci$. A previsão de classificação é calculada usando a 
-seguinte função de probabilidade
+seguinte função de probabilidade:
 \begin{equation}
 	P(C_{i}|X) = \coprod _{k=1}^{n} P(x_{k}|C_{i})
 \end{equation}
 onde cada instância de item $X$ é descrita por uma conjunção de valores de atributo de item $x1$, $x2$,… $xk$. 
 
 
-Esses sistemas de recomendação geralmente necessitam de alguma forma de \emph{feedback} do usuário e isto pode ser 
-um problema, pois os usuários tendem a achar essa tarefa tediosa e quanto menos avaliações, mais limitado 
-será o conjunto de possíveis recomendações, podendo influenciar negativamente o desempenho \cite{paulson2003}. 
+Esses sistemas de recomendação, geralmente, necessitam de alguma forma de \emph{feedback} do usuário, e isto pode ser 
+um problema, pois os usuários tendem a achar essa tarefa tediosa. Quanto menos avaliações, mais limitado 
+será o conjunto de possíveis recomendações, podendo influenciar, negativamente, o desempenho \cite{paulson2003}. 
 
-Em técnicas de aprendizado de máquina, o processo de \emph{feedback} é necessário para a aprendizagem e calibração 
-do algoritmo e requer constantes atualizações das preferências do usuário, conforme o usuário avalia os itens. Dessa forma, 
+Em técnicas de aprendizado de máquina, o processo de \emph{feedback} é necessário para a aprendizagem e calibração, 
+do algoritmo, demandando constantes atualizações das preferências do usuário, conforme o usuário avalia os itens. Dessa forma, 
 as preferências não permanecem estáticas \cite{paulson2003}. 
 
 
@@ -404,13 +409,13 @@ as preferências não permanecem estáticas \cite{paulson2003}.
 Os Sistemas de Recomendação de Filtragem Colaborativa (FC) dispensam o uso de metadados \cite{mauricio}. 
 Em geral, apenas mantêm por quais itens um usuário já demonstrou interesse. O sistema constrói perfis de classificação 
 de seus usuários, localiza outros usuários com perfis de classificação 
-semelhantes e retorna itens que os usuários semelhantes classificaram 
+semelhantes, e retorna itens que os usuários semelhantes classificaram 
 positivamente \cite{son2017}.
 
 Para prever os votos de usuário a partir de um banco de dados de votos do usuário e de uma amostra ou população de outros usuários, 
-\citeonline{breese2013} propôs a seguinte média de votos do usuário, demonstrada na  Eq. \ref{eqn02}, em que a base de dados 
+\citeonline{breese2013} propuseram a seguinte média de votos do usuário, demonstrada na  Eq. \ref{eqn02}, em que a base de dados 
 consiste em um conjunto de votos $v_{i,j}$, correspondendo ao voto do usuário $i$ no item $j$. Se $I_{i}$ é o
-conjunto de itens nos quais o usuário votou, então pode-se definir o voto médio para o usuário $i$ como:
+conjunto de itens nos quais o usuário votou, então, pode-se definir o voto médio para o usuário $i$ como:
 
 \begin{equation}
 	\label{eqn02}
@@ -436,7 +441,7 @@ para estimar ou aprender um modelo, que é então usado para previsões.
 
 Uma das limitações dessa filtragem é que se um usuário que é considerado incomum com base em seus 
 interesses, provavelmente, não será semelhante a usuário algum,
-o que levará a recomendações ruins. Outra limitação, seria, uma vez que, nenhuma informação sobre o 
+o que levará a recomendações ruins. Outra limitação seria, uma vez que, nenhuma informação sobre o 
 conteúdo dos itens é mantida, mesmo usuários com interesses semelhantes (mas não 
 idênticos) podem não ser considerados semelhantes \cite{son2017}.
 
@@ -446,7 +451,7 @@ a densidade do conjunto de dados \cite{paulson2003}.
 
 Quando o número de usuários é pequeno, os SRs colaborativos tendem a não conseguir associar 
 os usuários a um grupo de usuários com interesses semelhantes. Entretanto, quando o 
-número de usuários cresce, os SRs colaborativos geralmente geram recomendações muito mais 
+número de usuários cresce, os SRs colaborativos, geralmente, geram recomendações muito mais 
 precisas \cite{mauricio}. 
 
 A vantagem dessa filtragem sobre as técnicas baseadas em conteúdo é que a \lq\lq piscina\rq\rq\  de itens a serem recomendados 
@@ -455,41 +460,37 @@ não se restringe a itens que o usuário ativo demonstrou interesse \cite{paulso
 
 \subsubsection{Filtragem Híbrida}
 
-Na filtragem híbrida, normalmente é utilizada a combinação da filtragem Colaborativa com a filtragem 
+Na filtragem híbrida, normalmente, é utilizada a combinação da filtragem Colaborativa com a filtragem 
 baseada em conteúdo \cite{bobadilla2013}. A combinação de duas ou mais técnicas de recomendação tenta driblar as limitações de cada 
-técnica e permite explorar o que há de mais positivo nelas e obter um melhor desempenho \cite{burke2002}. 
+técnica, e permite explorar o que há de mais positivo nelas, obtendo um melhor desempenho \cite{burke2002}. 
 
-A filtragem hibrida é normalmente baseada em técnicas bioinspiradas ou modelos probabilísticos, tais como: 
-algoritmos genéticos, genética difusa, redes neurais, redes bayesianas, \emph{clustering} e características latentes  \cite{bobadilla2013}.
+A filtragem hibrida é, normalmente, baseada em técnicas bioinspiradas ou modelos probabilísticos, tais como: 
+algoritmos genéticos, genética difusa, redes neurais, redes bayesianas, \emph{clustering}, e características latentes  \cite{bobadilla2013}.
 
-Além das duas técnicas já citadas, faz necessário discorrer brevemente sobre outras três técnicas: demográfica, baseada em utilidade e baseada em conhecimento, porque 
+Além das duas técnicas já citadas, faz necessário discorrer, brevemente, sobre outras três técnicas: demográfica, baseada em utilidade, 
+e baseada em conhecimento, porque 
 elas também são utilizadas na filtragem híbrida.
 
-\subsubsubsection{Filtragem Demográfica}
+\begin{itemize}
 
-O sistema de recomendação demográfico faz recomendações com base em classes demográficas \cite{burke2002}, tais 
-como: faixa etária, sexo, nacionalidade, residência atual, estado civil, 
-alfabetização, ocupação e demais características econômicas, entre outras. É comum a utilização de pesquisas para 
-coletar os  dados do usuário para fazer uma categorização. O benefício da filtragem demográfica é que
-pode não exigir um histórico de avaliações do usuário, como é necessário no sistema baseado em conteúdo e no colaborativo \cite{burke2002}.
-
-\subsubsubsection{Filtragem Baseada em Utilidade}
-
-A filtragem baseada em utilidade não tenta construir generalização de longo prazo sobre seus usuários, mas sim basear suas recomendações 
-em avaliação da correspondência entre a necessidade de um usuário e o conjunto de itens.
-Esse sistema de recomendação faz um cálculo baseado na utilidade do item para o usuário.
-Cada usuário deve ter uma função de utilidade específica e existem várias técnicas para chegar a essa função. Normalmente, 
-essa filtragem é bastante utilizado no comércio eletrônico por sua capacidade de fatorar atributos não 
-relacionados ao produto, tais como:
-confiabilidade do fornecedor e disponibilidade do produto. \cite{burke2002}.
-
-\subsubsubsection{Filtragem Baseada em Conhecimento}
-
-Assim como a recomendação baseada em utilidade, a recomendação baseada em conhecimento tenta sugerir objetos com base em inferências
-sobre as necessidades e preferências do usuário, mas ela se distingue por ter o conhecimento funcional sobre 
-como um determinado item atende à necessidade específica do usuário. Um exemplo seria 
-o Google que usa informações sobre os \emph{links} entre páginas da \emph{web} para inferir popularidade e valor oficial \cite{burke2002}.
-
+    \item \textbf{Filtragem demográfica: }faz recomendações com base em classes demográficas \cite{burke2002}, tais 
+	como: faixa etária, sexo, nacionalidade, residência atual, estado civil, 
+	alfabetização, ocupação e demais características econômicas, entre outras. É comum a utilização de pesquisas para 
+	coletar os  dados do usuário para fazer uma categorização. O benefício da filtragem demográfica é que
+	pode não exigir um histórico de avaliações do usuário, como é necessário no sistema baseado em conteúdo e no colaborativo \cite{burke2002};
+    \item \textbf{Filtragem baseada em utilidade: }a filtragem baseada em utilidade não tenta construir generalização de longo prazo sobre seus usuários, mas sim basear suas recomendações 
+	em avaliação da correspondência entre a necessidade de um usuário e o conjunto de itens.
+	Esse sistema de recomendação faz um cálculo baseado na utilidade do item para o usuário.
+	Cada usuário deve ter uma função de utilidade específica, e existem várias técnicas para chegar a essa função. Normalmente, 
+	essa filtragem é bastante utilizada no comércio eletrônico por sua capacidade de fatorar atributos não 
+	relacionados ao produto, tais como:
+	confiabilidade do fornecedor e disponibilidade do produto. \cite{burke2002} e
+    \item \textbf{Filtragem baseada em conhecimento: }
+	assim como a recomendação baseada em utilidade, a recomendação baseada em conhecimento tenta sugerir objetos com base em inferências
+	sobre as necessidades e preferências do usuário, mas ela se distingue por ter o conhecimento funcional sobre 
+	como um determinado item atende à necessidade específica do usuário. Um exemplo seria 
+	o Google que usa informações sobre os \emph{links} entre páginas da \emph{web} para inferir popularidade e valor oficial \cite{burke2002}.
+\end{itemize}
 
 \subsubsection{O Problema do Começo Frio}
 
@@ -506,9 +507,9 @@ de resolver esse problema é motivar alguns usuários a serem responsáveis a av
 
 O problema do novo usuário é o mais desafiador de todos. Uma vez que novos usuários não tem 
 avaliação alguma no sistema de recomendação, eles não podem receber recomendações personalizadas \cite{burke2002}. As abordagens hibridas são normalmente utilizadas para resolver esse problema. 
-A estratégia comum para resolver o problema do novo usuário consiste em recorrer as informações adicionais para o conjunto de classificações \cite{bobadilla2013}.
+A estratégia comum para resolver o problema do novo usuário consiste em recorrer às informações adicionais para o conjunto de classificações \cite{bobadilla2013}.
 
-\subsection{Considerações Finais do Capítulo}
+\section{Considerações Finais do Capítulo}
 
 Na tabela \ref{tab03}, adaptada do trabalho de \citeonline{burke2002}, é possível observar o resumo dos pontos positivos e negativos das técnicas utilizadas no sistema de recomendação.
 A Filtragem Híbrida utiliza duas ou mais dessas técnicas para tentar aproveitar o que há de melhor em cada uma e minimizar os pontos negativos.
@@ -530,16 +531,3 @@ A Filtragem Híbrida utiliza duas ou mais dessas técnicas para tentar aproveita
 	\textbf{Baseado em conhecimento}  & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item E, F, G \item H. Pode mapear desde as necessidades do usuário até os produtos\end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item P \item Q. Engenharia de conhecimento necessária.\end{itemize} \end{minipage} \\ \hline
 	\end{tabular}
 \end{table}
-
-
-%Na pesqusa realizada, ápos passar a menstruação, mulheres relataram sentir alterações de humor, comportamentais e sintomas físicos. Esses sintomas variam entre melhoras na pele e no cabelo, perca de peso, diminuição na sensação de inchaço, diminuição ou aumento na líbido, humor mais estável, autoestima elevada, sensação de liberdade, resistência a dor, aumento na confiança, animação, foco, inspiração e na comunicação.
-
-%Na realização de atividades, algumas relataram que atividades como realizar atividade física, atividades ao ar livre, trabalho em equipe, reuniões, estudar, atividades domésticas e começar projetos novos costumam ser mais fáceis nessa fase. Não foram relatadas nenhuma difículdade em realizar outras tarefas.
-
-%Na pesquisa, algumas mulheres relatam sentir alterações de humor, comportamentais e sintomas físicos durante a menstruação. Esses sintomas variam entre cólica, surgimento de espinhas, sensação de inchaço, retenção de líquido, seios doloridos, cansaço, inrritabilidade, indisposição, ansiosidade, fácil alteração de humor, dores no corpo, dores de cabeça, alterações no sono, estresse e baixa ou alta líbido.
-
-%Na realização de atividades, algumas relataram que atividade como exercícios físicos, lidar como pessoas, ir a faculdade, trabalhar e atividades presenciais se tornam mais difíceis de serem realizadas, enquanto tarefas como, dormir, ler e exercer atividade individuais, se tornam mais fáceis. Atividades como assistir filmes e séries, estudar e realizar atividades domésticas foram citadas nas duas categorias.
-
-%A detecção da ovulação costuma ser difícil, mas na pesquisa algumas mulheres relataram sentir alterações de humor, comportamentais e sintomas físicos durante a ovulação. Esses sintomas variam entre aumento na líbido, fisgadas ou dores no abdômen perto do ovário, mais disposição para trabalhar e estudar, aumento nos seios, melhora na pele ou aparições de espinhas.
-
-%Na realização de atividades, algumas relataram que atividade como trabalhar, estudar e socializar ficam mais fáceis de serem realizadas. Se concentrar e realizar atividades físicas foram citadas nas categorias mais fáceis ou mais difíceis.
