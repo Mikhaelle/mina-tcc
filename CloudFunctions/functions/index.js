@@ -156,11 +156,11 @@ exports.postUserFeedback = functions.https.onCall(async (data, context) => {
     return groupMostVoted
   }
 
-  const calcForPhase = (userFeedback,userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks) =>{
+  const calcForPhase = (userFeedback, userTasks, group1Tasks, group2Tasks,group3Tasks,group4Tasks) =>{
     userFeedback.forEach(feedback => {
       switch (feedback.taskName) {
         case 'cleaning':
-          updateUserPoints(userTasks.cleaning,feedback.taskVote)
+          updateUserPoints(userTasks.cleaning, feedback.taskVote)
           updateInversionLists(userTasks.cleaning, group1Tasks.cleaning, group2Tasks.cleaning, group3Tasks.cleaning, group4Tasks.cleaning)
           break;
         case 'create':
@@ -711,7 +711,7 @@ exports.postUserFeedback = functions.https.onCall(async (data, context) => {
 
 // Take the text parameter passed to this HTTP endpoint and insert it into
 // Firestore under the path /messages/:documentId/original
-/*exports.setInitialGroup2Tasks = functions.https.onRequest(async (req, res) => {
+exports.setInitialGroup2Tasks = functions.https.onRequest(async (req, res) => {
   // Push the new message into Firestore using the Firebase Admin SDK.
   await admin.firestore().collection('GroupTasks').doc('group2')
   .set({
@@ -1672,14 +1672,14 @@ exports.setInitialGroup1Tasks = functions.https.onRequest(async (req, res) => {
         },
         draw: {
           taskName: 'Desenhar',
-          taskPrediction: 'horizontalLine',
+          taskPrediction: 'upArrow',
           easyPoints:2,
           neutralPoints:1,
           difficultPoints:0,
         },
         create: {
           taskName: 'Criar',
-          taskPrediction: 'horizontalLine',
+          taskPrediction: 'upArrow',
           easyPoints:2,
           neutralPoints:1,
           difficultPoints:0,
@@ -2130,4 +2130,4 @@ exports.setInitialUsersTasks = functions.https.onRequest(async (req, res) => {
 
   // Send back a message that we've successfully written the message
   res.json({result: `Recomendacao grupo 2 atualizada.`});
-});*/
+});
