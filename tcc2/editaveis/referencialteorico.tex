@@ -3,8 +3,8 @@
 
 Neste capítulo, são apresentadas as bases teóricas para a elaboração do 
 aplicativo, com o objetivo de facilitar o entendimento dos termos utilizados. 
-O capítulo está estruturado em seções. Na seção \ref{21}, serão apresentados os 
-conceitos sobre o ciclo menstrual feminino e suas fases, e na seção \ref{22}, serão 
+O capítulo está estruturado em seções. Na Seção \ref{21}, serão apresentados os 
+conceitos sobre o ciclo menstrual feminino e suas fases, e na Seção \ref{22}, serão 
 apresentados os fundamentos sobre o Sistema de Recomendação e alguns algoritmos 
 utilizados nessa área. Por fim, têm-se as considerações finais do capítulo.
 
@@ -124,7 +124,7 @@ sem grande variação, mesmo que o tamanho do ciclo varie. É comum, no final
 da fase lútea, o aparecimeno do transtorno disfórico pré-menstrual(TDPM), 
 que também ifluência, significativamente, os aspectos emocionais e 
 comportamentais durante as fases do ciclo menstrual. Esse transtorno 
-será mais detalhado na seção \ref{tpm}.
+será mais detalhado na Seção \ref{tpm}.
 
 Alguns estudos demonstraram que, no domínio cognitivo, as funções verbais, 
 espaciais e de memória variam ao longo do ciclo menstrual. Na fase lútea, 
@@ -190,7 +190,7 @@ entre o tamanho do ciclo e o ciclo base de 28 dias. Por exemplo, se for
 um ciclo de 32 dias, a ovulação, provavelmente, ocorrerá entre o 10º e 18º dia 
 a partir do início do ciclo.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 	\caption{Calendário do Ciclo Menstrual e suas Fases}
 	\begin{center}
 	\includegraphics[keepaspectratio=true,scale=0.4]{figuras/Group1.pdf}
@@ -308,23 +308,23 @@ A Tabela \ref{tab01} foi adaptada do trabalho de \citeonline{adomavicius2005}, e
 divididos entre as abordagens de recomendação baseadas em conteúdos, abordagens colaborativas e 
 abordagens híbridas, e nas técnicas de recomendação baseadas em heurística e em modelo. 
 
-\begin{table}[ht]
+\begin{table}[htbp]
 	\centering
 	\caption{Algoritmos Utilizados nas Abordagens de Recomendações}
 	\label{tab01}
-	\begin{tabular}{ccc}
+	\begin{tabular}{p{5cm}p{4.8cm}p{4.8cm}}
 	\toprule
 	 \textbf{Abordagem} & \multicolumn{2}{c}{ \textbf{Técnica de Recomendação}} \\  
 	\textbf{de Recomendação}
 	\multirow{-2}{*}{} &  \textbf{Baseada em heurística} & \textbf{Baseada em modelo} \\ 
 	\midrule
-	\textbf{Baseada em Conteúdo	}   & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item TF-IDF (recuperação de informação) \item Clustering \end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item Classificador bayesiano \item Clustering \item Árvores de decisão \item Redes Neurais Artificiais \end{itemize} \end{minipage} \\ 
+	\textbf{Baseada em Conteúdo	}   &  - TF-IDF (recuperação de informação) \newline - Clustering   &  - Classificador bayesiano \newline - Clustering \newline - Árvores de decisão \newline - Redes Neurais Artificiais   \\ 
 	\midrule
 
-	\textbf{Filtragem Colaborativa}	& \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item "Vizinhos mais próximos" \item Clustering \item Teoria dos Grafos \end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item  Redes bayesianas \item Clustering \item Redes Neurais Artificiais \item Regressão Linear \item Modelos Probabilísticos \end{itemize} \end{minipage} \\ 
+	\textbf{Filtragem Colaborativa}	&  - "Vizinhos mais próximos" \newline - Clustering \newline - Teoria dos Grafos   &  - Redes bayesianas \newline - Clustering \newline - Redes Neurais Artificiais \newline - Regressão Linear \newline - Modelos Probabilísticos   \\ 
 	\midrule
 
-	\textbf{Híbrida} &  \begin{minipage} [t] {0.3\textwidth} Combinando conteúdo e componentes colaborativos usando: \begin{itemize} \item Combinação linear de classificações previstas \item Esquemas variados de votação \item incorporação de um componente como parte da heurística para o outro \end{itemize}        \end{minipage} & \begin{minipage} [t] {0.3\textwidth} Combinando conteúdo e componentes colaborativos usando: \begin{itemize} \item incorporação de um componente como parte do modelo para o outro \item construção de um modelo unificado \end{itemize} \end{minipage} \\ 
+	\textbf{Híbrida} &  Combinando conteúdo e componentes colaborativos usando:  \newline - Combinação linear de classificações previstas \newline - Esquemas variados de votação \newline - incorporação de um componente como parte da heurística para o outro          & Combinando conteúdo e componentes colaborativos usando: \newline - incorporação de um componente como parte do modelo para o outro \newline - construção de um modelo unificado   \\ 
 \bottomrule	
 \end{tabular}
 \end{table}
@@ -348,25 +348,25 @@ recomendação tem o sistema de \emph{background}, entrada e processo brevemente
 assumindo que, \textbf{I} é o conjunto de itens sobre os quais as recomendações são feitas; \textbf{U} é o conjunto de usuários, cujas preferências são conhecidas; \textbf{u} 
 é o usuário para o qual as recomendações devem ser geradas, e \textbf{i} é algum item para o qual se pretende prever sua preferência.
 
-\begin{table}[ht]
+\begin{table}[htbp]
 	\centering
 	\caption{\emph{Background}, Entrada e Processo Utilizados nos Sistemas de Recomendação}
 	\label{tab02}
-	\begin{tabular}{cccc}
+	\begin{tabular}{p{3cm}p{3.5cm}p{3cm}p{4.5cm}}
 	\toprule
 	\textbf{Técnicas} & \textbf{Background} & \textbf{Entrada}  &  \textbf{Processo}  \\ 
 	\midrule
-	\textbf{Colaborativa} & \begin{minipage} [t] {0.2\textwidth} \centering Avaliações de \textbf{U} de itens em \textbf{I}  \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} \centering Avaliações de \textbf{u} dos itens em \textbf{I} \end{minipage}  &  \begin{minipage} [t] {0.2\textwidth}  Identifique usuários em \textbf{U} semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}.   \end{minipage}    \\ 
+	\textbf{Colaborativa} &  Avaliações de \textbf{U} de itens em \textbf{I}    &  Avaliações de \textbf{u} dos itens em \textbf{I}   &   Identifique usuários em \textbf{U} semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}.       \\ 
 	\midrule
-	\textbf{Baseada em Conteúdo} & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I}\end{minipage}  & \begin{minipage} [t] {0.2\textwidth} \textbf{u}'s avaliações dos itens em \textbf{I} \end{minipage}  &   \begin{minipage} [t] {0.2\textwidth} Gere um classificador de acordo com \textbf{u}'s comportamento de classificação e use-o em \textbf{i}. \end{minipage} \\ 
+	\textbf{Baseada em Conteúdo} &  Características dos itens em \textbf{I}  & \textbf{u}'s avaliações dos itens em \textbf{I}   &   Gere um classificador de acordo com \textbf{u}'s comportamento de classificação e use-o em \textbf{i}.  \\ 
 	\midrule
-	\textbf{Demográfica} & \begin{minipage} [t] {0.2\textwidth} \centering Informações demográficas sobre \textbf{U} e suas classificações de itens em \textbf{I}.    \end{minipage}   & \begin{minipage} [t] {0.2\textwidth} Informações demográficas sobre \textbf{u}. \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} Identifique os usuários que são demograficamente semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}. \end{minipage}   \\ 
+	\textbf{Demográfica} &  Informações demográficas sobre \textbf{U} e suas classificações de itens em \textbf{I}.       & Informações demográficas sobre \textbf{u}.   & Identifique os usuários que são demograficamente semelhantes a \textbf{u} e extrapole a partir de suas classificações de \textbf{i}.    \\ 
 	\midrule
-	\textbf{Baseado em utilidade} & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I} \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} 
-		Uma função de utilidade sobre os itens em \textbf{I} que descreve \textbf{u}'s preferências \end{minipage}   & \begin{minipage} [t] {0.2\textwidth} Aplique a função aos itens e determine a classificação de \textbf{i}.  \end{minipage}  \\ 
+	\textbf{Baseado em utilidade} &  Características dos itens em \textbf{I}   & 
+		Uma função de utilidade sobre os itens em \textbf{I} que descreve \textbf{u}'s preferências    & Aplique a função aos itens e determine a classificação de \textbf{i}.    \\ 
 		\midrule
-		\textbf{Baseado em conhecimento}  & \begin{minipage} [t] {0.2\textwidth} \centering Características dos itens em \textbf{I}. Conhecimento de como esses itens atendem às necessidades do usuário.  \end{minipage}  & \begin{minipage} [t] {0.2\textwidth} Uma descrição das necessidades ou interesses de \textbf{u}.\end{minipage}  &  \begin{minipage} [t] {0.2\textwidth}  
-		Inferir uma correspondência entre a necessidade de \textbf{i} e \textbf{u}. \end{minipage} \\ 
+		\textbf{Baseado em conhecimento}  &  Características dos itens em \textbf{I}. Conhecimento de como esses itens atendem às necessidades do usuário.    & Uma descrição das necessidades ou interesses de \textbf{u}.  &   
+		Inferir uma correspondência entre a necessidade de \textbf{i} e \textbf{u}.  \\ 
 	\bottomrule
 	\end{tabular}
 \end{table}
@@ -521,26 +521,27 @@ A estratégia comum para resolver o problema do novo usuário consiste em recorr
 
 \section{Considerações Finais do Capítulo}
 
-Na tabela \ref{tab03}, adaptada do trabalho de \citeonline{burke2002}, é possível observar o resumo dos pontos positivos e negativos das técnicas utilizadas no sistema de recomendação.
+Na Tabela \ref{tab03}, adaptada do trabalho de \citeonline{burke2002}, é possível observar o resumo dos pontos positivos e negativos das técnicas utilizadas no sistema de recomendação.
 A Filtragem Híbrida utiliza duas ou mais dessas técnicas para tentar aproveitar o que há de melhor em cada uma e minimizar os pontos negativos.
 
-\begin{table}[ht]
+
+\begin{table}[htbp]
 	\centering
 	\caption{Pontos Positivos e Negativos de Cada Sistema de Recomendação}
 	\label{tab03}
-	\begin{tabular}{ccc}
+	\begin{tabular}{p{4.6cm}p{5cm}p{5cm}}
 	\toprule
 	\textbf{Técnicas} & \textbf{Pontos positivos } & \textbf{Pontos negativos}  \\ 
 	\midrule
-	\textbf{Colaborativa} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item 	A. Pode identificar nichos de gênero cruzado \item B. Conhecimento de domínio não necessário. \item C. Adaptável: a qualidade melhora com o tempo \item D. Feedback implícito suficiente \end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item	I. Problema de aumento de usuários novos \item J. Problema de aumento de item novo \item K. Problema de ‘ovelhas cinzentas’ \item L. Qualidade dependente de grande conjunto de dados históricos \item M. Problema de estabilidade vs. plasticidade\end{itemize} \end{minipage}  \\ 
+	\textbf{Colaborativa} & A. Pode identificar nichos de gênero cruzado  \newline B. Conhecimento de domínio não necessário.  \newline C. Adaptável: a qualidade melhora com o tempo \newline D. Feedback implícito suficiente   & 	I. Problema de aumento de usuários novos  \newline J. Problema de aumento de item novo  \newline K. Problema de ‘ovelhas cinzentas’ \newline L. Qualidade dependente de grande conjunto de dados históricos \newline M. Problema de estabilidade vs. plasticidade   \\ 
 	\midrule
 	\textbf{Baseada em Conteúdo} & B, C, D & I, L, M \\ 
 	\midrule
-	\textbf{Demográfica} & A, B, C  & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item I, K, L, M \item N. Deve reunir informações demográficas\end{itemize} \end{minipage} \\ 
+	\textbf{Demográfica} & A, B, C  & I, K, L, M \newline N. Deve reunir informações demográficas  \\ 
 	\midrule
-	\textbf{Baseado em utilidade}  & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item  E. Não é necessário ramp-up \item F. Sensível a mudanças de preferência \item{G. Pode incluir recursos não relacionados ao produto}\end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item O. O usuário deve inserir a função de utilidade \item P. Capacidade de sugestão estática (não aprende)\end{itemize} \end{minipage} \\ 
+	\textbf{Baseado em utilidade}  &  E. Não é necessário ramp-up \newline F. Sensível a mudanças de preferência \newline {G. Pode incluir recursos não relacionados ao produto}  & O. O usuário deve inserir a função de utilidade  \newline P. Capacidade de sugestão estática (não aprende)  \\ 
 	\midrule
-	\textbf{Baseado em conhecimento}  & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item E, F, G \item H. Pode mapear desde as necessidades do usuário até os produtos\end{itemize} \end{minipage} & \begin{minipage} [t] {0.3\textwidth} \begin{itemize} \item P \item Q. Engenharia de conhecimento necessária.\end{itemize} \end{minipage} \\ 
+	\textbf{Baseado em conhecimento}  & E, F, G  \newline H. Pode mapear desde as necessidades do usuário até os produtos  & P  \newline Q. Engenharia de conhecimento necessária.  \\ 
 	\bottomrule	
 	\end{tabular}
 \end{table}
